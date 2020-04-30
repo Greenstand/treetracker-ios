@@ -6,16 +6,39 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		B63ACA5A479190CE23592DEF163F16B3 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A49196328DCC5B93FCF22C9CC143E4EB /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		1679CB40D61DC34A66F7C6E166527AE4 /* Pods-TreeTracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D91BCD7A171AEA8FFB99C8E918FA5FB5 /* Pods-TreeTracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B172FF03623483137ACF5D41E0984537 /* Pods-TreeTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D906DB4E3931E253306491D821FDFFF0 /* Pods-TreeTracker-dummy.m */; };
-		C860934155E00CB4D0A1739EA980CF79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		085FB016E094928D295FF4814C4BCC2D /* Pods-TreeTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D906DB4E3931E253306491D821FDFFF0 /* Pods-TreeTracker-dummy.m */; };
+		1422DB844B4A82522F9B14736E7384B9 /* Pods-TreeTracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D91BCD7A171AEA8FFB99C8E918FA5FB5 /* Pods-TreeTracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4786E1101CD1CA05015B8165A58F007D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94F3D326CE3DDF7492A8DC7B279C60B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B63ACA5A479190CE23592DEF163F16B3;
+			remoteInfo = SwiftLint;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1BCE45EA1532E689115D7A8C0A80F6D8 /* Pods-TreeTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TreeTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2CAD696CCE69D1111B56FABD23382893 /* Pods-TreeTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TreeTracker-acknowledgements.plist"; sourceTree = "<group>"; };
 		60240CC848C73F69466EB4B9374DCC34 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
+		89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A40E8B58FE1D2BA925E6CB3F5C950DFD /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -27,11 +50,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		232D3FEA0D474CC6374838D6371BC46F /* Frameworks */ = {
+		2BA2C6C6FBDC443CD6FD8A32AF6E1290 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C860934155E00CB4D0A1739EA980CF79 /* Foundation.framework in Frameworks */,
+				4786E1101CD1CA05015B8165A58F007D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +85,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		965877409E01FB3D85D85E90E6B30185 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AED61B9A1CFA211C061344F741DBA07 /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9AED61B9A1CFA211C061344F741DBA07 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				EEA599FE5C15138FF0981CCFB01E55AA /* Support Files */,
+			);
+			name = SwiftLint;
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
 		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +123,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				965877409E01FB3D85D85E90E6B30185 /* Pods */,
 				48DA4E9F0805D9B66D007CD0A545428B /* Products */,
 				AD5AC6A5987A59F1E60552CAB1FE5884 /* Targets Support Files */,
 			);
@@ -96,32 +137,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EEA599FE5C15138FF0981CCFB01E55AA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		CED0D4B5E6DCF45751D14705CB4F8581 /* Headers */ = {
+		94CC1085D2EDDF9710C2C4966E7B4601 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1679CB40D61DC34A66F7C6E166527AE4 /* Pods-TreeTracker-umbrella.h in Headers */,
+				1422DB844B4A82522F9B14736E7384B9 /* Pods-TreeTracker-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		F36886D1C00EEA5A0575852ED5657D4E /* Pods-TreeTracker */ = {
+		D8439AF161DF9F00B80948CABA1145E8 /* Pods-TreeTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B94E3DD4F587BB55566584F3D22E128 /* Build configuration list for PBXNativeTarget "Pods-TreeTracker" */;
+			buildConfigurationList = 96F33D4403A1D2FF388560BDF987F24F /* Build configuration list for PBXNativeTarget "Pods-TreeTracker" */;
 			buildPhases = (
-				CED0D4B5E6DCF45751D14705CB4F8581 /* Headers */,
-				2F51FCBEE1B974FB184AD43479641745 /* Sources */,
-				232D3FEA0D474CC6374838D6371BC46F /* Frameworks */,
-				DD9DEA2C222BB77656272CBC410A4A0F /* Resources */,
+				94CC1085D2EDDF9710C2C4966E7B4601 /* Headers */,
+				0271F7B2BC945C3BB8C82A1B005B2D38 /* Sources */,
+				2BA2C6C6FBDC443CD6FD8A32AF6E1290 /* Frameworks */,
+				F72E538BB2C7447D8153FAE62C5B6157 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7BF574493E0E86DBA1052A2AB483BD71 /* PBXTargetDependency */,
 			);
 			name = "Pods-TreeTracker";
 			productName = "Pods-TreeTracker";
@@ -149,13 +200,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F36886D1C00EEA5A0575852ED5657D4E /* Pods-TreeTracker */,
+				D8439AF161DF9F00B80948CABA1145E8 /* Pods-TreeTracker */,
+				B63ACA5A479190CE23592DEF163F16B3 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DD9DEA2C222BB77656272CBC410A4A0F /* Resources */ = {
+		F72E538BB2C7447D8153FAE62C5B6157 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,15 +217,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2F51FCBEE1B974FB184AD43479641745 /* Sources */ = {
+		0271F7B2BC945C3BB8C82A1B005B2D38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B172FF03623483137ACF5D41E0984537 /* Pods-TreeTracker-dummy.m in Sources */,
+				085FB016E094928D295FF4814C4BCC2D /* Pods-TreeTracker-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7BF574493E0E86DBA1052A2AB483BD71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = B63ACA5A479190CE23592DEF163F16B3 /* SwiftLint */;
+			targetProxy = 94F3D326CE3DDF7492A8DC7B279C60B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4093433A309EFE160336AC736594AB22 /* Debug */ = {
@@ -240,9 +301,9 @@
 			};
 			name = Debug;
 		};
-		90E24C5FB8A3F7CAF0DEAFB0C6E7F9DA /* Debug */ = {
+		5BD53D6F5122C5D796198C45122F90CB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A40E8B58FE1D2BA925E6CB3F5C950DFD /* Pods-TreeTracker.debug.xcconfig */;
+			baseConfigurationReference = 60240CC848C73F69466EB4B9374DCC34 /* Pods-TreeTracker.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -273,10 +334,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		924D56B1D59CD3049300EAEEA256114E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -338,9 +400,42 @@
 			};
 			name = Release;
 		};
-		F0BACFF6E063FC2C4127702CFB81BE61 /* Release */ = {
+		A5E5B22EEEE5F54B22BCE4060709F0D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60240CC848C73F69466EB4B9374DCC34 /* Pods-TreeTracker.release.xcconfig */;
+			baseConfigurationReference = 89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E98C4A92577C08F5C8F06DF326657DD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8CD26A64169BA6AD73048485AF3A49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A40E8B58FE1D2BA925E6CB3F5C950DFD /* Pods-TreeTracker.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -371,29 +466,37 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B94E3DD4F587BB55566584F3D22E128 /* Build configuration list for PBXNativeTarget "Pods-TreeTracker" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90E24C5FB8A3F7CAF0DEAFB0C6E7F9DA /* Debug */,
-				F0BACFF6E063FC2C4127702CFB81BE61 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4093433A309EFE160336AC736594AB22 /* Debug */,
 				924D56B1D59CD3049300EAEEA256114E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96F33D4403A1D2FF388560BDF987F24F /* Build configuration list for PBXNativeTarget "Pods-TreeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8CD26A64169BA6AD73048485AF3A49D /* Debug */,
+				5BD53D6F5122C5D796198C45122F90CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A49196328DCC5B93FCF22C9CC143E4EB /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5E5B22EEEE5F54B22BCE4060709F0D3 /* Debug */,
+				E98C4A92577C08F5C8F06DF326657DD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
