@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
 		93E18931245B737D00217F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18930245B737D00217F21 /* AppDelegate.swift */; };
 		93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18932245B737D00217F21 /* SceneDelegate.swift */; };
 		93E18935245B737D00217F21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18934245B737D00217F21 /* ViewController.swift */; };
@@ -49,6 +50,9 @@
 		93E1894E245B738100217F21 /* TreeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E18952245B738100217F21 /* TreeTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTrackerUITests.swift; sourceTree = "<group>"; };
 		93E18954245B738100217F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +88,8 @@
 				93E18946245B738100217F21 /* TreeTrackerTests */,
 				93E18951245B738100217F21 /* TreeTrackerUITests */,
 				93E1892E245B737D00217F21 /* Products */,
+				9C75872AC24B8E14A3BB24DE /* Pods */,
+				A5A5F97491E984A4E03D59AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +135,24 @@
 			path = TreeTrackerUITests;
 			sourceTree = "<group>";
 		};
+		9C75872AC24B8E14A3BB24DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */,
+				FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A5A5F97491E984A4E03D59AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +160,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93E18957245B738100217F21 /* Build configuration list for PBXNativeTarget "TreeTracker" */;
 			buildPhases = (
+				F17E60DC4AF8E559B9BF14B0 /* [CP] Check Pods Manifest.lock */,
 				93E18929245B737D00217F21 /* Sources */,
 				93E1892A245B737D00217F21 /* Frameworks */,
 				93E1892B245B737D00217F21 /* Resources */,
@@ -253,6 +279,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F17E60DC4AF8E559B9BF14B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TreeTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		93E18929245B737D00217F21 /* Sources */ = {
@@ -432,6 +483,7 @@
 		};
 		93E18958245B738100217F21 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -449,6 +501,7 @@
 		};
 		93E18959245B738100217F21 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
