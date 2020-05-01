@@ -16,6 +16,9 @@
 		93E1893D245B738100217F21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E1893B245B738100217F21 /* LaunchScreen.storyboard */; };
 		93E18948245B738100217F21 /* TreeTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18947245B738100217F21 /* TreeTrackerTests.swift */; };
 		93E18953245B738100217F21 /* TreeTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18952245B738100217F21 /* TreeTrackerUITests.swift */; };
+		93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18963245C95F200217F21 /* StoryboardScenes.swift */; };
+		93E18966245C95F200217F21 /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18964245C95F200217F21 /* StoryboardSegues.swift */; };
+		93E18968245C96F000217F21 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18967245C96F000217F21 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		93E1894E245B738100217F21 /* TreeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E18952245B738100217F21 /* TreeTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTrackerUITests.swift; sourceTree = "<group>"; };
 		93E18954245B738100217F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93E18963245C95F200217F21 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
+		93E18964245C95F200217F21 /* StoryboardSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardSegues.swift; sourceTree = "<group>"; };
+		93E18967245C96F000217F21 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		93E1892F245B737D00217F21 /* TreeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				93E18962245C95C400217F21 /* SwiftGen */,
 				93E18930245B737D00217F21 /* AppDelegate.swift */,
 				93E18932245B737D00217F21 /* SceneDelegate.swift */,
 				93E18934245B737D00217F21 /* ViewController.swift */,
@@ -133,6 +140,16 @@
 				93E18954245B738100217F21 /* Info.plist */,
 			);
 			path = TreeTrackerUITests;
+			sourceTree = "<group>";
+		};
+		93E18962245C95C400217F21 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				93E18967245C96F000217F21 /* Assets.swift */,
+				93E18963245C95F200217F21 /* StoryboardScenes.swift */,
+				93E18964245C95F200217F21 /* StoryboardSegues.swift */,
+			);
+			path = SwiftGen;
 			sourceTree = "<group>";
 		};
 		9C75872AC24B8E14A3BB24DE /* Pods */ = {
@@ -164,6 +181,7 @@
 				93E1892A245B737D00217F21 /* Frameworks */,
 				93E1892B245B737D00217F21 /* Resources */,
 				93E18960245B78FF00217F21 /* SwiftLint */,
+				93E18961245C938000217F21 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -299,6 +317,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		93E18961245C938000217F21 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen \n";
+		};
 		F17E60DC4AF8E559B9BF14B0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,7 +366,10 @@
 			files = (
 				93E18935245B737D00217F21 /* ViewController.swift in Sources */,
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
+				93E18968245C96F000217F21 /* Assets.swift in Sources */,
+				93E18966245C95F200217F21 /* StoryboardSegues.swift in Sources */,
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
+				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
