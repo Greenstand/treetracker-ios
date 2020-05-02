@@ -10,23 +10,29 @@ paying planters on a per planting basis.
 For more on design intent and the app's user story see the [wiki in this repository](https://github.com/Greenstand/treetracker-android/wiki/User-Story)
 
 &nbsp;
-&nbsp;
 
 ## Project Setup
-TBC
+### Dependencies
+Dependencies are managed using [CocoaPods](https://guides.cocoapods.org/) and are checked into to repository.
 
-&nbsp;
+### SwiftLint
+[SwiftLint](https://github.com/realm/SwiftLint) is used to keep the codebase consistent. Rules can be configured or disabled in the [.swiftlint.yml](.swiftlint.yml) file.
+
+### SwiftGen
+[SwiftGen](https://github.com/SwiftGen/SwiftGen) is used to auto-generate code for resources (e.g. Storyboards, Assets, Strings etc), to make them type-safe to use. This can be configured in the [swiftgen.yml](swiftgen.yml) file.
+
 &nbsp;
 
 ## Deployment
 TBC
 
 &nbsp;
-&nbsp;
 
 ## Contributing
 
 See [Contributing in the Development-Overview README](https://github.com/Greenstand/Development-Overview/blob/master/README.md)
+
+Join #ios_treetracker in the slack workspace
 
 Review the project board for current priorities TBC
 
