@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		7EDC2842DF96704B1D2163F2E5DDB0BA /* SwiftGen */ = {
+		1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 978040D5C47513A411D5C0B22BD2DFA2 /* Build configuration list for PBXAggregateTarget "SwiftGen" */;
+			buildConfigurationList = FB296D1C543ACA89207838196BB823E7 /* Build configuration list for PBXAggregateTarget "SwiftGen" */;
 			buildPhases = (
 			);
 			dependencies = (
 			);
 			name = SwiftGen;
 		};
-		8F823C84B9D5F32CDA05308C128664D1 /* SwiftLint */ = {
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 054022675C269B2E5A82715282C09CC5 /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
 			buildPhases = (
 			);
 			dependencies = (
@@ -28,130 +28,124 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		1BA336DB96AC55335D8E0D6B9AC766D1 /* Pods-TreeTracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D91BCD7A171AEA8FFB99C8E918FA5FB5 /* Pods-TreeTracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		20FA6805EED4EA4C935AE0DCF2F9F293 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		74914F0AF56C6ACDC018DDEA861AC69E /* Pods-TreeTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D906DB4E3931E253306491D821FDFFF0 /* Pods-TreeTracker-dummy.m */; };
+		31D5DD37C98F4FB03EFDB95BBE4445C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		5E9B0C622092E1C8676C015F562BAD7B /* Pods-TreeTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E8327E59AED451B5EF8F7F7EA0B36A /* Pods-TreeTracker-dummy.m */; };
+		B6413CC75F612A84153AA86B22AAB3ED /* Pods-TreeTracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CD7AF02DEEC89D4C6127B67D31107AA /* Pods-TreeTracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		47C61C4B8A8955F04B0D19946151F1F1 /* PBXContainerItemProxy */ = {
+		37A6B80350606A9B022E9DCC1750D0AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8F823C84B9D5F32CDA05308C128664D1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
 			remoteInfo = SwiftLint;
 		};
-		49C8472FB5FE4ED57AC2EEB4BA709CCB /* PBXContainerItemProxy */ = {
+		7389D89880625CDBE298D61DA8327C4D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7EDC2842DF96704B1D2163F2E5DDB0BA;
+			remoteGlobalIDString = 1E798429DCFA7906F6625CCFC1088744;
 			remoteInfo = SwiftGen;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1BCE45EA1532E689115D7A8C0A80F6D8 /* Pods-TreeTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TreeTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1D3AE1C84E29F35E2F5659A450447D3D /* SwiftGen.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.xcconfig; sourceTree = "<group>"; };
-		2CAD696CCE69D1111B56FABD23382893 /* Pods-TreeTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TreeTracker-acknowledgements.plist"; sourceTree = "<group>"; };
-		60240CC848C73F69466EB4B9374DCC34 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
+		05B05181876FE2C94978C868AF1C6F2D /* Pods-TreeTracker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TreeTracker.modulemap"; sourceTree = "<group>"; };
+		29E49966F233A919CC90C104C219B619 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3C00EB77C497573FF9D21FFD48AC279F /* SwiftGen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.release.xcconfig; sourceTree = "<group>"; };
+		3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TreeTracker.framework; path = "Pods-TreeTracker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47F7A112288AA04D9A297F6ED2583058 /* Pods-TreeTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TreeTracker-acknowledgements.plist"; sourceTree = "<group>"; };
+		654A6C84F21020C373FDFA753A8BEF57 /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
+		6B4F8F3FE262E6A67B23F824C11E398C /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
+		6D27ABB3302CFD8453128D3431086D11 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		7CD7AF02DEEC89D4C6127B67D31107AA /* Pods-TreeTracker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TreeTracker-umbrella.h"; sourceTree = "<group>"; };
+		9511D5AF245CF5F9DD8D3B61AE1CD179 /* Pods-TreeTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TreeTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A40E8B58FE1D2BA925E6CB3F5C950DFD /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D3D7E9054CA19DD3E26E2BFE7236D471 /* Pods-TreeTracker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TreeTracker-Info.plist"; sourceTree = "<group>"; };
-		D906DB4E3931E253306491D821FDFFF0 /* Pods-TreeTracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TreeTracker-dummy.m"; sourceTree = "<group>"; };
-		D91BCD7A171AEA8FFB99C8E918FA5FB5 /* Pods-TreeTracker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TreeTracker-umbrella.h"; sourceTree = "<group>"; };
-		EC59B5DF2044AE7ED4333227D67DB921 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TreeTracker.framework; path = "Pods-TreeTracker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F04FB1CCE177DC0BDB0C6BF94E673332 /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
-		FE54E33AC0CE43751AF89A172C7E4240 /* Pods-TreeTracker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TreeTracker.modulemap"; sourceTree = "<group>"; };
+		AFC3A25DCC1EDAB6BA28E80E0F477625 /* Pods-TreeTracker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TreeTracker-Info.plist"; sourceTree = "<group>"; };
+		B3DA6E6F2A1F5E119072913BFDF06794 /* SwiftGen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.debug.xcconfig; sourceTree = "<group>"; };
+		F3E8327E59AED451B5EF8F7F7EA0B36A /* Pods-TreeTracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TreeTracker-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9DFA8A930B6EFA5C62BF8BF4171E67F9 /* Frameworks */ = {
+		A31AFDC50E43C5591609B839BA53E57C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20FA6805EED4EA4C935AE0DCF2F9F293 /* Foundation.framework in Frameworks */,
+				31D5DD37C98F4FB03EFDB95BBE4445C4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14938521C76A968D60524145034F9BFC /* Pods-TreeTracker */ = {
+		463A951ECF142606318EFB8EB73F16FA /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE54E33AC0CE43751AF89A172C7E4240 /* Pods-TreeTracker.modulemap */,
-				1BCE45EA1532E689115D7A8C0A80F6D8 /* Pods-TreeTracker-acknowledgements.markdown */,
-				2CAD696CCE69D1111B56FABD23382893 /* Pods-TreeTracker-acknowledgements.plist */,
-				D906DB4E3931E253306491D821FDFFF0 /* Pods-TreeTracker-dummy.m */,
-				D3D7E9054CA19DD3E26E2BFE7236D471 /* Pods-TreeTracker-Info.plist */,
-				D91BCD7A171AEA8FFB99C8E918FA5FB5 /* Pods-TreeTracker-umbrella.h */,
-				A40E8B58FE1D2BA925E6CB3F5C950DFD /* Pods-TreeTracker.debug.xcconfig */,
-				60240CC848C73F69466EB4B9374DCC34 /* Pods-TreeTracker.release.xcconfig */,
-			);
-			name = "Pods-TreeTracker";
-			path = "Target Support Files/Pods-TreeTracker";
-			sourceTree = "<group>";
-		};
-		48DA4E9F0805D9B66D007CD0A545428B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EC59B5DF2044AE7ED4333227D67DB921 /* Pods_TreeTracker.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		57CE83037799B0E54C14ED0DAB124221 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7A1398968CB1E1A4A54E204C2601B7D6 /* SwiftGen */,
-				B7D098E09F776EF812149E0140115F02 /* SwiftLint */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		7A1398968CB1E1A4A54E204C2601B7D6 /* SwiftGen */ = {
-			isa = PBXGroup;
-			children = (
-				EFE2E18A47B8A441185F5229BDD73059 /* Support Files */,
-			);
-			name = SwiftGen;
-			path = SwiftGen;
-			sourceTree = "<group>";
-		};
-		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		AD5AC6A5987A59F1E60552CAB1FE5884 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				14938521C76A968D60524145034F9BFC /* Pods-TreeTracker */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		B3BFCB72B004FE7D00DD80DD4E57AB14 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F04FB1CCE177DC0BDB0C6BF94E673332 /* SwiftLint.xcconfig */,
+				6B4F8F3FE262E6A67B23F824C11E398C /* SwiftLint.debug.xcconfig */,
+				654A6C84F21020C373FDFA753A8BEF57 /* SwiftLint.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SwiftLint";
 			sourceTree = "<group>";
 		};
-		B7D098E09F776EF812149E0140115F02 /* SwiftLint */ = {
+		48DA4E9F0805D9B66D007CD0A545428B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3BFCB72B004FE7D00DD80DD4E57AB14 /* Support Files */,
+				3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods_TreeTracker.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AF87CE9DA3040DD48892C060986A1B9 /* Pods-TreeTracker */ = {
+			isa = PBXGroup;
+			children = (
+				05B05181876FE2C94978C868AF1C6F2D /* Pods-TreeTracker.modulemap */,
+				9511D5AF245CF5F9DD8D3B61AE1CD179 /* Pods-TreeTracker-acknowledgements.markdown */,
+				47F7A112288AA04D9A297F6ED2583058 /* Pods-TreeTracker-acknowledgements.plist */,
+				F3E8327E59AED451B5EF8F7F7EA0B36A /* Pods-TreeTracker-dummy.m */,
+				AFC3A25DCC1EDAB6BA28E80E0F477625 /* Pods-TreeTracker-Info.plist */,
+				7CD7AF02DEEC89D4C6127B67D31107AA /* Pods-TreeTracker-umbrella.h */,
+				6D27ABB3302CFD8453128D3431086D11 /* Pods-TreeTracker.debug.xcconfig */,
+				29E49966F233A919CC90C104C219B619 /* Pods-TreeTracker.release.xcconfig */,
+			);
+			name = "Pods-TreeTracker";
+			path = "Target Support Files/Pods-TreeTracker";
+			sourceTree = "<group>";
+		};
+		57CE83037799B0E54C14ED0DAB124221 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB5E32CA8DDFDB8C0200EB70B70C6363 /* SwiftGen */,
+				7EE0E8A4D47E630617D6FA1C06D52FB4 /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7EE0E8A4D47E630617D6FA1C06D52FB4 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				463A951ECF142606318EFB8EB73F16FA /* Support Files */,
 			);
 			name = SwiftLint;
 			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		AD5AC6A5987A59F1E60552CAB1FE5884 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AF87CE9DA3040DD48892C060986A1B9 /* Pods-TreeTracker */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -168,15 +162,25 @@
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EFE2E18A47B8A441185F5229BDD73059 /* Support Files */ = {
+		DB5E32CA8DDFDB8C0200EB70B70C6363 /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
-				1D3AE1C84E29F35E2F5659A450447D3D /* SwiftGen.xcconfig */,
+				FA1FE80EF3FAD8A89ED8759D7F931102 /* Support Files */,
+			);
+			name = SwiftGen;
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		FA1FE80EF3FAD8A89ED8759D7F931102 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3DA6E6F2A1F5E119072913BFDF06794 /* SwiftGen.debug.xcconfig */,
+				3C00EB77C497573FF9D21FFD48AC279F /* SwiftGen.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SwiftGen";
@@ -185,35 +189,35 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		14C0421039E9FBB4EE4BB3ECCDFBC840 /* Headers */ = {
+		26B123DCB9A50A243C20656CAA69006A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BA336DB96AC55335D8E0D6B9AC766D1 /* Pods-TreeTracker-umbrella.h in Headers */,
+				B6413CC75F612A84153AA86B22AAB3ED /* Pods-TreeTracker-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1CD9870908EDF8A486190237C6D84450 /* Pods-TreeTracker */ = {
+		8A8721D98F729932CAB4EA9D12BCBD75 /* Pods-TreeTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54FA058653BF17C34038DBAE0F6D8DB8 /* Build configuration list for PBXNativeTarget "Pods-TreeTracker" */;
+			buildConfigurationList = AE68C03376324C9875CA6036EEAE9B8B /* Build configuration list for PBXNativeTarget "Pods-TreeTracker" */;
 			buildPhases = (
-				14C0421039E9FBB4EE4BB3ECCDFBC840 /* Headers */,
-				20AD2C12C7BCFAF50C9F07BF02DD54DA /* Sources */,
-				9DFA8A930B6EFA5C62BF8BF4171E67F9 /* Frameworks */,
-				7C13989F84AC9E65C35419B1A25B1807 /* Resources */,
+				26B123DCB9A50A243C20656CAA69006A /* Headers */,
+				F45C31E7C54A4576C27014AAC4844DDE /* Sources */,
+				A31AFDC50E43C5591609B839BA53E57C /* Frameworks */,
+				27D85C6DBED4553243AC49EE241E687E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9A4C17D31C25B690351ED4D52BE8E234 /* PBXTargetDependency */,
-				B207F8C71D729CAC591A4B3345156D3E /* PBXTargetDependency */,
+				2D9F476712C391ADEFD2F7EF8878E218 /* PBXTargetDependency */,
+				C671DAB49A98AD5AF92469911CAF04D8 /* PBXTargetDependency */,
 			);
 			name = "Pods-TreeTracker";
 			productName = "Pods-TreeTracker";
-			productReference = EC59B5DF2044AE7ED4333227D67DB921 /* Pods_TreeTracker.framework */;
+			productReference = 3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods_TreeTracker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -222,30 +226,31 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 48DA4E9F0805D9B66D007CD0A545428B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1CD9870908EDF8A486190237C6D84450 /* Pods-TreeTracker */,
-				7EDC2842DF96704B1D2163F2E5DDB0BA /* SwiftGen */,
-				8F823C84B9D5F32CDA05308C128664D1 /* SwiftLint */,
+				8A8721D98F729932CAB4EA9D12BCBD75 /* Pods-TreeTracker */,
+				1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7C13989F84AC9E65C35419B1A25B1807 /* Resources */ = {
+		27D85C6DBED4553243AC49EE241E687E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,33 +260,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		20AD2C12C7BCFAF50C9F07BF02DD54DA /* Sources */ = {
+		F45C31E7C54A4576C27014AAC4844DDE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74914F0AF56C6ACDC018DDEA861AC69E /* Pods-TreeTracker-dummy.m in Sources */,
+				5E9B0C622092E1C8676C015F562BAD7B /* Pods-TreeTracker-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9A4C17D31C25B690351ED4D52BE8E234 /* PBXTargetDependency */ = {
+		2D9F476712C391ADEFD2F7EF8878E218 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftGen;
-			target = 7EDC2842DF96704B1D2163F2E5DDB0BA /* SwiftGen */;
-			targetProxy = 49C8472FB5FE4ED57AC2EEB4BA709CCB /* PBXContainerItemProxy */;
+			target = 1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */;
+			targetProxy = 7389D89880625CDBE298D61DA8327C4D /* PBXContainerItemProxy */;
 		};
-		B207F8C71D729CAC591A4B3345156D3E /* PBXTargetDependency */ = {
+		C671DAB49A98AD5AF92469911CAF04D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftLint;
-			target = 8F823C84B9D5F32CDA05308C128664D1 /* SwiftLint */;
-			targetProxy = 47C61C4B8A8955F04B0D19946151F1F1 /* PBXContainerItemProxy */;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = 37A6B80350606A9B022E9DCC1750D0AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4CE281642D6EE9FAB113046B4B6328A0 /* Release */ = {
+		22C4067503432889A1EBF0FAD4E60B87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C00EB77C497573FF9D21FFD48AC279F /* SwiftGen.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		257497152829C177993B5EC99C1D227A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -336,12 +358,138 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		6DFA1578582149B7E24AD55CBA30F07A /* Debug */ = {
+		2A6D95F22D3A052ABC92FEDFCF99B3B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29E49966F233A919CC90C104C219B619 /* Pods-TreeTracker.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		42067F858DA678C4E852FD9866D2CCD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D27ABB3302CFD8453128D3431086D11 /* Pods-TreeTracker.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		46EECD2DED30D7C5FE141C0B267C2D3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B4F8F3FE262E6A67B23F824C11E398C /* SwiftLint.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		55DD740115BE746C8DBB7753806D85D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 654A6C84F21020C373FDFA753A8BEF57 /* SwiftLint.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C2C9A58C9506ECD709F99FA4DA258BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DA6E6F2A1F5E119072913BFDF06794 /* SwiftGen.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -400,189 +548,46 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		7CF5D7069EB59850362A9162C85CABF7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D3AE1C84E29F35E2F5659A450447D3D /* SwiftGen.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		80ECB0BAC695679F93A8773D5B48AEE2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60240CC848C73F69466EB4B9374DCC34 /* Pods-TreeTracker.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		81159526A9A5F72313DBABB5B9C3797E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A40E8B58FE1D2BA925E6CB3F5C950DFD /* Pods-TreeTracker.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9F674825C70C3C22CA68C7ED66BB68BA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F04FB1CCE177DC0BDB0C6BF94E673332 /* SwiftLint.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		E10F5272804B8F823C05E10764A894A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F04FB1CCE177DC0BDB0C6BF94E673332 /* SwiftLint.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		F27C40A725F4CBBC390508C61518F56A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D3AE1C84E29F35E2F5659A450447D3D /* SwiftGen.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		054022675C269B2E5A82715282C09CC5 /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9F674825C70C3C22CA68C7ED66BB68BA /* Debug */,
-				E10F5272804B8F823C05E10764A894A8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6DFA1578582149B7E24AD55CBA30F07A /* Debug */,
-				4CE281642D6EE9FAB113046B4B6328A0 /* Release */,
+				DD8F832993327D1DD8046C3CBCBD97CD /* Debug */,
+				257497152829C177993B5EC99C1D227A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54FA058653BF17C34038DBAE0F6D8DB8 /* Build configuration list for PBXNativeTarget "Pods-TreeTracker" */ = {
+		AE68C03376324C9875CA6036EEAE9B8B /* Build configuration list for PBXNativeTarget "Pods-TreeTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				81159526A9A5F72313DBABB5B9C3797E /* Debug */,
-				80ECB0BAC695679F93A8773D5B48AEE2 /* Release */,
+				42067F858DA678C4E852FD9866D2CCD2 /* Debug */,
+				2A6D95F22D3A052ABC92FEDFCF99B3B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		978040D5C47513A411D5C0B22BD2DFA2 /* Build configuration list for PBXAggregateTarget "SwiftGen" */ = {
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7CF5D7069EB59850362A9162C85CABF7 /* Debug */,
-				F27C40A725F4CBBC390508C61518F56A /* Release */,
+				46EECD2DED30D7C5FE141C0B267C2D3F /* Debug */,
+				55DD740115BE746C8DBB7753806D85D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB296D1C543ACA89207838196BB823E7 /* Build configuration list for PBXAggregateTarget "SwiftGen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2C9A58C9506ECD709F99FA4DA258BA0 /* Debug */,
+				22C4067503432889A1EBF0FAD4E60B87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
