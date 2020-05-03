@@ -1,0 +1,6 @@
+framework module Pods_TreeTracker {
+  umbrella header "Pods-TreeTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}
