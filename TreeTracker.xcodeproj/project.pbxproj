@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
+		939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939CA84E246C0A1000B1C184 /* Colors.xcassets */; };
 		93E18931245B737D00217F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18930245B737D00217F21 /* AppDelegate.swift */; };
 		93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18932245B737D00217F21 /* SceneDelegate.swift */; };
 		93E18935245B737D00217F21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18934245B737D00217F21 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		939CA84E246C0A1000B1C184 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		93E1892D245B737D00217F21 /* TreeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E18930245B737D00217F21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93E18932245B737D00217F21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		939CA850246C0F9500B1C184 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				939CA851246C0F9A00B1C184 /* Colors */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		939CA851246C0F9A00B1C184 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				939CA84E246C0A1000B1C184 /* Colors.xcassets */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		93E18924245B737D00217F21 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +134,7 @@
 		93E1892F245B737D00217F21 /* TreeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				939CA850246C0F9500B1C184 /* Resources */,
 				93E18962245C95C400217F21 /* SwiftGen */,
 				93E18969245DEB6A00217F21 /* Coordinator */,
 				93E1896C245DEE4000217F21 /* UI */,
@@ -307,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E1893D245B738100217F21 /* LaunchScreen.storyboard in Resources */,
+				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
 				93E1893A245B738100217F21 /* Assets.xcassets in Resources */,
 				93E18938245B737D00217F21 /* Main.storyboard in Resources */,
 			);
