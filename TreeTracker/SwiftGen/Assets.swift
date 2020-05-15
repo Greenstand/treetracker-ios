@@ -20,6 +20,8 @@
 internal enum Asset {
   internal enum Assets {
     internal static let mail = ImageAsset(name: "mail")
+    internal static let people = ImageAsset(name: "people")
+    internal static let person = ImageAsset(name: "person")
     internal static let phone = ImageAsset(name: "phone")
     internal static let greenstandlogo = ImageAsset(name: "greenstandlogo")
   }
