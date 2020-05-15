@@ -10,6 +10,7 @@ import UIKit
 
 class RootCoordinator: Coordinator {
 
+    var childCoordinators: [Coordinator] = []
     private let configuration: CoordinatorConfigurable
 
     required init(configuration: CoordinatorConfigurable) {
@@ -34,7 +35,7 @@ private extension RootCoordinator {
         let signInCoordinator = SignInCoordinator(
             configuration: configuration
         )
-        signInCoordinator.start()
+        startCoordinator(coordinator: signInCoordinator)
     }
 
     func showMap() {

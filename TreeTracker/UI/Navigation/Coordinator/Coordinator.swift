@@ -16,7 +16,16 @@ struct CoordinatorConfiguration: CoordinatorConfigurable {
     let navigationController: UINavigationController
 }
 
-protocol Coordinator {
+protocol Coordinator: class {
+    var childCoordinators: [Coordinator] { get set }
     init(configuration: CoordinatorConfigurable)
     func start()
+}
+
+extension Coordinator {
+
+    func startCoordinator(coordinator: Coordinator) {
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
 }

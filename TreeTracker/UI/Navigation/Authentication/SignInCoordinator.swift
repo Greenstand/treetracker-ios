@@ -10,6 +10,7 @@ import UIKit
 
 class SignInCoordinator: Coordinator {
 
+    var childCoordinators: [Coordinator] = []
     private let configuration: CoordinatorConfigurable
 
     required init(configuration: CoordinatorConfigurable) {
