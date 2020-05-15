@@ -10,6 +10,11 @@
 		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
 		93989CF0246C479400A1B21F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CEF246C479400A1B21F /* Validation.swift */; };
 		93989CF3246C5F7F00A1B21F /* ValidationUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */; };
+		93989CFB246EABF100A1B21F /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CFA246EABF100A1B21F /* TermsViewController.swift */; };
+		93989CFD246EABFA00A1B21F /* Terms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93989CFC246EABFA00A1B21F /* Terms.storyboard */; };
+		93989CFF246EAC0400A1B21F /* TermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CFE246EAC0400A1B21F /* TermsViewModel.swift */; };
+		93989D01246EB20D00A1B21F /* Terms.html in Resources */ = {isa = PBXBuildFile; fileRef = 93989D00246EB20D00A1B21F /* Terms.html */; };
+		93989D03246EBE3700A1B21F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93989D02246EBE3700A1B21F /* WebKit.framework */; };
 		939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939CA84E246C0A1000B1C184 /* Colors.xcassets */; };
 		93E18931245B737D00217F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18930245B737D00217F21 /* AppDelegate.swift */; };
 		93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18932245B737D00217F21 /* SceneDelegate.swift */; };
@@ -52,6 +57,11 @@
 /* Begin PBXFileReference section */
 		93989CEF246C479400A1B21F /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUnitTests.swift; sourceTree = "<group>"; };
+		93989CFA246EABF100A1B21F /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		93989CFC246EABFA00A1B21F /* Terms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terms.storyboard; sourceTree = "<group>"; };
+		93989CFE246EAC0400A1B21F /* TermsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewModel.swift; sourceTree = "<group>"; };
+		93989D00246EB20D00A1B21F /* Terms.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Terms.html; sourceTree = "<group>"; };
+		93989D02246EBE3700A1B21F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		939CA84E246C0A1000B1C184 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		93E1892D245B737D00217F21 /* TreeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E18930245B737D00217F21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93989D03246EBE3700A1B21F /* WebKit.framework in Frameworks */,
 				59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +143,7 @@
 				93E18939245B738100217F21 /* Assets.xcassets */,
 				93E1893B245B738100217F21 /* LaunchScreen.storyboard */,
 				93E82F62246C41B000006C91 /* Localizable.strings */,
+				93989D00246EB20D00A1B21F /* Terms.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -300,6 +312,9 @@
 		93E82F60246C3B4100006C91 /* Terms */ = {
 			isa = PBXGroup;
 			children = (
+				93989CFA246EABF100A1B21F /* TermsViewController.swift */,
+				93989CFC246EABFA00A1B21F /* Terms.storyboard */,
+				93989CFE246EAC0400A1B21F /* TermsViewModel.swift */,
 			);
 			path = Terms;
 			sourceTree = "<group>";
@@ -325,6 +340,7 @@
 		A5A5F97491E984A4E03D59AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93989D02246EBE3700A1B21F /* WebKit.framework */,
 				B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */,
 			);
 			name = Frameworks;
@@ -439,6 +455,8 @@
 			files = (
 				93E1893D245B738100217F21 /* LaunchScreen.storyboard in Resources */,
 				93E82F63246C41B000006C91 /* Localizable.strings in Resources */,
+				93989CFD246EABFA00A1B21F /* Terms.storyboard in Resources */,
+				93989D01246EB20D00A1B21F /* Terms.html in Resources */,
 				93E82F52246C35C700006C91 /* SignIn.storyboard in Resources */,
 				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
 				93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */,
@@ -538,8 +556,10 @@
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
+				93989CFF246EAC0400A1B21F /* TermsViewModel.swift in Sources */,
 				93E1896B245DEBDB00217F21 /* Coordinator.swift in Sources */,
 				93E82F66246C439100006C91 /* Strings.swift in Sources */,
+				93989CFB246EABF100A1B21F /* TermsViewController.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

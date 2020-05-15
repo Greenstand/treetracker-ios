@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ise-nI-3XH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Terms View Controller-->
+        <scene sceneID="kqI-6G-B1i">
+            <objects>
+                <viewController id="Ise-nI-3XH" customClass="TermsViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eed-a7-Q82">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AEU-dk-ihk">
+                                <rect key="frame" x="20" y="64" width="374" height="798"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Oik-ua-lyV">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                    </activityIndicatorView>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Il5-CD-GZi">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="674"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atk-Pf-w9u">
+                                        <rect key="frame" x="0.0" y="754" width="374" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="4Sb-Y8-eau"/>
+                                        </constraints>
+                                        <state key="normal" title="ACCEPT TERMS">
+                                            <color key="titleColor" name="GrayDark"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acceptTermsButtonPressed" destination="Ise-nI-3XH" eventType="touchUpInside" id="sdI-2v-Ho5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="haP-04-K8U" firstAttribute="bottom" secondItem="AEU-dk-ihk" secondAttribute="bottom" id="45W-gF-4xW"/>
+                            <constraint firstItem="AEU-dk-ihk" firstAttribute="leading" secondItem="haP-04-K8U" secondAttribute="leading" constant="20" id="50s-h8-PeS"/>
+                            <constraint firstItem="AEU-dk-ihk" firstAttribute="top" secondItem="haP-04-K8U" secondAttribute="top" constant="20" id="7HD-pn-Rmx"/>
+                            <constraint firstItem="haP-04-K8U" firstAttribute="trailing" secondItem="AEU-dk-ihk" secondAttribute="trailing" constant="20" id="o5E-Gp-nMj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="haP-04-K8U"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Oik-ua-lyV" id="G3M-Ox-zkk"/>
+                        <outlet property="webView" destination="Il5-CD-GZi" id="dI1-mZ-5GM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YEB-ye-MXO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="178" y="125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="GrayDark">
+            <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
