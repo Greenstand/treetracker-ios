@@ -27,19 +27,25 @@ private extension SignInCoordinator {
 
     func showInitialSignIn() {
         configuration.navigationController.viewControllers = [
-            initialSignInViewController
+            signInViewController
         ]
     }
 
     func showSignUp() {
-
-    }
-
-    func showLogIn() {
-
+        configuration.navigationController.pushViewController(
+            signUpViewController,
+            animated: true
+        )
     }
 
     func showTerms() {
+        configuration.navigationController.pushViewController(
+            termsViewController,
+            animated: true
+        )
+    }
+
+    func showLoggedIn() {
 
     }
 }
@@ -47,8 +53,49 @@ private extension SignInCoordinator {
 // MARK: - View Controllers
 private extension SignInCoordinator {
 
-    var initialSignInViewController: UIViewController {
+    var signInViewController: UIViewController {
         let viewController = StoryboardScene.SignIn.initialScene.instantiate()
+        viewController.delegate = self
         return viewController
+    }
+
+    var signUpViewController: UIViewController {
+        let viewController = StoryboardScene.SignUp.initialScene.instantiate()
+        viewController.delegate = self
+        return viewController
+    }
+
+    var termsViewController: UIViewController {
+        let viewController = StoryboardScene.Terms.initialScene.instantiate()
+        viewController.delegate = self
+        return viewController
+    }
+}
+
+// MARK: - SignInViewControllerDelegate
+ extension SignInCoordinator: SignInViewControllerDelegate {
+
+    func signInViewControllerDidSelectLogin(_ signInViewController: SignInViewController) {
+        showLoggedIn()
+    }
+
+    func signInViewControllerDidSelectSignUp(_ signInViewController: SignInViewController) {
+        showSignUp()
+    }
+}
+
+// MARK: - SignUpViewControllerDelegate
+extension SignInCoordinator: SignUpViewControllerDelegate {
+
+    func signUpViewControllerDidSignUp(_ signUpViewController: SignUpViewController) {
+        showTerms()
+    }
+}
+
+// MARK: - TermsViewControllerDelegate
+extension SignInCoordinator: TermsViewControllerDelegate {
+
+    func termsViewControllerDidAcceptTerms(_ termsViewController: TermsViewController) {
+        showLoggedIn()
     }
 }

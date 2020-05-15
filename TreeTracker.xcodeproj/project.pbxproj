@@ -10,6 +10,9 @@
 		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
 		93989CF0246C479400A1B21F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CEF246C479400A1B21F /* Validation.swift */; };
 		93989CF3246C5F7F00A1B21F /* ValidationUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */; };
+		93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF4246EA33600A1B21F /* SignUpViewController.swift */; };
+		93989CF7246EA34A00A1B21F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93989CF6246EA34A00A1B21F /* SignUp.storyboard */; };
+		93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF8246EA35500A1B21F /* SignUpViewModel.swift */; };
 		93989CFB246EABF100A1B21F /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CFA246EABF100A1B21F /* TermsViewController.swift */; };
 		93989CFD246EABFA00A1B21F /* Terms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93989CFC246EABFA00A1B21F /* Terms.storyboard */; };
 		93989CFF246EAC0400A1B21F /* TermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CFE246EAC0400A1B21F /* TermsViewModel.swift */; };
@@ -57,6 +60,9 @@
 /* Begin PBXFileReference section */
 		93989CEF246C479400A1B21F /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUnitTests.swift; sourceTree = "<group>"; };
+		93989CF4246EA33600A1B21F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		93989CF6246EA34A00A1B21F /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		93989CF8246EA35500A1B21F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		93989CFA246EABF100A1B21F /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		93989CFC246EABFA00A1B21F /* Terms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terms.storyboard; sourceTree = "<group>"; };
 		93989CFE246EAC0400A1B21F /* TermsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewModel.swift; sourceTree = "<group>"; };
@@ -287,15 +293,11 @@
 		93E82F5D246C3B0000006C91 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				93989CF4246EA33600A1B21F /* SignUpViewController.swift */,
+				93989CF6246EA34A00A1B21F /* SignUp.storyboard */,
+				93989CF8246EA35500A1B21F /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
-			sourceTree = "<group>";
-		};
-		93E82F5E246C3B0D00006C91 /* LogIn */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LogIn;
 			sourceTree = "<group>";
 		};
 		93E82F5F246C3B3200006C91 /* Authentication */ = {
@@ -304,7 +306,6 @@
 				93E82F4D246C26DE00006C91 /* SignIn */,
 				93E82F5D246C3B0000006C91 /* SignUp */,
 				93E82F60246C3B4100006C91 /* Terms */,
-				93E82F5E246C3B0D00006C91 /* LogIn */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -458,6 +459,7 @@
 				93989CFD246EABFA00A1B21F /* Terms.storyboard in Resources */,
 				93989D01246EB20D00A1B21F /* Terms.html in Resources */,
 				93E82F52246C35C700006C91 /* SignIn.storyboard in Resources */,
+				93989CF7246EA34A00A1B21F /* SignUp.storyboard in Resources */,
 				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
 				93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */,
 				93E1893A245B738100217F21 /* Assets.xcassets in Resources */,
@@ -553,7 +555,9 @@
 				93989CF0246C479400A1B21F /* Validation.swift in Sources */,
 				93E82F4C246C262900006C91 /* SignInCoordinator.swift in Sources */,
 				93E18966245C95F200217F21 /* StoryboardSegues.swift in Sources */,
+				93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */,
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
+				93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
 				93989CFF246EAC0400A1B21F /* TermsViewModel.swift in Sources */,

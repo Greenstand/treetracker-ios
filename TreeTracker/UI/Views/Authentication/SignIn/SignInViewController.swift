@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SignInViewControllerDelegate: class {
+    func signInViewControllerDidSelectLogin(_ signInViewController: SignInViewController)
+    func signInViewControllerDidSelectSignUp(_ signInViewController: SignInViewController)
+}
+
 class SignInViewController: UIViewController {
 
     @IBOutlet private var phoneNumberTextField: UITextField! {
@@ -21,6 +26,9 @@ class SignInViewController: UIViewController {
         }
     }
 
+    weak var delegate: SignInViewControllerDelegate?
+    var viewModel: SignInViewModel = SignInViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -30,7 +38,11 @@ class SignInViewController: UIViewController {
 private extension SignInViewController {
 
     @IBAction func logInButtonPressed() {
+        delegate?.signInViewControllerDidSelectLogin(self)
+    }
 
+    @IBAction func signUpButtonPressed() {
+        delegate?.signInViewControllerDidSelectSignUp(self)
     }
 }
 
