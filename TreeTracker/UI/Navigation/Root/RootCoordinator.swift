@@ -17,25 +17,35 @@ class RootCoordinator: Coordinator {
     }
 
     func start() {
-        showHomeViewController()
+        showSignIn()
     }
 }
 
 // MARK: - Navigation
 private extension RootCoordinator {
 
-    func showHomeViewController() {
+    func showLoadingViewController() {
         configuration.navigationController.viewControllers = [
-            viewController
+            loadingViewController
         ]
+    }
+
+    func showSignIn() {
+        let signInCoordinator = SignInCoordinator(
+            configuration: configuration
+        )
+        signInCoordinator.start()
+    }
+
+    func showMap() {
+
     }
 }
 
 // MARK: - View Controllers
 private extension RootCoordinator {
 
-    var viewController: UIViewController {
-        let viewController = StoryboardScene.Main.initialScene.instantiate()
-        return viewController
+    var loadingViewController: UIViewController {
+        return StoryboardScene.Loading.initialScene.instantiate()
     }
 }

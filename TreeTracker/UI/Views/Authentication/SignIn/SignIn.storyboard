@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zej-1G-2Wm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="wNG-zl-fIK">
+            <objects>
+                <viewController id="Zej-1G-2Wm" customClass="SignInViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0PG-DV-loF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-57-uo8">
+                                <rect key="frame" x="20" y="64" width="374" height="366"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="greenstandlogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rb3-x4-bAY">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="176"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Kg-4Yg">
+                                        <rect key="frame" x="0.0" y="206" width="374" height="100"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-MP-cDo">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-aa-lzu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="d88-hO-nKC">
+                                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                                <color key="tintColor" name="GrayDark"/>
+                                                            </imageView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PHONE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLe-97-w0N">
+                                                                <rect key="frame" x="46" y="0.0" width="328" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8o-zt-Ogl">
+                                                        <rect key="frame" x="0.0" y="41" width="374" height="1"/>
+                                                        <color key="backgroundColor" name="GrayDark"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="bIp-bc-Pdj"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YHz-wy-8i5">
+                                                <rect key="frame" x="0.0" y="62" width="374" height="38"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XBL-ko-ZSf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" image="mail" translatesAutoresizingMaskIntoConstraints="NO" id="ZxZ-fL-6Mj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="32"/>
+                                                                <color key="tintColor" name="GrayDark"/>
+                                                            </imageView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoI-WZ-RTU">
+                                                                <rect key="frame" x="50" y="0.0" width="324" height="32"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6n-hP-y0o">
+                                                        <rect key="frame" x="0.0" y="37" width="374" height="1"/>
+                                                        <color key="backgroundColor" name="GrayDark"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="DN9-Eq-TJ9"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw">
+                                        <rect key="frame" x="0.0" y="336" width="374" height="30"/>
+                                        <state key="normal" title="LOGIN">
+                                            <color key="titleColor" name="GrayDark"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OXG-lw-S0f" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="L0y-57-uo8" secondAttribute="bottom" id="LKW-DN-hOQ"/>
+                            <constraint firstItem="L0y-57-uo8" firstAttribute="top" secondItem="OXG-lw-S0f" secondAttribute="top" constant="20" id="P5t-a1-EJ9"/>
+                            <constraint firstItem="OXG-lw-S0f" firstAttribute="trailing" secondItem="L0y-57-uo8" secondAttribute="trailing" constant="20" id="XQC-01-7k8"/>
+                            <constraint firstItem="L0y-57-uo8" firstAttribute="leading" secondItem="OXG-lw-S0f" secondAttribute="leading" constant="20" id="cEy-AZ-T9D"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OXG-lw-S0f"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5A-Fm-ai3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-125" y="49"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="greenstandlogo" width="141" height="176"/>
+        <image name="mail" width="40" height="32"/>
+        <image name="phone" width="36" height="36"/>
+        <namedColor name="GrayDark">
+            <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

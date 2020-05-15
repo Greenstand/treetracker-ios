@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="scP-CX-xRx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="Ua8-tw-fwO">
+            <objects>
+                <viewController id="scP-CX-xRx" customClass="LoadingViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MVn-kd-r2u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kfi-ou-o3a">
+                                <rect key="frame" x="0.0" y="429.5" width="414" height="37"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="f33-R9-3VT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                        <color key="color" name="GrayDarkest"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kfi-ou-o3a" firstAttribute="leading" secondItem="BZK-el-BD3" secondAttribute="leading" id="3rw-rz-vue"/>
+                            <constraint firstItem="BZK-el-BD3" firstAttribute="trailing" secondItem="Kfi-ou-o3a" secondAttribute="trailing" id="LNv-9h-IYr"/>
+                            <constraint firstItem="BZK-el-BD3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Kfi-ou-o3a" secondAttribute="bottom" id="ecN-FY-OcR"/>
+                            <constraint firstItem="Kfi-ou-o3a" firstAttribute="centerY" secondItem="MVn-kd-r2u" secondAttribute="centerY" id="rV4-hx-9sA"/>
+                            <constraint firstItem="Kfi-ou-o3a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BZK-el-BD3" secondAttribute="top" id="rfX-xE-fc6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BZK-el-BD3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zQg-Ym-Qat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3" y="54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="GrayDarkest">
+            <color red="0.13300000131130219" green="0.14900000393390656" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
