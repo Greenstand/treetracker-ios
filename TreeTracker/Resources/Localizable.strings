@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  TreeTracker
+
+  Created by Alex Cornforth on 13/05/2020.
+  Copyright © 2020 Greenstand. All rights reserved.
+*/
+
+// General
+"App.Title" = "Greenstand Tree Tracker";
+
+// Sign In
+"SignIn.PhoneNumber.Placeholder" = "Phone Number";
+"SignIn.Email.Placeholder" = "Or Email Address";
+

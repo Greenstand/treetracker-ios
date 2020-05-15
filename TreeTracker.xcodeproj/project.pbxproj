@@ -20,6 +20,8 @@
 		93E18968245C96F000217F21 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18967245C96F000217F21 /* Assets.swift */; };
 		93E1896B245DEBDB00217F21 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1896A245DEBDB00217F21 /* Coordinator.swift */; };
 		93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1896E245DEE7700217F21 /* RootCoordinator.swift */; };
+		93E82F63246C41B000006C91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93E82F62246C41B000006C91 /* Localizable.strings */; };
+		93E82F66246C439100006C91 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E82F65246C439100006C91 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		93E18967245C96F000217F21 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		93E1896A245DEBDB00217F21 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		93E1896E245DEE7700217F21 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		93E82F62246C41B000006C91 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		93E82F65246C439100006C91 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
