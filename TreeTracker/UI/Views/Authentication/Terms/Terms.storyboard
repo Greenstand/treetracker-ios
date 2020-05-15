@@ -30,7 +30,7 @@
                                             <wkPreferences key="preferences"/>
                                         </wkWebViewConfiguration>
                                     </wkWebView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atk-Pf-w9u">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atk-Pf-w9u" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="754" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="4Sb-Y8-eau"/>

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-57-uo8">
-                                <rect key="frame" x="20" y="64" width="374" height="426"/>
+                                <rect key="frame" x="20" y="64" width="374" height="454"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="greenstandlogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rb3-x4-bAY">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="176"/>
@@ -80,8 +80,11 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw">
-                                        <rect key="frame" x="0.0" y="336" width="374" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="336" width="374" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="WGV-Zd-ZAY"/>
+                                        </constraints>
                                         <state key="normal" title="LOGIN">
                                             <color key="titleColor" name="GrayDark"/>
                                         </state>
@@ -89,8 +92,11 @@
                                             <action selector="logInButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="KFQ-nQ-2D4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJQ-2G-J6z">
-                                        <rect key="frame" x="0.0" y="396" width="374" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJQ-2G-J6z" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="410" width="374" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="V8r-RB-1Lv"/>
+                                        </constraints>
                                         <state key="normal" title="SIGN UP">
                                             <color key="titleColor" name="GrayDark"/>
                                         </state>
