@@ -19,6 +19,8 @@
 		93989D01246EB20D00A1B21F /* Terms.html in Resources */ = {isa = PBXBuildFile; fileRef = 93989D00246EB20D00A1B21F /* Terms.html */; };
 		93989D03246EBE3700A1B21F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93989D02246EBE3700A1B21F /* WebKit.framework */; };
 		93989D06246ED00D00A1B21F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D05246ED00D00A1B21F /* PrimaryButton.swift */; };
+		93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D07246ED51C00A1B21F /* SignInTextField.swift */; };
+		93989D0D246EE8E900A1B21F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D0C246EE8E900A1B21F /* UIViewController+Extensions.swift */; };
 		939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939CA84E246C0A1000B1C184 /* Colors.xcassets */; };
 		93E18931245B737D00217F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18930245B737D00217F21 /* AppDelegate.swift */; };
 		93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18932245B737D00217F21 /* SceneDelegate.swift */; };
@@ -70,6 +72,8 @@
 		93989D00246EB20D00A1B21F /* Terms.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Terms.html; sourceTree = "<group>"; };
 		93989D02246EBE3700A1B21F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		93989D05246ED00D00A1B21F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		93989D07246ED51C00A1B21F /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
+		93989D0C246EE8E900A1B21F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		939CA84E246C0A1000B1C184 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		93E1892D245B737D00217F21 /* TreeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E18930245B737D00217F21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,8 +152,17 @@
 			isa = PBXGroup;
 			children = (
 				93989D05246ED00D00A1B21F /* PrimaryButton.swift */,
+				93989D07246ED51C00A1B21F /* SignInTextField.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		93989D0B246EE8D100A1B21F /* UIExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				93989D0C246EE8E900A1B21F /* UIViewController+Extensions.swift */,
+			);
+			path = UIExtensions;
 			sourceTree = "<group>";
 		};
 		939CA850246C0F9500B1C184 /* Resources */ = {
@@ -240,6 +253,7 @@
 		93E1896C245DEE4000217F21 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				93989D0B246EE8D100A1B21F /* UIExtensions */,
 				93989D04246ECFED00A1B21F /* Components */,
 				93E1896D245DEE6800217F21 /* Navigation */,
 				93E82F57246C368200006C91 /* Views */,
@@ -568,8 +582,10 @@
 				93E82F4C246C262900006C91 /* SignInCoordinator.swift in Sources */,
 				93E18966245C95F200217F21 /* StoryboardSegues.swift in Sources */,
 				93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */,
+				93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */,
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
 				93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */,
+				93989D0D246EE8E900A1B21F /* UIViewController+Extensions.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
 				93989CFF246EAC0400A1B21F /* TermsViewModel.swift in Sources */,

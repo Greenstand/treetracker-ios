@@ -9,7 +9,9 @@
 // General
 "App.Title" = "Greenstand Tree Tracker";
 
-// Sign In
-"SignIn.PhoneNumber.Placeholder" = "Phone Number";
-"SignIn.Email.Placeholder" = "Or Email Address";
-
+// Text Input
+"TextInput.PhoneNumber.Placeholder" = "Phone Number";
+"TextInput.Email.Placeholder" = "Or Email Address";
+"TextInput.FirstName.Placeholder" = "First Name";
+"TextInput.LastName.Placeholder" = "Last Name";
+"TextInput.Organization.Placeholder" = "Organization (optional)";

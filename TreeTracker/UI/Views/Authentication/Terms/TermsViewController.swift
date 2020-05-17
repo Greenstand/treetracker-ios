@@ -29,7 +29,7 @@ class TermsViewController: UIViewController {
     }
 
     weak var delegate: TermsViewControllerDelegate?
-    var viewModel: TermsViewModel = TermsViewModel()
+    var viewModel: TermsViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +38,12 @@ class TermsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         activityIndicator.startAnimating()
-        loadURL(url: viewModel.termsURL)
+        loadURL(url: viewModel?.termsURL)
     }
 }
 
 // MARK: - Private Functions
-private extension TermsViewController {
+fileprivate extension TermsViewController {
 
     func loadURL(url: URL?) {
 

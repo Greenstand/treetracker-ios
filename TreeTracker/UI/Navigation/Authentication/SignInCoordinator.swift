@@ -55,18 +55,21 @@ private extension SignInCoordinator {
 
     var signInViewController: UIViewController {
         let viewController = StoryboardScene.SignIn.initialScene.instantiate()
+        viewController.viewModel = SignInViewModel()
         viewController.delegate = self
         return viewController
     }
 
     var signUpViewController: UIViewController {
         let viewController = StoryboardScene.SignUp.initialScene.instantiate()
+        viewController.viewModel = SignUpViewModel()
         viewController.delegate = self
         return viewController
     }
 
     var termsViewController: UIViewController {
         let viewController = StoryboardScene.Terms.initialScene.instantiate()
+        viewController.viewModel = TermsViewModel()
         viewController.delegate = self
         return viewController
     }

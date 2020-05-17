@@ -13,24 +13,33 @@ protocol SignInViewControllerDelegate: class {
     func signInViewControllerDidSelectSignUp(_ signInViewController: SignInViewController)
 }
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, TextEditingViewController {
 
-    @IBOutlet private var phoneNumberTextField: UITextField! {
+    @IBOutlet private var phoneNumberTextField: SignInTextField! {
         didSet {
             phoneNumberTextField.delegate = self
+            phoneNumberTextField.keyboardType = .numberPad
+            phoneNumberTextField.placeholder = L10n.TextInput.PhoneNumber.placeholder
         }
     }
-    @IBOutlet private var emailTextField: UITextField! {
+    @IBOutlet private var emailTextField: SignInTextField! {
         didSet {
             emailTextField.delegate = self
+            emailTextField.keyboardType = .emailAddress
+            emailTextField.placeholder = L10n.TextInput.Email.placeholder
         }
     }
 
     weak var delegate: SignInViewControllerDelegate?
-    var viewModel: SignInViewModel = SignInViewModel()
+    var viewModel: SignInViewModel? {
+        didSet {
+            viewModel?.updateView(view: self)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addEndEditingBackgroundTapGesture()
     }
 }
 
@@ -49,4 +58,14 @@ private extension SignInViewController {
 // MARK: - TextField Delegate
 extension SignInViewController: UITextFieldDelegate {
 
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
+    }
+}
+
+// MARK: - ViewModel Extension
+private extension SignInViewModel {
+    func updateView(view: SignInViewController) {
+        view.title = title
+    }
 }

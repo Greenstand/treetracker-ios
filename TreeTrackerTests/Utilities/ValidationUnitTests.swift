@@ -88,8 +88,6 @@ class ValidationUnitTests: XCTestCase {
         }
     }
 
-
-
     func testPhoneNUmberValidation_InValid() {
 
         //Given

@@ -18,20 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AEU-dk-ihk">
-                                <rect key="frame" x="20" y="64" width="374" height="798"/>
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Oik-ua-lyV">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Oik-ua-lyV">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="37"/>
                                     </activityIndicatorView>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Il5-CD-GZi">
-                                        <rect key="frame" x="0.0" y="50" width="374" height="674"/>
+                                        <rect key="frame" x="0.0" y="67" width="374" height="637"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                             <wkPreferences key="preferences"/>
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atk-Pf-w9u" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="754" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="734" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="4Sb-Y8-eau"/>
                                         </constraints>
@@ -47,7 +47,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="haP-04-K8U" firstAttribute="bottom" secondItem="AEU-dk-ihk" secondAttribute="bottom" id="45W-gF-4xW"/>
+                            <constraint firstItem="haP-04-K8U" firstAttribute="bottom" secondItem="AEU-dk-ihk" secondAttribute="bottom" constant="20" id="45W-gF-4xW"/>
                             <constraint firstItem="AEU-dk-ihk" firstAttribute="leading" secondItem="haP-04-K8U" secondAttribute="leading" constant="20" id="50s-h8-PeS"/>
                             <constraint firstItem="AEU-dk-ihk" firstAttribute="top" secondItem="haP-04-K8U" secondAttribute="top" constant="20" id="7HD-pn-Rmx"/>
                             <constraint firstItem="haP-04-K8U" firstAttribute="trailing" secondItem="AEU-dk-ihk" secondAttribute="trailing" constant="20" id="o5E-Gp-nMj"/>

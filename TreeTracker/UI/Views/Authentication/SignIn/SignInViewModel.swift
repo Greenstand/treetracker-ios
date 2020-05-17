@@ -17,19 +17,11 @@ class SignInViewModel {
         return L10n.App.title
     }
 
-    var phoneNumberPlaceHolder: String {
-        return L10n.SignIn.PhoneNumber.placeholder
-    }
-
-    var emailPlaceHolder: String {
-        return L10n.SignIn.Email.placeholder
-    }
-
     var phoneNumberValid: Bool {
-        return true
+        return Validation.isValidPhoneNumber(phoneNumber: phoneNumber)
     }
 
     var emailValid: Bool {
-        return true
+        return Validation.isEmailValid(email: email)
     }
 }

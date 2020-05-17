@@ -1,5 +1,5 @@
 //
-//  PrimaryButton.swift
+//  SignInTextField.swift
 //  TreeTracker
 //
 //  Created by Alex Cornforth on 15/05/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrimaryButton: UIButton {
+class SignInTextField: UITextField {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,13 +22,9 @@ class PrimaryButton: UIButton {
 }
 
 // MARK: - Private Functions
-private extension PrimaryButton {
+private extension SignInTextField {
 
     func commonInit() {
-        layer.borderWidth = 1.0
-        layer.borderColor = Asset.Colors.grayDark.color.cgColor
-        layer.cornerRadius = 5.0
-        layer.masksToBounds = true
-        clipsToBounds = true
+        borderStyle = .none
     }
 }

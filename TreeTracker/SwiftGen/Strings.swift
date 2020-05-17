@@ -17,14 +17,26 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "App.Title")
   }
 
-  internal enum SignIn {
+  internal enum TextInput {
     internal enum Email {
       /// Or Email Address
-      internal static let placeholder = L10n.tr("Localizable", "SignIn.Email.Placeholder")
+      internal static let placeholder = L10n.tr("Localizable", "TextInput.Email.Placeholder")
+    }
+    internal enum FirstName {
+      /// First Name
+      internal static let placeholder = L10n.tr("Localizable", "TextInput.FirstName.Placeholder")
+    }
+    internal enum LastName {
+      /// Last Name
+      internal static let placeholder = L10n.tr("Localizable", "TextInput.LastName.Placeholder")
+    }
+    internal enum Organization {
+      /// Organization (optional)
+      internal static let placeholder = L10n.tr("Localizable", "TextInput.Organization.Placeholder")
     }
     internal enum PhoneNumber {
       /// Phone Number
-      internal static let placeholder = L10n.tr("Localizable", "SignIn.PhoneNumber.Placeholder")
+      internal static let placeholder = L10n.tr("Localizable", "TextInput.PhoneNumber.Placeholder")
     }
   }
 }

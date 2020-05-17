@@ -18,33 +18,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-57-uo8">
-                                <rect key="frame" x="20" y="64" width="374" height="454"/>
+                                <rect key="frame" x="20" y="64" width="374" height="416"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="greenstandlogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rb3-x4-bAY">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="176"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Kg-4Yg">
-                                        <rect key="frame" x="0.0" y="206" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="206" width="374" height="82"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-MP-cDo">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-aa-lzu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="d88-hO-nKC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                 <color key="tintColor" name="GrayDark"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="25" id="22Y-uS-rOe"/>
+                                                                    <constraint firstAttribute="width" secondItem="d88-hO-nKC" secondAttribute="height" multiplier="1:1" id="j0f-oJ-wqF"/>
+                                                                </constraints>
                                                             </imageView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PHONE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLe-97-w0N">
-                                                                <rect key="frame" x="46" y="0.0" width="328" height="36"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PHONE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLe-97-w0N" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
+                                                                <rect key="frame" x="35" y="0.0" width="339" height="25"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8o-zt-Ogl">
-                                                        <rect key="frame" x="0.0" y="41" width="374" height="1"/>
+                                                        <rect key="frame" x="0.0" y="30" width="374" height="1"/>
                                                         <color key="backgroundColor" name="GrayDark"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="bIp-bc-Pdj"/>
@@ -53,24 +57,28 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YHz-wy-8i5">
-                                                <rect key="frame" x="0.0" y="62" width="374" height="38"/>
+                                                <rect key="frame" x="0.0" y="51" width="374" height="31"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XBL-ko-ZSf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" image="mail" translatesAutoresizingMaskIntoConstraints="NO" id="ZxZ-fL-6Mj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="32"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                 <color key="tintColor" name="GrayDark"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="25" id="HnN-Vh-Use"/>
+                                                                    <constraint firstAttribute="width" secondItem="ZxZ-fL-6Mj" secondAttribute="height" multiplier="1:1" id="j6E-wW-nBw"/>
+                                                                </constraints>
                                                             </imageView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoI-WZ-RTU">
-                                                                <rect key="frame" x="50" y="0.0" width="324" height="32"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoI-WZ-RTU" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
+                                                                <rect key="frame" x="35" y="0.0" width="339" height="25"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6n-hP-y0o">
-                                                        <rect key="frame" x="0.0" y="37" width="374" height="1"/>
+                                                        <rect key="frame" x="0.0" y="30" width="374" height="1"/>
                                                         <color key="backgroundColor" name="GrayDark"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="DN9-Eq-TJ9"/>
@@ -80,30 +88,35 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="336" width="374" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="WGV-Zd-ZAY"/>
-                                        </constraints>
-                                        <state key="normal" title="LOGIN">
-                                            <color key="titleColor" name="GrayDark"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logInButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="KFQ-nQ-2D4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJQ-2G-J6z" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="410" width="374" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="V8r-RB-1Lv"/>
-                                        </constraints>
-                                        <state key="normal" title="SIGN UP">
-                                            <color key="titleColor" name="GrayDark"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="signUpButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="LEn-FJ-v0g"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-Rg-uTp">
+                                        <rect key="frame" x="0.0" y="318" width="374" height="98"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="WGV-Zd-ZAY"/>
+                                                </constraints>
+                                                <state key="normal" title="LOGIN">
+                                                    <color key="titleColor" name="GrayDark"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logInButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="KFQ-nQ-2D4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJQ-2G-J6z" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="54" width="374" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="V8r-RB-1Lv"/>
+                                                </constraints>
+                                                <state key="normal" title="SIGN UP">
+                                                    <color key="titleColor" name="GrayDark"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signUpButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="LEn-FJ-v0g"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -116,6 +129,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OXG-lw-S0f"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="RoI-WZ-RTU" id="YFf-jS-coJ"/>
+                        <outlet property="phoneNumberTextField" destination="xLe-97-w0N" id="08h-DZ-9Jq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5A-Fm-ai3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
