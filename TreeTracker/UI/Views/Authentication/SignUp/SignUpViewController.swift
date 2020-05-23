@@ -12,7 +12,7 @@ protocol SignUpViewControllerDelegate: class {
     func signUpViewControllerDidSignUp(_ signUpViewController: SignUpViewController)
 }
 
-class SignUpViewController: UIViewController, TextEditingViewController {
+class SignUpViewController: UIViewController, KeyboardDismissing {
 
     @IBOutlet private var phoneNumberTextField: SignInTextField! {
         didSet {
@@ -45,7 +45,7 @@ class SignUpViewController: UIViewController, TextEditingViewController {
     @IBOutlet private var organizationTextField: SignInTextField! {
         didSet {
             organizationTextField.delegate = self
-            organizationTextField.keyboardType = .numberPad
+            organizationTextField.keyboardType = .default
             organizationTextField.placeholder = L10n.TextInput.Organization.placeholder
         }
     }

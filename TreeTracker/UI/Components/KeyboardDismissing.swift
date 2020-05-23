@@ -1,16 +1,16 @@
 //
-//  UIViewController+Extensions.swift
+//  TextEditingViewController.swift
 //  TreeTracker
 //
-//  Created by Alex Cornforth on 15/05/2020.
+//  Created by Alex Cornforth on 22/05/2020.
 //  Copyright © 2020 Greenstand. All rights reserved.
 //
 
 import UIKit
 
-protocol TextEditingViewController { }
+protocol KeyboardDismissing { }
 
-extension TextEditingViewController where Self: UIViewController {
+extension KeyboardDismissing where Self: UIViewController {
 
     func addEndEditingBackgroundTapGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer()

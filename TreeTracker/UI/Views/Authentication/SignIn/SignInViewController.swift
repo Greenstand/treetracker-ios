@@ -13,7 +13,7 @@ protocol SignInViewControllerDelegate: class {
     func signInViewControllerDidSelectSignUp(_ signInViewController: SignInViewController)
 }
 
-class SignInViewController: UIViewController, TextEditingViewController {
+class SignInViewController: UIViewController, KeyboardDismissing {
 
     @IBOutlet private var phoneNumberTextField: SignInTextField! {
         didSet {
