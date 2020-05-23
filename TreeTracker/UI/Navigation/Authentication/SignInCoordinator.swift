@@ -46,6 +46,9 @@ private extension SignInCoordinator {
     }
 
     func showLoggedIn() {
+        configuration.navigationController.viewControllers = [
+            UIViewController()
+        ]
 
     }
 }
