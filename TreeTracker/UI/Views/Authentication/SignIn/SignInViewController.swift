@@ -19,6 +19,7 @@ class SignInViewController: UIViewController, KeyboardDismissing {
         didSet {
             phoneNumberTextField.delegate = self
             phoneNumberTextField.keyboardType = .numberPad
+            phoneNumberTextField.returnKeyType = .done
             phoneNumberTextField.placeholder = L10n.TextInput.PhoneNumber.placeholder
         }
     }
@@ -26,6 +27,7 @@ class SignInViewController: UIViewController, KeyboardDismissing {
         didSet {
             emailTextField.delegate = self
             emailTextField.keyboardType = .emailAddress
+            emailTextField.returnKeyType = .done
             emailTextField.placeholder = L10n.TextInput.Email.placeholder
         }
     }
@@ -58,8 +60,9 @@ private extension SignInViewController {
 // MARK: - TextField Delegate
 extension SignInViewController: UITextFieldDelegate {
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
 }
 

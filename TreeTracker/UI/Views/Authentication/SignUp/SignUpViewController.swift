@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
         didSet {
             phoneNumberTextField.delegate = self
             phoneNumberTextField.keyboardType = .numberPad
+            phoneNumberTextField.returnKeyType = .next
             phoneNumberTextField.placeholder = L10n.TextInput.PhoneNumber.placeholder
         }
     }
@@ -25,6 +26,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
         didSet {
             emailTextField.delegate = self
             emailTextField.keyboardType = .emailAddress
+            emailTextField.returnKeyType = .next
             emailTextField.placeholder = L10n.TextInput.Email.placeholder
         }
     }
@@ -32,6 +34,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
         didSet {
             firstNameTextField.delegate = self
             firstNameTextField.keyboardType = .default
+            firstNameTextField.returnKeyType = .next
             firstNameTextField.placeholder = L10n.TextInput.FirstName.placeholder
         }
     }
@@ -39,6 +42,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
         didSet {
             lastNameTextField.delegate = self
             lastNameTextField.keyboardType = .default
+            lastNameTextField.returnKeyType = .next
             lastNameTextField.placeholder = L10n.TextInput.LastName.placeholder
         }
     }
@@ -46,6 +50,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
         didSet {
             organizationTextField.delegate = self
             organizationTextField.keyboardType = .default
+            organizationTextField.returnKeyType = .done
             organizationTextField.placeholder = L10n.TextInput.Organization.placeholder
         }
     }
@@ -74,6 +79,22 @@ private extension SignUpViewController {
 // MARK: - UITextFieldDelegate
 extension SignUpViewController: UITextFieldDelegate {
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        switch textField {
+        case phoneNumberTextField:
+            emailTextField.becomeFirstResponder()
+        case emailTextField:
+            firstNameTextField.becomeFirstResponder()
+        case firstNameTextField:
+            lastNameTextField.becomeFirstResponder()
+        case lastNameTextField:
+            organizationTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+    }
 }
 
 // MARK: - ViewModel Extension
