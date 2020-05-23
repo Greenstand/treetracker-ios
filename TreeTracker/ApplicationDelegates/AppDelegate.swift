@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         guard #available(iOS 13.0, *) else {
-            let navigationController = UINavigationController()
+            let navigationController = BaseNavigationViewController()
 
             let configuration = CoordinatorConfiguration(
                 navigationController: navigationController

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
+		932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EA1AF247954B40035394D /* BaseNavigationViewController.swift */; };
 		93989CF0246C479400A1B21F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CEF246C479400A1B21F /* Validation.swift */; };
 		93989CF3246C5F7F00A1B21F /* ValidationUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */; };
 		93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF4246EA33600A1B21F /* SignUpViewController.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		932EA1AF247954B40035394D /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		93989CEF246C479400A1B21F /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUnitTests.swift; sourceTree = "<group>"; };
 		93989CF4246EA33600A1B21F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				93989D05246ED00D00A1B21F /* PrimaryButton.swift */,
 				93989D07246ED51C00A1B21F /* SignInTextField.swift */,
+				932EA1AF247954B40035394D /* BaseNavigationViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */,
 				93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */,
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
+				932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */,
 				93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */,
 				93989D0D246EE8E900A1B21F /* UIViewController+Extensions.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
