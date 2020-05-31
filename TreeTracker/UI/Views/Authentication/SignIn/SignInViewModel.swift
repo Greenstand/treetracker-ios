@@ -17,11 +17,11 @@ class SignInViewModel {
         return L10n.App.title
     }
 
-    var phoneNumberValid: Bool {
-        return Validation.isValidPhoneNumber(phoneNumber: phoneNumber)
+    var phoneNumberValid: Validation.Result {
+        return Validation.isPhoneNumberValid(phoneNumber: phoneNumber)
     }
 
-    var emailValid: Bool {
+    var emailValid: Validation.Result {
         return Validation.isEmailValid(email: email)
     }
 }

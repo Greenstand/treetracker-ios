@@ -57,12 +57,53 @@ private extension SignInViewController {
     }
 }
 
+// MARK: - Private Functions
+private extension SignInViewController {
+
+    func validateTextField(textField: UITextField) {
+
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        switch textField {
+        case phoneNumberTextField:
+            phoneNumberTextField.validationState = viewModel.phoneNumberValid.textFieldValidationState
+        case emailTextField:
+            emailTextField.validationState = viewModel.emailValid.textFieldValidationState
+        default:
+            break
+        }
+    }
+}
+
 // MARK: - TextField Delegate
 extension SignInViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        guard let text = textField.text as NSString? else {
+            return true
+        }
+
+        let newText = text.replacingCharacters(in: range, with: string)
+
+        switch textField {
+        case phoneNumberTextField:
+            viewModel?.phoneNumber = newText
+        case emailTextField:
+            viewModel?.email = newText
+        default:
+            break
+        }
+
+        validateTextField(textField: textField)
+        return true
     }
 }
 

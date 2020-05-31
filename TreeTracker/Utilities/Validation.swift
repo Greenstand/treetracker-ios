@@ -10,7 +10,17 @@ import Foundation
 
 struct Validation {
 
-    static func isEmailValid(email: String) -> Bool {
+    enum Result {
+        case valid
+        case invalid
+        case empty
+    }
+
+    static func isEmailValid(email: String?) -> Result {
+
+        guard isEmpty(text: email) == false else {
+            return .empty
+        }
 
         let regex = "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@"
             + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
@@ -21,10 +31,18 @@ struct Validation {
 
         let test = NSPredicate(format: "SELF MATCHES[c] %@", regex)
 
-        return test.evaluate(with: email)
+        guard test.evaluate(with: email) else {
+            return .invalid
+        }
+
+        return .valid
     }
 
-    static func isValidPhoneNumber(phoneNumber: String) -> Bool {
+    static func isPhoneNumberValid(phoneNumber: String?) -> Result {
+
+        guard isEmpty(text: phoneNumber) == false else {
+            return .empty
+        }
 
         let regex = "\\d{7,15}"
 
@@ -32,15 +50,26 @@ struct Validation {
 
         let cleanPhoneNumber = cleanedPhoneNumber(phoneNumber: phoneNumber)
 
-        return test.evaluate(with: cleanPhoneNumber)
+        guard test.evaluate(with: cleanPhoneNumber) else {
+            return .invalid
+        }
+
+        return .valid
     }
 }
 
 // MARK: - Private Functions
 private extension Validation {
 
-    static func cleanedPhoneNumber(phoneNumber: String) -> String {
-        return phoneNumber
+    static func isEmpty(text: String?) -> Bool {
+        guard text != "", text != nil else {
+            return true
+        }
+        return false
+    }
+
+    static func cleanedPhoneNumber(phoneNumber: String?) -> String? {
+        return phoneNumber?
             .replacingOccurrences(of: "+", with: "")
             .replacingOccurrences(of: " ", with: "")
             .replacingOccurrences(of: "(", with: "")

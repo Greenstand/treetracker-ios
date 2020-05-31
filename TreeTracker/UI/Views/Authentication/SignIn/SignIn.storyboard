@@ -44,6 +44,10 @@
                                                                 <rect key="frame" x="35" y="0.0" width="339" height="25"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="iconView" destination="d88-hO-nKC" id="6V7-4O-gXa"/>
+                                                                    <outlet property="underlineView" destination="Y8o-zt-Ogl" id="a2j-wm-NBA"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -74,6 +78,10 @@
                                                                 <rect key="frame" x="35" y="0.0" width="339" height="25"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="iconView" destination="ZxZ-fL-6Mj" id="mkG-4H-dai"/>
+                                                                    <outlet property="underlineView" destination="t6n-hP-y0o" id="vXX-1H-uzV"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
