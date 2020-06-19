@@ -45,6 +45,13 @@ private extension SignInCoordinator {
         )
     }
 
+    func showSelfie() {
+        configuration.navigationController.pushViewController(
+            selfieViewController,
+            animated: true
+        )
+    }
+
     func showLoggedIn() {
         configuration.navigationController.viewControllers = [
             UIViewController()
@@ -76,13 +83,20 @@ private extension SignInCoordinator {
         viewController.delegate = self
         return viewController
     }
+
+    var selfieViewController: UIViewController {
+        let viewController = StoryboardScene.Selfie.initialScene.instantiate()
+        viewController.delegate = self
+        viewController.viewModel = SelfieViewModel()
+        return viewController
+    }
 }
 
 // MARK: - SignInViewControllerDelegate
  extension SignInCoordinator: SignInViewControllerDelegate {
 
     func signInViewControllerDidSelectLogin(_ signInViewController: SignInViewController) {
-        showLoggedIn()
+        showSelfie()
     }
 
     func signInViewControllerDidSelectSignUp(_ signInViewController: SignInViewController) {
@@ -102,6 +116,14 @@ extension SignInCoordinator: SignUpViewControllerDelegate {
 extension SignInCoordinator: TermsViewControllerDelegate {
 
     func termsViewControllerDidAcceptTerms(_ termsViewController: TermsViewController) {
+        showLoggedIn()
+    }
+}
+
+// MARK: - SelfieViewControllerDelegate
+extension SignInCoordinator: SelfieViewControllerDelegate {
+
+    func selfieViewControllerDidStoreSelfie(_ selfieViewController: SelfieViewController) {
         showLoggedIn()
     }
 }

@@ -22,6 +22,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<TreeTracker.LoadingViewController>(storyboard: Loading.self)
   }
+  internal enum Selfie: StoryboardType {
+    internal static let storyboardName = "Selfie"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.SelfieViewController>(storyboard: Selfie.self)
+  }
   internal enum SignIn: StoryboardType {
     internal static let storyboardName = "SignIn"
 
