@@ -177,13 +177,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		93989D0B246EE8D100A1B21F /* UIExtensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UIExtensions;
-			sourceTree = "<group>";
-		};
 		939CA850246C0F9500B1C184 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,7 +265,6 @@
 		93E1896C245DEE4000217F21 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				93989D0B246EE8D100A1B21F /* UIExtensions */,
 				93989D04246ECFED00A1B21F /* Components */,
 				93E1896D245DEE6800217F21 /* Navigation */,
 				93E82F57246C368200006C91 /* Views */,
