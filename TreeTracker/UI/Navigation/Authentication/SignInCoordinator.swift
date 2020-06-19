@@ -96,10 +96,6 @@ private extension SignInCoordinator {
  extension SignInCoordinator: SignInViewControllerDelegate {
 
     func signInViewControllerDidSelectLogin(_ signInViewController: SignInViewController) {
-        showSelfie()
-    }
-
-    func signInViewControllerDidSelectSignUp(_ signInViewController: SignInViewController) {
         showSignUp()
     }
 }
@@ -116,7 +112,7 @@ extension SignInCoordinator: SignUpViewControllerDelegate {
 extension SignInCoordinator: TermsViewControllerDelegate {
 
     func termsViewControllerDidAcceptTerms(_ termsViewController: TermsViewController) {
-        showLoggedIn()
+        showSelfie()
     }
 }
 

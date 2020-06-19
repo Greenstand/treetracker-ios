@@ -10,12 +10,11 @@ import UIKit
 
 protocol SignInViewControllerDelegate: class {
     func signInViewControllerDidSelectLogin(_ signInViewController: SignInViewController)
-    func signInViewControllerDidSelectSignUp(_ signInViewController: SignInViewController)
 }
 
 class SignInViewController: UIViewController, KeyboardDismissing {
 
-    @IBOutlet private var phoneNumberTextField: SignInTextField! {
+    @IBOutlet fileprivate var phoneNumberTextField: SignInTextField! {
         didSet {
             phoneNumberTextField.delegate = self
             phoneNumberTextField.keyboardType = .numberPad
@@ -23,7 +22,7 @@ class SignInViewController: UIViewController, KeyboardDismissing {
             phoneNumberTextField.placeholder = L10n.TextInput.PhoneNumber.placeholder
         }
     }
-    @IBOutlet private var emailTextField: SignInTextField! {
+    @IBOutlet fileprivate var emailTextField: SignInTextField! {
         didSet {
             emailTextField.delegate = self
             emailTextField.keyboardType = .emailAddress
@@ -31,17 +30,15 @@ class SignInViewController: UIViewController, KeyboardDismissing {
             emailTextField.placeholder = L10n.TextInput.Email.placeholder
         }
     }
+    @IBOutlet fileprivate var loginButton: PrimaryButton!
 
     weak var delegate: SignInViewControllerDelegate?
-    var viewModel: SignInViewModel? {
-        didSet {
-            viewModel?.updateView(view: self)
-        }
-    }
+    var viewModel: SignInViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
+        viewModel?.updateView(view: self)
     }
 }
 
@@ -50,30 +47,6 @@ private extension SignInViewController {
 
     @IBAction func logInButtonPressed() {
         delegate?.signInViewControllerDidSelectLogin(self)
-    }
-
-    @IBAction func signUpButtonPressed() {
-        delegate?.signInViewControllerDidSelectSignUp(self)
-    }
-}
-
-// MARK: - Private Functions
-private extension SignInViewController {
-
-    func validateTextField(textField: UITextField) {
-
-        guard let viewModel = viewModel else {
-            return
-        }
-
-        switch textField {
-        case phoneNumberTextField:
-            phoneNumberTextField.validationState = viewModel.phoneNumberValid.textFieldValidationState
-        case emailTextField:
-            emailTextField.validationState = viewModel.emailValid.textFieldValidationState
-        default:
-            break
-        }
     }
 }
 
@@ -102,7 +75,7 @@ extension SignInViewController: UITextFieldDelegate {
             break
         }
 
-        validateTextField(textField: textField)
+        viewModel?.updateView(view: self)
         return true
     }
 }
@@ -111,5 +84,8 @@ extension SignInViewController: UITextFieldDelegate {
 private extension SignInViewModel {
     func updateView(view: SignInViewController) {
         view.title = title
+        view.loginButton.isEnabled = loginButtonEnabled
+        view.emailTextField.validationState = emailValid.textFieldValidationState
+        view.phoneNumberTextField.validationState = phoneNumberValid.textFieldValidationState
     }
 }

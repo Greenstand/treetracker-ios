@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zej-1G-2Wm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zej-1G-2Wm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-57-uo8">
-                                <rect key="frame" x="20" y="64" width="374" height="416"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-57-uo8">
+                                <rect key="frame" x="20" y="64" width="374" height="462.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="greenstandlogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rb3-x4-bAY">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="176"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Kg-4Yg">
-                                        <rect key="frame" x="0.0" y="206" width="374" height="82"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Kg-4Yg">
+                                        <rect key="frame" x="0.0" y="226" width="374" height="142.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-MP-cDo">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
@@ -60,8 +60,14 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fm-HR-GUs">
+                                                <rect key="frame" x="0.0" y="61" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YHz-wy-8i5">
-                                                <rect key="frame" x="0.0" y="51" width="374" height="31"/>
+                                                <rect key="frame" x="0.0" y="111.5" width="374" height="31"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XBL-ko-ZSf">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
@@ -97,7 +103,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-Rg-uTp">
-                                        <rect key="frame" x="0.0" y="318" width="374" height="98"/>
+                                        <rect key="frame" x="0.0" y="418.5" width="374" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -109,18 +115,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="logInButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="KFQ-nQ-2D4"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJQ-2G-J6z" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="54" width="374" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="V8r-RB-1Lv"/>
-                                                </constraints>
-                                                <state key="normal" title="SIGN UP">
-                                                    <color key="titleColor" name="GrayDark"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="signUpButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="LEn-FJ-v0g"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -139,6 +133,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="RoI-WZ-RTU" id="YFf-jS-coJ"/>
+                        <outlet property="loginButton" destination="6Nv-eB-zKw" id="wEK-gy-8un"/>
                         <outlet property="phoneNumberTextField" destination="xLe-97-w0N" id="08h-DZ-9Jq"/>
                     </connections>
                 </viewController>

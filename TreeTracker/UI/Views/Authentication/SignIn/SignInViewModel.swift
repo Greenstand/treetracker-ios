@@ -24,4 +24,15 @@ class SignInViewModel {
     var emailValid: Validation.Result {
         return Validation.isEmailValid(email: email)
     }
+
+    var loginButtonEnabled: Bool {
+        switch (phoneNumberValid, emailValid) {
+        case (.valid, .valid),
+             (.valid, .empty),
+             (.empty, .valid):
+            return true
+        default:
+            return false
+        }
+    }
 }
