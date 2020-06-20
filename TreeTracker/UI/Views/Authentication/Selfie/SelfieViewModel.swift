@@ -10,14 +10,17 @@ import UIKit
 
 class SelfieViewModel {
 
-    let title = "Take Selfie"
     private var image: UIImage?
+
+    var title: String {
+        return L10n.Selfie.title
+    }
 
     var selfieButtonTitle: String {
         guard image != nil else {
-            return "Take Photo"
+            return L10n.Selfie.PhotoButton.TItle.takePhoto
         }
-        return "Retake"
+        return L10n.Selfie.PhotoButton.TItle.retake
     }
 
     let selfiePlaceHolderImage = Asset.Assets.selfie.image

@@ -19,7 +19,7 @@ class SignInViewController: UIViewController, KeyboardDismissing {
             phoneNumberTextField.delegate = self
             phoneNumberTextField.keyboardType = .numberPad
             phoneNumberTextField.returnKeyType = .done
-            phoneNumberTextField.placeholder = L10n.TextInput.PhoneNumber.placeholder
+            phoneNumberTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
         }
     }
     @IBOutlet fileprivate var emailTextField: SignInTextField! {
@@ -27,10 +27,14 @@ class SignInViewController: UIViewController, KeyboardDismissing {
             emailTextField.delegate = self
             emailTextField.keyboardType = .emailAddress
             emailTextField.returnKeyType = .done
-            emailTextField.placeholder = L10n.TextInput.Email.placeholder
+            emailTextField.placeholder = L10n.SignIn.TextInput.Email.placeholder
         }
     }
-    @IBOutlet fileprivate var loginButton: PrimaryButton!
+    @IBOutlet fileprivate var loginButton: PrimaryButton! {
+        didSet {
+            loginButton.setTitle(L10n.SignIn.LoginButton.title, for: .normal)
+        }
+    }
 
     weak var delegate: SignInViewControllerDelegate?
     var viewModel: SignInViewModel?

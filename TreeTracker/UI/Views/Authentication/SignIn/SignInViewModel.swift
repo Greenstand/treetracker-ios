@@ -18,11 +18,11 @@ class SignInViewModel {
     }
 
     var phoneNumberValid: Validation.Result {
-        return Validation.isPhoneNumberValid(phoneNumber: phoneNumber)
+        return Validation.validate(phoneNumber, type: .phoneNumber)
     }
 
     var emailValid: Validation.Result {
-        return Validation.isEmailValid(email: email)
+        return Validation.validate(email, type: .email)
     }
 
     var loginButtonEnabled: Bool {

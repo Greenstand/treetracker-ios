@@ -27,6 +27,11 @@ class TermsViewController: UIViewController {
             activityIndicator.hidesWhenStopped = true
         }
     }
+    @IBOutlet var acceptTermsButton: PrimaryButton! {
+        didSet {
+            acceptTermsButton.setTitle(L10n.Terms.AcceptTermsButton.title, for: .normal)
+        }
+    }
 
     weak var delegate: TermsViewControllerDelegate?
     var viewModel: TermsViewModel?
@@ -37,8 +42,7 @@ class TermsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        activityIndicator.startAnimating()
-        loadURL(url: viewModel?.termsURL)
+        viewModel?.updateView(view: self)
     }
 }
 
@@ -70,6 +74,24 @@ private extension TermsViewController {
 extension TermsViewController: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        activityIndicator.stopAnimating()
+        viewModel?.termsLoaded = true
+        viewModel?.updateView(view: self)
+    }
+}
+
+// MARK: - ViewModel Extension
+private extension TermsViewModel {
+
+    func updateView(view: TermsViewController) {
+
+        view.title = title
+        view.acceptTermsButton.isEnabled = acceptTermsEnabled
+        
+        if !termsLoaded {
+            view.loadURL(url: termsURL)
+            view.activityIndicator.startAnimating()
+        } else {
+            view.activityIndicator.stopAnimating()
+        }
     }
 }

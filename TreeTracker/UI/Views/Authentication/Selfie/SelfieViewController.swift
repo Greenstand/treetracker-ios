@@ -24,7 +24,11 @@ class SelfieViewController: UIViewController {
         }
     }
     @IBOutlet fileprivate var takeSelfieButton: PrimaryButton!
-    @IBOutlet fileprivate var doneButton: PrimaryButton!
+    @IBOutlet fileprivate var doneButton: PrimaryButton! {
+        didSet {
+            doneButton.setTitle(L10n.Selfie.DoneButton.title, for: .normal)
+        }
+    }
 
     var viewModel: SelfieViewModel?
     weak var delegate: SelfieViewControllerDelegate?
@@ -82,8 +86,8 @@ extension SelfieViewController: UIImagePickerControllerDelegate & UINavigationCo
 extension SelfieViewModel {
 
     func updateView(_ view: SelfieViewController) {
-        view.takeSelfieButton.setTitle(selfieButtonTitle, for: .normal)
         view.title = title
+        view.takeSelfieButton.setTitle(selfieButtonTitle, for: .normal)
         view.selfiePreviewImageView.image = selfiePreviewImage
         view.selfiePreviewImageView.contentMode = selfiePreviewContentMode
         view.doneButton.isEnabled = doneButtonEnabled

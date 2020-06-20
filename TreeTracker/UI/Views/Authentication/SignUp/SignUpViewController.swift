@@ -14,57 +14,49 @@ protocol SignUpViewControllerDelegate: class {
 
 class SignUpViewController: UIViewController, KeyboardDismissing {
 
-    @IBOutlet private var phoneNumberTextField: SignInTextField! {
+    @IBOutlet fileprivate var userNameLabel: UILabel! {
         didSet {
-            phoneNumberTextField.delegate = self
-            phoneNumberTextField.keyboardType = .numberPad
-            phoneNumberTextField.returnKeyType = .next
-            phoneNumberTextField.placeholder = L10n.TextInput.PhoneNumber.placeholder
+            userNameLabel.textColor = Asset.Colors.grayDark.color
+            userNameLabel.textAlignment = .center
         }
     }
-    @IBOutlet private var emailTextField: SignInTextField! {
-        didSet {
-            emailTextField.delegate = self
-            emailTextField.keyboardType = .emailAddress
-            emailTextField.returnKeyType = .next
-            emailTextField.placeholder = L10n.TextInput.Email.placeholder
-        }
-    }
-    @IBOutlet private var firstNameTextField: SignInTextField! {
+    @IBOutlet fileprivate var firstNameTextField: SignInTextField! {
         didSet {
             firstNameTextField.delegate = self
             firstNameTextField.keyboardType = .default
             firstNameTextField.returnKeyType = .next
-            firstNameTextField.placeholder = L10n.TextInput.FirstName.placeholder
+            firstNameTextField.placeholder = L10n.SignUp.TextInput.FirstName.placeholder
         }
     }
-    @IBOutlet private var lastNameTextField: SignInTextField! {
+    @IBOutlet fileprivate var lastNameTextField: SignInTextField! {
         didSet {
             lastNameTextField.delegate = self
             lastNameTextField.keyboardType = .default
             lastNameTextField.returnKeyType = .next
-            lastNameTextField.placeholder = L10n.TextInput.LastName.placeholder
+            lastNameTextField.placeholder = L10n.SignUp.TextInput.LastName.placeholder
         }
     }
-    @IBOutlet private var organizationTextField: SignInTextField! {
+    @IBOutlet fileprivate var organizationTextField: SignInTextField! {
         didSet {
             organizationTextField.delegate = self
             organizationTextField.keyboardType = .default
             organizationTextField.returnKeyType = .done
-            organizationTextField.placeholder = L10n.TextInput.Organization.placeholder
+            organizationTextField.placeholder = L10n.SignUp.TextInput.Organization.placeholder
+        }
+    }
+    @IBOutlet fileprivate var signUpButton: UIButton! {
+        didSet {
+            signUpButton.setTitle(L10n.SignUp.SignUpButton.title, for: .normal)
         }
     }
 
     weak var delegate: SignUpViewControllerDelegate?
-    var viewModel: SignUpViewModel? {
-        didSet {
-            viewModel?.updateView(view: self)
-        }
-    }
+    var viewModel: SignUpViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
+        viewModel?.updateView(view: self)
     }
 }
 
@@ -82,10 +74,6 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
         switch textField {
-        case phoneNumberTextField:
-            emailTextField.becomeFirstResponder()
-        case emailTextField:
-            firstNameTextField.becomeFirstResponder()
         case firstNameTextField:
             lastNameTextField.becomeFirstResponder()
         case lastNameTextField:
@@ -95,11 +83,37 @@ extension SignUpViewController: UITextFieldDelegate {
         }
         return false
     }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        guard let text = textField.text as NSString? else {
+            return true
+        }
+
+        let newText = text.replacingCharacters(in: range, with: string)
+
+        switch textField {
+        case firstNameTextField:
+            viewModel?.firstName = newText
+        case lastNameTextField:
+            viewModel?.lastName = newText
+        case organizationTextField:
+            viewModel?.organisation = newText
+        default:
+            break
+        }
+
+        viewModel?.updateView(view: self)
+        return true
+    }
 }
 
 // MARK: - ViewModel Extension
 private extension SignUpViewModel {
     func updateView(view: SignUpViewController) {
-
+        view.signUpButton.isEnabled = signUpEnabled
+        view.firstNameTextField.validationState = firstNameValid.textFieldValidationState
+        view.lastNameTextField.validationState = lastNameValid.textFieldValidationState
+        view.organizationTextField.validationState = organisationValid.textFieldValidationState
     }
 }

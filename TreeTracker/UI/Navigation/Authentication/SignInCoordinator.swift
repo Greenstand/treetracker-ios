@@ -31,9 +31,9 @@ private extension SignInCoordinator {
         ]
     }
 
-    func showSignUp() {
+    func showSignUp(username: String) {
         configuration.navigationController.pushViewController(
-            signUpViewController,
+            signUpViewController(username: username),
             animated: true
         )
     }
@@ -70,9 +70,9 @@ private extension SignInCoordinator {
         return viewController
     }
 
-    var signUpViewController: UIViewController {
+    func signUpViewController(username: String) -> UIViewController {
         let viewController = StoryboardScene.SignUp.initialScene.instantiate()
-        viewController.viewModel = SignUpViewModel()
+        viewController.viewModel = SignUpViewModel(username: username)
         viewController.delegate = self
         return viewController
     }
@@ -96,7 +96,7 @@ private extension SignInCoordinator {
  extension SignInCoordinator: SignInViewControllerDelegate {
 
     func signInViewControllerDidSelectLogin(_ signInViewController: SignInViewController) {
-        showSignUp()
+        showSignUp(username: "alexcornforth@me.com")
     }
 }
 

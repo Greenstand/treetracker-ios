@@ -16,50 +16,57 @@ struct Validation {
         case empty
     }
 
-    static func isEmailValid(email: String?) -> Result {
+    enum ValidationType {
+        case email
+        case phoneNumber
+        case firstName
+        case lastName
+        case organisation
+    }
 
-        guard isEmpty(text: email) == false else {
+    static func validate(_ value: String?, type: ValidationType) -> Result {
+
+        guard let value = value, isEmpty(text: value) == false else {
             return .empty
         }
 
+        switch type {
+        case .email:
+            return isEmailValid(email: value)
+        case .phoneNumber:
+            return isPhoneNumberValid(phoneNumber: value)
+        case .firstName, .lastName, .organisation:
+            return .valid
+        }
+    }
+}
+
+// MARK: - Private Functions
+private extension Validation {
+
+    static func isEmailValid(email: String) -> Result {
         let regex = "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@"
             + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
             + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
             + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
             + "[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|"
             + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,6})$"
-
-        let test = NSPredicate(format: "SELF MATCHES[c] %@", regex)
-
-        guard test.evaluate(with: email) else {
-            return .invalid
-        }
-
-        return .valid
+        return evalute(value: email, regex: regex)
     }
 
-    static func isPhoneNumberValid(phoneNumber: String?) -> Result {
-
-        guard isEmpty(text: phoneNumber) == false else {
-            return .empty
-        }
-
-        let regex = "\\d{7,15}"
-
-        let test = NSPredicate(format: "SELF MATCHES[c] %@", regex)
-
+    static func isPhoneNumberValid(phoneNumber: String) -> Result {
         let cleanPhoneNumber = cleanedPhoneNumber(phoneNumber: phoneNumber)
+        let regex = "\\d{7,15}"
+        return evalute(value: cleanPhoneNumber, regex: regex)
+    }
 
-        guard test.evaluate(with: cleanPhoneNumber) else {
+    static func evalute(value: String, regex: String) -> Result {
+        let test = NSPredicate(format: "SELF MATCHES[c] %@", regex)
+        guard test.evaluate(with: value) else {
             return .invalid
         }
-
         return .valid
     }
-}
-
-// MARK: - Private Functions
-private extension Validation {
 
     static func isEmpty(text: String?) -> Bool {
         guard text != "", text != nil else {
@@ -68,8 +75,8 @@ private extension Validation {
         return false
     }
 
-    static func cleanedPhoneNumber(phoneNumber: String?) -> String? {
-        return phoneNumber?
+    static func cleanedPhoneNumber(phoneNumber: String) -> String {
+        return phoneNumber
             .replacingOccurrences(of: "+", with: "")
             .replacingOccurrences(of: " ", with: "")
             .replacingOccurrences(of: "(", with: "")

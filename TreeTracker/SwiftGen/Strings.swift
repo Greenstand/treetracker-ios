@@ -17,26 +17,71 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "App.Title")
   }
 
-  internal enum TextInput {
-    internal enum Email {
-      /// Or Email Address
-      internal static let placeholder = L10n.tr("Localizable", "TextInput.Email.Placeholder")
+  internal enum Selfie {
+    /// Take Selfie
+    internal static let title = L10n.tr("Localizable", "Selfie.Title")
+    internal enum DoneButton {
+      /// Take Selfie
+      internal static let title = L10n.tr("Localizable", "Selfie.DoneButton.Title")
     }
-    internal enum FirstName {
-      /// First Name
-      internal static let placeholder = L10n.tr("Localizable", "TextInput.FirstName.Placeholder")
+    internal enum PhotoButton {
+      internal enum TItle {
+        /// Retake
+        internal static let retake = L10n.tr("Localizable", "Selfie.PhotoButton.TItle.Retake")
+        /// Take Photo
+        internal static let takePhoto = L10n.tr("Localizable", "Selfie.PhotoButton.TItle.TakePhoto")
+      }
     }
-    internal enum LastName {
-      /// Last Name
-      internal static let placeholder = L10n.tr("Localizable", "TextInput.LastName.Placeholder")
+  }
+
+  internal enum SignIn {
+    /// Greenstand Tree Tracker
+    internal static let title = L10n.tr("Localizable", "SignIn.Title")
+    internal enum LoginButton {
+      /// Login
+      internal static let title = L10n.tr("Localizable", "SignIn.LoginButton.Title")
     }
-    internal enum Organization {
-      /// Organization (optional)
-      internal static let placeholder = L10n.tr("Localizable", "TextInput.Organization.Placeholder")
+    internal enum TextInput {
+      internal enum Email {
+        /// Or Email Address
+        internal static let placeholder = L10n.tr("Localizable", "SignIn.TextInput.Email.Placeholder")
+      }
+      internal enum PhoneNumber {
+        /// Phone Number
+        internal static let placeholder = L10n.tr("Localizable", "SignIn.TextInput.PhoneNumber.Placeholder")
+      }
     }
-    internal enum PhoneNumber {
-      /// Phone Number
-      internal static let placeholder = L10n.tr("Localizable", "TextInput.PhoneNumber.Placeholder")
+  }
+
+  internal enum SignUp {
+    /// Sign Up
+    internal static let title = L10n.tr("Localizable", "SignUp.Title")
+    internal enum SignUpButton {
+      /// Sign Up
+      internal static let title = L10n.tr("Localizable", "SignUp.SignUpButton.Title")
+    }
+    internal enum TextInput {
+      internal enum FirstName {
+        /// First Name
+        internal static let placeholder = L10n.tr("Localizable", "SignUp.TextInput.FirstName.Placeholder")
+      }
+      internal enum LastName {
+        /// Last Name
+        internal static let placeholder = L10n.tr("Localizable", "SignUp.TextInput.LastName.Placeholder")
+      }
+      internal enum Organization {
+        /// Organization (optional)
+        internal static let placeholder = L10n.tr("Localizable", "SignUp.TextInput.Organization.Placeholder")
+      }
+    }
+  }
+
+  internal enum Terms {
+    /// Terms & Conditions
+    internal static let title = L10n.tr("Localizable", "Terms.Title")
+    internal enum AcceptTermsButton {
+      /// Sign Up
+      internal static let title = L10n.tr("Localizable", "Terms.AcceptTermsButton.Title")
     }
   }
 }
