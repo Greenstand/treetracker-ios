@@ -21,7 +21,7 @@ internal enum L10n {
     /// Take Selfie
     internal static let title = L10n.tr("Localizable", "Selfie.Title")
     internal enum DoneButton {
-      /// Take Selfie
+      /// Done
       internal static let title = L10n.tr("Localizable", "Selfie.DoneButton.Title")
     }
     internal enum PhotoButton {
