@@ -8,18 +8,26 @@
 
 import UIKit
 
-protocol SignInViewControllerDelegate: class {
-    func signInViewControllerDidSelectLogin(_ signInViewController: SignInViewController)
-}
+class SignInViewController: UIViewController, KeyboardDismissing, AlertPresenting {
 
-class SignInViewController: UIViewController, KeyboardDismissing {
-
+    @IBOutlet fileprivate var logoImageView: UIImageView! {
+        didSet {
+            logoImageView.image = Asset.Assets.greenstandlogo.image
+        }
+    }
     @IBOutlet fileprivate var phoneNumberTextField: SignInTextField! {
         didSet {
             phoneNumberTextField.delegate = self
             phoneNumberTextField.keyboardType = .numberPad
             phoneNumberTextField.returnKeyType = .done
             phoneNumberTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
+            phoneNumberTextField.validationState = .normal
+        }
+    }
+    @IBOutlet fileprivate var orLabel: UILabel! {
+        didSet {
+            orLabel.text = L10n.SignIn.OrLabel.text
+            orLabel.font = .systemFont(ofSize: 16.0)
         }
     }
     @IBOutlet fileprivate var emailTextField: SignInTextField! {
@@ -28,21 +36,26 @@ class SignInViewController: UIViewController, KeyboardDismissing {
             emailTextField.keyboardType = .emailAddress
             emailTextField.returnKeyType = .done
             emailTextField.placeholder = L10n.SignIn.TextInput.Email.placeholder
+            emailTextField.validationState = .normal
         }
     }
     @IBOutlet fileprivate var loginButton: PrimaryButton! {
         didSet {
             loginButton.setTitle(L10n.SignIn.LoginButton.title, for: .normal)
+            loginButton.isEnabled = false
         }
     }
 
-    weak var delegate: SignInViewControllerDelegate?
-    var viewModel: SignInViewModel?
+    var viewModel: SignInViewModel? {
+        didSet {
+            viewModel?.viewDelegate = self
+            title = viewModel?.title
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
-        viewModel?.updateView(view: self)
     }
 }
 
@@ -50,7 +63,7 @@ class SignInViewController: UIViewController, KeyboardDismissing {
 private extension SignInViewController {
 
     @IBAction func logInButtonPressed() {
-        delegate?.signInViewControllerDidSelectLogin(self)
+        viewModel?.login()
     }
 }
 
@@ -59,6 +72,7 @@ extension SignInViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        present(alert: .information(title: "test", message: "message"))
         return false
     }
 
@@ -78,18 +92,26 @@ extension SignInViewController: UITextFieldDelegate {
         default:
             break
         }
-
-        viewModel?.updateView(view: self)
         return true
     }
 }
 
-// MARK: - ViewModel Extension
-private extension SignInViewModel {
-    func updateView(view: SignInViewController) {
-        view.title = title
-        view.loginButton.isEnabled = loginButtonEnabled
-        view.emailTextField.validationState = emailValid.textFieldValidationState
-        view.phoneNumberTextField.validationState = phoneNumberValid.textFieldValidationState
+// MARK: - SignInViewModelViewDelegate
+extension SignInViewController: SignInViewModelViewDelegate {
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginEnabled enabled: Bool) {
+        loginButton.isEnabled = enabled
+    }
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, didValidateEmail result: Validation.Result) {
+        emailTextField.validationState = result.textFieldValidationState
+    }
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, didValidatePhoneNumber result: Validation.Result) {
+        phoneNumberTextField.validationState = result.textFieldValidationState
+    }
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, didReceiveError error: Error) {
+        present(alert: .error(error))
     }
 }

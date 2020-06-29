@@ -52,6 +52,10 @@ internal enum L10n {
       /// Login
       internal static let title = L10n.tr("Localizable", "SignIn.LoginButton.Title")
     }
+    internal enum OrLabel {
+      /// or
+      internal static let text = L10n.tr("Localizable", "SignIn.OrLabel.Text")
+    }
     internal enum TextInput {
       internal enum Email {
         /// Or Email Address

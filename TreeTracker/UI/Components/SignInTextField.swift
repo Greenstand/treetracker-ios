@@ -52,6 +52,7 @@ private extension SignInTextField {
 
     func commonInit() {
         borderStyle = .none
+        font = .systemFont(ofSize: 14.0)
     }
 
     func updateTextField(forValidationState validationState: ValidationState) {

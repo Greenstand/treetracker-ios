@@ -16,6 +16,7 @@
 //Sign In Screen
 "SignIn.Title" = "Greenstand Tree Tracker";
 "SignIn.TextInput.PhoneNumber.Placeholder" = "Phone Number";
+"SignIn.OrLabel.Text" = "or";
 "SignIn.TextInput.Email.Placeholder" = "Or Email Address";
 "SignIn.LoginButton.Title" = "Login";
 

@@ -134,6 +134,8 @@
                     <connections>
                         <outlet property="emailTextField" destination="RoI-WZ-RTU" id="YFf-jS-coJ"/>
                         <outlet property="loginButton" destination="6Nv-eB-zKw" id="wEK-gy-8un"/>
+                        <outlet property="logoImageView" destination="Rb3-x4-bAY" id="wEW-yn-seZ"/>
+                        <outlet property="orLabel" destination="0fm-HR-GUs" id="v0a-Ti-Bf6"/>
                         <outlet property="phoneNumberTextField" destination="xLe-97-w0N" id="08h-DZ-9Jq"/>
                     </connections>
                 </viewController>
