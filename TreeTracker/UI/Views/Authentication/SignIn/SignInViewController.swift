@@ -10,12 +10,12 @@ import UIKit
 
 class SignInViewController: UIViewController, KeyboardDismissing, AlertPresenting {
 
-    @IBOutlet fileprivate var logoImageView: UIImageView! {
+    @IBOutlet private var logoImageView: UIImageView! {
         didSet {
             logoImageView.image = Asset.Assets.greenstandlogo.image
         }
     }
-    @IBOutlet fileprivate var phoneNumberTextField: SignInTextField! {
+    @IBOutlet private var phoneNumberTextField: SignInTextField! {
         didSet {
             phoneNumberTextField.delegate = self
             phoneNumberTextField.keyboardType = .numberPad
@@ -24,14 +24,14 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             phoneNumberTextField.validationState = .normal
         }
     }
-    @IBOutlet fileprivate var orLabel: UILabel! {
+    @IBOutlet private var orLabel: UILabel! {
         didSet {
             orLabel.text = L10n.SignIn.OrLabel.text
             orLabel.textColor = Asset.Colors.grayDark.color
             orLabel.font = .systemFont(ofSize: 16.0)
         }
     }
-    @IBOutlet fileprivate var emailTextField: SignInTextField! {
+    @IBOutlet private var emailTextField: SignInTextField! {
         didSet {
             emailTextField.delegate = self
             emailTextField.keyboardType = .emailAddress
@@ -40,7 +40,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             emailTextField.validationState = .normal
         }
     }
-    @IBOutlet fileprivate var loginButton: PrimaryButton! {
+    @IBOutlet private var loginButton: PrimaryButton! {
         didSet {
             loginButton.setTitle(L10n.SignIn.LoginButton.title, for: .normal)
             loginButton.isEnabled = false

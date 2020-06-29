@@ -61,7 +61,7 @@ class TermsViewModel {
         viewDelegate?.termsViewModel(self, didUpdateAcceptTermsEnabled: false)
         viewDelegate?.termsViewModel(self, didUpdateLoadingStatus: true)
 
-        termsService.acceptTerms(username: username) { (result) in
+        termsService.acceptTerms(forUser: username) { (result) in
             switch result {
             case .success(let username):
                 coordinatorDelegate?.termsViewModel(self, didAcceptTermsForUser: username)

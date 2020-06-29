@@ -30,7 +30,7 @@ class TermsService {
         }
     }
 
-    func acceptTerms(username: Username, completion: (Result<Username, Error>) -> Void) {
+    func acceptTerms(forUser username: Username, completion: (Result<Username, Error>) -> Void) {
         completion(.success(username))
     }
 }

@@ -8,39 +8,45 @@
 
 import UIKit
 
-protocol SelfieViewControllerDelegate: class {
-    func selfieViewControllerDidStoreSelfie(_ selfieViewController: SelfieViewController)
-}
+class SelfieViewController: UIViewController, AlertPresenting {
 
-class SelfieViewController: UIViewController {
-
-    @IBOutlet fileprivate var selfiePreviewImageView: UIImageView! {
+    @IBOutlet private var selfiePreviewImageView: UIImageView! {
         didSet {
             selfiePreviewImageView.layer.cornerRadius = 20.0
             selfiePreviewImageView.layer.masksToBounds = true
             selfiePreviewImageView.layer.borderColor = Asset.Colors.grayDark.color.cgColor
             selfiePreviewImageView.layer.borderWidth = 5.0
             selfiePreviewImageView.clipsToBounds = true
+            selfiePreviewImageView.contentMode = .scaleAspectFit
+            selfiePreviewImageView.image = Asset.Assets.selfie.image
         }
     }
-    @IBOutlet fileprivate var takeSelfieButton: PrimaryButton!
-    @IBOutlet fileprivate var doneButton: PrimaryButton! {
+    @IBOutlet private var takeSelfieButton: PrimaryButton! {
         didSet {
-            doneButton.setTitle(L10n.Selfie.DoneButton.title, for: .normal)
+            takeSelfieButton.setTitle(L10n.Selfie.PhotoButton.TItle.takePhoto, for: .normal)
+        }
+    }
+    @IBOutlet private var doneButton: PrimaryButton! {
+        didSet {
+            doneButton.setTitle(L10n.Selfie.SaveButton.title, for: .normal)
+            doneButton.isEnabled = false
         }
     }
 
-    var viewModel: SelfieViewModel?
-    weak var delegate: SelfieViewControllerDelegate?
+    var viewModel: SelfieViewModel? {
+        didSet {
+            viewModel?.viewDelegate = self
+            title = viewModel?.title
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.updateView(self)
+        viewModel?.image = nil
     }
 }
 
 // MARK: - Button Actions
-
 private extension SelfieViewController {
 
     @IBAction func takeSelfieButtonPressed() {
@@ -48,12 +54,11 @@ private extension SelfieViewController {
     }
 
     @IBAction func doneButtonPressed() {
-        delegate?.selfieViewControllerDidStoreSelfie(self)
+        viewModel?.storeSelfie()
     }
 }
 
-// MARK: - Private Functions
-
+// MARK: - Private
 private extension SelfieViewController {
 
     func displayImagePicker() {
@@ -65,7 +70,8 @@ private extension SelfieViewController {
     }
 }
 
-extension SelfieViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+// MARK: - UIImagePickerControllerDelegate
+extension SelfieViewController: UIImagePickerControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
@@ -77,19 +83,34 @@ extension SelfieViewController: UIImagePickerControllerDelegate & UINavigationCo
         }
 
         picker.dismiss(animated: true) {
-            self.viewModel?.updateImage(image: editedImage ?? originalImage)
-            self.viewModel?.updateView(self)
+            self.viewModel?.image = editedImage ?? originalImage
         }
     }
 }
 
-extension SelfieViewModel {
+// MARK: - UINavigationControllerDelegate
+extension SelfieViewController: UINavigationControllerDelegate { }
 
-    func updateView(_ view: SelfieViewController) {
-        view.title = title
-        view.takeSelfieButton.setTitle(selfieButtonTitle, for: .normal)
-        view.selfiePreviewImageView.image = selfiePreviewImage
-        view.selfiePreviewImageView.contentMode = selfiePreviewContentMode
-        view.doneButton.isEnabled = doneButtonEnabled
+// MARK: - SelfieViewModelViewDelegate
+extension SelfieViewController: SelfieViewModelViewDelegate {
+
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateSelfieActionTitle title: String) {
+        takeSelfieButton.setTitle(title, for: .normal)
+    }
+
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdatePreviewContentMode contentMode: UIView.ContentMode) {
+        selfiePreviewImageView.contentMode = contentMode
+    }
+
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateSaveSelfieEnabled enabled: Bool) {
+        doneButton.isEnabled = enabled
+    }
+
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didReceiveError error: Error) {
+        present(alert: .error(error))
+    }
+
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdatePreviewImage image: UIImage) {
+        selfiePreviewImageView.image = image
     }
 }

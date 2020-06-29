@@ -12,12 +12,11 @@ class LoginService {
 
     enum Error: Swift.Error {
         case unknownUser(Username)
-        case sessionTimedOut
+        case sessionTimedOut(Username)
         case generalError
     }
 
-    func login(withUsername username: Username, compltion: (Result<Username, Error>
-) -> Void) {
+    func login(withUsername username: Username, compltion: (Result<Username, Error>) -> Void) {
         compltion(.failure(.unknownUser(username)))
     }
 }

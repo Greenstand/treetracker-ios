@@ -10,8 +10,8 @@ import Foundation
 
 protocol SignInViewModelCoordinatorDelegate: class {
     func signInViewModelDidLogin(_ signInViewModel: SignInViewModel)
-    func signInViewModelFailedLoginWithExpiredSession(_ signInViewModel: SignInViewModel)
-    func signInViewModel(_ signInViewModel: SignInViewModel, failedLoginWithUnknownUser username: Username)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession username: Username)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithUnknownUser username: Username)
 }
 
 protocol SignInViewModelViewDelegate: class {
@@ -56,10 +56,10 @@ class SignInViewModel {
                 coordinatorDelegate?.signInViewModelDidLogin(self)
             case .failure(let error):
                 switch error {
-                case .sessionTimedOut:
-                    coordinatorDelegate?.signInViewModelFailedLoginWithExpiredSession(self)
+                case .sessionTimedOut(let username):
+                    coordinatorDelegate?.signInViewModel(self, didFailLoginWithExpiredSession: username)
                 case .unknownUser(let username):
-                    coordinatorDelegate?.signInViewModel(self, failedLoginWithUnknownUser: username)
+                    coordinatorDelegate?.signInViewModel(self, didFailLoginWithUnknownUser: username)
                 case .generalError:
                     viewDelegate?.signInViewModel(self, didReceiveError: error)
                 }

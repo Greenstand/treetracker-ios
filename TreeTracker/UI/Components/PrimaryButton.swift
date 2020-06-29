@@ -33,7 +33,7 @@ class PrimaryButton: UIButton {
     }
 }
 
-// MARK: - Private Functions
+// MARK: - Private
 private extension PrimaryButton {
 
     func commonInit() {

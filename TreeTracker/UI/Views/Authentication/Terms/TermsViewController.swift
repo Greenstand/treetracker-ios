@@ -11,19 +11,19 @@ import WebKit
 
 class TermsViewController: UIViewController, AlertPresenting {
 
-    @IBOutlet var webView: WKWebView! {
+    @IBOutlet private var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self
         }
     }
-    @IBOutlet var activityIndicator: UIActivityIndicatorView! {
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView! {
         didSet {
             activityIndicator.style = .whiteLarge
             activityIndicator.color = .darkGray
             activityIndicator.hidesWhenStopped = true
         }
     }
-    @IBOutlet var acceptTermsButton: PrimaryButton! {
+    @IBOutlet private var acceptTermsButton: PrimaryButton! {
         didSet {
             acceptTermsButton.setTitle(L10n.Terms.AcceptTermsButton.title, for: .normal)
             acceptTermsButton.isEnabled = false

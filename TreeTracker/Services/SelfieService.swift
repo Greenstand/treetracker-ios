@@ -10,17 +10,15 @@ import Foundation
 
 class SelfieService {
 
-    typealias Result = Swift.Result<State, Error>
-
-    enum State {
-        case selfieStored
-    }
-
     enum Error: Swift.Error {
         case generalError
     }
 
-    func storeSelfie(user: Username, completion: (Result) -> Void) {
-        completion(.success(.selfieStored))
+    struct Selfie {
+        let pngData: Data
+    }
+
+    func storeSelfie(selfieImageData data: Selfie, forUser username: Username, completion: (Result<Username, Error>) -> Void) {
+        completion(.success(username))
     }
 }

@@ -41,7 +41,7 @@ struct Validation {
     }
 }
 
-// MARK: - Private Functions
+// MARK: - Private
 private extension Validation {
 
     static func isEmailValid(email: String) -> Result {

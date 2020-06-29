@@ -33,6 +33,6 @@
 
 //Selfie Screen
 "Selfie.Title" = "Take Selfie";
-"Selfie.DoneButton.Title" = "Done";
+"Selfie.SaveButton.Title" = "Save";
 "Selfie.PhotoButton.TItle.TakePhoto" = "Take Photo";
 "Selfie.PhotoButton.TItle.Retake" = "Retake";

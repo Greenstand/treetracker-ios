@@ -10,19 +10,19 @@ import UIKit
 
 class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresenting {
 
-    @IBOutlet fileprivate var logoImageView: UIImageView! {
+    @IBOutlet private var logoImageView: UIImageView! {
         didSet {
             logoImageView.image = Asset.Assets.greenstandlogo.image
         }
     }
-    @IBOutlet fileprivate var usernameLabel: UILabel! {
+    @IBOutlet private var usernameLabel: UILabel! {
         didSet {
             usernameLabel.font = .systemFont(ofSize: 16.0)
             usernameLabel.textColor = Asset.Colors.grayDark.color
             usernameLabel.textAlignment = .center
         }
     }
-    @IBOutlet fileprivate var firstNameTextField: SignInTextField! {
+    @IBOutlet private var firstNameTextField: SignInTextField! {
         didSet {
             firstNameTextField.delegate = self
             firstNameTextField.keyboardType = .default
@@ -31,7 +31,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
             firstNameTextField.validationState = .normal
         }
     }
-    @IBOutlet fileprivate var lastNameTextField: SignInTextField! {
+    @IBOutlet private var lastNameTextField: SignInTextField! {
         didSet {
             lastNameTextField.delegate = self
             lastNameTextField.keyboardType = .default
@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
             lastNameTextField.validationState = .normal
         }
     }
-    @IBOutlet fileprivate var organizationTextField: SignInTextField! {
+    @IBOutlet private var organizationTextField: SignInTextField! {
         didSet {
             organizationTextField.delegate = self
             organizationTextField.keyboardType = .default
@@ -49,7 +49,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
             organizationTextField.validationState = .normal
         }
     }
-    @IBOutlet fileprivate var signUpButton: UIButton! {
+    @IBOutlet private var signUpButton: UIButton! {
         didSet {
             signUpButton.setTitle(L10n.SignUp.SignUpButton.title, for: .normal)
             signUpButton.isEnabled = false

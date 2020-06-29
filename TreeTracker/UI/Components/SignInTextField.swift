@@ -47,7 +47,7 @@ extension SignInTextField {
     }
 }
 
-// MARK: - Private Functions
+// MARK: - Private
 private extension SignInTextField {
 
     func commonInit() {

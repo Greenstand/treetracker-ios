@@ -8,35 +8,68 @@
 
 import UIKit
 
+protocol SelfieViewModelCoordinatorDelegate: class {
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForUser username: Username)
+}
+
+protocol SelfieViewModelViewDelegate: class {
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didReceiveError error: Error)
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdatePreviewImage image: UIImage)
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateSaveSelfieEnabled enabled: Bool)
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateSelfieActionTitle title: String)
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdatePreviewContentMode contentMode: UIView.ContentMode)
+}
+
 class SelfieViewModel {
 
-    private var image: UIImage?
+    weak var coordinatorDelegate: SelfieViewModelCoordinatorDelegate?
+    weak var viewDelegate: SelfieViewModelViewDelegate?
 
-    var title: String {
-        return L10n.Selfie.title
+    private let selfieService: SelfieService
+    private let username: Username
+
+    init(username: Username, selfieService: SelfieService = SelfieService()) {
+        self.username = username
+        self.selfieService = selfieService
     }
 
-    var selfieButtonTitle: String {
-        guard image != nil else {
-            return L10n.Selfie.PhotoButton.TItle.takePhoto
+    let title: String = L10n.Selfie.title
+
+    var image: UIImage? {
+        didSet {
+            viewDelegate?.selfieViewModel(self, didUpdatePreviewImage: selfiePreviewImage)
+            viewDelegate?.selfieViewModel(self, didUpdateSaveSelfieEnabled: saveSelfieEnabled)
+            viewDelegate?.selfieViewModel(self, didUpdateSelfieActionTitle: selfieActionTitle)
+            viewDelegate?.selfieViewModel(self, didUpdatePreviewContentMode: selfiePreviewContentMode)
         }
-        return L10n.Selfie.PhotoButton.TItle.retake
     }
 
-    let selfiePlaceHolderImage = Asset.Assets.selfie.image
+    func storeSelfie() {
+
+        guard let selfie = selfie else {
+            viewDelegate?.selfieViewModel(self, didReceiveError: SelfieViewModel.Error.invalidSelfieData)
+            return
+        }
+
+        selfieService.storeSelfie(selfieImageData: selfie, forUser: username) { (result) in
+            switch result {
+            case .success(let username):
+                coordinatorDelegate?.selfieViewModel(self, didTakeSelfieForUser: username)
+            case .failure(let error):
+                viewDelegate?.selfieViewModel(self, didReceiveError: error)
+            }
+        }
+    }
+}
+
+// MARK: - Private
+private extension SelfieViewModel {
 
     var selfiePreviewImage: UIImage {
         guard let image = image else {
-            return selfiePlaceHolderImage
+            return Asset.Assets.selfie.image
         }
         return image
-    }
-
-    var doneButtonEnabled: Bool {
-        guard image != nil else {
-            return false
-        }
-        return true
     }
 
     var selfiePreviewContentMode: UIView.ContentMode {
@@ -46,7 +79,29 @@ class SelfieViewModel {
         return .scaleAspectFill
     }
 
-    func updateImage(image: UIImage) {
-        self.image = image
+    var saveSelfieEnabled: Bool {
+        return image != nil
+    }
+
+    var selfieActionTitle: String {
+        guard image != nil else {
+            return L10n.Selfie.PhotoButton.TItle.takePhoto
+        }
+        return L10n.Selfie.PhotoButton.TItle.retake
+    }
+
+    var selfie: SelfieService.Selfie? {
+        guard let imageData = image?.pngData() else {
+            return nil
+        }
+        return SelfieService.Selfie(pngData: imageData)
+    }
+}
+
+// MARK: - Error
+extension SelfieViewModel {
+
+    enum Error: Swift.Error {
+        case invalidSelfieData
     }
 }

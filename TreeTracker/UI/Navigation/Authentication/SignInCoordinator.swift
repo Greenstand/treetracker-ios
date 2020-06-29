@@ -45,9 +45,9 @@ private extension SignInCoordinator {
         )
     }
 
-    func showSelfie() {
+    func showSelfie(username: Username) {
         configuration.navigationController.pushViewController(
-            selfieViewController,
+            selfieViewController(username: username),
             animated: true
         )
     }
@@ -93,10 +93,13 @@ private extension SignInCoordinator {
         return viewController
     }
 
-    var selfieViewController: UIViewController {
+    func selfieViewController(username: Username) -> UIViewController {
         let viewController = StoryboardScene.Selfie.initialScene.instantiate()
-        viewController.delegate = self
-        viewController.viewModel = SelfieViewModel()
+        viewController.viewModel = {
+            let viewModel = SelfieViewModel(username: username)
+            viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
         return viewController
     }
 }
@@ -108,11 +111,11 @@ extension SignInCoordinator: SignInViewModelCoordinatorDelegate {
         showLoggedIn()
     }
 
-    func signInViewModelFailedLoginWithExpiredSession(_ signInViewModel: SignInViewModel) {
-        showSelfie()
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession username: Username) {
+        showSelfie(username: username)
     }
 
-    func signInViewModel(_ signInViewModel: SignInViewModel, failedLoginWithUnknownUser username: Username) {
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithUnknownUser username: Username) {
         showSignUp(username: username)
     }
 }
@@ -129,14 +132,14 @@ extension SignInCoordinator: SignUpViewModelCoordinatorDelegate {
 extension SignInCoordinator: TermsViewModelCoordinatorDelegate {
 
     func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForUser username: Username) {
-        showSelfie()
+        showSelfie(username: username)
     }
 }
 
 // MARK: - SelfieViewControllerDelegate
-extension SignInCoordinator: SelfieViewControllerDelegate {
+extension SignInCoordinator: SelfieViewModelCoordinatorDelegate {
 
-    func selfieViewControllerDidStoreSelfie(_ selfieViewController: SelfieViewController) {
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForUser username: Username) {
         showLoggedIn()
     }
 }
