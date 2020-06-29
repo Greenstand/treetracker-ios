@@ -27,6 +27,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
     @IBOutlet fileprivate var orLabel: UILabel! {
         didSet {
             orLabel.text = L10n.SignIn.OrLabel.text
+            orLabel.textColor = Asset.Colors.grayDark.color
             orLabel.font = .systemFont(ofSize: 16.0)
         }
     }

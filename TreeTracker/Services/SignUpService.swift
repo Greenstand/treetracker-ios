@@ -15,7 +15,7 @@ class SignUpService {
     struct Details {
         let username: Username
         let name: Name
-        let organisation: String
+        let organization: Organization
     }
 
     enum State {

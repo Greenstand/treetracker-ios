@@ -21,7 +21,7 @@ struct Validation {
         case phoneNumber
         case firstName
         case lastName
-        case organisation
+        case organization
     }
 
     static func validate(_ value: String?, type: ValidationType) -> Result {
@@ -35,7 +35,7 @@ struct Validation {
             return isEmailValid(email: value)
         case .phoneNumber:
             return isPhoneNumberValid(phoneNumber: value)
-        case .firstName, .lastName, .organisation:
+        case .firstName, .lastName, .organization:
             return .valid
         }
     }

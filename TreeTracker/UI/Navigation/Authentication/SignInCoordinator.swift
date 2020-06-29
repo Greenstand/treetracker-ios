@@ -31,7 +31,7 @@ private extension SignInCoordinator {
         ]
     }
 
-    func showSignUp(username: String) {
+    func showSignUp(username: Username) {
         configuration.navigationController.pushViewController(
             signUpViewController(username: username),
             animated: true
@@ -65,15 +65,21 @@ private extension SignInCoordinator {
 
     var signInViewController: UIViewController {
         let viewController = StoryboardScene.SignIn.initialScene.instantiate()
-        viewController.viewModel = SignInViewModel()
-        viewController.delegate = self
+        viewController.viewModel = {
+            let viewModel = SignInViewModel()
+             viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
         return viewController
     }
 
-    func signUpViewController(username: String) -> UIViewController {
+    func signUpViewController(username: Username) -> UIViewController {
         let viewController = StoryboardScene.SignUp.initialScene.instantiate()
-        viewController.viewModel = SignUpViewModel(username: username)
-        viewController.delegate = self
+        viewController.viewModel = {
+            let viewModel = SignUpViewModel(username: username)
+            viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
         return viewController
     }
 
@@ -93,17 +99,25 @@ private extension SignInCoordinator {
 }
 
 // MARK: - SignInViewControllerDelegate
- extension SignInCoordinator: SignInViewControllerDelegate {
+extension SignInCoordinator: SignInViewModelCoordinatorDelegate {
 
-    func signInViewControllerDidSelectLogin(_ signInViewController: SignInViewController) {
-        showSignUp(username: "alexcornforth@me.com")
+    func signInViewModelDidLogin(_ signInViewModel: SignInViewModel) {
+        showLoggedIn()
+    }
+
+    func signInViewModelFailedLoginWithExpiredSession(_ signInViewModel: SignInViewModel) {
+        showSelfie()
+    }
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, failedLoginWithUnknownUser username: Username) {
+        showSignUp(username: username)
     }
 }
 
 // MARK: - SignUpViewControllerDelegate
-extension SignInCoordinator: SignUpViewControllerDelegate {
+extension SignInCoordinator: SignUpViewModelCoordinatorDelegate {
 
-    func signUpViewControllerDidSignUp(_ signUpViewController: SignUpViewController) {
+    func signUpViewModelDidSignUp(_ signUpViewModel: SignUpViewModel) {
         showTerms()
     }
 }

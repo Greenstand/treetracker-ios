@@ -8,14 +8,16 @@
 
 import UIKit
 
-protocol SignUpViewControllerDelegate: class {
-    func signUpViewControllerDidSignUp(_ signUpViewController: SignUpViewController)
-}
+class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresenting {
 
-class SignUpViewController: UIViewController, KeyboardDismissing {
-
+    @IBOutlet fileprivate var logoImageView: UIImageView! {
+        didSet {
+            logoImageView.image = Asset.Assets.greenstandlogo.image
+        }
+    }
     @IBOutlet fileprivate var userNameLabel: UILabel! {
         didSet {
+            userNameLabel.font = .systemFont(ofSize: 16.0)
             userNameLabel.textColor = Asset.Colors.grayDark.color
             userNameLabel.textAlignment = .center
         }
@@ -26,6 +28,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
             firstNameTextField.keyboardType = .default
             firstNameTextField.returnKeyType = .next
             firstNameTextField.placeholder = L10n.SignUp.TextInput.FirstName.placeholder
+            firstNameTextField.validationState = .normal
         }
     }
     @IBOutlet fileprivate var lastNameTextField: SignInTextField! {
@@ -34,6 +37,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
             lastNameTextField.keyboardType = .default
             lastNameTextField.returnKeyType = .next
             lastNameTextField.placeholder = L10n.SignUp.TextInput.LastName.placeholder
+            lastNameTextField.validationState = .normal
         }
     }
     @IBOutlet fileprivate var organizationTextField: SignInTextField! {
@@ -42,21 +46,26 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
             organizationTextField.keyboardType = .default
             organizationTextField.returnKeyType = .done
             organizationTextField.placeholder = L10n.SignUp.TextInput.Organization.placeholder
+            organizationTextField.validationState = .normal
         }
     }
     @IBOutlet fileprivate var signUpButton: UIButton! {
         didSet {
             signUpButton.setTitle(L10n.SignUp.SignUpButton.title, for: .normal)
+            signUpButton.isEnabled = false
         }
     }
 
-    weak var delegate: SignUpViewControllerDelegate?
-    var viewModel: SignUpViewModel?
+    var viewModel: SignUpViewModel? {
+        didSet {
+            viewModel?.viewDelegate = self
+            title = viewModel?.title
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
-        viewModel?.updateView(view: self)
     }
 }
 
@@ -64,7 +73,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing {
 private extension SignUpViewController {
 
     @IBAction func signUpButtonPressed() {
-        delegate?.signUpViewControllerDidSignUp(self)
+        viewModel?.signUp()
     }
 }
 
@@ -98,22 +107,35 @@ extension SignUpViewController: UITextFieldDelegate {
         case lastNameTextField:
             viewModel?.lastName = newText
         case organizationTextField:
-            viewModel?.organisation = newText
+            viewModel?.organizationName = newText
         default:
             break
         }
 
-        viewModel?.updateView(view: self)
         return true
     }
 }
 
-// MARK: - ViewModel Extension
-private extension SignUpViewModel {
-    func updateView(view: SignUpViewController) {
-        view.signUpButton.isEnabled = signUpEnabled
-        view.firstNameTextField.validationState = firstNameValid.textFieldValidationState
-        view.lastNameTextField.validationState = lastNameValid.textFieldValidationState
-        view.organizationTextField.validationState = organisationValid.textFieldValidationState
+// MARK: - UITextFieldDelegate
+extension SignUpViewController: SignUpViewModelViewDelegate {
+
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didReceiveError error: Error) {
+        present(alert: .error(error))
+    }
+
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateFirstName result: Validation.Result) {
+        firstNameTextField.validationState = result.textFieldValidationState
+    }
+
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateLastName result: Validation.Result) {
+        lastNameTextField.validationState = result.textFieldValidationState
+    }
+
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateOrganizationName result: Validation.Result) {
+        organizationTextField.validationState = result.textFieldValidationState
+    }
+
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didUpdateSignUpEnabled enabled: Bool) {
+        signUpButton.isEnabled = enabled
     }
 }

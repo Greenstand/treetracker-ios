@@ -97,7 +97,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="28"/>
                                                                 <color key="tintColor" name="GrayDark"/>
                                                             </imageView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ORGANISATION" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L1k-pX-V4Z" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ORGANIZATION" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L1k-pX-V4Z" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="54" y="0.0" width="320" height="28"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -142,6 +142,7 @@
                     <connections>
                         <outlet property="firstNameTextField" destination="rGp-fd-X58" id="qUx-qf-w6M"/>
                         <outlet property="lastNameTextField" destination="CpC-Fx-sQO" id="rGY-mI-4D0"/>
+                        <outlet property="logoImageView" destination="OZc-2w-4S2" id="Bjk-3l-2t0"/>
                         <outlet property="organizationTextField" destination="L1k-pX-V4Z" id="pz6-cb-G0r"/>
                         <outlet property="signUpButton" destination="JO9-NH-gzS" id="tWk-Va-mV7"/>
                         <outlet property="userNameLabel" destination="ovY-eg-Lcl" id="K0X-BC-euo"/>

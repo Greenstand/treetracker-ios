@@ -13,6 +13,7 @@ struct Username {
     let phoneNumber: String
 }
 
+// MARK: - Validation
 extension Username {
 
     enum UsernameValidationError: Error {

@@ -95,10 +95,3 @@ private extension SignInViewModel {
         }
     }
 }
-
-// MARK: - Errors
-extension SignInViewModel {
-    enum Error: Swift.Error {
-        case generalError
-    }
-}

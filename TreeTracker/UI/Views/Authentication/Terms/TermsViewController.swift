@@ -86,7 +86,7 @@ private extension TermsViewModel {
 
         view.title = title
         view.acceptTermsButton.isEnabled = acceptTermsEnabled
-        
+
         if !termsLoaded {
             view.loadURL(url: termsURL)
             view.activityIndicator.startAnimating()
