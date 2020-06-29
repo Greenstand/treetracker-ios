@@ -15,11 +15,11 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
             logoImageView.image = Asset.Assets.greenstandlogo.image
         }
     }
-    @IBOutlet fileprivate var userNameLabel: UILabel! {
+    @IBOutlet fileprivate var usernameLabel: UILabel! {
         didSet {
-            userNameLabel.font = .systemFont(ofSize: 16.0)
-            userNameLabel.textColor = Asset.Colors.grayDark.color
-            userNameLabel.textAlignment = .center
+            usernameLabel.font = .systemFont(ofSize: 16.0)
+            usernameLabel.textColor = Asset.Colors.grayDark.color
+            usernameLabel.textAlignment = .center
         }
     }
     @IBOutlet fileprivate var firstNameTextField: SignInTextField! {

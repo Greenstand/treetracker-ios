@@ -95,7 +95,7 @@ internal enum L10n {
     /// Terms & Conditions
     internal static let title = L10n.tr("Localizable", "Terms.Title")
     internal enum AcceptTermsButton {
-      /// Sign Up
+      /// Accept Terms
       internal static let title = L10n.tr("Localizable", "Terms.AcceptTermsButton.Title")
     }
   }

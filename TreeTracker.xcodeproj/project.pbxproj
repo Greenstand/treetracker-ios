@@ -53,6 +53,7 @@
 		93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E82F5B246C36BD00006C91 /* Loading.storyboard */; };
 		93E82F63246C41B000006C91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93E82F62246C41B000006C91 /* Localizable.strings */; };
 		93E82F66246C439100006C91 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E82F65246C439100006C91 /* Strings.swift */; };
+		93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C3024AA27FF00946C0C /* Terms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		93E82F5B246C36BD00006C91 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		93E82F62246C41B000006C91 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93E82F65246C439100006C91 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		93EC8C3024AA27FF00946C0C /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				93C5799A249E580E009C0E46 /* Username.swift */,
 				93C5799C249E5865009C0E46 /* Name.swift */,
 				93C579AB24AA0909009C0E46 /* Organization.swift */,
+				93EC8C3024AA27FF00946C0C /* Terms.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */,
 				93C579AC24AA0909009C0E46 /* Organization.swift in Sources */,
 				93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */,
+				93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */,
 				932EA1AC2478311F0035394D /* KeyboardDismissing.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
 				93C5799B249E580E009C0E46 /* Username.swift in Sources */,

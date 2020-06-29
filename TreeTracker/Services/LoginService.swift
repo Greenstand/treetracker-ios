@@ -10,19 +10,14 @@ import Foundation
 
 class LoginService {
 
-    typealias Result = Swift.Result<State, Error>
-
-    enum State {
-        case loggedIn
-    }
-
     enum Error: Swift.Error {
         case unknownUser(Username)
         case sessionTimedOut
         case generalError
     }
 
-    func login(withUsername username: Username, compltion: (Result) -> Void) {
+    func login(withUsername username: Username, compltion: (Result<Username, Error>
+) -> Void) {
         compltion(.failure(.unknownUser(username)))
     }
 }

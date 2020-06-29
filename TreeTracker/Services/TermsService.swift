@@ -10,17 +10,27 @@ import Foundation
 
 class TermsService {
 
-    typealias Result = Swift.Result<State, Error>
-
-    enum State {
-        case termsAccepted
+    enum FetchTermsError: Swift.Error {
+        case invalidTermsURL
     }
 
-    enum Error: Swift.Error {
-        case generalError
+    func fetchTerms(completion: (Result<Terms, Error>) -> Void) {
+
+        guard let url = Bundle.main.url(forResource: "Terms", withExtension: "html") else {
+            completion(.failure(FetchTermsError.invalidTermsURL))
+            return
+        }
+
+        do {
+            let htmlString = try String(contentsOf: url, encoding: .utf8)
+            let terms = Terms(htmlString: htmlString)
+            completion(.success(terms))
+        } catch {
+            completion(.failure(error))
+        }
     }
 
-    func acceptTerms(user: Username, completion: (Result) -> Void) {
-        completion(.success(.termsAccepted))
+    func acceptTerms(username: Username, completion: (Result<Username, Error>) -> Void) {
+        completion(.success(username))
     }
 }

@@ -38,9 +38,9 @@ private extension SignInCoordinator {
         )
     }
 
-    func showTerms() {
+    func showTerms(username: Username) {
         configuration.navigationController.pushViewController(
-            termsViewController,
+            termsViewController(username: username),
             animated: true
         )
     }
@@ -83,10 +83,13 @@ private extension SignInCoordinator {
         return viewController
     }
 
-    var termsViewController: UIViewController {
+    func termsViewController(username: Username) -> UIViewController {
         let viewController = StoryboardScene.Terms.initialScene.instantiate()
-        viewController.viewModel = TermsViewModel()
-        viewController.delegate = self
+        viewController.viewModel = {
+            let viewModel = TermsViewModel(username: username)
+            viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
         return viewController
     }
 
@@ -117,15 +120,15 @@ extension SignInCoordinator: SignInViewModelCoordinatorDelegate {
 // MARK: - SignUpViewControllerDelegate
 extension SignInCoordinator: SignUpViewModelCoordinatorDelegate {
 
-    func signUpViewModelDidSignUp(_ signUpViewModel: SignUpViewModel) {
-        showTerms()
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername username: Username) {
+        showTerms(username: username)
     }
 }
 
 // MARK: - TermsViewControllerDelegate
-extension SignInCoordinator: TermsViewControllerDelegate {
+extension SignInCoordinator: TermsViewModelCoordinatorDelegate {
 
-    func termsViewControllerDidAcceptTerms(_ termsViewController: TermsViewController) {
+    func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForUser username: Username) {
         showSelfie()
     }
 }

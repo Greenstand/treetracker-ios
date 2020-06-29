@@ -9,11 +9,7 @@
 import UIKit
 import WebKit
 
-protocol TermsViewControllerDelegate: class {
-    func termsViewControllerDidAcceptTerms(_ termsViewController: TermsViewController)
-}
-
-class TermsViewController: UIViewController {
+class TermsViewController: UIViewController, AlertPresenting {
 
     @IBOutlet var webView: WKWebView! {
         didSet {
@@ -30,35 +26,20 @@ class TermsViewController: UIViewController {
     @IBOutlet var acceptTermsButton: PrimaryButton! {
         didSet {
             acceptTermsButton.setTitle(L10n.Terms.AcceptTermsButton.title, for: .normal)
+            acceptTermsButton.isEnabled = false
         }
     }
 
-    weak var delegate: TermsViewControllerDelegate?
-    var viewModel: TermsViewModel?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var viewModel: TermsViewModel? {
+        didSet {
+            viewModel?.viewDelegate = self
+            title = viewModel?.title
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.updateView(view: self)
-    }
-}
-
-// MARK: - Private Functions
-fileprivate extension TermsViewController {
-
-    func loadURL(url: URL?) {
-
-        guard let url = url else {
-            return
-        }
-
-        webView.loadFileURL(
-            url,
-            allowingReadAccessTo: url
-        )
+        viewModel?.fetchTerms()
     }
 }
 
@@ -66,7 +47,7 @@ fileprivate extension TermsViewController {
 private extension TermsViewController {
 
     @IBAction func acceptTermsButtonPressed() {
-        delegate?.termsViewControllerDidAcceptTerms(self)
+        viewModel?.acceptTerms()
     }
 }
 
@@ -75,23 +56,29 @@ extension TermsViewController: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         viewModel?.termsLoaded = true
-        viewModel?.updateView(view: self)
     }
 }
 
-// MARK: - ViewModel Extension
-private extension TermsViewModel {
+// MARK: - TermsViewModelViewDelegate
+extension TermsViewController: TermsViewModelViewDelegate {
 
-    func updateView(view: TermsViewController) {
+    func termsViewModel(_ termsViewModel: TermsViewModel, didUpdateAcceptTermsEnabled enabled: Bool) {
+        acceptTermsButton.isEnabled = enabled
+    }
 
-        view.title = title
-        view.acceptTermsButton.isEnabled = acceptTermsEnabled
-
-        if !termsLoaded {
-            view.loadURL(url: termsURL)
-            view.activityIndicator.startAnimating()
+    func termsViewModel(_ termsViewModel: TermsViewModel, didUpdateLoadingStatus loading: Bool) {
+        if loading {
+            activityIndicator.startAnimating()
         } else {
-            view.activityIndicator.stopAnimating()
+            activityIndicator.stopAnimating()
         }
+    }
+
+    func termsViewModel(_ termsViewModel: TermsViewModel, didFetchTerms string: String) {
+        webView.loadHTMLString(string, baseURL: nil)
+    }
+
+    func termsViewModel(_ termsViewModel: TermsViewModel, didReceiveError error: Error) {
+        present(alert: .error(error))
     }
 }

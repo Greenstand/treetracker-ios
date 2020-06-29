@@ -29,7 +29,7 @@
 
 // Terms & Conditions Screen
 "Terms.Title" = "Terms & Conditions";
-"Terms.AcceptTermsButton.Title" = "Sign Up";
+"Terms.AcceptTermsButton.Title" = "Accept Terms";
 
 //Selfie Screen
 "Selfie.Title" = "Take Selfie";

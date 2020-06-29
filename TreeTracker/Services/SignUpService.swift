@@ -10,23 +10,17 @@ import Foundation
 
 class SignUpService {
 
-    typealias Result = Swift.Result<State, Error>
-
     struct Details {
         let username: Username
         let name: Name
         let organization: Organization
     }
 
-    enum State {
-        case signedUp
-    }
-
     enum Error: Swift.Error {
         case generalError
     }
 
-    func signUp(withDetails signUpDetails: Details, completion: (Result) -> Void) {
-        completion(.success(.signedUp))
+    func signUp(withDetails signUpDetails: Details, completion: (Result<Username, Error>) -> Void) {
+        completion(.success(signUpDetails.username))
     }
 }

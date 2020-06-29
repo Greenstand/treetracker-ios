@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SignUpViewModelCoordinatorDelegate: class {
-    func signUpViewModelDidSignUp(_ signUpViewModel: SignUpViewModel)
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername username: Username)
 }
 
 protocol SignUpViewModelViewDelegate: class {
@@ -58,8 +58,8 @@ class SignUpViewModel {
 
         signUpService.signUp(withDetails: signUpDetails) { (result) in
             switch result {
-            case .success:
-                coordinatorDelegate?.signUpViewModelDidSignUp(self)
+            case .success(let username):
+                coordinatorDelegate?.signUpViewModel(self, didSignUpWithusername: username)
             case .failure(let error):
                 switch error {
                 case .generalError:

@@ -50,7 +50,7 @@ class SignInViewModel {
 
     func login() {
 
-        loginService.login(withUsername: username) {(result) in
+        loginService.login(withUsername: username) { (result) in
             switch result {
             case .success:
                 coordinatorDelegate?.signInViewModelDidLogin(self)

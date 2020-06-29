@@ -145,7 +145,7 @@
                         <outlet property="logoImageView" destination="OZc-2w-4S2" id="Bjk-3l-2t0"/>
                         <outlet property="organizationTextField" destination="L1k-pX-V4Z" id="pz6-cb-G0r"/>
                         <outlet property="signUpButton" destination="JO9-NH-gzS" id="tWk-Va-mV7"/>
-                        <outlet property="userNameLabel" destination="ovY-eg-Lcl" id="K0X-BC-euo"/>
+                        <outlet property="usernameLabel" destination="ovY-eg-Lcl" id="NhR-6b-hHT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8u-1I-LRu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -8,29 +8,68 @@
 
 import Foundation
 
+protocol TermsViewModelCoordinatorDelegate: class {
+    func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForUser username: Username)
+}
+
+protocol TermsViewModelViewDelegate: class {
+    func termsViewModel(_ termsViewModel: TermsViewModel, didReceiveError error: Error)
+    func termsViewModel(_ termsViewModel: TermsViewModel, didFetchTerms string: String)
+    func termsViewModel(_ termsViewModel: TermsViewModel, didUpdateAcceptTermsEnabled enabled: Bool)
+    func termsViewModel(_ termsViewModel: TermsViewModel, didUpdateLoadingStatus loading: Bool)
+}
+
 class TermsViewModel {
 
-    var termsLoaded: Bool = false
+    weak var coordinatorDelegate: TermsViewModelCoordinatorDelegate?
+    weak var viewDelegate: TermsViewModelViewDelegate?
 
-    var title: String {
-        return L10n.Terms.title
+    private let termsService: TermsService
+    private let username: Username
+
+    init(username: Username, termsService: TermsService = TermsService()) {
+        self.username = username
+        self.termsService = termsService
     }
 
-    var termsURL: URL? {
-        return Bundle.main.url(forResource: "Terms", withExtension: "html")
-    }
+    let title: String = L10n.Terms.title
 
-    var acceptTermsEnabled: Bool {
-        guard termsLoaded == true else {
-            return false
+    var termsLoaded: Bool = false {
+        didSet {
+            viewDelegate?.termsViewModel(self, didUpdateAcceptTermsEnabled: termsLoaded)
+            viewDelegate?.termsViewModel(self, didUpdateLoadingStatus: !termsLoaded)
         }
-        return true
     }
 
-    var isLoading: Bool {
-        guard termsLoaded else {
-            return true
+    func fetchTerms() {
+
+        viewDelegate?.termsViewModel(self, didUpdateLoadingStatus: true)
+
+        termsService.fetchTerms { (result) in
+            switch result {
+            case .success(let terms):
+                viewDelegate?.termsViewModel(self, didFetchTerms: terms.htmlString)
+            case .failure(let error):
+                viewDelegate?.termsViewModel(self, didReceiveError: error)
+                viewDelegate?.termsViewModel(self, didUpdateLoadingStatus: false)
+            }
         }
-        return false
+    }
+
+    func acceptTerms() {
+
+        viewDelegate?.termsViewModel(self, didUpdateAcceptTermsEnabled: false)
+        viewDelegate?.termsViewModel(self, didUpdateLoadingStatus: true)
+
+        termsService.acceptTerms(username: username) { (result) in
+            switch result {
+            case .success(let username):
+                coordinatorDelegate?.termsViewModel(self, didAcceptTermsForUser: username)
+            case .failure(let error):
+                viewDelegate?.termsViewModel(self, didReceiveError: error)
+                viewDelegate?.termsViewModel(self, didUpdateAcceptTermsEnabled: true)
+                viewDelegate?.termsViewModel(self, didUpdateLoadingStatus: false)
+            }
+        }
     }
 }
