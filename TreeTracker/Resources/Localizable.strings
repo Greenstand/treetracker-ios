@@ -9,6 +9,10 @@
 // General
 "App.Title" = "Greenstand Tree Tracker";
 
+// Alerts
+"Alert.Title.Error" = "Error";
+"Alert.Button.Ok" = "Ok";
+
 //Sign In Screen
 "SignIn.Title" = "Greenstand Tree Tracker";
 "SignIn.TextInput.PhoneNumber.Placeholder" = "Phone Number";
