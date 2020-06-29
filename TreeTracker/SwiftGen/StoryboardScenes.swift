@@ -17,10 +17,30 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
   }
-  internal enum Main: StoryboardType {
-    internal static let storyboardName = "Main"
+  internal enum Loading: StoryboardType {
+    internal static let storyboardName = "Loading"
 
-    internal static let initialScene = InitialSceneType<TreeTracker.ViewController>(storyboard: Main.self)
+    internal static let initialScene = InitialSceneType<TreeTracker.LoadingViewController>(storyboard: Loading.self)
+  }
+  internal enum Selfie: StoryboardType {
+    internal static let storyboardName = "Selfie"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.SelfieViewController>(storyboard: Selfie.self)
+  }
+  internal enum SignIn: StoryboardType {
+    internal static let storyboardName = "SignIn"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.SignInViewController>(storyboard: SignIn.self)
+  }
+  internal enum SignUp: StoryboardType {
+    internal static let storyboardName = "SignUp"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.SignUpViewController>(storyboard: SignUp.self)
+  }
+  internal enum Terms: StoryboardType {
+    internal static let storyboardName = "Terms"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.TermsViewController>(storyboard: Terms.self)
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

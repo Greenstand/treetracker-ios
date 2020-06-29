@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  TreeTracker
+
+  Created by Alex Cornforth on 13/05/2020.
+  Copyright © 2020 Greenstand. All rights reserved.
+*/
+
+// General
+"App.Title" = "Greenstand Tree Tracker";
+
+// Alerts
+"Alert.Title.Error" = "Error";
+"Alert.Button.Ok" = "Ok";
+
+//Sign In Screen
+"SignIn.Title" = "Greenstand Tree Tracker";
+"SignIn.TextInput.PhoneNumber.Placeholder" = "Phone Number";
+"SignIn.OrLabel.Text" = "or";
+"SignIn.TextInput.Email.Placeholder" = "Or Email Address";
+"SignIn.LoginButton.Title" = "Login";
+
+// Sign Up Screen
+"SignUp.Title" = "Sign Up";
+"SignUp.TextInput.FirstName.Placeholder" = "First Name";
+"SignUp.TextInput.LastName.Placeholder" = "Last Name";
+"SignUp.TextInput.Organization.Placeholder" = "Organization (optional)";
+"SignUp.SignUpButton.Title" = "Sign Up";
+
+// Terms & Conditions Screen
+"Terms.Title" = "Terms & Conditions";
+"Terms.AcceptTermsButton.Title" = "Accept Terms";
+
+//Selfie Screen
+"Selfie.Title" = "Take Selfie";
+"Selfie.SaveButton.Title" = "Save";
+"Selfie.PhotoButton.TItle.TakePhoto" = "Take Photo";
+"Selfie.PhotoButton.TItle.Retake" = "Retake";

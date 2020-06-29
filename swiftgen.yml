@@ -12,3 +12,8 @@ xcassets:
   outputs:
     - templateName: swift4
       output: Assets.swift
+strings:
+  inputs: ./
+  outputs:
+    templateName: structured-swift4
+    output: Strings.swift

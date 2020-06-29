@@ -10,6 +10,7 @@ import UIKit
 
 class RootCoordinator: Coordinator {
 
+    var childCoordinators: [Coordinator] = []
     private let configuration: CoordinatorConfigurable
 
     required init(configuration: CoordinatorConfigurable) {
@@ -17,25 +18,35 @@ class RootCoordinator: Coordinator {
     }
 
     func start() {
-        showHomeViewController()
+        showSignIn()
     }
 }
 
 // MARK: - Navigation
 private extension RootCoordinator {
 
-    func showHomeViewController() {
+    func showLoadingViewController() {
         configuration.navigationController.viewControllers = [
-            viewController
+            loadingViewController
         ]
+    }
+
+    func showSignIn() {
+        let signInCoordinator = SignInCoordinator(
+            configuration: configuration
+        )
+        startCoordinator(coordinator: signInCoordinator)
+    }
+
+    func showMap() {
+
     }
 }
 
 // MARK: - View Controllers
 private extension RootCoordinator {
 
-    var viewController: UIViewController {
-        let viewController = StoryboardScene.Main.initialScene.instantiate()
-        return viewController
+    var loadingViewController: UIViewController {
+        return StoryboardScene.Loading.initialScene.instantiate()
     }
 }

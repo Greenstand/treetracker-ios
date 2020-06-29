@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X4I-dk-5j4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Selfie View Controller-->
+        <scene sceneID="VDD-Ad-1JL">
+            <objects>
+                <viewController id="X4I-dk-5j4" customClass="SelfieViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sZm-4N-VM1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="m5x-2Z-bFH">
+                                <rect key="frame" x="20" y="94" width="374" height="748"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-9b-RXe">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="588"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zE0-tZ-HBB">
+                                        <rect key="frame" x="0.0" y="638" width="374" height="110"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ib1-Vl-lft" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="MEV-Av-adI"/>
+                                                </constraints>
+                                                <state key="normal" title="Take Photo"/>
+                                                <connections>
+                                                    <action selector="takeSelfieButtonPressed" destination="X4I-dk-5j4" eventType="touchUpInside" id="QYU-4V-aFs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaG-ze-7I5" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="60" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="8U4-ki-U9h"/>
+                                                </constraints>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="doneButtonPressed" destination="X4I-dk-5j4" eventType="touchUpInside" id="vEA-J3-H3d"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ldM-nU-bKp" firstAttribute="bottom" secondItem="m5x-2Z-bFH" secondAttribute="bottom" constant="20" id="ASj-H5-Sph"/>
+                            <constraint firstItem="m5x-2Z-bFH" firstAttribute="top" secondItem="ldM-nU-bKp" secondAttribute="top" constant="50" id="J8n-5L-mTA"/>
+                            <constraint firstItem="m5x-2Z-bFH" firstAttribute="leading" secondItem="ldM-nU-bKp" secondAttribute="leading" constant="20" id="rgG-CQ-I3C"/>
+                            <constraint firstItem="ldM-nU-bKp" firstAttribute="trailing" secondItem="m5x-2Z-bFH" secondAttribute="trailing" constant="20" id="yEO-rE-97Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ldM-nU-bKp"/>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="oaG-ze-7I5" id="KbT-nr-sW1"/>
+                        <outlet property="selfiePreviewImageView" destination="Ede-9b-RXe" id="XzW-nr-Zxc"/>
+                        <outlet property="takeSelfieButton" destination="Ib1-Vl-lft" id="Lwe-sf-chL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGE-Am-DZ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="-277"/>
+        </scene>
+    </scenes>
+</document>

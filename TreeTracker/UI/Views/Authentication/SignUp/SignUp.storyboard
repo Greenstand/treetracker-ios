@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vq6-qS-O62">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="Nc9-3x-7MB">
+            <objects>
+                <viewController id="Vq6-qS-O62" customClass="SignUpViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="49U-NM-v7F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UUb-y1-78U">
+                                <rect key="frame" x="20" y="64" width="374" height="510"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="greenstandlogo" translatesAutoresizingMaskIntoConstraints="NO" id="OZc-2w-4S2">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="176"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovY-eg-Lcl">
+                                        <rect key="frame" x="0.0" y="206" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Svs-Qb-bf6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Pmh-MY-11D">
+                                        <rect key="frame" x="0.0" y="286" width="374" height="150"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pp4-Lu-EE4">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="38"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MVl-0V-Que">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="dQt-2w-vmU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                                <color key="tintColor" name="GrayDark"/>
+                                                            </imageView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="FIRST NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rGp-fd-X58" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
+                                                                <rect key="frame" x="42" y="0.0" width="332" height="32"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xID-8i-Lbd">
+                                                        <rect key="frame" x="0.0" y="37" width="374" height="1"/>
+                                                        <color key="backgroundColor" name="GrayDark"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="GYX-K4-tGE"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="88I-fG-Of8">
+                                                <rect key="frame" x="0.0" y="58" width="374" height="38"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-79-dbS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="wVO-BE-b2t">
+                                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                                <color key="tintColor" name="GrayDark"/>
+                                                            </imageView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LAST NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CpC-Fx-sQO" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
+                                                                <rect key="frame" x="42" y="0.0" width="332" height="32"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-ZH-smf">
+                                                        <rect key="frame" x="0.0" y="37" width="374" height="1"/>
+                                                        <color key="backgroundColor" name="GrayDark"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="cUk-bS-r6d"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bw6-Sd-5m0">
+                                                <rect key="frame" x="0.0" y="116" width="374" height="34"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dZ3-Hg-jV1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="28"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" image="people" translatesAutoresizingMaskIntoConstraints="NO" id="A87-kQ-1Ag">
+                                                                <rect key="frame" x="0.0" y="0.0" width="44" height="28"/>
+                                                                <color key="tintColor" name="GrayDark"/>
+                                                            </imageView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ORGANIZATION" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L1k-pX-V4Z" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
+                                                                <rect key="frame" x="54" y="0.0" width="320" height="28"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-RP-Xej">
+                                                        <rect key="frame" x="0.0" y="33" width="374" height="1"/>
+                                                        <color key="backgroundColor" name="GrayDark"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="GUJ-3B-RLU"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JO9-NH-gzS" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="466" width="374" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="8HD-4H-GF7"/>
+                                        </constraints>
+                                        <state key="normal" title="SIGN UP">
+                                            <color key="titleColor" name="GrayDark"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpButtonPressed" destination="Vq6-qS-O62" eventType="touchUpInside" id="akd-mR-syj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="T1m-Ef-7d1" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UUb-y1-78U" secondAttribute="bottom" id="EDT-6N-8KL"/>
+                            <constraint firstItem="T1m-Ef-7d1" firstAttribute="trailing" secondItem="UUb-y1-78U" secondAttribute="trailing" constant="20" id="jkb-bs-Hqz"/>
+                            <constraint firstItem="UUb-y1-78U" firstAttribute="top" secondItem="T1m-Ef-7d1" secondAttribute="top" constant="20" id="sQ2-MM-QEy"/>
+                            <constraint firstItem="UUb-y1-78U" firstAttribute="leading" secondItem="T1m-Ef-7d1" secondAttribute="leading" constant="20" id="trC-0R-OjO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T1m-Ef-7d1"/>
+                    </view>
+                    <connections>
+                        <outlet property="firstNameTextField" destination="rGp-fd-X58" id="qUx-qf-w6M"/>
+                        <outlet property="lastNameTextField" destination="CpC-Fx-sQO" id="rGY-mI-4D0"/>
+                        <outlet property="logoImageView" destination="OZc-2w-4S2" id="Bjk-3l-2t0"/>
+                        <outlet property="organizationTextField" destination="L1k-pX-V4Z" id="pz6-cb-G0r"/>
+                        <outlet property="signUpButton" destination="JO9-NH-gzS" id="tWk-Va-mV7"/>
+                        <outlet property="usernameLabel" destination="ovY-eg-Lcl" id="NhR-6b-hHT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8u-1I-LRu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-536" y="87"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="greenstandlogo" width="141" height="176"/>
+        <image name="people" width="44" height="28"/>
+        <image name="person" width="32" height="32"/>
+        <namedColor name="GrayDark">
+            <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

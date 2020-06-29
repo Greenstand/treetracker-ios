@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
 
-        let navigationController = UINavigationController()
+        let navigationController = BaseNavigationViewController()
 
         let configuration = CoordinatorConfiguration(
             navigationController: navigationController
