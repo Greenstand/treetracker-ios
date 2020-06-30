@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol SignInCoordinatorDelegate: class {
+    func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInUser username: Username)
+}
+
 class SignInCoordinator: Coordinator {
 
+    weak var delegate: SignInCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
     private let configuration: CoordinatorConfigurable
 
@@ -52,11 +57,8 @@ private extension SignInCoordinator {
         )
     }
 
-    func showLoggedIn() {
-        configuration.navigationController.viewControllers = [
-            UIViewController()
-        ]
-
+    func signUpComplete(username: Username) {
+        delegate?.signInCoordinator(self, didSignInUser: username)
     }
 }
 
@@ -107,8 +109,8 @@ private extension SignInCoordinator {
 // MARK: - SignInViewControllerDelegate
 extension SignInCoordinator: SignInViewModelCoordinatorDelegate {
 
-    func signInViewModelDidLogin(_ signInViewModel: SignInViewModel) {
-        showLoggedIn()
+    func signInViewModel(_ signInViewModel: SignInViewModel, didLoginUser username: Username) {
+        signUpComplete(username: username)
     }
 
     func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession username: Username) {
@@ -140,6 +142,6 @@ extension SignInCoordinator: TermsViewModelCoordinatorDelegate {
 extension SignInCoordinator: SelfieViewModelCoordinatorDelegate {
 
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForUser username: Username) {
-        showLoggedIn()
+        signUpComplete(username: username)
     }
 }

@@ -28,8 +28,31 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "App.Title")
   }
 
+  internal enum Home {
+    /// Welcome Home
+    internal static let title = L10n.tr("Localizable", "Home.Title")
+    internal enum AddTreeButton {
+      /// ADD TREE
+      internal static let title = L10n.tr("Localizable", "Home.AddTreeButton.Title")
+    }
+    internal enum InfoLabel {
+      internal enum TreesPlantedLabel {
+        /// Trees Planted
+        internal static let text = L10n.tr("Localizable", "Home.InfoLabel.TreesPlantedLabel.Text")
+      }
+      internal enum TreesUploadedLabel {
+        /// Trees Uploaded
+        internal static let text = L10n.tr("Localizable", "Home.InfoLabel.TreesUploadedLabel.Text")
+      }
+    }
+    internal enum UploadButton {
+      /// UPLOAD
+      internal static let title = L10n.tr("Localizable", "Home.UploadButton.Title")
+    }
+  }
+
   internal enum Selfie {
-    /// Take Selfie
+    /// Selfie
     internal static let title = L10n.tr("Localizable", "Selfie.Title")
     internal enum PhotoButton {
       internal enum TItle {
@@ -46,7 +69,7 @@ internal enum L10n {
   }
 
   internal enum SignIn {
-    /// Greenstand Tree Tracker
+    /// Sign In
     internal static let title = L10n.tr("Localizable", "SignIn.Title")
     internal enum LoginButton {
       /// Login

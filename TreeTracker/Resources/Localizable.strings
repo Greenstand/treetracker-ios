@@ -14,7 +14,7 @@
 "Alert.Button.Ok" = "Ok";
 
 //Sign In Screen
-"SignIn.Title" = "Greenstand Tree Tracker";
+"SignIn.Title" = "Sign In";
 "SignIn.TextInput.PhoneNumber.Placeholder" = "Phone Number";
 "SignIn.OrLabel.Text" = "or";
 "SignIn.TextInput.Email.Placeholder" = "Or Email Address";
@@ -32,7 +32,14 @@
 "Terms.AcceptTermsButton.Title" = "Accept Terms";
 
 //Selfie Screen
-"Selfie.Title" = "Take Selfie";
+"Selfie.Title" = "Selfie";
 "Selfie.SaveButton.Title" = "Save";
 "Selfie.PhotoButton.TItle.TakePhoto" = "Take Photo";
 "Selfie.PhotoButton.TItle.Retake" = "Retake";
+
+//Home Screen
+"Home.Title" = "Welcome Home";
+"Home.InfoLabel.TreesPlantedLabel.Text" = "Trees Planted";
+"Home.InfoLabel.TreesUploadedLabel.Text" = "Trees Uploaded";
+"Home.UploadButton.Title" = "UPLOAD";
+"Home.AddTreeButton.Title" = "ADD TREE";

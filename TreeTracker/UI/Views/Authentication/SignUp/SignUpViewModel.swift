@@ -33,7 +33,7 @@ class SignUpViewModel {
         self.signUpService = signUpService
     }
 
-    let title: String = L10n.App.title
+    let title: String = L10n.SignIn.title
 
     var firstName: String = "" {
         didSet {

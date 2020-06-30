@@ -32,14 +32,11 @@ private extension RootCoordinator {
     }
 
     func showSignIn() {
-        let signInCoordinator = SignInCoordinator(
-            configuration: configuration
-        )
         startCoordinator(coordinator: signInCoordinator)
     }
 
-    func showMap() {
-
+    func showHome(username: Username) {
+        startCoordinator(coordinator: homeCoordinator(username: username))
     }
 }
 
@@ -48,5 +45,40 @@ private extension RootCoordinator {
 
     var loadingViewController: UIViewController {
         return StoryboardScene.Loading.initialScene.instantiate()
+    }
+}
+
+// MARK: - Child Coordinators
+private extension RootCoordinator {
+
+    var signInCoordinator: Coordinator {
+        let signInCoordinator = SignInCoordinator(configuration: configuration)
+        signInCoordinator.delegate = self
+        return signInCoordinator
+    }
+
+    func homeCoordinator(username: Username) -> Coordinator {
+        let homeCoordinator = HomeCoordinator(configuration: configuration)
+        homeCoordinator.delegate = self
+        homeCoordinator.username = username
+        return homeCoordinator
+    }
+}
+
+// MARK: - SignInCoordinatorDelegate
+extension RootCoordinator: SignInCoordinatorDelegate {
+
+    func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInUser username: Username) {
+        childCoordinators.removeAll()
+        showHome(username: username)
+    }
+}
+
+// MARK: - HomeCoordinatorDelegate
+extension RootCoordinator: HomeCoordinatorDelegate {
+
+    func homeCoordinatorDidLogout(_ homeCoordinator: HomeCoordinator) {
+        childCoordinators.removeAll()
+        showSignIn()
     }
 }
