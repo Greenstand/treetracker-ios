@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SignInViewModelCoordinatorDelegate: class {
-    func signInViewModelDidLogin(_ signInViewModel: SignInViewModel)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didLoginUser username: Username)
     func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession username: Username)
     func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithUnknownUser username: Username)
 }
@@ -32,7 +32,7 @@ class SignInViewModel {
         self.loginService = loginService
     }
 
-    let title: String = L10n.App.title
+    let title: String = L10n.SignIn.title
 
     var phoneNumber: String = "" {
         didSet {
@@ -52,8 +52,8 @@ class SignInViewModel {
 
         loginService.login(withUsername: username) { (result) in
             switch result {
-            case .success:
-                coordinatorDelegate?.signInViewModelDidLogin(self)
+            case .success(let username):
+                coordinatorDelegate?.signInViewModel(self, didLoginUser: username)
             case .failure(let error):
                 switch error {
                 case .sessionTimedOut(let username):

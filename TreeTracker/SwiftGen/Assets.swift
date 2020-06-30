@@ -20,10 +20,15 @@
 internal enum Asset {
   internal enum Assets {
     internal static let selfie = ImageAsset(name: "selfie")
+    internal static let forward = ImageAsset(name: "forward")
     internal static let mail = ImageAsset(name: "mail")
     internal static let people = ImageAsset(name: "people")
     internal static let person = ImageAsset(name: "person")
     internal static let phone = ImageAsset(name: "phone")
+    internal static let profile = ImageAsset(name: "profile")
+    internal static let saplingIcon = ImageAsset(name: "sapling_Icon")
+    internal static let seed = ImageAsset(name: "seed")
+    internal static let upload = ImageAsset(name: "upload")
     internal static let greenstandlogo = ImageAsset(name: "greenstandlogo")
   }
   internal enum Colors {

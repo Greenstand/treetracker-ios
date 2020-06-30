@@ -54,6 +54,14 @@
 		93E82F63246C41B000006C91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93E82F62246C41B000006C91 /* Localizable.strings */; };
 		93E82F66246C439100006C91 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E82F65246C439100006C91 /* Strings.swift */; };
 		93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C3024AA27FF00946C0C /* Terms.swift */; };
+		93EC8C3424AA4AE100946C0C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C3324AA4AE100946C0C /* HomeCoordinator.swift */; };
+		93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C3824AA52DF00946C0C /* HomeViewController.swift */; };
+		93EC8C3B24AA52E900946C0C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C3A24AA52E900946C0C /* HomeViewModel.swift */; };
+		93EC8C3D24AA52F000946C0C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93EC8C3C24AA52F000946C0C /* Home.storyboard */; };
+		93EC8C4224AA8A8400946C0C /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C4124AA8A8400946C0C /* Tree.swift */; };
+		93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C4324AA8EE900946C0C /* TreeService.swift */; };
+		93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */; };
+		93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C4924AB7EA100946C0C /* UploadsButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +134,14 @@
 		93E82F62246C41B000006C91 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93E82F65246C439100006C91 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		93EC8C3024AA27FF00946C0C /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
+		93EC8C3324AA4AE100946C0C /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		93EC8C3824AA52DF00946C0C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		93EC8C3A24AA52E900946C0C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		93EC8C3C24AA52F000946C0C /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		93EC8C4124AA8A8400946C0C /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		93EC8C4324AA8EE900946C0C /* TreeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeService.swift; sourceTree = "<group>"; };
+		93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTreeButton.swift; sourceTree = "<group>"; };
+		93EC8C4924AB7EA100946C0C /* UploadsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadsButton.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +231,7 @@
 				93C5799C249E5865009C0E46 /* Name.swift */,
 				93C579AB24AA0909009C0E46 /* Organization.swift */,
 				93EC8C3024AA27FF00946C0C /* Terms.swift */,
+				93EC8C4124AA8A8400946C0C /* Tree.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +243,7 @@
 				93C57997249E57A6009C0E46 /* SignUpService.swift */,
 				93C579A324A26D95009C0E46 /* TermsService.swift */,
 				93C579A524A26E6B009C0E46 /* SelfieService.swift */,
+				93EC8C4324AA8EE900946C0C /* TreeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -321,6 +339,7 @@
 				93E18969245DEB6A00217F21 /* Coordinator */,
 				93E82F49246C25D800006C91 /* Root */,
 				93E82F4A246C25F700006C91 /* Authentication */,
+				93EC8C3224AA4ABD00946C0C /* Home */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -356,6 +375,7 @@
 			children = (
 				93E82F58246C36A300006C91 /* Loading */,
 				93E82F5F246C3B3200006C91 /* Authentication */,
+				93EC8C3524AA4FD100946C0C /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +427,34 @@
 				93E18932245B737D00217F21 /* SceneDelegate.swift */,
 			);
 			path = ApplicationDelegates;
+			sourceTree = "<group>";
+		};
+		93EC8C3224AA4ABD00946C0C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				93EC8C3324AA4AE100946C0C /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		93EC8C3524AA4FD100946C0C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				93EC8C4724AB7A6C00946C0C /* Components */,
+				93EC8C3824AA52DF00946C0C /* HomeViewController.swift */,
+				93EC8C3A24AA52E900946C0C /* HomeViewModel.swift */,
+				93EC8C3C24AA52F000946C0C /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		93EC8C4724AB7A6C00946C0C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */,
+				93EC8C4924AB7EA100946C0C /* UploadsButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9C75872AC24B8E14A3BB24DE /* Pods */ = {
@@ -535,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E1893D245B738100217F21 /* LaunchScreen.storyboard in Resources */,
+				93EC8C3D24AA52F000946C0C /* Home.storyboard in Resources */,
 				931C37BA249BAD0900EE24DC /* Selfie.storyboard in Resources */,
 				93E82F63246C41B000006C91 /* Localizable.strings in Resources */,
 				93989CFD246EABFA00A1B21F /* Terms.storyboard in Resources */,
@@ -631,7 +680,10 @@
 			files = (
 				93989D06246ED00D00A1B21F /* PrimaryButton.swift in Sources */,
 				93E82F56246C35FF00006C91 /* SignInViewModel.swift in Sources */,
+				93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */,
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
+				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,
+				93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */,
 				93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */,
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
 				93C579A424A26D95009C0E46 /* TermsService.swift in Sources */,
@@ -649,8 +701,10 @@
 				93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */,
 				932EA1AC2478311F0035394D /* KeyboardDismissing.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
+				93EC8C4224AA8A8400946C0C /* Tree.swift in Sources */,
 				93C5799B249E580E009C0E46 /* Username.swift in Sources */,
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
+				93EC8C3B24AA52E900946C0C /* HomeViewModel.swift in Sources */,
 				931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */,
 				937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */,
 				93C579A824A33DE7009C0E46 /* AlertPresenting.swift in Sources */,
@@ -660,7 +714,9 @@
 				93C57996249E5599009C0E46 /* LoginService.swift in Sources */,
 				93989CFB246EABF100A1B21F /* TermsViewController.swift in Sources */,
 				93C5799D249E5865009C0E46 /* Name.swift in Sources */,
+				93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
+				93EC8C3424AA4AE100946C0C /* HomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

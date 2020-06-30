@@ -13,5 +13,6 @@ class BaseNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.tintColor = Asset.Colors.grayDark.color
+        navigationBar.prefersLargeTitles = true
     }
 }
