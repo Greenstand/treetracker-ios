@@ -5,7 +5,7 @@ jobs:
   include:
     - stage: "Analysis"
       name: "Analysis"
-      script: echo analyzing...
+      script: fastlane analysis
     - stage: "Test"
       name: "Test"
       script: echo testing...
