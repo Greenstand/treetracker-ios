@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SelfieViewModelCoordinatorDelegate: class {
-    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForUser username: Username)
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForPlanter planter: Planter)
 }
 
 protocol SelfieViewModelViewDelegate: class {
@@ -26,10 +26,10 @@ class SelfieViewModel {
     weak var viewDelegate: SelfieViewModelViewDelegate?
 
     private let selfieService: SelfieService
-    private let username: Username
+    private let planter: Planter
 
-    init(username: Username, selfieService: SelfieService = SelfieService()) {
-        self.username = username
+    init(planter: Planter, selfieService: SelfieService) {
+        self.planter = planter
         self.selfieService = selfieService
     }
 
@@ -51,10 +51,10 @@ class SelfieViewModel {
             return
         }
 
-        selfieService.storeSelfie(selfieImageData: selfie, forUser: username) { (result) in
+        selfieService.storeSelfie(selfieData: selfie, forPlanter: planter) { (result) in
             switch result {
-            case .success(let username):
-                coordinatorDelegate?.selfieViewModel(self, didTakeSelfieForUser: username)
+            case .success(let planter):
+                coordinatorDelegate?.selfieViewModel(self, didTakeSelfieForPlanter: planter)
             case .failure(let error):
                 viewDelegate?.selfieViewModel(self, didReceiveError: error)
             }
@@ -90,11 +90,11 @@ private extension SelfieViewModel {
         return L10n.Selfie.PhotoButton.TItle.retake
     }
 
-    var selfie: SelfieService.Selfie? {
+    var selfie: SelfieData? {
         guard let imageData = image?.pngData() else {
             return nil
         }
-        return SelfieService.Selfie(pngData: imageData)
+        return SelfieData(pngData: imageData)
     }
 }
 

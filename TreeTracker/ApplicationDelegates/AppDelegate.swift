@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var rootCoordinator: Coordinator?
 
+    lazy var coreDataManager: CoreDataManager = {
+        return CoreDataManager()
+    }()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         guard #available(iOS 13.0, *) else {
@@ -24,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
 
             rootCoordinator = RootCoordinator(
-                configuration: configuration
+                configuration: configuration,
+                coreDataManager: coreDataManager
             )
             rootCoordinator?.start()
 
@@ -37,7 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        coreDataManager.saveContext()
+    }
+
+    // MARK: - UISceneSession Lifecycle
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.

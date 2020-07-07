@@ -11,10 +11,12 @@ import UIKit
 class RootCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
-    private let configuration: CoordinatorConfigurable
+    let configuration: CoordinatorConfigurable
+    let coreDataManager: CoreDataManager
 
-    required init(configuration: CoordinatorConfigurable) {
+    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManager) {
         self.configuration = configuration
+        self.coreDataManager = coreDataManager
     }
 
     func start() {
@@ -35,8 +37,8 @@ private extension RootCoordinator {
         startCoordinator(coordinator: signInCoordinator)
     }
 
-    func showHome(username: Username) {
-        startCoordinator(coordinator: homeCoordinator(username: username))
+    func showHome(planter: Planter) {
+        startCoordinator(coordinator: homeCoordinator(planter: planter))
     }
 }
 
@@ -52,15 +54,20 @@ private extension RootCoordinator {
 private extension RootCoordinator {
 
     var signInCoordinator: Coordinator {
-        let signInCoordinator = SignInCoordinator(configuration: configuration)
+        let signInCoordinator = SignInCoordinator(
+            configuration: configuration,
+            coreDataManager: coreDataManager
+        )
         signInCoordinator.delegate = self
         return signInCoordinator
     }
 
-    func homeCoordinator(username: Username) -> Coordinator {
-        let homeCoordinator = HomeCoordinator(configuration: configuration)
+    func homeCoordinator(planter: Planter) -> Coordinator {
+        let homeCoordinator = HomeCoordinator(
+            configuration: configuration,
+            planter: planter
+        )
         homeCoordinator.delegate = self
-        homeCoordinator.username = username
         return homeCoordinator
     }
 }
@@ -68,9 +75,9 @@ private extension RootCoordinator {
 // MARK: - SignInCoordinatorDelegate
 extension RootCoordinator: SignInCoordinatorDelegate {
 
-    func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInUser username: Username) {
+    func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInPlanter planter: Planter) {
         childCoordinators.removeAll()
-        showHome(username: username)
+        showHome(planter: planter)
     }
 }
 

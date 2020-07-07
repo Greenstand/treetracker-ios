@@ -16,41 +16,38 @@ class HomeCoordinator: Coordinator {
 
     weak var delegate: HomeCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
-    private let configuration: CoordinatorConfigurable
-    var username: Username?
+    let configuration: CoordinatorConfigurable
+    let planter: Planter
 
-    required init(configuration: CoordinatorConfigurable) {
+    required init(configuration: CoordinatorConfigurable, planter: Planter) {
         self.configuration = configuration
+        self.planter = planter
     }
 
     func start() {
-        guard let username = username else {
-            delegate?.homeCoordinatorDidLogout(self)
-            return
-        }
-        showHome(username: username)
+        showHome(planter: planter)
     }
 }
 
 // MARK: - Navigation
 private extension HomeCoordinator {
 
-    func showHome(username: Username) {
+    func showHome(planter: Planter) {
         configuration.navigationController.viewControllers = [
-            homeViewController(username: username)
+            homeViewController(planter: planter)
         ]
     }
 
-    func showUploadList(username: Username) {
+    func showUploadList(planter: Planter) {
         configuration.navigationController.pushViewController(
-            uploadListViewController(username: username),
+            uploadListViewController,
             animated: true
         )
     }
 
-    func showAddTree(username: Username) {
+    func showAddTree(planter: Planter) {
         configuration.navigationController.pushViewController(
-            addTreeViewController(username: username),
+            addTreeViewController,
             animated: true
         )
     }
@@ -59,24 +56,24 @@ private extension HomeCoordinator {
 // MARK: - View Controllers
 private extension HomeCoordinator {
 
-    func homeViewController(username: Username) -> UIViewController {
+    func homeViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Home.initialScene.instantiate()
         viewController.viewModel = {
-            let viewModel = HomeViewModel(username: username)
+            let viewModel = HomeViewModel(planter: planter)
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
         return viewController
     }
 
-    func uploadListViewController(username: Username) -> UIViewController {
+    var uploadListViewController: UIViewController {
         let viewcontroller = UIViewController()
         viewcontroller.view.backgroundColor = .white
         viewcontroller.title = "Uploads"
         return viewcontroller
     }
 
-    func addTreeViewController(username: Username) -> UIViewController {
+    var addTreeViewController: UIViewController {
         let viewcontroller = UIViewController()
         viewcontroller.view.backgroundColor = .white
         viewcontroller.title = "Add Tree"
@@ -86,12 +83,11 @@ private extension HomeCoordinator {
 
 // MARK: - HomeViewModelCoordinatorDelegate
 extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
-
-    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForUser username: Username) {
-        showAddTree(username: username)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter) {
+        showAddTree(planter: planter)
     }
 
-    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForUser username: Username) {
-        showUploadList(username: username)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter) {
+        showUploadList(planter: planter)
     }
 }

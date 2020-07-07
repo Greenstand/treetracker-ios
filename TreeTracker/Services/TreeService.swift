@@ -17,7 +17,7 @@ class TreeService {
 
     weak var delegate: TreeServiceDelegate?
 
-    func startMonitoringTrees(forUser: Username) {
+    func startMonitoringTrees(forPlanter: Planter) {
         //Set up nsfetched results controller
         delegate?.treeService(self, didUpdateTrees: [])
     }

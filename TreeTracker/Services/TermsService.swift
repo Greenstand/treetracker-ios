@@ -8,16 +8,29 @@
 
 import Foundation
 
-class TermsService {
+protocol TermsService {
+    func fetchTerms(completion: (Result<Terms, Error>) -> Void)
+    func acceptTerms(forPlanter planter: Planter, completion: (Result<Planter, Error>) -> Void)
+}
 
-    enum FetchTermsError: Swift.Error {
-        case invalidTermsURL
+// MARK: - Errors
+enum TermsServiceError: Swift.Error {
+    case planterError
+    case invalidTermsURL
+}
+
+class LocalTermsService: TermsService {
+
+    private let coreDataManager: CoreDataManager
+
+    init(coreDataManager: CoreDataManager) {
+        self.coreDataManager = coreDataManager
     }
 
     func fetchTerms(completion: (Result<Terms, Error>) -> Void) {
 
         guard let url = Bundle.main.url(forResource: "Terms", withExtension: "html") else {
-            completion(.failure(FetchTermsError.invalidTermsURL))
+            completion(.failure(TermsServiceError.invalidTermsURL))
             return
         }
 
@@ -30,7 +43,20 @@ class TermsService {
         }
     }
 
-    func acceptTerms(forUser username: Username, completion: (Result<Username, Error>) -> Void) {
-        completion(.success(username))
+    func acceptTerms(forPlanter planter: Planter, completion: (Result<Planter, Error>) -> Void) {
+
+        guard let planter = planter as? PlanterDetail else {
+            completion(.failure(TermsServiceError.planterError))
+            return
+        }
+
+        planter.acceptedTerms = true
+
+        do {
+            try coreDataManager.viewContext.save()
+            completion(.success(planter))
+        } catch {
+            completion(.failure(error))
+        }
     }
 }

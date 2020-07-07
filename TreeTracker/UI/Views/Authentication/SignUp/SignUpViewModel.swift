@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SignUpViewModelCoordinatorDelegate: class {
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername username: Username)
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername planter: Planter)
 }
 
 protocol SignUpViewModelViewDelegate: class {
@@ -28,12 +28,21 @@ class SignUpViewModel {
     weak var coordinatorDelegate: SignUpViewModelCoordinatorDelegate?
     weak var viewDelegate: SignUpViewModelViewDelegate?
 
-    init(username: Username, signUpService: SignUpService = SignUpService()) {
+    init(username: Username, signUpService: SignUpService) {
         self.username = username
         self.signUpService = signUpService
     }
 
     let title: String = L10n.SignIn.title
+
+    var usernameText: String {
+        switch username {
+        case .email(let email):
+            return "Email: \(email)"
+        case .phoneNumber(let phoneNumber):
+            return "Phone: \(phoneNumber)"
+        }
+    }
 
     var firstName: String = "" {
         didSet {
@@ -61,10 +70,7 @@ class SignUpViewModel {
             case .success(let username):
                 coordinatorDelegate?.signUpViewModel(self, didSignUpWithusername: username)
             case .failure(let error):
-                switch error {
-                case .generalError:
-                    viewDelegate?.signUpViewModel(self, didReceiveError: error)
-                }
+                viewDelegate?.signUpViewModel(self, didReceiveError: error)
             }
         }
     }
@@ -108,8 +114,8 @@ private extension SignUpViewModel {
         )
     }
 
-    var signUpDetails: SignUpService.Details {
-        return SignUpService.Details(
+    var signUpDetails: SignUpDetails {
+        return SignUpDetails(
             username: username,
             name: name,
             organization: organization

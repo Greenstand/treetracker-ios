@@ -10,9 +10,9 @@ import UIKit
 
 class SignInTextField: UITextField {
 
-    @IBOutlet private var iconView: UIImageView? {
+    @IBOutlet var iconImageView: UIImageView? {
         didSet {
-            iconView?.tintColor = Asset.Colors.grayMedium.color
+            iconImageView?.tintColor = Asset.Colors.grayMedium.color
         }
     }
     @IBOutlet private var underlineView: UIView? {
@@ -58,18 +58,19 @@ private extension SignInTextField {
     func updateTextField(forValidationState validationState: ValidationState) {
         switch validationState {
         case .normal:
-            iconView?.tintColor = Asset.Colors.grayMedium.color
+            iconImageView?.tintColor = Asset.Colors.grayMedium.color
             underlineView?.backgroundColor = Asset.Colors.grayMedium.color
         case .valid:
-            iconView?.tintColor = Asset.Colors.secondaryGreen.color
+            iconImageView?.tintColor = Asset.Colors.secondaryGreen.color
             underlineView?.backgroundColor = Asset.Colors.secondaryGreen.color
         case .invalid:
-            iconView?.tintColor = Asset.Colors.secondaryOrangeDark.color
+            iconImageView?.tintColor = Asset.Colors.secondaryOrangeDark.color
             underlineView?.backgroundColor = Asset.Colors.secondaryOrangeDark.color
         }
     }
 }
 
+// MARK: - Validation.Result extension
 extension Validation.Result {
 
     var textFieldValidationState: SignInTextField.ValidationState {

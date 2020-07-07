@@ -66,6 +66,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
     override func viewDidLoad() {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
+        usernameLabel.text = viewModel?.usernameText
     }
 }
 
