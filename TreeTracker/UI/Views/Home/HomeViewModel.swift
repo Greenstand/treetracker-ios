@@ -9,8 +9,8 @@
 import Foundation
 
 protocol HomeViewModelCoordinatorDelegate: class {
-    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForUser username: Username)
-    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForUser username: Username)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter)
 }
 
 protocol HomeViewModelViewDelegate: class {
@@ -37,10 +37,10 @@ class HomeViewModel {
     weak var viewDelegate: HomeViewModelViewDelegate?
 
     private let treeService: TreeService
-    private let username: Username
+    private let planter: Planter
 
-    init(username: Username, treeService: TreeService = TreeService()) {
-        self.username = username
+    init(planter: Planter, treeService: TreeService = TreeService()) {
+        self.planter = planter
         self.treeService = treeService
         treeService.delegate = self
     }
@@ -48,15 +48,15 @@ class HomeViewModel {
     let title = L10n.Home.title
 
     func fetchTrees() {
-        treeService.startMonitoringTrees(forUser: username)
+        treeService.startMonitoringTrees(forPlanter: planter)
     }
 
     func uploadListSelected() {
-        coordinatorDelegate?.homeViewModel(self, didSelectUploadListForUser: username)
+        coordinatorDelegate?.homeViewModel(self, didSelectUploadListForPlanter: planter)
     }
 
     func addTreeSelected() {
-        coordinatorDelegate?.homeViewModel(self, didSelectAddTreeForUser: username)
+        coordinatorDelegate?.homeViewModel(self, didSelectAddTreeForPlanter: planter)
     }
 }
 

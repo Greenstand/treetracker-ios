@@ -81,7 +81,7 @@ internal enum L10n {
     }
     internal enum TextInput {
       internal enum Email {
-        /// Or Email Address
+        /// Email Address
         internal static let placeholder = L10n.tr("Localizable", "SignIn.TextInput.Email.Placeholder")
       }
       internal enum PhoneNumber {

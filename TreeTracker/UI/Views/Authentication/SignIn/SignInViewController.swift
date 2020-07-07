@@ -15,29 +15,21 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             logoImageView.image = Asset.Assets.greenstandlogo.image
         }
     }
-    @IBOutlet private var phoneNumberTextField: SignInTextField! {
+    @IBOutlet private var usernameTextField: SignInTextField! {
         didSet {
-            phoneNumberTextField.delegate = self
-            phoneNumberTextField.keyboardType = .numberPad
-            phoneNumberTextField.returnKeyType = .done
-            phoneNumberTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
-            phoneNumberTextField.validationState = .normal
+            usernameTextField.delegate = self
+            usernameTextField.textContentType = .telephoneNumber
+            usernameTextField.keyboardType = .phonePad
+            usernameTextField.returnKeyType = .done
+            usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
+            usernameTextField.validationState = .normal
         }
     }
-    @IBOutlet private var orLabel: UILabel! {
+    @IBOutlet private var usernameSegmentedControl: UISegmentedControl! {
         didSet {
-            orLabel.text = L10n.SignIn.OrLabel.text
-            orLabel.textColor = Asset.Colors.grayDark.color
-            orLabel.font = .systemFont(ofSize: 16.0)
-        }
-    }
-    @IBOutlet private var emailTextField: SignInTextField! {
-        didSet {
-            emailTextField.delegate = self
-            emailTextField.keyboardType = .emailAddress
-            emailTextField.returnKeyType = .done
-            emailTextField.placeholder = L10n.SignIn.TextInput.Email.placeholder
-            emailTextField.validationState = .normal
+            usernameSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            usernameSegmentedControl.setImage(Asset.Assets.phone.image, forSegmentAt: 0)
+            usernameSegmentedControl.setImage(Asset.Assets.mail.image, forSegmentAt: 1)
         }
     }
     @IBOutlet private var loginButton: PrimaryButton! {
@@ -66,6 +58,17 @@ private extension SignInViewController {
     @IBAction func logInButtonPressed() {
         viewModel?.login()
     }
+
+    @IBAction func usernameSegmentedControlChanged(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            viewModel?.updateLoginType(loginType: .phoneNumber)
+        case 1:
+            viewModel?.updateLoginType(loginType: .email)
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - TextField Delegate
@@ -73,7 +76,6 @@ extension SignInViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        present(alert: .information(title: "test", message: "message"))
         return false
     }
 
@@ -84,15 +86,7 @@ extension SignInViewController: UITextFieldDelegate {
         }
 
         let newText = text.replacingCharacters(in: range, with: string)
-
-        switch textField {
-        case phoneNumberTextField:
-            viewModel?.phoneNumber = newText
-        case emailTextField:
-            viewModel?.email = newText
-        default:
-            break
-        }
+        viewModel?.updateUsername(username: newText)
         return true
     }
 }
@@ -104,15 +98,29 @@ extension SignInViewController: SignInViewModelViewDelegate {
         loginButton.isEnabled = enabled
     }
 
-    func signInViewModel(_ signInViewModel: SignInViewModel, didValidateEmail result: Validation.Result) {
-        emailTextField.validationState = result.textFieldValidationState
-    }
-
-    func signInViewModel(_ signInViewModel: SignInViewModel, didValidatePhoneNumber result: Validation.Result) {
-        phoneNumberTextField.validationState = result.textFieldValidationState
-    }
-
     func signInViewModel(_ signInViewModel: SignInViewModel, didReceiveError error: Error) {
         present(alert: .error(error))
+    }
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateValidationState result: Validation.Result) {
+        usernameTextField.validationState = result.textFieldValidationState
+    }
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginType loginType: SignInViewModel.LoginType) {
+
+        switch loginType {
+        case .phoneNumber:
+            usernameTextField.keyboardType = .phonePad
+            usernameTextField.textContentType = .telephoneNumber
+            usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
+            usernameTextField.iconImageView?.image = Asset.Assets.phone.image
+        case .email:
+            usernameTextField.keyboardType = .emailAddress
+            usernameTextField.textContentType = .emailAddress
+            usernameTextField.placeholder = L10n.SignIn.TextInput.Email.placeholder
+            usernameTextField.iconImageView?.image = Asset.Assets.mail.image
+        }
+
+        usernameTextField.refreshKeyboard()
     }
 }

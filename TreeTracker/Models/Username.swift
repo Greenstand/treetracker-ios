@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Username {
-    let email: String
-    let phoneNumber: String
+enum Username {
+    case email(String)
+    case phoneNumber(String)
 }
 
 // MARK: - Validation
@@ -22,32 +22,12 @@ extension Username {
         case empty
     }
 
-    enum UsernameValidationResult {
-        case valid
-        case invalid(UsernameValidationError)
-    }
-
-    var isValid: UsernameValidationResult {
-
-        switch (emailValid, phoneNumberValid) {
-        case (.valid, .valid),
-             (.valid, .empty),
-             (.empty, .valid):
-            return .valid
-        case (.invalid, _):
-            return .invalid(.emailInvalid)
-        case (_, .invalid):
-            return .invalid(.phoneNumberInvalid)
-        case (.empty, .empty):
-            return .invalid(.empty)
+    var isValid: Validation.Result {
+        switch self {
+        case .email(let email):
+            return Validation.validate(email, type: .email)
+        case .phoneNumber(let phoneNumber):
+            return Validation.validate(phoneNumber, type: .phoneNumber)
         }
-    }
-
-    var emailValid: Validation.Result {
-        return Validation.validate(email, type: .email)
-    }
-
-    var phoneNumberValid: Validation.Result {
-        return Validation.validate(phoneNumber, type: .phoneNumber)
     }
 }

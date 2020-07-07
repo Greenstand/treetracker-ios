@@ -62,6 +62,10 @@
 		93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C4324AA8EE900946C0C /* TreeService.swift */; };
 		93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */; };
 		93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C4924AB7EA100946C0C /* UploadsButton.swift */; };
+		93EC8C4E24ABA5B500946C0C /* TreeTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C4C24ABA5B500946C0C /* TreeTracker.xcdatamodeld */; };
+		93EC8C9124ABD25100946C0C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C9024ABD25100946C0C /* CoreDataManager.swift */; };
+		93EC8CA324AD2E7B00946C0C /* Planter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CA224AD2E7B00946C0C /* Planter.swift */; };
+		93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +146,10 @@
 		93EC8C4324AA8EE900946C0C /* TreeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeService.swift; sourceTree = "<group>"; };
 		93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTreeButton.swift; sourceTree = "<group>"; };
 		93EC8C4924AB7EA100946C0C /* UploadsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadsButton.swift; sourceTree = "<group>"; };
+		93EC8C4D24ABA5B500946C0C /* TreeTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TreeTracker.xcdatamodel; sourceTree = "<group>"; };
+		93EC8C9024ABD25100946C0C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		93EC8CA224AD2E7B00946C0C /* Planter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planter.swift; sourceTree = "<group>"; };
+		93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +240,7 @@
 				93C579AB24AA0909009C0E46 /* Organization.swift */,
 				93EC8C3024AA27FF00946C0C /* Terms.swift */,
 				93EC8C4124AA8A8400946C0C /* Tree.swift */,
+				93EC8CA224AD2E7B00946C0C /* Planter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +282,7 @@
 		93E1892F245B737D00217F21 /* TreeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				93EC8C4B24ABA51800946C0C /* Storage */,
 				93C579A024A269A7009C0E46 /* Services */,
 				93C57999249E57EA009C0E46 /* Models */,
 				93E82F61246C415400006C91 /* ApplicationDelegates */,
@@ -326,6 +336,7 @@
 		93E1896C245DEE4000217F21 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				93EC8CA624B28B3B00946C0C /* Extensions */,
 				93989D04246ECFED00A1B21F /* Components */,
 				93E1896D245DEE6800217F21 /* Navigation */,
 				93E82F57246C368200006C91 /* Views */,
@@ -455,6 +466,23 @@
 				93EC8C4924AB7EA100946C0C /* UploadsButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		93EC8C4B24ABA51800946C0C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				93EC8C4C24ABA5B500946C0C /* TreeTracker.xcdatamodeld */,
+				93EC8C9024ABD25100946C0C /* CoreDataManager.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		93EC8CA624B28B3B00946C0C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9C75872AC24B8E14A3BB24DE /* Pods */ = {
@@ -682,6 +710,7 @@
 				93E82F56246C35FF00006C91 /* SignInViewModel.swift in Sources */,
 				93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */,
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
+				93EC8C4E24ABA5B500946C0C /* TreeTracker.xcdatamodeld in Sources */,
 				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,
 				93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */,
 				93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */,
@@ -693,6 +722,7 @@
 				93E82F4C246C262900006C91 /* SignInCoordinator.swift in Sources */,
 				93E18966245C95F200217F21 /* StoryboardSegues.swift in Sources */,
 				93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */,
+				93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */,
 				93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */,
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
 				932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */,
@@ -700,6 +730,7 @@
 				93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */,
 				93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */,
 				932EA1AC2478311F0035394D /* KeyboardDismissing.swift in Sources */,
+				93EC8C9124ABD25100946C0C /* CoreDataManager.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
 				93EC8C4224AA8A8400946C0C /* Tree.swift in Sources */,
 				93C5799B249E580E009C0E46 /* Username.swift in Sources */,
@@ -716,6 +747,7 @@
 				93C5799D249E5865009C0E46 /* Name.swift in Sources */,
 				93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
+				93EC8CA324AD2E7B00946C0C /* Planter.swift in Sources */,
 				93EC8C3424AA4AE100946C0C /* HomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1034,6 +1066,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		93EC8C4C24ABA5B500946C0C /* TreeTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93EC8C4D24ABA5B500946C0C /* TreeTracker.xcdatamodel */,
+			);
+			currentVersion = 93EC8C4D24ABA5B500946C0C /* TreeTracker.xcdatamodel */;
+			path = TreeTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 93E18925245B737D00217F21 /* Project object */;
 }

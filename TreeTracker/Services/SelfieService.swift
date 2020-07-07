@@ -8,17 +8,45 @@
 
 import Foundation
 
-class SelfieService {
+struct SelfieData {
+    let pngData: Data
+}
 
-    enum Error: Swift.Error {
-        case generalError
+protocol SelfieService {
+    func storeSelfie(selfieData data: SelfieData, forPlanter planter: Planter, completion: (Result<Planter, Error>) -> Void)
+}
+
+// MARK: - Errors
+enum SelfieServiceError: Swift.Error {
+    case planterError
+}
+
+class LocalSelfieService: SelfieService {
+
+    private let coreDataManager: CoreDataManager
+
+    init(coreDataManager: CoreDataManager) {
+        self.coreDataManager = coreDataManager
     }
 
-    struct Selfie {
-        let pngData: Data
-    }
+    func storeSelfie(selfieData data: SelfieData, forPlanter planter: Planter, completion: (Result<Planter, Error>) -> Void) {
 
-    func storeSelfie(selfieImageData data: Selfie, forUser username: Username, completion: (Result<Username, Error>) -> Void) {
-        completion(.success(username))
+        let identification = PlanterIdentification(context: coreDataManager.viewContext)
+        identification.createdAt = Date()
+        identification.localPhotoPath = ""
+
+        guard let planter = planter as? PlanterDetail else {
+            completion(.failure(SelfieServiceError.planterError))
+            return
+        }
+
+        planter.addToIdentification(identification)
+
+        do {
+            try coreDataManager.viewContext.save()
+            completion(.success(planter))
+        } catch {
+            completion(.failure(error))
+        }
     }
 }

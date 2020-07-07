@@ -9,58 +9,78 @@
 import Foundation
 
 protocol SignInViewModelCoordinatorDelegate: class {
-    func signInViewModel(_ signInViewModel: SignInViewModel, didLoginUser username: Username)
-    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession username: Username)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didLoginPlanter planter: Planter)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession planter: Planter)
     func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithUnknownUser username: Username)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithRequiredTerms planter: Planter)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithSelfieRequired planter: Planter)
 }
 
 protocol SignInViewModelViewDelegate: class {
     func signInViewModel(_ signInViewModel: SignInViewModel, didReceiveError error: Error)
-    func signInViewModel(_ signInViewModel: SignInViewModel, didValidateEmail result: Validation.Result)
-    func signInViewModel(_ signInViewModel: SignInViewModel, didValidatePhoneNumber result: Validation.Result)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateValidationState result: Validation.Result)
     func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginEnabled enabled: Bool)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginType loginType: SignInViewModel.LoginType)
 }
 
 class SignInViewModel {
 
-    private let loginService: LoginService
+    enum LoginType {
+        case phoneNumber
+        case email
+    }
 
     weak var coordinatorDelegate: SignInViewModelCoordinatorDelegate?
     weak var viewDelegate: SignInViewModelViewDelegate?
 
-    init(loginService: LoginService = LoginService()) {
+    private let loginService: LoginService
+
+    init(loginService: LoginService) {
         self.loginService = loginService
     }
 
     let title: String = L10n.SignIn.title
 
-    var phoneNumber: String = "" {
+    private var loginType: LoginType = .phoneNumber {
         didSet {
-            viewDelegate?.signInViewModel(self, didValidatePhoneNumber: phoneNumberValid)
+            viewDelegate?.signInViewModel(self, didUpdateLoginType: loginType)
+            viewDelegate?.signInViewModel(self, didUpdateValidationState: usernameValid)
             viewDelegate?.signInViewModel(self, didUpdateLoginEnabled: loginEnabled)
         }
     }
 
-    var email: String = "" {
+    func updateLoginType(loginType: LoginType) {
+        self.loginType = loginType
+    }
+
+    private var usernameValue: String = "" {
         didSet {
-            viewDelegate?.signInViewModel(self, didValidateEmail: emailValid)
+            viewDelegate?.signInViewModel(self, didUpdateValidationState: usernameValid)
             viewDelegate?.signInViewModel(self, didUpdateLoginEnabled: loginEnabled)
         }
+    }
+
+    func updateUsername(username: String) {
+        usernameValue = username
     }
 
     func login() {
 
         loginService.login(withUsername: username) { (result) in
             switch result {
-            case .success(let username):
-                coordinatorDelegate?.signInViewModel(self, didLoginUser: username)
+            case .success(let planter):
+                coordinatorDelegate?.signInViewModel(self, didLoginPlanter: planter)
             case .failure(let error):
                 switch error {
-                case .sessionTimedOut(let username):
-                    coordinatorDelegate?.signInViewModel(self, didFailLoginWithExpiredSession: username)
-                case .unknownUser(let username):
+                case LoginServiceError.sessionTimedOut(let planter):
+                    coordinatorDelegate?.signInViewModel(self, didFailLoginWithExpiredSession: planter)
+                case LoginServiceError.unknownUser(let username):
                     coordinatorDelegate?.signInViewModel(self, didFailLoginWithUnknownUser: username)
-                case .generalError:
+                case LoginServiceError.acceptTermsRequired(let planter):
+                    coordinatorDelegate?.signInViewModel(self, didFailLoginWithRequiredTerms: planter)
+                case LoginServiceError.selfieRequired(let planter):
+                    coordinatorDelegate?.signInViewModel(self, didFailLoginWithSelfieRequired: planter)
+                default:
                     viewDelegate?.signInViewModel(self, didReceiveError: error)
                 }
             }
@@ -72,25 +92,23 @@ class SignInViewModel {
 private extension SignInViewModel {
 
     var username: Username {
-        return Username(
-            email: email,
-            phoneNumber: phoneNumber
-        )
+        switch loginType {
+        case .email:
+            return .email(usernameValue)
+        case .phoneNumber:
+            return .phoneNumber(usernameValue)
+        }
     }
 
-    var phoneNumberValid: Validation.Result {
-        return username.phoneNumberValid
-    }
-
-    var emailValid: Validation.Result {
-        return username.emailValid
+    var usernameValid: Validation.Result {
+        return username.isValid
     }
 
     var loginEnabled: Bool {
         switch username.isValid {
         case .valid:
             return true
-        case .invalid:
+        case .invalid, .empty:
             return false
         }
     }

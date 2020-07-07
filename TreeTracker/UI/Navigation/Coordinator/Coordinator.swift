@@ -18,7 +18,7 @@ struct CoordinatorConfiguration: CoordinatorConfigurable {
 
 protocol Coordinator: class {
     var childCoordinators: [Coordinator] { get set }
-    init(configuration: CoordinatorConfigurable)
+    var configuration: CoordinatorConfigurable { get }
     func start()
 }
 

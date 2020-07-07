@@ -8,19 +8,46 @@
 
 import Foundation
 
-class SignUpService {
+struct SignUpDetails {
+    let username: Username
+    let name: Name
+    let organization: Organization
+}
 
-    struct Details {
-        let username: Username
-        let name: Name
-        let organization: Organization
+protocol SignUpService {
+    func signUp(withDetails signUpDetails: SignUpDetails, completion: (Result<Planter, Error>) -> Void)
+}
+
+class LocalSignUpService: SignUpService {
+
+    private let coreDataManager: CoreDataManager
+
+    init(coreDataManager: CoreDataManager) {
+        self.coreDataManager = coreDataManager
     }
 
-    enum Error: Swift.Error {
-        case generalError
-    }
+    func signUp(withDetails signUpDetails: SignUpDetails, completion: (Result<Planter, Error>) -> Void) {
 
-    func signUp(withDetails signUpDetails: Details, completion: (Result<Username, Error>) -> Void) {
-        completion(.success(signUpDetails.username))
+        let planterDetail = PlanterDetail(context: coreDataManager.viewContext)
+
+        switch signUpDetails.username {
+        case .email(let email):
+            planterDetail.email = email
+        case .phoneNumber(let phoneNumber):
+            planterDetail.phoneNumber = phoneNumber
+        }
+
+        planterDetail.firstName = signUpDetails.name.firstName
+        planterDetail.lastName = signUpDetails.name.lastName
+        planterDetail.organization = signUpDetails.organization.name
+        planterDetail.createdAt = Date()
+        planterDetail.uploaded = false
+
+        do {
+            try coreDataManager.viewContext.save()
+            completion(.success(planterDetail))
+        } catch {
+            completion(.failure(error))
+        }
     }
 }

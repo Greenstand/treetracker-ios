@@ -9,17 +9,19 @@
 import UIKit
 
 protocol SignInCoordinatorDelegate: class {
-    func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInUser username: Username)
+    func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInPlanter planter: Planter)
 }
 
 class SignInCoordinator: Coordinator {
 
     weak var delegate: SignInCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
-    private let configuration: CoordinatorConfigurable
+    let configuration: CoordinatorConfigurable
+    let coreDataManager: CoreDataManager
 
-    required init(configuration: CoordinatorConfigurable) {
+    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManager) {
         self.configuration = configuration
+        self.coreDataManager = coreDataManager
     }
 
     func start() {
@@ -43,22 +45,22 @@ private extension SignInCoordinator {
         )
     }
 
-    func showTerms(username: Username) {
+    func showTerms(planter: Planter) {
         configuration.navigationController.pushViewController(
-            termsViewController(username: username),
+            termsViewController(planter: planter),
             animated: true
         )
     }
 
-    func showSelfie(username: Username) {
+    func showSelfie(planter: Planter) {
         configuration.navigationController.pushViewController(
-            selfieViewController(username: username),
+            selfieViewController(planter: planter),
             animated: true
         )
     }
 
-    func signUpComplete(username: Username) {
-        delegate?.signInCoordinator(self, didSignInUser: username)
+    func signUpComplete(planter: Planter) {
+        delegate?.signInCoordinator(self, didSignInPlanter: planter)
     }
 }
 
@@ -68,7 +70,8 @@ private extension SignInCoordinator {
     var signInViewController: UIViewController {
         let viewController = StoryboardScene.SignIn.initialScene.instantiate()
         viewController.viewModel = {
-            let viewModel = SignInViewModel()
+            let loginService = LocalLoginService(coreDataManager: coreDataManager)
+            let viewModel = SignInViewModel(loginService: loginService)
              viewModel.coordinatorDelegate = self
             return viewModel
         }()
@@ -78,27 +81,45 @@ private extension SignInCoordinator {
     func signUpViewController(username: Username) -> UIViewController {
         let viewController = StoryboardScene.SignUp.initialScene.instantiate()
         viewController.viewModel = {
-            let viewModel = SignUpViewModel(username: username)
+            let localSignUpService = LocalSignUpService(
+                coreDataManager: coreDataManager
+            )
+            let viewModel = SignUpViewModel(
+                username: username,
+                signUpService: localSignUpService
+            )
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
         return viewController
     }
 
-    func termsViewController(username: Username) -> UIViewController {
+    func termsViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Terms.initialScene.instantiate()
         viewController.viewModel = {
-            let viewModel = TermsViewModel(username: username)
+            let termsService = LocalTermsService(
+                coreDataManager: coreDataManager
+            )
+            let viewModel = TermsViewModel(
+                planter: planter,
+                termsService: termsService
+            )
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
         return viewController
     }
 
-    func selfieViewController(username: Username) -> UIViewController {
+    func selfieViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Selfie.initialScene.instantiate()
         viewController.viewModel = {
-            let viewModel = SelfieViewModel(username: username)
+            let selfieService = LocalSelfieService(
+                coreDataManager: coreDataManager
+            )
+            let viewModel = SelfieViewModel(
+                planter: planter,
+                selfieService: selfieService
+            )
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
@@ -109,39 +130,47 @@ private extension SignInCoordinator {
 // MARK: - SignInViewControllerDelegate
 extension SignInCoordinator: SignInViewModelCoordinatorDelegate {
 
-    func signInViewModel(_ signInViewModel: SignInViewModel, didLoginUser username: Username) {
-        signUpComplete(username: username)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didLoginPlanter planter: Planter) {
+        signUpComplete(planter: planter)
     }
 
-    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession username: Username) {
-        showSelfie(username: username)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession planter: Planter) {
+        showSelfie(planter: planter)
     }
 
     func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithUnknownUser username: Username) {
         showSignUp(username: username)
+    }
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithRequiredTerms planter: Planter) {
+        showTerms(planter: planter)
+    }
+
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithSelfieRequired planter: Planter) {
+        showSelfie(planter: planter)
     }
 }
 
 // MARK: - SignUpViewControllerDelegate
 extension SignInCoordinator: SignUpViewModelCoordinatorDelegate {
 
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername username: Username) {
-        showTerms(username: username)
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername planter: Planter) {
+        showTerms(planter: planter)
     }
 }
 
 // MARK: - TermsViewControllerDelegate
 extension SignInCoordinator: TermsViewModelCoordinatorDelegate {
 
-    func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForUser username: Username) {
-        showSelfie(username: username)
+    func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForPlanter planter: Planter) {
+        showSelfie(planter: planter)
     }
 }
 
 // MARK: - SelfieViewControllerDelegate
 extension SignInCoordinator: SelfieViewModelCoordinatorDelegate {
 
-    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForUser username: Username) {
-        signUpComplete(username: username)
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForPlanter planter: Planter) {
+        signUpComplete(planter: planter)
     }
 }

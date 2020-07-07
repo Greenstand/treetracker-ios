@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TermsViewModelCoordinatorDelegate: class {
-    func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForUser username: Username)
+    func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForPlanter planter: Planter)
 }
 
 protocol TermsViewModelViewDelegate: class {
@@ -25,10 +25,10 @@ class TermsViewModel {
     weak var viewDelegate: TermsViewModelViewDelegate?
 
     private let termsService: TermsService
-    private let username: Username
+    private let planter: Planter
 
-    init(username: Username, termsService: TermsService = TermsService()) {
-        self.username = username
+    init(planter: Planter, termsService: TermsService) {
+        self.planter = planter
         self.termsService = termsService
     }
 
@@ -61,10 +61,10 @@ class TermsViewModel {
         viewDelegate?.termsViewModel(self, didUpdateAcceptTermsEnabled: false)
         viewDelegate?.termsViewModel(self, didUpdateLoadingStatus: true)
 
-        termsService.acceptTerms(forUser: username) { (result) in
+        termsService.acceptTerms(forPlanter: planter) { (result) in
             switch result {
-            case .success(let username):
-                coordinatorDelegate?.termsViewModel(self, didAcceptTermsForUser: username)
+            case .success(let planter):
+                coordinatorDelegate?.termsViewModel(self, didAcceptTermsForPlanter: planter)
             case .failure(let error):
                 viewDelegate?.termsViewModel(self, didReceiveError: error)
                 viewDelegate?.termsViewModel(self, didUpdateAcceptTermsEnabled: true)

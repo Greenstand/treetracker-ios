@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PlanterDetail" representedClassName="PlanterDetail" syncable="YES" codeGenerationType="class">
+        <attribute name="acceptedTerms" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="lastLoggedIn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="organization" optional="YES" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <attribute name="uploaded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="identification" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlanterIdentification" inverseName="planter" inverseEntity="PlanterIdentification"/>
+    </entity>
+    <entity name="PlanterIdentification" representedClassName="PlanterIdentification" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="localPhotoPath" optional="YES" attributeType="String"/>
+        <attribute name="photoURL" optional="YES" attributeType="String"/>
+        <relationship name="planter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlanterDetail" inverseName="identification" inverseEntity="PlanterDetail"/>
+    </entity>
+    <elements>
+        <element name="PlanterDetail" positionX="-27" positionY="18" width="128" height="208"/>
+        <element name="PlanterIdentification" positionX="312.546875" positionY="40.96875" width="128" height="118"/>
+    </elements>
+</model>
