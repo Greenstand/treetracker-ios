@@ -1,0 +1,14 @@
+language: swift
+os: osx
+
+jobs:
+  include:
+    - stage: "Analysis"
+      name: "Analysis"
+      script: echo analyzing...
+    - stage: "Test"
+      name: "Test"
+      script: echo testing...
+    - stage: "Build"
+      name: "Build"
+      script: echo building...
