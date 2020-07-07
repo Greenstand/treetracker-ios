@@ -23,7 +23,7 @@ platform :ios do
   lane :analysis do
     swiftlint(
       mode: :lint,
-      executable: './Pods/SwiftLint/swiftlint',
+      executable: 'Pods/SwiftLint/swiftlint',
       config_file: '.swiftlint.yml'
     )
   end
