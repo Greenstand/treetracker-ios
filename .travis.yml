@@ -1,5 +1,5 @@
 language: swift
-os: osx
+# os: osx
 
 jobs:
   include:
