@@ -30,7 +30,9 @@ platform :ios do
 
   desc 'Runs unit tests'
   lane :test do
-    scan
+    scan(
+      devices: ["iPhone 6s"]
+    )
   end
 
   desc 'Builds the project'
