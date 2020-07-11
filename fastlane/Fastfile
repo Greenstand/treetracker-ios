@@ -40,7 +40,8 @@ platform :ios do
   lane :build do
     gym(
       scheme: "TreeTracker",
-      skip_codesigning: true
+      skip_codesigning: true,
+      skip_archive: true
     )
   end
 end
