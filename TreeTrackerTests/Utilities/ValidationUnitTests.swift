@@ -88,7 +88,7 @@ class ValidationUnitTests: XCTestCase {
     }
 
     // MARK: - Phone Number Validation
-    func testPhoneNUmberValidation_Valid() {
+    func testPhoneNumberValidation_Valid() {
 
         //Given
         let numbers = [
@@ -103,7 +103,7 @@ class ValidationUnitTests: XCTestCase {
         }
     }
 
-    func testPhoneNUmberValidation_Invalid() {
+    func testPhoneNumberValidation_Invalid() {
 
         //Given
         let numbers = [
@@ -119,7 +119,7 @@ class ValidationUnitTests: XCTestCase {
         }
     }
 
-    func testPhoneNUmberValidation_Empty() {
+    func testPhoneNumberValidation_Empty() {
 
         //Given
         let numbers = [
