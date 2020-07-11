@@ -8,7 +8,7 @@ jobs:
       script: fastlane analysis
     - stage: "Test"
       name: "Test"
-      script: echo testing...
+      script: fastlane test
     - stage: "Build"
       name: "Build"
       script: echo building...
