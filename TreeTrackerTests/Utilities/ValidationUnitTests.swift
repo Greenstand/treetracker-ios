@@ -44,7 +44,7 @@ class ValidationUnitTests: XCTestCase {
 
         //Then
         for email in emails {
-            XCTAssertTrue(sut.isEmailValid(email: email), "Email: \(email)")
+            XCTAssertEqual(sut.validate(email, type: .email), Validation.Result.valid, "Email: \(email)")
         }
     }
 
@@ -68,12 +68,27 @@ class ValidationUnitTests: XCTestCase {
 
         //Then
         for email in emails {
-            XCTAssertFalse(sut.isEmailValid(email: email), "Email: \(email)")
+            XCTAssertEqual(sut.validate(email, type: .email), Validation.Result.invalid, "Email: \(email)")
+        }
+    }
+
+    func testEmailValidation_Empty() {
+
+        //Given
+        let sut = Validation.self
+        let emails = [
+            "",
+            nil
+        ]
+
+        //Then
+        for email in emails {
+            XCTAssertEqual(sut.validate(email, type: .email), Validation.Result.empty, "Email: \(email ?? "nil")")
         }
     }
 
     // MARK: - Phone Number Validation
-    func testPhoneNUmberValidation_Valid() {
+    func testPhoneNumberValidation_Valid() {
 
         //Given
         let numbers = [
@@ -84,11 +99,11 @@ class ValidationUnitTests: XCTestCase {
 
         //Then
         for number in numbers {
-            XCTAssertTrue(sut.isValidPhoneNumber(phoneNumber: number), "Number: \(number)")
+            XCTAssertEqual(sut.validate(number, type: .phoneNumber), Validation.Result.valid, "Number: \(number)")
         }
     }
 
-    func testPhoneNUmberValidation_InValid() {
+    func testPhoneNumberValidation_Invalid() {
 
         //Given
         let numbers = [
@@ -100,7 +115,22 @@ class ValidationUnitTests: XCTestCase {
 
         //Then
         for number in numbers {
-            XCTAssertFalse(sut.isValidPhoneNumber(phoneNumber: number), "Number: \(number)")
+            XCTAssertEqual(sut.validate(number, type: .phoneNumber), Validation.Result.invalid, "Number: \(number)")
+        }
+    }
+
+    func testPhoneNumberValidation_Empty() {
+
+        //Given
+        let numbers = [
+            "",
+            nil
+        ]
+        let sut = Validation.self
+
+        //Then
+        for number in numbers {
+            XCTAssertEqual(sut.validate(number, type: .phoneNumber), Validation.Result.empty, "Number: \(number ?? "nil")")
         }
     }
 }

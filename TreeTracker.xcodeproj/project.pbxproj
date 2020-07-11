@@ -38,7 +38,6 @@
 		93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18932245B737D00217F21 /* SceneDelegate.swift */; };
 		93E1893A245B738100217F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93E18939245B738100217F21 /* Assets.xcassets */; };
 		93E1893D245B738100217F21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E1893B245B738100217F21 /* LaunchScreen.storyboard */; };
-		93E18948245B738100217F21 /* TreeTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18947245B738100217F21 /* TreeTrackerTests.swift */; };
 		93E18953245B738100217F21 /* TreeTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18952245B738100217F21 /* TreeTrackerUITests.swift */; };
 		93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18963245C95F200217F21 /* StoryboardScenes.swift */; };
 		93E18966245C95F200217F21 /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18964245C95F200217F21 /* StoryboardSegues.swift */; };
@@ -119,7 +118,6 @@
 		93E1893C245B738100217F21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93E1893E245B738100217F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93E18943245B738100217F21 /* TreeTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreeTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		93E18947245B738100217F21 /* TreeTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTrackerTests.swift; sourceTree = "<group>"; };
 		93E18949245B738100217F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93E1894E245B738100217F21 /* TreeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E18952245B738100217F21 /* TreeTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTrackerUITests.swift; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 			isa = PBXGroup;
 			children = (
 				93989CF1246C5F6400A1B21F /* Utilities */,
-				93E18947245B738100217F21 /* TreeTrackerTests.swift */,
 				93E18949245B738100217F21 /* Info.plist */,
 			);
 			path = TreeTrackerTests;
@@ -757,7 +754,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				93989CF3246C5F7F00A1B21F /* ValidationUnitTests.swift in Sources */,
-				93E18948245B738100217F21 /* TreeTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,7 +949,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TreeTrackerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -974,7 +970,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TreeTrackerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
