@@ -38,6 +38,8 @@ platform :ios do
 
   desc 'Builds the project'
   lane :build do
-    gym
+    gym(
+      scheme: "TreeTracker"
+    )
   end
 end
