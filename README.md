@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Greenstand/treetracker-ios.svg?branch=master)](https://travis-ci.com/Greenstand/treetracker-ios)
+
 # Treetracker iOS
 
 ## Project Details
