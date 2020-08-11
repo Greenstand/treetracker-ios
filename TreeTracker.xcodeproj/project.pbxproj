@@ -65,6 +65,8 @@
 		93EC8C9124ABD25100946C0C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8C9024ABD25100946C0C /* CoreDataManager.swift */; };
 		93EC8CA324AD2E7B00946C0C /* Planter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CA224AD2E7B00946C0C /* Planter.swift */; };
 		93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */; };
+		93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB024BCF26600946C0C /* LocationManager.swift */; };
+		93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB224BCFC7E00946C0C /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,8 @@
 		93EC8C9024ABD25100946C0C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		93EC8CA224AD2E7B00946C0C /* Planter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planter.swift; sourceTree = "<group>"; };
 		93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		93EC8CB024BCF26600946C0C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		93EC8CB224BCFC7E00946C0C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				93989CEF246C479400A1B21F /* Validation.swift */,
+				93EC8CB024BCF26600946C0C /* LocationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				93EC8C3024AA27FF00946C0C /* Terms.swift */,
 				93EC8C4124AA8A8400946C0C /* Tree.swift */,
 				93EC8CA224AD2E7B00946C0C /* Planter.swift */,
+				93EC8CB224BCFC7E00946C0C /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,
 				93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */,
 				93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */,
+				93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */,
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
 				93C579A424A26D95009C0E46 /* TermsService.swift in Sources */,
 				93C579A624A26E6B009C0E46 /* SelfieService.swift in Sources */,
@@ -732,6 +739,7 @@
 				93EC8C4224AA8A8400946C0C /* Tree.swift in Sources */,
 				93C5799B249E580E009C0E46 /* Username.swift in Sources */,
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
+				93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */,
 				93EC8C3B24AA52E900946C0C /* HomeViewModel.swift in Sources */,
 				931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */,
 				937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */,
