@@ -8,6 +8,8 @@
 
 import Foundation
 
-struct Tree {
+protocol Tree: class {
 
 }
+
+extension TreeCapture: Tree { }
