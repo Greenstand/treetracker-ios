@@ -26,6 +26,7 @@
 		93989D06246ED00D00A1B21F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D05246ED00D00A1B21F /* PrimaryButton.swift */; };
 		93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D07246ED51C00A1B21F /* SignInTextField.swift */; };
 		939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939CA84E246C0A1000B1C184 /* Colors.xcassets */; };
+		93BC71FA24C647C3008DE96C /* TreeMonitoringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */; };
 		93C57996249E5599009C0E46 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C57995249E5599009C0E46 /* LoginService.swift */; };
 		93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C57997249E57A6009C0E46 /* SignUpService.swift */; };
 		93C5799B249E580E009C0E46 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5799A249E580E009C0E46 /* Username.swift */; };
@@ -106,6 +107,7 @@
 		93989D05246ED00D00A1B21F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		93989D07246ED51C00A1B21F /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
 		939CA84E246C0A1000B1C184 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeMonitoringService.swift; sourceTree = "<group>"; };
 		93C57995249E5599009C0E46 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		93C57997249E57A6009C0E46 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		93C5799A249E580E009C0E46 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				93C579A324A26D95009C0E46 /* TermsService.swift */,
 				93C579A524A26E6B009C0E46 /* SelfieService.swift */,
 				93EC8C4324AA8EE900946C0C /* TreeService.swift */,
+				93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				93C5799B249E580E009C0E46 /* Username.swift in Sources */,
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
 				93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */,
+				93BC71FA24C647C3008DE96C /* TreeMonitoringService.swift in Sources */,
 				93EC8C3B24AA52E900946C0C /* HomeViewModel.swift in Sources */,
 				93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */,
 				931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */,
