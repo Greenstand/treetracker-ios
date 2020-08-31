@@ -34,8 +34,8 @@
 //Selfie Screen
 "Selfie.Title" = "Selfie";
 "Selfie.SaveButton.Title" = "Save";
-"Selfie.PhotoButton.TItle.TakePhoto" = "Take Photo";
-"Selfie.PhotoButton.TItle.Retake" = "Retake";
+"Selfie.PhotoButton.Title.TakePhoto" = "Take Photo";
+"Selfie.PhotoButton.Title.Retake" = "Retake";
 
 //Home Screen
 "Home.Title" = "Welcome Home";

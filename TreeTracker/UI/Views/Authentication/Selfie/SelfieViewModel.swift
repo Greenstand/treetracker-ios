@@ -85,9 +85,9 @@ private extension SelfieViewModel {
 
     var selfieActionTitle: String {
         guard image != nil else {
-            return L10n.Selfie.PhotoButton.TItle.takePhoto
+            return L10n.Selfie.PhotoButton.Title.takePhoto
         }
-        return L10n.Selfie.PhotoButton.TItle.retake
+        return L10n.Selfie.PhotoButton.Title.retake
     }
 
     var selfie: SelfieData? {
