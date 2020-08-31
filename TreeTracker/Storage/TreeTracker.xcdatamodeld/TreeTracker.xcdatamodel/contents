@@ -19,9 +19,23 @@
         <attribute name="localPhotoPath" optional="YES" attributeType="String"/>
         <attribute name="photoURL" optional="YES" attributeType="String"/>
         <relationship name="planter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlanterDetail" inverseName="identification" inverseEntity="PlanterDetail"/>
+        <relationship name="trees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TreeCapture" inverseName="planterIdentification" inverseEntity="TreeCapture"/>
+    </entity>
+    <entity name="TreeCapture" representedClassName="TreeCapture" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="horizontalAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="localPhotoPath" optional="YES" attributeType="String"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="noteContent" optional="YES" attributeType="String"/>
+        <attribute name="photoURL" optional="YES" attributeType="String"/>
+        <attribute name="uploaded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
+        <relationship name="planterIdentification" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlanterIdentification" inverseName="trees" inverseEntity="PlanterIdentification"/>
     </entity>
     <elements>
-        <element name="PlanterDetail" positionX="-27" positionY="18" width="128" height="208"/>
-        <element name="PlanterIdentification" positionX="312.546875" positionY="40.96875" width="128" height="118"/>
+        <element name="PlanterDetail" positionX="-546.234375" positionY="-437.171875" width="128" height="208"/>
+        <element name="PlanterIdentification" positionX="-331.33203125" positionY="-319.94921875" width="128" height="133"/>
+        <element name="TreeCapture" positionX="-132.37890625" positionY="-338.75" width="128" height="193"/>
     </elements>
 </model>

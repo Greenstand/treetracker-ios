@@ -19,26 +19,37 @@ protocol SelfieService {
 // MARK: - Errors
 enum SelfieServiceError: Swift.Error {
     case planterError
+    case documentStorageError
 }
 
 class LocalSelfieService: SelfieService {
 
-    private let coreDataManager: CoreDataManager
+    private let coreDataManager: CoreDataManaging
+    private let documentManager: DocumentManaging
 
-    init(coreDataManager: CoreDataManager) {
+    init(coreDataManager: CoreDataManaging, documentManager: DocumentManaging) {
         self.coreDataManager = coreDataManager
+        self.documentManager = documentManager
     }
 
     func storeSelfie(selfieData data: SelfieData, forPlanter planter: Planter, completion: (Result<Planter, Error>) -> Void) {
-
-        let identification = PlanterIdentification(context: coreDataManager.viewContext)
-        identification.createdAt = Date()
-        identification.localPhotoPath = ""
 
         guard let planter = planter as? PlanterDetail else {
             completion(.failure(SelfieServiceError.planterError))
             return
         }
+
+        let identificationID = UUID().uuidString
+
+        guard let photoPath = try? documentManager.store(data: data.pngData, withFileName: identificationID).get() else {
+            completion(.failure(SelfieServiceError.documentStorageError))
+            return
+        }
+
+        let identification = PlanterIdentification(context: coreDataManager.viewContext)
+        identification.createdAt = Date()
+        identification.localPhotoPath = photoPath
+        identification.identifier = identificationID
 
         planter.addToIdentification(identification)
 

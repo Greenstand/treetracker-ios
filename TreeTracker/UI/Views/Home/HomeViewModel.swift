@@ -36,19 +36,19 @@ class HomeViewModel {
     weak var coordinatorDelegate: HomeViewModelCoordinatorDelegate?
     weak var viewDelegate: HomeViewModelViewDelegate?
 
-    private let treeService: TreeService
+    private let treeMonitoringService: TreeMonitoringService
     private let planter: Planter
 
-    init(planter: Planter, treeService: TreeService = TreeService()) {
+    init(planter: Planter, treeMonitoringService: TreeMonitoringService) {
         self.planter = planter
-        self.treeService = treeService
-        treeService.delegate = self
+        self.treeMonitoringService = treeMonitoringService
+        treeMonitoringService.delegate = self
     }
 
     let title = L10n.Home.title
 
     func fetchTrees() {
-        treeService.startMonitoringTrees(forPlanter: planter)
+        treeMonitoringService.startMonitoringTrees(forPlanter: planter)
     }
 
     func uploadListSelected() {
@@ -61,14 +61,22 @@ class HomeViewModel {
 }
 
 // MARK: - TreeServiceDelegate
-extension HomeViewModel: TreeServiceDelegate {
+extension HomeViewModel: TreeMonitoringServiceDelegate {
 
-    func treeService(_ treeService: TreeService, didUpdateTrees trees: [Tree]) {
-        let data = TreeCountData(planted: 200, uploaded: 150)
+    func treeMonitoringService(_ treeMonitoringService: TreeMonitoringService, didUpdateTrees trees: [Tree]) {
+
+        let uploadedCount = trees.filter({
+            $0.uploaded == true
+        }).count
+
+        let data = TreeCountData(
+            planted: trees.count,
+            uploaded: uploadedCount
+        )
         viewDelegate?.homeViewModel(self, didUpdateTreeCount: data)
     }
 
-    func treeService(_ treeService: TreeService, didError error: Error) {
+    func treeMonitoringService(_ treeMonitoringService: TreeMonitoringService, didError error: Error) {
         viewDelegate?.homeViewModel(self, didReceiveError: error)
     }
 }

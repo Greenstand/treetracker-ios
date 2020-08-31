@@ -34,8 +34,8 @@
 //Selfie Screen
 "Selfie.Title" = "Selfie";
 "Selfie.SaveButton.Title" = "Save";
-"Selfie.PhotoButton.TItle.TakePhoto" = "Take Photo";
-"Selfie.PhotoButton.TItle.Retake" = "Retake";
+"Selfie.PhotoButton.Title.TakePhoto" = "Take Photo";
+"Selfie.PhotoButton.Title.Retake" = "Retake";
 
 //Home Screen
 "Home.Title" = "Welcome Home";
@@ -43,3 +43,15 @@
 "Home.InfoLabel.TreesUploadedLabel.Text" = "Trees Uploaded";
 "Home.UploadButton.Title" = "UPLOAD";
 "Home.AddTreeButton.Title" = "ADD TREE";
+
+//Add Tree Screen
+"AddTree.Title" = "Add Tree";
+"AddTree.PhotoButton.Title.TakePhoto" = "Take Photo";
+"AddTree.PhotoButton.Title.Retake" = "Retake";
+"AddTree.SaveButton.Title" = "Save";
+
+//GPS Accuracy
+"GPSAccuracyLabel.Text.Base" = "GPS Accuracy: ";
+"GPSAccuracyLabel.Text.Good" = "Good";
+"GPSAccuracyLabel.Text.Bad" = "Bad";
+"GPSAccuracyLabel.Text.Unknown" = "Unknown";

@@ -23,15 +23,15 @@ enum LoginServiceError: Error {
 
 class LocalLoginService: LoginService {
 
-    private let coreDataManager: CoreDataManager
+    private let coreDataManager: CoreDataManaging
 
-    init(coreDataManager: CoreDataManager) {
+    init(coreDataManager: CoreDataManaging) {
         self.coreDataManager = coreDataManager
     }
 
     func login(withUsername username: Username, completion: (Result<Planter, Error>) -> Void) {
 
-        let managedObjectContext = coreDataManager.persistentContainer.viewContext
+        let managedObjectContext = coreDataManager.viewContext
         let fetchRequest: NSFetchRequest<PlanterDetail> = PlanterDetail.fetchRequest()
         fetchRequest.predicate = username.fetchRequestPredicate
 

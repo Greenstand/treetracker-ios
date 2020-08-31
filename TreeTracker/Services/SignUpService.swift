@@ -20,9 +20,9 @@ protocol SignUpService {
 
 class LocalSignUpService: SignUpService {
 
-    private let coreDataManager: CoreDataManager
+    private let coreDataManager: CoreDataManaging
 
-    init(coreDataManager: CoreDataManager) {
+    init(coreDataManager: CoreDataManaging) {
         self.coreDataManager = coreDataManager
     }
 
@@ -42,6 +42,7 @@ class LocalSignUpService: SignUpService {
         planterDetail.organization = signUpDetails.organization.name
         planterDetail.createdAt = Date()
         planterDetail.uploaded = false
+        planterDetail.identifier = UUID().uuidString
 
         do {
             try coreDataManager.viewContext.save()

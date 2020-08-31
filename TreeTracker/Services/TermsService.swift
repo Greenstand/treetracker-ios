@@ -21,9 +21,9 @@ enum TermsServiceError: Swift.Error {
 
 class LocalTermsService: TermsService {
 
-    private let coreDataManager: CoreDataManager
+    private let coreDataManager: CoreDataManaging
 
-    init(coreDataManager: CoreDataManager) {
+    init(coreDataManager: CoreDataManaging) {
         self.coreDataManager = coreDataManager
     }
 

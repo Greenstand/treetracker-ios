@@ -23,7 +23,7 @@ class SelfieViewController: UIViewController, AlertPresenting {
     }
     @IBOutlet private var takeSelfieButton: PrimaryButton! {
         didSet {
-            takeSelfieButton.setTitle(L10n.Selfie.PhotoButton.TItle.takePhoto, for: .normal)
+            takeSelfieButton.setTitle(L10n.Selfie.PhotoButton.Title.takePhoto, for: .normal)
         }
     }
     @IBOutlet private var doneButton: PrimaryButton! {
