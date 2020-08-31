@@ -15,7 +15,7 @@ protocol CoreDataManaging {
 
 class CoreDataManager: CoreDataManaging {
 
-    lazy var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TreeTracker")
         container.loadPersistentStores { _, error in
             if let error = error {

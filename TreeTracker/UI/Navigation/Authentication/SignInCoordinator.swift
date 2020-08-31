@@ -17,9 +17,9 @@ class SignInCoordinator: Coordinator {
     weak var delegate: SignInCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
     let configuration: CoordinatorConfigurable
-    let coreDataManager: CoreDataManager
+    let coreDataManager: CoreDataManaging
 
-    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManager) {
+    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManaging) {
         self.configuration = configuration
         self.coreDataManager = coreDataManager
     }

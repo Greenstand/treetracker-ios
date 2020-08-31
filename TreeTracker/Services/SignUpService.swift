@@ -20,9 +20,9 @@ protocol SignUpService {
 
 class LocalSignUpService: SignUpService {
 
-    private let coreDataManager: CoreDataManager
+    private let coreDataManager: CoreDataManaging
 
-    init(coreDataManager: CoreDataManager) {
+    init(coreDataManager: CoreDataManaging) {
         self.coreDataManager = coreDataManager
     }
 

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var rootCoordinator: Coordinator?
 
-    lazy var coreDataManager: CoreDataManager = {
+    lazy var coreDataManager: CoreDataManaging = {
         return CoreDataManager()
     }()
 

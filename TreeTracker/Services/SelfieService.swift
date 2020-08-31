@@ -23,9 +23,9 @@ enum SelfieServiceError: Swift.Error {
 
 class LocalSelfieService: SelfieService {
 
-    private let coreDataManager: CoreDataManager
+    private let coreDataManager: CoreDataManaging
 
-    init(coreDataManager: CoreDataManager) {
+    init(coreDataManager: CoreDataManaging) {
         self.coreDataManager = coreDataManager
     }
 
