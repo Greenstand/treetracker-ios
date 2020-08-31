@@ -65,6 +65,7 @@ private extension RootCoordinator {
     func homeCoordinator(planter: Planter) -> Coordinator {
         let homeCoordinator = HomeCoordinator(
             configuration: configuration,
+            coreDataManager: coreDataManager,
             planter: planter
         )
         homeCoordinator.delegate = self

@@ -114,7 +114,8 @@ private extension SignInCoordinator {
         let viewController = StoryboardScene.Selfie.initialScene.instantiate()
         viewController.viewModel = {
             let selfieService = LocalSelfieService(
-                coreDataManager: coreDataManager
+                coreDataManager: coreDataManager,
+                documentManager: DocumentManager()
             )
             let viewModel = SelfieViewModel(
                 planter: planter,

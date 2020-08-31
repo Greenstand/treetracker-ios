@@ -12,6 +12,23 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
 
+  internal enum AddTree {
+    /// Add Tree
+    internal static let title = L10n.tr("Localizable", "AddTree.Title")
+    internal enum PhotoButton {
+      internal enum Title {
+        /// Retake
+        internal static let retake = L10n.tr("Localizable", "AddTree.PhotoButton.Title.Retake")
+        /// Take Photo
+        internal static let takePhoto = L10n.tr("Localizable", "AddTree.PhotoButton.Title.TakePhoto")
+      }
+    }
+    internal enum SaveButton {
+      /// Save
+      internal static let title = L10n.tr("Localizable", "AddTree.SaveButton.Title")
+    }
+  }
+
   internal enum Alert {
     internal enum Button {
       /// Ok
@@ -26,6 +43,19 @@ internal enum L10n {
   internal enum App {
     /// Greenstand Tree Tracker
     internal static let title = L10n.tr("Localizable", "App.Title")
+  }
+
+  internal enum GPSAccuracyLabel {
+    internal enum Text {
+      /// Bad
+      internal static let bad = L10n.tr("Localizable", "GPSAccuracyLabel.Text.Bad")
+      /// GPS Accuracy: 
+      internal static let base = L10n.tr("Localizable", "GPSAccuracyLabel.Text.Base")
+      /// Good
+      internal static let good = L10n.tr("Localizable", "GPSAccuracyLabel.Text.Good")
+      /// Unknown
+      internal static let unknown = L10n.tr("Localizable", "GPSAccuracyLabel.Text.Unknown")
+    }
   }
 
   internal enum Home {
@@ -55,11 +85,11 @@ internal enum L10n {
     /// Selfie
     internal static let title = L10n.tr("Localizable", "Selfie.Title")
     internal enum PhotoButton {
-      internal enum TItle {
+      internal enum Title {
         /// Retake
-        internal static let retake = L10n.tr("Localizable", "Selfie.PhotoButton.TItle.Retake")
+        internal static let retake = L10n.tr("Localizable", "Selfie.PhotoButton.Title.Retake")
         /// Take Photo
-        internal static let takePhoto = L10n.tr("Localizable", "Selfie.PhotoButton.TItle.TakePhoto")
+        internal static let takePhoto = L10n.tr("Localizable", "Selfie.PhotoButton.Title.TakePhoto")
       }
     }
     internal enum SaveButton {
