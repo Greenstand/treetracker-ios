@@ -67,6 +67,7 @@
 		93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */; };
 		93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB024BCF26600946C0C /* LocationManager.swift */; };
 		93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB224BCFC7E00946C0C /* Location.swift */; };
+		93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3771D24EC419A00B7D051 /* DocumentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		93EC8CB024BCF26600946C0C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		93EC8CB224BCFC7E00946C0C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		93F3771D24EC419A00B7D051 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				93989CEF246C479400A1B21F /* Validation.swift */,
 				93EC8CB024BCF26600946C0C /* LocationManager.swift */,
+				93F3771D24EC419A00B7D051 /* DocumentManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
 				93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */,
 				93EC8C3B24AA52E900946C0C /* HomeViewModel.swift in Sources */,
+				93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */,
 				931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */,
 				937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */,
 				93C579A824A33DE7009C0E46 /* AlertPresenting.swift in Sources */,
