@@ -38,7 +38,9 @@ class AddTreeViewModel {
 
     let title: String = L10n.AddTree.title
 
-    var image: UIImage? {
+    private var location: Location?
+
+    private var image: UIImage? {
         didSet {
             viewDelegate?.addTreeViewModel(self, didUpdateTreeImage: treePreviewImage)
             viewDelegate?.addTreeViewModel(self, didUpdateAddTreeEnabled: addTreeEnabled)
@@ -60,6 +62,11 @@ class AddTreeViewModel {
                 viewDelegate?.addTreeViewModel(self, didReceiveError: error)
             }
         }
+    }
+
+    func updateTreeImage(treeImage: UIImage) {
+        image = treeImage
+        location = locationService.location
     }
 
     func startMonitoringLocation() {
@@ -97,7 +104,7 @@ private extension AddTreeViewModel {
 
     var treeData: TreeServiceData? {
 
-        guard let location = locationService.location,
+        guard let location = location,
             let imageData = image?.pngData() else {
             return nil
         }

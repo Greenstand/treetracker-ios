@@ -30,11 +30,13 @@ class AddTreeViewController: UIViewController, AlertPresenting {
     @IBOutlet private var takePhotoButton: PrimaryButton! {
         didSet {
             takePhotoButton.setTitle(L10n.AddTree.PhotoButton.Title.takePhoto, for: .normal)
+            takePhotoButton.isEnabled = false
         }
     }
     @IBOutlet private var saveTreeButton: PrimaryButton! {
         didSet {
             saveTreeButton.setTitle(L10n.AddTree.SaveButton.title, for: .normal)
+            saveTreeButton.isEnabled = false
         }
     }
 
@@ -80,7 +82,7 @@ extension AddTreeViewController: UIImagePickerControllerDelegate {
         }
 
         picker.dismiss(animated: true) {
-            self.viewModel?.image = editedImage ?? originalImage
+            self.viewModel?.updateTreeImage(treeImage: editedImage ?? originalImage)
         }
     }
 }
