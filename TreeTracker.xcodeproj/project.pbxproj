@@ -73,6 +73,8 @@
 		93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB024BCF26600946C0C /* LocationManager.swift */; };
 		93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB224BCFC7E00946C0C /* Location.swift */; };
 		93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3771D24EC419A00B7D051 /* DocumentManager.swift */; };
+		F2926E9A24E1BFF500B9EBA5 /* PicturesCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2926E9924E1BFF500B9EBA5 /* PicturesCollection.storyboard */; };
+		F2926E9C24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2926E9B24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +168,8 @@
 		93F3771D24EC419A00B7D051 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		F2926E9924E1BFF500B9EBA5 /* PicturesCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PicturesCollection.storyboard; sourceTree = "<group>"; };
+		F2926E9B24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -409,6 +413,7 @@
 		93E82F57246C368200006C91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F2926E9824E1BFA600B9EBA5 /* Pictures */,
 				93E82F58246C36A300006C91 /* Loading */,
 				93E82F5F246C3B3200006C91 /* Authentication */,
 				93EC8C3524AA4FD100946C0C /* Home */,
@@ -540,6 +545,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F2926E9824E1BFA600B9EBA5 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				F2926E9924E1BFF500B9EBA5 /* PicturesCollection.storyboard */,
+				F2926E9B24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -659,6 +673,7 @@
 				93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */,
 				93EC8CAF24BBAA0200946C0C /* AddTree.storyboard in Resources */,
 				93E1893A245B738100217F21 /* Assets.xcassets in Resources */,
+				F2926E9A24E1BFF500B9EBA5 /* PicturesCollection.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +773,7 @@
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
 				93C579A424A26D95009C0E46 /* TermsService.swift in Sources */,
 				93C579A624A26E6B009C0E46 /* SelfieService.swift in Sources */,
+				F2926E9C24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift in Sources */,
 				93E18968245C96F000217F21 /* Assets.swift in Sources */,
 				93989CF0246C479400A1B21F /* Validation.swift in Sources */,
 				93E82F4C246C262900006C91 /* SignInCoordinator.swift in Sources */,

@@ -10,10 +10,17 @@ import UIKit
 
 class PicturesCollectionViewController: UIViewController {
 
+    @IBOutlet var picturesCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        picturesCollectionView.delegate = self
+        picturesCollectionView.dataSource = self
+        
     }
     
 
@@ -28,3 +35,27 @@ class PicturesCollectionViewController: UIViewController {
     */
 
 }
+
+extension PicturesCollectionViewController: UICollectionViewDelegate{
+    
+}
+
+extension PicturesCollectionViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+    
+}
+
+extension PicturesCollectionViewController: UICollectionViewDelegateFlowLayout{
+    
+}
+
+
+
+
