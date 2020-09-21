@@ -26,6 +26,11 @@ class SelfieViewController: UIViewController, AlertPresenting {
             takeSelfieButton.setTitle(L10n.Selfie.PhotoButton.Title.takePhoto, for: .normal)
         }
     }
+    @IBOutlet private var fromLibraryButton: PrimaryButton! {
+        didSet {
+            fromLibraryButton.setTitle(L10n.Selfie.LibraryButton.Title.libraryPhoto, for: .normal)
+        }
+    }
     @IBOutlet private var doneButton: PrimaryButton! {
         didSet {
             doneButton.setTitle(L10n.Selfie.SaveButton.title, for: .normal)
@@ -43,14 +48,22 @@ class SelfieViewController: UIViewController, AlertPresenting {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.image = nil
+        self.fromLibraryButton.isHidden = true
+        #if DEBUG
+        self.fromLibraryButton.isHidden = false
+        #endif
     }
 }
 
 // MARK: - Button Actions
 private extension SelfieViewController {
-
+#if DEBUG
+    @IBAction func fromLibraryButtonPressed() {
+        displayImagePicker(mode: .photoLibrary)
+    }
+#endif
     @IBAction func takeSelfieButtonPressed() {
-        displayImagePicker()
+        displayImagePicker(mode: .camera)
     }
 
     @IBAction func doneButtonPressed() {
@@ -61,11 +74,13 @@ private extension SelfieViewController {
 // MARK: - Private
 private extension SelfieViewController {
 
-    func displayImagePicker() {
+    func displayImagePicker(mode: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.cameraDevice = .front
+        imagePicker.sourceType = mode
+        if mode == .camera {
+            imagePicker.cameraDevice = .front
+        }
         present(imagePicker, animated: true)
     }
 }

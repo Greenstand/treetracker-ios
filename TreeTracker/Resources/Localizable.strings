@@ -36,6 +36,7 @@
 "Selfie.SaveButton.Title" = "Save";
 "Selfie.PhotoButton.Title.TakePhoto" = "Take Photo";
 "Selfie.PhotoButton.Title.Retake" = "Retake";
+"Selfie.LibraryButton.Title.LibraryPhoto" = "From library";
 
 //Home Screen
 "Home.Title" = "Welcome Home";
