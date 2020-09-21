@@ -9,11 +9,13 @@
 import Foundation
 
 struct SelfieData {
-    let pngData: Data
+    let jpegData: Data
 }
 
 protocol SelfieService {
     func storeSelfie(selfieData data: SelfieData, forPlanter planter: Planter, completion: (Result<Planter, Error>) -> Void)
+
+    func fetchSelfie(forPlanter planter: Planter, completion: (Result<Data, Error>) -> Void)
 }
 
 // MARK: - Errors
@@ -39,9 +41,12 @@ class LocalSelfieService: SelfieService {
             return
         }
 
-        let identificationID = UUID().uuidString
+        guard let identificationID = planter.identifier else {
+            completion(.failure(SelfieServiceError.planterError))
+            return
+        }
 
-        guard let photoPath = try? documentManager.store(data: data.pngData, withFileName: identificationID).get() else {
+        guard let photoPath = try? documentManager.store(data: data.jpegData, withFileName: identificationID).get() else {
             completion(.failure(SelfieServiceError.documentStorageError))
             return
         }
@@ -58,6 +63,22 @@ class LocalSelfieService: SelfieService {
             completion(.success(planter))
         } catch {
             completion(.failure(error))
+        }
+    }
+
+    func fetchSelfie(forPlanter planter: Planter, completion: (Result<Data, Error>) -> Void) {
+        guard let planter = planter as? PlanterDetail else {
+            completion(.failure(SelfieServiceError.planterError))
+            return
+        }
+
+        if let identifier = planter.identifier {
+            guard let selfieData = try? documentManager.retrieveData(forFileName: identifier).get() else {
+                completion(.failure(SelfieServiceError.documentStorageError))
+                return
+            }
+
+            completion(.success(selfieData))
         }
     }
 }

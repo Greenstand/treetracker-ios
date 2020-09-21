@@ -17,6 +17,8 @@ protocol HomeViewModelCoordinatorDelegate: class {
 protocol HomeViewModelViewDelegate: class {
     func homeViewModel(_ homeViewModel: HomeViewModel, didReceiveError error: Error)
     func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateTreeCount data: HomeViewModel.TreeCountData)
+    func homeViewModel(_ homeViewModel: HomeViewModel,
+                       didFetchProfile data: Data)
 }
 
 class HomeViewModel {
@@ -38,11 +40,13 @@ class HomeViewModel {
     weak var viewDelegate: HomeViewModelViewDelegate?
 
     private let treeMonitoringService: TreeMonitoringService
+    private let selfieService: SelfieService
     private let planter: Planter
 
-    init(planter: Planter, treeMonitoringService: TreeMonitoringService) {
+    init(planter: Planter, treeMonitoringService: TreeMonitoringService, selfieService: SelfieService) {
         self.planter = planter
         self.treeMonitoringService = treeMonitoringService
+        self.selfieService = selfieService
         treeMonitoringService.delegate = self
     }
 
@@ -59,10 +63,8 @@ class HomeViewModel {
     func addTreeSelected() {
         coordinatorDelegate?.homeViewModel(self, didSelectAddTreeForPlanter: planter)
     }
-
     func logoutPlanter() {
-        coordinatorDelegate?.homeViewModel(self, didLogoutPlanter: planter)
-    }
+    func fetchProfileData() {
 }
 
 // MARK: - TreeServiceDelegate

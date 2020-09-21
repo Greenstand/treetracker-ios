@@ -91,10 +91,10 @@ private extension SelfieViewModel {
     }
 
     var selfie: SelfieData? {
-        guard let imageData = image?.pngData() else {
+        guard let imageData = image?.jpegData(compressionQuality: 1.0) else {
             return nil
         }
-        return SelfieData(pngData: imageData)
+        return SelfieData(jpegData: imageData)
     }
 }
 

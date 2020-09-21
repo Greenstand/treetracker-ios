@@ -81,10 +81,11 @@ class HomeViewController: UIViewController, AlertPresenting {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel?.fetchTrees()
         showLogoutButton()
+        viewModel?.fetchProfileData()
     }
 }
 // MARK: - Private
@@ -125,5 +126,19 @@ extension HomeViewController: HomeViewModelViewDelegate {
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didReceiveError error: Error) {
         present(alert: .error(error))
+    }
+
+    func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile data: Data) {
+        // use custom button to fit our image
+        let profileImage = UIImage(data: data)
+        let profileButton = UIButton(type: .custom)
+        profileButton.setImage(profileImage, for: .normal)
+        profileButton.layer.cornerRadius = 20
+        profileButton.layer.masksToBounds = true
+        let profileBarButton = UIBarButtonItem(customView: profileButton)
+        profileBarButton.customView?.translatesAutoresizingMaskIntoConstraints = false
+        profileBarButton.customView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        profileBarButton.customView?.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        navigationItem.leftBarButtonItem = profileBarButton
     }
 }
