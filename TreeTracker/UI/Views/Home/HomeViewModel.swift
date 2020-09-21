@@ -65,6 +65,15 @@ class HomeViewModel {
     }
     func logoutPlanter() {
     func fetchProfileData() {
+        selfieService.fetchSelfie(forPlanter: planter) { (result) in
+            switch result {
+            case .success(let data):
+                viewDelegate?.homeViewModel(self, didFetchProfile: data)
+            case .failure:
+                viewDelegate?.homeViewModel(self, didFetchProfile: Asset.Assets.person.image.jpegData(compressionQuality: 1.0)!)
+            }
+        }
+    }
 }
 
 // MARK: - TreeServiceDelegate

@@ -41,10 +41,7 @@ class LocalSelfieService: SelfieService {
             return
         }
 
-        guard let identificationID = planter.identifier else {
-            completion(.failure(SelfieServiceError.planterError))
-            return
-        }
+        let identificationID = UUID().uuidString
 
         guard let photoPath = try? documentManager.store(data: data.jpegData, withFileName: identificationID).get() else {
             completion(.failure(SelfieServiceError.documentStorageError))
@@ -72,7 +69,7 @@ class LocalSelfieService: SelfieService {
             return
         }
 
-        if let identifier = planter.identifier {
+        if let identifier = planter.latestIdentification?.identifier {
             guard let selfieData = try? documentManager.retrieveData(forFileName: identifier).get() else {
                 completion(.failure(SelfieServiceError.documentStorageError))
                 return

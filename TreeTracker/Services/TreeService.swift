@@ -72,19 +72,3 @@ class LocalTreeService: TreeService {
         }
     }
 }
-
-private extension PlanterDetail {
-
-    var latestIdentification: PlanterIdentification? {
-        let sortedPlanterIdentification = identification?.sorted(by: { (lhs, rhs) -> Bool in
-            guard let lhs = lhs as? PlanterIdentification,
-                let rhs = rhs as? PlanterIdentification,
-                let lhsDate = lhs.createdAt,
-                let rhsDate = rhs.createdAt else {
-                    return false
-            }
-            return lhsDate > rhsDate
-        })
-        return sortedPlanterIdentification?.first as? PlanterIdentification
-    }
-}
