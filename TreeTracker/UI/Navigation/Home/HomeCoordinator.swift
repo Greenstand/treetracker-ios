@@ -53,6 +53,12 @@ private extension HomeCoordinator {
             animated: true
         )
     }
+
+    func logoutPlanter(planter: Planter) {
+        configuration.navigationController.viewControllers = [
+            signInViewController
+        ]
+    }
 }
 
 // MARK: - View Controllers
@@ -99,6 +105,16 @@ private extension HomeCoordinator {
         }()
         return viewcontroller
     }
+
+    var signInViewController: UIViewController {
+        let viewController = StoryboardScene.SignIn.initialScene.instantiate()
+        viewController.viewModel = {
+            let loginService = LocalLoginService(coreDataManager: coreDataManager)
+            let viewModel = SignInViewModel(loginService: loginService)
+            return viewModel
+        }()
+        return viewController
+    }
 }
 
 // MARK: - HomeViewModelCoordinatorDelegate
@@ -110,6 +126,10 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter) {
         showUploadList(planter: planter)
+    }
+
+    func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter) {
+        logoutPlanter(planter: planter)
     }
 }
 

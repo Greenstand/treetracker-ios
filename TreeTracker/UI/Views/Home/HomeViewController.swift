@@ -84,6 +84,12 @@ class HomeViewController: UIViewController, AlertPresenting {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.fetchTrees()
+        self.showLogoutButton()
+    }
+
+    private func showLogoutButton() {
+        let logoutButton = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logoutButtonPressed))
+        self.navigationItem.rightBarButtonItem = logoutButton
     }
 }
 
@@ -96,6 +102,10 @@ private extension HomeViewController {
 
     @IBAction func uploadsButtonPressed() {
         viewModel?.uploadListSelected()
+    }
+
+    @objc func logoutButtonPressed() {
+        self.viewModel?.logoutPlanter()
     }
 }
 
