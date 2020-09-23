@@ -105,7 +105,7 @@ private extension HomeViewController {
     }
 
     @objc func logoutButtonPressed() {
-        self.viewModel?.logoutPlanter()
+        viewModel?.logoutPlanter()
     }
 }
 
