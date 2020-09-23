@@ -88,7 +88,7 @@ class HomeViewController: UIViewController, AlertPresenting {
     }
 
     private func showLogoutButton() {
-        let logoutButton = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logoutButtonPressed))
+        let logoutButton = UIBarButtonItem(title: L10n.Home.LogoutButton.title, style: .plain, target: self, action: #selector(logoutButtonPressed))
         self.navigationItem.rightBarButtonItem = logoutButton
     }
 }

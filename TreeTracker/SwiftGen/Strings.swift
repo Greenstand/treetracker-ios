@@ -75,6 +75,10 @@ internal enum L10n {
         internal static let text = L10n.tr("Localizable", "Home.InfoLabel.TreesUploadedLabel.Text")
       }
     }
+    internal enum LogoutButton {
+      /// Log me out
+      internal static let title = L10n.tr("Localizable", "Home.LogoutButton.Title")
+    }
     internal enum UploadButton {
       /// UPLOAD
       internal static let title = L10n.tr("Localizable", "Home.UploadButton.Title")

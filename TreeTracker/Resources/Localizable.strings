@@ -43,7 +43,7 @@
 "Home.InfoLabel.TreesUploadedLabel.Text" = "Trees Uploaded";
 "Home.UploadButton.Title" = "UPLOAD";
 "Home.AddTreeButton.Title" = "ADD TREE";
-
+"Home.LogoutButton.Title" = "Log out";
 //Add Tree Screen
 "AddTree.Title" = "Add Tree";
 "AddTree.PhotoButton.Title.TakePhoto" = "Take Photo";
