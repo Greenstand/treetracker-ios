@@ -85,8 +85,7 @@ class HomeViewController: UIViewController, AlertPresenting {
         super.viewDidLoad()
         viewModel?.fetchTrees()
         showLogoutButton()
-    }
-    
+    }    
 }
 // MARK: - Private
 private extension HomeViewController {

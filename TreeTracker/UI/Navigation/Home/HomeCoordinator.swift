@@ -53,12 +53,6 @@ private extension HomeCoordinator {
             animated: true
         )
     }
-
-    func logoutPlanter(planter: Planter) {
-        configuration.navigationController.viewControllers = [
-            signInViewController
-        ]
-    }
 }
 
 // MARK: - View Controllers
@@ -129,7 +123,7 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
     }
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter) {
-        logoutPlanter(planter: planter)
+        delegate?.homeCoordinatorDidLogout(self)
     }
 }
 
