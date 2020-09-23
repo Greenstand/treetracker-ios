@@ -85,14 +85,14 @@ class HomeViewController: UIViewController, AlertPresenting {
         super.viewDidLoad()
         viewModel?.fetchTrees()
         showLogoutButton()
-    }    
+    }
 }
 // MARK: - Private
 private extension HomeViewController {
 
     private func showLogoutButton() {
         let logoutButton = UIBarButtonItem(title: L10n.Home.LogoutButton.title, style: .plain, target: self, action: #selector(logoutButtonPressed))
-        self.navigationItem.rightBarButtonItem = logoutButton
+        navigationItem.rightBarButtonItem = logoutButton
     }
 }
 

@@ -99,16 +99,6 @@ private extension HomeCoordinator {
         }()
         return viewcontroller
     }
-
-    var signInViewController: UIViewController {
-        let viewController = StoryboardScene.SignIn.initialScene.instantiate()
-        viewController.viewModel = {
-            let loginService = LocalLoginService(coreDataManager: coreDataManager)
-            let viewModel = SignInViewModel(loginService: loginService)
-            return viewModel
-        }()
-        return viewController
-    }
 }
 
 // MARK: - HomeViewModelCoordinatorDelegate
