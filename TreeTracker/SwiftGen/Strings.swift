@@ -84,6 +84,12 @@ internal enum L10n {
   internal enum Selfie {
     /// Selfie
     internal static let title = L10n.tr("Localizable", "Selfie.Title")
+    internal enum LibraryButton {
+      internal enum Title {
+        /// From library
+        internal static let libraryPhoto = L10n.tr("Localizable", "Selfie.LibraryButton.Title.LibraryPhoto")
+      }
+    }
     internal enum PhotoButton {
       internal enum Title {
         /// Retake
