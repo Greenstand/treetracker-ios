@@ -61,7 +61,6 @@ class HomeViewModel {
     }
 
     func logoutPlanter() {
-// TODO: Sync & Clear session before logout
         coordinatorDelegate?.homeViewModel(self, didLogoutPlanter: planter)
     }
 }
