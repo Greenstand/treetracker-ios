@@ -29,6 +29,10 @@ class SelfieViewController: UIViewController, AlertPresenting {
     @IBOutlet private var fromLibraryButton: PrimaryButton! {
         didSet {
             fromLibraryButton.setTitle(L10n.Selfie.LibraryButton.Title.libraryPhoto, for: .normal)
+            fromLibraryButton.isHidden = true
+            #if DEBUG
+            fromLibraryButton.isHidden = false
+            #endif
         }
     }
     @IBOutlet private var doneButton: PrimaryButton! {
@@ -48,10 +52,6 @@ class SelfieViewController: UIViewController, AlertPresenting {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.image = nil
-        self.fromLibraryButton.isHidden = true
-        #if DEBUG
-        self.fromLibraryButton.isHidden = false
-        #endif
     }
 }
 
