@@ -11,6 +11,7 @@ import Foundation
 protocol HomeViewModelCoordinatorDelegate: class {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter)
 }
 
 protocol HomeViewModelViewDelegate: class {
@@ -57,6 +58,10 @@ class HomeViewModel {
 
     func addTreeSelected() {
         coordinatorDelegate?.homeViewModel(self, didSelectAddTreeForPlanter: planter)
+    }
+
+    func logoutPlanter() {
+        coordinatorDelegate?.homeViewModel(self, didLogoutPlanter: planter)
     }
 }
 

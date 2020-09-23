@@ -111,6 +111,10 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter) {
         showUploadList(planter: planter)
     }
+
+    func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter) {
+        delegate?.homeCoordinatorDidLogout(self)
+    }
 }
 
 // MARK: - AddTreeViewModelCoordinatorDelegate
