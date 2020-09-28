@@ -64,6 +64,8 @@ class HomeViewModel {
         coordinatorDelegate?.homeViewModel(self, didSelectAddTreeForPlanter: planter)
     }
     func logoutPlanter() {
+        coordinatorDelegate?.homeViewModel(self, didLogoutPlanter: planter)
+    }
     func fetchProfileData() {
         selfieService.fetchSelfie(forPlanter: planter) { (result) in
             switch result {
