@@ -69,8 +69,12 @@ class HomeViewModel {
             switch result {
             case .success(let data):
                 viewDelegate?.homeViewModel(self, didFetchProfile: data)
-            case .failure:
-                viewDelegate?.homeViewModel(self, didFetchProfile: Asset.Assets.person.image.jpegData(compressionQuality: 1.0)!)
+            case .failure(let error):
+                guard let imageData = Asset.Assets.person.image.jpegData(compressionQuality: 1.0) else {
+                    viewDelegate?.homeViewModel(self, didReceiveError: error)
+                    return
+                }
+                viewDelegate?.homeViewModel(self, didFetchProfile: imageData)
             }
         }
     }

@@ -22,6 +22,7 @@ protocol SelfieService {
 enum SelfieServiceError: Swift.Error {
     case planterError
     case documentStorageError
+    case missingIdentificationError
 }
 
 class LocalSelfieService: SelfieService {
@@ -68,14 +69,17 @@ class LocalSelfieService: SelfieService {
             completion(.failure(SelfieServiceError.planterError))
             return
         }
-
-        if let identifier = planter.latestIdentification?.identifier {
-            guard let selfieData = try? documentManager.retrieveData(forFileName: identifier).get() else {
-                completion(.failure(SelfieServiceError.documentStorageError))
-                return
-            }
-
-            completion(.success(selfieData))
+        
+        guard let identifier = planter.latestIdentification?.identifier else {
+            completion(.failure(SelfieServiceError.missingIdentificationError))
+            return
         }
+
+        guard let selfieData = try? documentManager.retrieveData(forFileName: identifier).get() else {
+            completion(.failure(SelfieServiceError.documentStorageError))
+            return
+        }
+
+        completion(.success(selfieData))
     }
 }

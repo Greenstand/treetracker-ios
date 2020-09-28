@@ -80,10 +80,14 @@ class HomeViewController: UIViewController, AlertPresenting {
             title = viewModel?.title
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel?.fetchTrees()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.fetchTrees()
         showLogoutButton()
         viewModel?.fetchProfileData()
     }
@@ -115,7 +119,7 @@ private extension HomeViewController {
 
 // MARK: - Private
 private extension HomeViewController {
-    func profileButton(withImageData data: Data) {
+    func updateProfileButton(withImageData data: Data) {
         // UIBarButton requires the image to be a 1 color
         // We need a custom button to use our selfie image
         let profileImage = UIImage(data: data)
@@ -147,6 +151,6 @@ extension HomeViewController: HomeViewModelViewDelegate {
     }
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile data: Data) {
-        profileButton(withImageData: data)
+        updateProfileButton(withImageData: data)
     }
 }
