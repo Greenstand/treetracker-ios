@@ -80,11 +80,16 @@ class HomeViewController: UIViewController, AlertPresenting {
             title = viewModel?.title
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.fetchTrees()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showLogoutButton()
+        viewModel?.fetchProfileData()
     }
 }
 // MARK: - Private
@@ -112,6 +117,24 @@ private extension HomeViewController {
     }
 }
 
+// MARK: - Private
+private extension HomeViewController {
+    func updateProfileButton(withImageData data: Data) {
+        // UIBarButton requires the image to be a 1 color
+        // We need a custom button to use our selfie image
+        let profileImage = UIImage(data: data)
+        let profileButton = UIButton(type: .custom)
+        profileButton.setImage(profileImage, for: .normal)
+        profileButton.layer.cornerRadius = 20
+        profileButton.layer.masksToBounds = true
+        let profileBarButton = UIBarButtonItem(customView: profileButton)
+        profileBarButton.customView?.translatesAutoresizingMaskIntoConstraints = false
+        profileBarButton.customView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        profileBarButton.customView?.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        navigationItem.leftBarButtonItem = profileBarButton
+    }
+}
+
 // MARK: - HomeViewModelViewDelegate
 extension HomeViewController: HomeViewModelViewDelegate {
 
@@ -125,5 +148,9 @@ extension HomeViewController: HomeViewModelViewDelegate {
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didReceiveError error: Error) {
         present(alert: .error(error))
+    }
+
+    func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile data: Data) {
+        updateProfileButton(withImageData: data)
     }
 }

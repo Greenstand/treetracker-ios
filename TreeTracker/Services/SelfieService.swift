@@ -9,17 +9,20 @@
 import Foundation
 
 struct SelfieData {
-    let pngData: Data
+    let jpegData: Data
 }
 
 protocol SelfieService {
     func storeSelfie(selfieData data: SelfieData, forPlanter planter: Planter, completion: (Result<Planter, Error>) -> Void)
+
+    func fetchSelfie(forPlanter planter: Planter, completion: (Result<Data, Error>) -> Void)
 }
 
 // MARK: - Errors
 enum SelfieServiceError: Swift.Error {
     case planterError
     case documentStorageError
+    case missingIdentificationError
 }
 
 class LocalSelfieService: SelfieService {
@@ -41,7 +44,7 @@ class LocalSelfieService: SelfieService {
 
         let identificationID = UUID().uuidString
 
-        guard let photoPath = try? documentManager.store(data: data.pngData, withFileName: identificationID).get() else {
+        guard let photoPath = try? documentManager.store(data: data.jpegData, withFileName: identificationID).get() else {
             completion(.failure(SelfieServiceError.documentStorageError))
             return
         }
@@ -59,5 +62,24 @@ class LocalSelfieService: SelfieService {
         } catch {
             completion(.failure(error))
         }
+    }
+
+    func fetchSelfie(forPlanter planter: Planter, completion: (Result<Data, Error>) -> Void) {
+        guard let planter = planter as? PlanterDetail else {
+            completion(.failure(SelfieServiceError.planterError))
+            return
+        }
+        
+        guard let identifier = planter.latestIdentification?.identifier else {
+            completion(.failure(SelfieServiceError.missingIdentificationError))
+            return
+        }
+
+        guard let selfieData = try? documentManager.retrieveData(forFileName: identifier).get() else {
+            completion(.failure(SelfieServiceError.documentStorageError))
+            return
+        }
+
+        completion(.success(selfieData))
     }
 }

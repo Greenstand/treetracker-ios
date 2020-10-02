@@ -64,9 +64,15 @@ private extension HomeCoordinator {
             let treeMonitoringService = LocalTreeMonitoringService(
                 coreDataManager: coreDataManager
             )
+
+            let selfieService = LocalSelfieService(
+                coreDataManager: coreDataManager,
+                documentManager: DocumentManager()
+            )
             let viewModel = HomeViewModel(
                 planter: planter,
-                treeMonitoringService: treeMonitoringService
+                treeMonitoringService: treeMonitoringService,
+                selfieService: selfieService
             )
             viewModel.coordinatorDelegate = self
             return viewModel
