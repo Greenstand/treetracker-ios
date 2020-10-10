@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        AWSS3Client().registerS3CLient()
+
+        // For iOS13+ we setup the root coordinator in the scene delegate
         guard #available(iOS 13.0, *) else {
             let navigationController = BaseNavigationViewController()
 

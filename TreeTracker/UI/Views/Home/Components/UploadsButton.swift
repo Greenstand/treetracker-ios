@@ -10,6 +10,11 @@ import UIKit
 
 class UploadsButton: UIButton {
 
+    enum UploadState {
+        case start
+        case stop
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -25,6 +30,12 @@ class UploadsButton: UIButton {
             updateState()
         }
     }
+
+    var uploadState: UploadState = .start {
+        didSet {
+            updatUploadeState()
+        }
+    }
 }
 
 // MARK: - Private
@@ -36,10 +47,8 @@ private extension UploadsButton {
         layer.cornerRadius = 5.0
         layer.masksToBounds = true
 
-        setAttributedTitle(normalAttributedTitle, for: .normal)
-        setAttributedTitle(disabledAttributedTitle, for: .disabled)
-
         updateState()
+        updatUploadeState()
     }
 
     func updateState() {
@@ -52,19 +61,30 @@ private extension UploadsButton {
         }
     }
 
-    var normalAttributedTitle: NSAttributedString {
+    func updatUploadeState() {
+        switch uploadState {
+        case .start:
+            setAttributedTitle(startUploadsAttributedTitle(withAtributes: normalTextAttributes), for: .normal)
+            setAttributedTitle(startUploadsAttributedTitle(withAtributes: disabledTextAttributes), for: .disabled)
+        case .stop:
+            setAttributedTitle(stopUploadsAttributedTitle(withAtributes: normalTextAttributes), for: .normal)
+            setAttributedTitle(stopUploadsAttributedTitle(withAtributes: disabledTextAttributes), for: .disabled)
+        }
+    }
+
+    func startUploadsAttributedTitle(withAtributes attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
         attributedString.append(NSAttributedString(attachment: iconTextAttachment))
         attributedString.append(NSAttributedString(string: "  "))
-        attributedString.append(NSAttributedString(string: L10n.Home.UploadButton.title, attributes: normalTextAttributes))
+        attributedString.append(NSAttributedString(string: L10n.Home.UploadTreesButton.Title.start, attributes: attributes))
         return attributedString
     }
 
-    var disabledAttributedTitle: NSAttributedString {
+    func stopUploadsAttributedTitle(withAtributes attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
         attributedString.append(NSAttributedString(attachment: iconTextAttachment))
         attributedString.append(NSAttributedString(string: "  "))
-        attributedString.append(NSAttributedString(string: L10n.Home.UploadButton.title, attributes: normalTextAttributes))
+        attributedString.append(NSAttributedString(string: L10n.Home.UploadTreesButton.Title.stop, attributes: attributes))
         return attributedString
     }
 

@@ -57,7 +57,13 @@ class HomeViewController: UIViewController, AlertPresenting {
         }
     }
     @IBOutlet private var addTreeButton: AddTreeButton!
-    @IBOutlet private var uploadsButton: UploadsButton!
+    @IBOutlet private var uploadTreesButton: UploadsButton! {
+        didSet {
+            uploadTreesButton.setTitle(L10n.Home.UploadTreesButton.Title.start, for: .normal)
+            uploadTreesButton.isEnabled = false
+        }
+    }
+    @IBOutlet private var myTreesButton: UploadsButton!
     @IBOutlet private var uploadsCountView: UIView! {
         didSet {
             uploadsCountView.backgroundColor = Asset.Colors.secondaryOrangeDark.color
@@ -80,10 +86,10 @@ class HomeViewController: UIViewController, AlertPresenting {
             title = viewModel?.title
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.fetchTrees()
+        viewModel?.startMonitoringTrees()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +116,10 @@ private extension HomeViewController {
 
     @IBAction func uploadsButtonPressed() {
         viewModel?.uploadListSelected()
+    }
+
+    @IBAction func uploadTreesButtonPressed() {
+        viewModel?.toggleTreeUploads()
     }
 
     @objc func logoutButtonPressed() {
@@ -141,7 +151,7 @@ extension HomeViewController: HomeViewModelViewDelegate {
     func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateTreeCount data: HomeViewModel.TreeCountData) {
         treesPlantedCountLabel.text = "\(data.planted)"
         treesUploadedCountLabel.text = "\(data.uploaded) / \(data.planted)"
-        uploadsButton.isEnabled = data.hasPendingUploads
+        uploadTreesButton.isEnabled = data.hasPendingUploads
         uploadsCountLabel.text = "\(data.pendingUpload)"
         uploadsCountView.isHidden = !data.hasPendingUploads
     }
@@ -150,7 +160,15 @@ extension HomeViewController: HomeViewModelViewDelegate {
         present(alert: .error(error))
     }
 
-    func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile data: Data) {
+    func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfileImage data: Data) {
         updateProfileButton(withImageData: data)
+    }
+
+    func homeViewModelDidStartUploadingTrees(_ homeViewModel: HomeViewModel) {
+        uploadTreesButton.uploadState = .stop
+    }
+
+    func homeViewModelDidStopUploadingTrees(_ homeViewModel: HomeViewModel) {
+        uploadTreesButton.uploadState = .start
     }
 }

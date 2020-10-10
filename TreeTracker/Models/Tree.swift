@@ -17,6 +17,13 @@ protocol Tree: class {
     var noteContent: String? { get set }
     var photoURL: String? { get set }
     var uploaded: Bool { get set }
+    var uuid: String? { get set }
+    var bundleId: String? { get set }
+    var planterCheckIn: PlanterCheckIn? { get }
 }
 
-extension TreeCapture: Tree { }
+extension TreeCapture: Tree {
+    var planterCheckIn: PlanterCheckIn? {
+        return planterIdentification
+    }
+}
