@@ -57,6 +57,7 @@ class HomeViewController: UIViewController, AlertPresenting {
         }
     }
     @IBOutlet private var addTreeButton: AddTreeButton!
+    @IBOutlet private var viewTreesButton: ViewTreesButton!
     @IBOutlet private var uploadsButton: UploadsButton!
     @IBOutlet private var uploadsCountView: UIView! {
         didSet {
@@ -96,6 +97,11 @@ private extension HomeViewController {
 
     @IBAction func uploadsButtonPressed() {
         viewModel?.uploadListSelected()
+    }
+
+    @IBAction func viewTreesButtonPressed() {
+        viewModel?.viewTreesSelected()
+        print("view trees button pressed")
     }
 }
 

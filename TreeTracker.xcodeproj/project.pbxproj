@@ -73,8 +73,12 @@
 		93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB024BCF26600946C0C /* LocationManager.swift */; };
 		93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB224BCFC7E00946C0C /* Location.swift */; };
 		93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3771D24EC419A00B7D051 /* DocumentManager.swift */; };
-		F2926E9A24E1BFF500B9EBA5 /* PicturesCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2926E9924E1BFF500B9EBA5 /* PicturesCollection.storyboard */; };
-		F2926E9C24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2926E9B24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift */; };
+		F202BB0D25570E6700F5A8AB /* ViewTreesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F202BB0C25570E6700F5A8AB /* ViewTreesViewModel.swift */; };
+		F2A3006525508CB400739425 /* ViewTreesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3006325508CB400739425 /* ViewTreesCollectionViewCell.swift */; };
+		F2A3006625508CB400739425 /* ViewTreesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A3006425508CB400739425 /* ViewTreesCollectionViewCell.xib */; };
+		F2CE1C272548D0890048C7F5 /* ViewTreesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1C262548D0890048C7F5 /* ViewTreesButton.swift */; };
+		F2CE1C2A2548DA1C0048C7F5 /* ViewTreesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1C292548DA1C0048C7F5 /* ViewTreesViewController.swift */; };
+		F2CE1C2C2548DA4C0048C7F5 /* ViewTrees.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1C2B2548DA4C0048C7F5 /* ViewTrees.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,8 +172,12 @@
 		93F3771D24EC419A00B7D051 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		F2926E9924E1BFF500B9EBA5 /* PicturesCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PicturesCollection.storyboard; sourceTree = "<group>"; };
-		F2926E9B24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
+		F202BB0C25570E6700F5A8AB /* ViewTreesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTreesViewModel.swift; sourceTree = "<group>"; };
+		F2A3006325508CB400739425 /* ViewTreesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTreesCollectionViewCell.swift; sourceTree = "<group>"; };
+		F2A3006425508CB400739425 /* ViewTreesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewTreesCollectionViewCell.xib; sourceTree = "<group>"; };
+		F2CE1C262548D0890048C7F5 /* ViewTreesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTreesButton.swift; sourceTree = "<group>"; };
+		F2CE1C292548DA1C0048C7F5 /* ViewTreesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTreesViewController.swift; sourceTree = "<group>"; };
+		F2CE1C2B2548DA4C0048C7F5 /* ViewTrees.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewTrees.storyboard; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -413,7 +421,7 @@
 		93E82F57246C368200006C91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F2926E9824E1BFA600B9EBA5 /* Pictures */,
+				F2CE1C282548D9C60048C7F5 /* View Trees */,
 				93E82F58246C36A300006C91 /* Loading */,
 				93E82F5F246C3B3200006C91 /* Authentication */,
 				93EC8C3524AA4FD100946C0C /* Home */,
@@ -495,6 +503,7 @@
 			children = (
 				93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */,
 				93EC8C4924AB7EA100946C0C /* UploadsButton.swift */,
+				F2CE1C262548D0890048C7F5 /* ViewTreesButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -545,13 +554,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F2926E9824E1BFA600B9EBA5 /* Pictures */ = {
+		F2CE1C282548D9C60048C7F5 /* View Trees */ = {
 			isa = PBXGroup;
 			children = (
-				F2926E9924E1BFF500B9EBA5 /* PicturesCollection.storyboard */,
-				F2926E9B24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift */,
+				F2CE1C292548DA1C0048C7F5 /* ViewTreesViewController.swift */,
+				F2A3006325508CB400739425 /* ViewTreesCollectionViewCell.swift */,
+				F2A3006425508CB400739425 /* ViewTreesCollectionViewCell.xib */,
+				F2CE1C2B2548DA4C0048C7F5 /* ViewTrees.storyboard */,
+				F202BB0C25570E6700F5A8AB /* ViewTreesViewModel.swift */,
 			);
-			path = Pictures;
+			path = "View Trees";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -672,8 +684,9 @@
 				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
 				93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */,
 				93EC8CAF24BBAA0200946C0C /* AddTree.storyboard in Resources */,
+				F2CE1C2C2548DA4C0048C7F5 /* ViewTrees.storyboard in Resources */,
 				93E1893A245B738100217F21 /* Assets.xcassets in Resources */,
-				F2926E9A24E1BFF500B9EBA5 /* PicturesCollection.storyboard in Resources */,
+				F2A3006625508CB400739425 /* ViewTreesCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,17 +776,19 @@
 				93E82F56246C35FF00006C91 /* SignInViewModel.swift in Sources */,
 				93EC8CAD24BBA9F600946C0C /* AddTreeViewModel.swift in Sources */,
 				93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */,
+				F2CE1C272548D0890048C7F5 /* ViewTreesButton.swift in Sources */,
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
 				93EC8C4E24ABA5B500946C0C /* TreeTracker.xcdatamodeld in Sources */,
 				93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */,
 				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,
 				93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */,
+				F2A3006525508CB400739425 /* ViewTreesCollectionViewCell.swift in Sources */,
 				93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */,
+				F2CE1C2A2548DA1C0048C7F5 /* ViewTreesViewController.swift in Sources */,
 				93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */,
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
 				93C579A424A26D95009C0E46 /* TermsService.swift in Sources */,
 				93C579A624A26E6B009C0E46 /* SelfieService.swift in Sources */,
-				F2926E9C24E1C05C00B9EBA5 /* PicturesCollectionViewController.swift in Sources */,
 				93E18968245C96F000217F21 /* Assets.swift in Sources */,
 				93989CF0246C479400A1B21F /* Validation.swift in Sources */,
 				93E82F4C246C262900006C91 /* SignInCoordinator.swift in Sources */,
@@ -784,6 +799,7 @@
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
 				932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */,
 				93C579AC24AA0909009C0E46 /* Organization.swift in Sources */,
+				F202BB0D25570E6700F5A8AB /* ViewTreesViewModel.swift in Sources */,
 				93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */,
 				93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */,
 				932EA1AC2478311F0035394D /* KeyboardDismissing.swift in Sources */,
@@ -913,6 +929,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -966,6 +983,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -976,6 +994,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SA2AQ6FS9B;
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -994,6 +1013,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SA2AQ6FS9B;
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

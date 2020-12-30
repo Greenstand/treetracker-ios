@@ -79,6 +79,10 @@ internal enum L10n {
       /// UPLOAD
       internal static let title = L10n.tr("Localizable", "Home.UploadButton.Title")
     }
+    internal enum ViewTreesButton {
+      /// VIEW TREES
+      internal static let title = L10n.tr("Localizable", "Home.ViewTreesButton.Title")
+    }
   }
 
   internal enum Selfie {

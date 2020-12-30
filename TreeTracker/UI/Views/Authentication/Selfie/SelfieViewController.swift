@@ -64,8 +64,8 @@ private extension SelfieViewController {
     func displayImagePicker() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.cameraDevice = .front
+//        imagePicker.sourceType = .camera
+//        imagePicker.cameraDevice = .front
         present(imagePicker, animated: true)
     }
 }
