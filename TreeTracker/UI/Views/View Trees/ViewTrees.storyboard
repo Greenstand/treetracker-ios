@@ -49,9 +49,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r3r-T7-4Np"/>
                     </view>
-                    <connections>
-                        <outlet property="viewTrees" destination="C0D-HX-AXp" id="A0T-F9-m4I"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXk-QA-ZOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
