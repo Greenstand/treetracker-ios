@@ -7,3 +7,45 @@
 //
 
 import Foundation
+
+protocol ViewTreesViewModelViewDelegate: class {
+    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didReceiveError error: Error)
+    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didUpdateTreeCount data: ViewTreesViewModel.TreeCountData)
+}
+
+class ViewTreesViewModel {
+
+    struct TreeCountData {
+        let planted: Int
+        let uploaded: Int
+  
+    }
+
+    private let treeMonitoringService: TreeMonitoringService
+    weak var viewDelegate: ViewTreesViewModelViewDelegate?
+    private let planter: Planter
+
+    init(planter: Planter, treeMonitoringService: TreeMonitoringService) {
+        self.planter = planter
+        self.treeMonitoringService = treeMonitoringService
+        treeMonitoringService.delegate = self
+    }
+
+   let title = L10n.ViewTrees.title
+
+    func fetchTrees() {
+        treeMonitoringService.startMonitoringTrees(forPlanter: planter)
+    }
+}
+
+// MARK: - TreeServiceDelegate
+extension ViewTreesViewModel: TreeMonitoringServiceDelegate {
+
+    func treeMonitoringService(_ treeMonitoringService: TreeMonitoringService, didUpdateTrees trees: [Tree]) {
+
+    print(trees)
+    }
+
+    func treeMonitoringService(_ treeMonitoringService: TreeMonitoringService, didError error: Error) {
+    }
+}

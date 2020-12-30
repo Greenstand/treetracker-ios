@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="QS8-Po-WAg">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ViewTreesCollectionViewCell" id="QS8-Po-WAg" customClass="ViewTreesCollectionViewCell" customModule="TreeTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sMI-pz-zx1">
@@ -40,15 +40,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="C0D-HX-AXp" firstAttribute="centerY" secondItem="5R1-A5-PNl" secondAttribute="centerY" id="Dfq-dh-PX3"/>
-                            <constraint firstItem="r3r-T7-4Np" firstAttribute="bottom" secondItem="C0D-HX-AXp" secondAttribute="bottom" id="Ig8-yp-d3n"/>
+                            <constraint firstItem="C0D-HX-AXp" firstAttribute="top" secondItem="r3r-T7-4Np" secondAttribute="top" id="9Zd-LA-QyY"/>
                             <constraint firstItem="r3r-T7-4Np" firstAttribute="trailing" secondItem="C0D-HX-AXp" secondAttribute="trailing" id="Nae-Mr-S5e"/>
+                            <constraint firstItem="C0D-HX-AXp" firstAttribute="bottom" secondItem="r3r-T7-4Np" secondAttribute="bottom" id="aTh-0D-Gve"/>
                             <constraint firstItem="C0D-HX-AXp" firstAttribute="leading" secondItem="r3r-T7-4Np" secondAttribute="leading" id="fqw-po-bto"/>
-                            <constraint firstItem="C0D-HX-AXp" firstAttribute="top" secondItem="r3r-T7-4Np" secondAttribute="top" id="iCJ-nF-Fqz"/>
                             <constraint firstItem="C0D-HX-AXp" firstAttribute="centerX" secondItem="5R1-A5-PNl" secondAttribute="centerX" id="vg7-y9-wWb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r3r-T7-4Np"/>
                     </view>
+                    <connections>
+                        <outlet property="viewTrees" destination="C0D-HX-AXp" id="j6W-wX-E0z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXk-QA-ZOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewTreesCollectionViewCell: UICollectionViewCell {
-    
     static let customCellIdentifier = "ViewTreesCollectionViewCell"
 
     @IBOutlet weak var treesImage: UIImageView!

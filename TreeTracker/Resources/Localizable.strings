@@ -56,3 +56,7 @@
 "GPSAccuracyLabel.Text.Good" = "Good";
 "GPSAccuracyLabel.Text.Bad" = "Bad";
 "GPSAccuracyLabel.Text.Unknown" = "Unknown";
+
+//View Trees Screen
+"ViewTrees.Title" = "View Trees";
+

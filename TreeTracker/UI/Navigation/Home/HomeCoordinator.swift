@@ -53,7 +53,7 @@ private extension HomeCoordinator {
             animated: true
         )
     }
-    
+
     func showViewTrees(planter: Planter) {
         configuration.navigationController.pushViewController(
             viewTreesViewController,
@@ -106,10 +106,20 @@ private extension HomeCoordinator {
         }()
         return viewcontroller
     }
-    
+
     var viewTreesViewController: UIViewController {
-        let viewcontroller = StoryboardScene.ViewTrees.initialScene.instantiate()
-        return viewcontroller
+        let viewController = StoryboardScene.ViewTrees.initialScene.instantiate()
+        viewController.viewModel = {
+            let treeMonitoringService = LocalTreeMonitoringService(
+                coreDataManager: coreDataManager
+            )
+            let viewModel = ViewTreesViewModel(
+                planter: planter,
+                treeMonitoringService: treeMonitoringService
+            )
+            return viewModel
+        }()
+        return viewController
 
     }
 }

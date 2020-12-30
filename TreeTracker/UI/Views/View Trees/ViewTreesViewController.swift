@@ -9,49 +9,49 @@
 import UIKit
 
 class ViewTreesViewController: UIViewController {
-
-   // @IBOutlet weak var viewTrees: UICollectionView!
-  //  private let treeMonitoringService: TreeMonitoringService
+    var viewModel: ViewTreesViewModel? {
+        didSet {
+            viewModel?.viewDelegate = self
+            title = viewModel?.title
+        }
+    }
+   @IBOutlet weak var viewTrees: UICollectionView!
+   //private let treeMonitoringService: TreeMonitoringService
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//         viewTrees.delegate = self
-//         viewTrees.dataSource = self
-//         viewTrees.register(ViewTreesCollectionViewCell.self, forCellWithReuseIdentifier: "ViewTreesCollectionViewCell")
-        // Do any additional setup after loading the view.
-    }
-    /*
-    // MARK: - Navigation
+         viewTrees.delegate = self
+         viewTrees.dataSource = self
+         viewTrees.register(ViewTreesCollectionViewCell.self, forCellWithReuseIdentifier: "ViewTreesCollectionViewCell")
+         viewModel?.fetchTrees()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+}
+
+extension ViewTreesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = viewTrees.dequeueReusableCell(withReuseIdentifier: "ViewTreesCollectionViewCell", for: indexPath)
+        cell.backgroundColor = .red
+        return cell
+    }
 
 }
 
-//extension ViewTreesViewController: UICollectionViewDelegate, UICollectionViewDataSource{
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        guard let sections = VC.fetchedResultsController.sections else {
-//        // error
-//
-//        }
-//        let sectionInfo = sections[section]
-//        return sectionInfo.numberOfObjects
-//    }
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//    }
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-//
-//        let cell = viewTrees.dequeueReusableCell(withReuseIdentifier: "ViewTreesCollectionViewCell", for: indexPath)
-//        guard let object = VC.fetchedResultsController.object(at:indexPath) else {
-//            //show error
-//        }
-//        return cell
-//    }
-//
-//}
+// MARK: - ViewTreesViewModelViewDelegate
+extension ViewTreesViewController: ViewTreesViewModelViewDelegate {
+    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didReceiveError error: Error){
+        
+    }
+    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didUpdateTreeCount data: ViewTreesViewModel.TreeCountData){
+        
+    }
+    
+}
