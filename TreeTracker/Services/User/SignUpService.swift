@@ -43,6 +43,7 @@ class LocalSignUpService: SignUpService {
         planterDetail.createdAt = Date()
         planterDetail.uploaded = false
         planterDetail.identifier = signUpDetails.username.value
+        planterDetail.uuid = UUID().uuidString
 
         do {
             try coreDataManager.viewContext.save()

@@ -43,8 +43,10 @@ class LocalTreeUploadService: TreeUploadService {
     }
 
     var treesToUpload: [Tree]? {
+        let fetchRequest: NSFetchRequest<TreeCapture> = TreeCapture.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "uploaded == false")
         return coreDataManager.perform(
-            fetchRequest: self.treesToUploadFetchRequest
+            fetchRequest: fetchRequest
         )
     }
 }
@@ -154,16 +156,6 @@ extension LocalTreeUploadService {
 extension LocalTreeUploadService {
     func uploadTreeLocations() {
         Logger.log("TREE UPLOAD: LocalTreeUploadService.uploadTreeLocations")
-    }
-}
-
-// MARK: - Fetch Requests
-private extension LocalTreeUploadService {
-
-    var treesToUploadFetchRequest: NSFetchRequest<TreeCapture> {
-        let fetchRequest: NSFetchRequest<TreeCapture> = TreeCapture.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "uploaded == false")
-        return fetchRequest
     }
 }
 

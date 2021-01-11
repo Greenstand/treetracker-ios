@@ -21,7 +21,6 @@ class AWSS3BundleUploadService: BundleUploadService {
     }
 
     func upload(withRequest bundleUploadRequest: UploadBundleRequest, completion: @escaping (Result<String, Error>) -> Void) {
-
         s3Client.uploadBundle(jsonBundle: bundleUploadRequest.jsonString, bundleId: bundleUploadRequest.bundleId) { (result) in
             completion(result)
         }
