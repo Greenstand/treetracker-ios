@@ -45,6 +45,10 @@ class UploadManager: UploadManaging {
 
     func startUploading() {
 
+        guard !isUploading else {
+            return
+        }
+
         let planterUploadOperation = PlanterUploadOperation(
             planterUploadService: planterUploadService
         )
@@ -84,6 +88,9 @@ class UploadManager: UploadManaging {
     }
 
     func stopUploading() {
+        guard isUploading else {
+            return
+        }
         Logger.log("UploadManager.stopUploading()")
         isUploading = false
         uploadOperationQueue.cancelAllOperations()
