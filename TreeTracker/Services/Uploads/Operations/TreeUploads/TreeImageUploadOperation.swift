@@ -12,7 +12,6 @@ class TreeImageUploadOperation: Operation {
 
     private let tree: Tree
     private let treeUploadService: TreeUploadService
-    //private var awsUploadTask
 
     init(tree: Tree, treeUploadService: TreeUploadService) {
         self.tree = tree
@@ -20,16 +19,19 @@ class TreeImageUploadOperation: Operation {
     }
 
     override func main() {
-        Logger.log("TREE UPLOAD: TreeImageUploadOperation: Started")
-        do {
-            try treeUploadService.uploadImage(forTree: tree)
-        } catch {
-            cancel()
-        }
-    }
+        Logger.log("TREE IMAGE UPLOAD: TreeImageUploadOperation: Started")
 
-    override func cancel() {
-        super.cancel()
-        //Cancel AWSUploadTask
+        let semaphore = DispatchSemaphore(value: 0)
+
+        treeUploadService.uploadImage(forTree: tree) { (result) in
+            switch result {
+            case .success:
+                break
+            case .failure:
+                self.cancel()
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
     }
 }

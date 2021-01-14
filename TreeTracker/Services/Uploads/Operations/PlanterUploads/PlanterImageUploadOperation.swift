@@ -12,7 +12,6 @@ class PlanterImageUploadOperation: Operation {
 
     private let planterIdentification: PlanterIdentification
     private let planterUploadService: PlanterUploadService
-    //private var awsUploadTask
 
     init(planterIdentification: PlanterIdentification, planterUploadService: PlanterUploadService) {
         self.planterIdentification = planterIdentification
@@ -20,18 +19,19 @@ class PlanterImageUploadOperation: Operation {
     }
 
     override func main() {
-        Logger.log("PLANTER UPLOAD: PlanterImageUploadOperation: Started")
-        do {
-            try planterUploadService.uploadPlanterImage(
-                planterIdentification: planterIdentification
-            )
-        } catch {
-            cancel()
-        }
-    }
+        Logger.log("PLANTER IMAGE UPLOAD: PlanterImageUploadOperation: Started")
 
-    override func cancel() {
-        super.cancel()
-        //Cancel AWSUploadTask
+        let semaphore = DispatchSemaphore(value: 0)
+
+        planterUploadService.uploadPlanterImage(planterIdentification: planterIdentification) { (result) in
+            switch result {
+            case .success:
+                break
+            case .failure:
+                self.cancel()
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
     }
 }

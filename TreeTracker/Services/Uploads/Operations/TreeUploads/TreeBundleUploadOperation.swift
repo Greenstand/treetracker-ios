@@ -19,11 +19,19 @@ class TreeBundleUploadOperation: Operation {
     }
 
     override func main() {
-        Logger.log("TREE UPLOAD: TreeBundleUploadOperation: Started")
-        do {
-            try treeUploadService.uploadDataBundle(forTrees: trees)
-        } catch {
-            cancel()
+        Logger.log("TREE DATA UPLOAD: TreeBundleUploadOperation: Started")
+
+        let semaphore = DispatchSemaphore(value: 0)
+
+        treeUploadService.uploadDataBundle(forTrees: trees) { (result) in
+            switch result {
+            case .success:
+                break
+            case .failure:
+                self.cancel()
+            }
+            semaphore.signal()
         }
+        semaphore.wait()
     }
 }

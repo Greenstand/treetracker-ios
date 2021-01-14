@@ -17,7 +17,7 @@ class DeletePlanterImagesOperation: Operation {
     }
 
     override func main() {
-        Logger.log("PLANTER UPLOAD: DeletePlanterImagesOperation: Started")
+        Logger.log("PLANTER IMAGE DELETION: DeletePlanterImagesOperation: Started")
 
         do {
             try planterUploadService.deleteLocalImagesThatWereUploaded()

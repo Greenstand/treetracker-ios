@@ -26,6 +26,8 @@ class TreeUploadOperation: Operation {
 
     override func main() {
 
+        Logger.log("TREE UPLOAD: TreeUploadOperation: Started")
+
         guard let trees = treeUploadService.treesToUpload else {
             cancel()
             return

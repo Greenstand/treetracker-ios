@@ -25,7 +25,7 @@ class PlanterImagesUploadOperation: Operation {
 
     override func main() {
 
-        Logger.log("PLANTER UPLOAD: PlanterImagesUploadOperation: Started")
+        Logger.log("PLANTER IMAGE UPLOAD: PlanterImagesUploadOperation: Started")
 
         guard let planterIdentifications = planterUploadService.planterIdentificationsForUpload else {
             cancel()

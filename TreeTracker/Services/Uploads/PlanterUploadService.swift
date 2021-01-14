@@ -11,8 +11,8 @@ import CoreData
 
 protocol PlanterUploadService {
     var planterIdentificationsForUpload: [PlanterIdentification]? { get }
-    func uploadPlanterImage(planterIdentification: PlanterIdentification) throws
-    func uploadPlanterInfo() throws
+    func uploadPlanterImage(planterIdentification: PlanterIdentification, completion: @escaping (Result<String, Error>) -> Void)
+    func uploadPlanterInfo(completion: @escaping (Result<String?, Error>) -> Void)
     func deleteLocalImagesThatWereUploaded() throws
 }
 
@@ -54,34 +54,27 @@ class LocalPlanterUploadService: PlanterUploadService {
 // MARK: - Planter Images
 extension LocalPlanterUploadService {
 
-    func uploadPlanterImage(planterIdentification: PlanterIdentification) throws {
-        Logger.log("PLANTER UPLOAD: LocalPlanterUploadService.uploadPlanterImage")
+    func uploadPlanterImage(planterIdentification: PlanterIdentification, completion: @escaping (Result<String, Error>) -> Void) {
 
-        let semaphore = DispatchSemaphore(value: 0)
-        var uploadError: Error?
+        Logger.log("PLANTER IMAGE UPLOAD: Uploading image")
 
         guard let request = planterIdentification.imageUploadRequest(documentManager: documentManager) else {
-            throw PlanterUploadServiceError.invalidPlanterData
+            Logger.log("PLANTER IMAGE UPLOAD ERROR: PlanterUploadServiceError.invalidPlanterData")
+            completion(.failure(PlanterUploadServiceError.invalidPlanterData))
+            return
         }
-
-        Logger.log("PLANTER UPLOAD: LocalPlanterUploadService.uploadPlanterImage: Will Upload Planter Image \(planterIdentification.uuid ?? "")")
 
         imageUploadService.uploadImage(request: request) { (result) in
             switch result {
             case .success(let url):
-                Logger.log("PLANTER UPLOAD: LocalPlanterUploadService.uploadPlanterImage: Did Upload Planter Image \(planterIdentification.uuid ?? "")")
                 planterIdentification.photoURL = url
                 self.coreDataManager.saveContext()
+                Logger.log("PLANTER IMAGE UPLOAD: Image upload success")
+                completion(.success(url))
             case .failure(let error):
-                Logger.log("PLANTER UPLOAD: LocalPlanterUploadService.uploadPlanterImage: Error Uploading Planter Image \(planterIdentification.uuid ?? "")")
-                uploadError = error
+                Logger.log("PLANTER IMAGE UPLOAD ERROR: \(error)")
+                completion(.failure(error))
             }
-            semaphore.signal()
-        }
-        semaphore.wait()
-
-        if let error = uploadError {
-            throw error
         }
     }
 }
@@ -89,64 +82,59 @@ extension LocalPlanterUploadService {
 // MARK: - Planter Details
 extension LocalPlanterUploadService {
 
-    func uploadPlanterInfo() throws {
-        Logger.log("PLANTER UPLOAD: LocalPlanterUploadService.uploadPlanterInfo")
+    func uploadPlanterInfo(completion: @escaping (Result<String?, Error>) -> Void) {
+        Logger.log("PLANTER INFO UPLOAD: Uploading info")
+
         guard let planters = coreDataManager.perform(fetchRequest: plantersToUpload) else {
-            throw PlanterUploadServiceError.planterFetchError
+            Logger.log("PLANTER INFO UPLOAD ERROR: PlanterUploadServiceError.planterFetchError")
+            completion(.failure(PlanterUploadServiceError.planterFetchError))
+            return
         }
 
         let registrationRequests = planters.compactMap(\.registrationUploadRequest)
 
         guard registrationRequests.count > 0 else {
+            Logger.log("PLANTER INFO UPLOAD: No info to upload")
+            completion(.success(nil))
             return
         }
 
         let uploadBundle = UploadBundle(trees: nil, registrations: registrationRequests)
         guard let uploadRequest = uploadBundle.registrationBundleUploadRequest else {
-            throw PlanterUploadServiceError.bundleCreationError
+            Logger.log("PLANTER INFO UPLOAD ERROR: PlanterUploadServiceError.bundleCreationError")
+            completion(.failure(PlanterUploadServiceError.bundleCreationError))
+            return
         }
-
-        let semaphore = DispatchSemaphore(value: 0)
-        var uploadError: Error?
-        Logger.log("PLANTER UPLOAD: Will upload \(registrationRequests.count) / \(planters.count) planters")
 
         bundleUploadService.upload(withRequest: uploadRequest) { (result) in
             switch result {
-            case .success:
-                Logger.log("PLANTER UPLOAD: Did upload \(registrationRequests.count) / \(planters.count) planters")
+            case .success(let url):
                 planters
                     .filter({ $0.registrationUploadRequest != nil })
                     .forEach { (planterDetail) in
-                        Logger.log("PLANTER UPLOAD: Updating planter upload status \(planterDetail.identifier ?? "")")
                         planterDetail.uploaded = true
                         self.coreDataManager.saveContext()
                 }
-
+                Logger.log("PLANTER INFO UPLOAD: Info upload success")
+                completion(.success(url))
             case .failure(let error):
-                uploadError = error
+                Logger.log("PLANTER INFO UPLOAD ERROR: \(error)")
+                completion(.failure(error))
             }
-            semaphore.signal()
         }
-        semaphore.wait()
-
-        if let error = uploadError {
-            throw error
-        }
-        Logger.log("PLANTER UPLOAD: Uploaded all planter info")
     }
+
 }
 
 // MARK: - Delete Local Images
 extension LocalPlanterUploadService {
 
     func deleteLocalImagesThatWereUploaded() throws {
-        Logger.log("PLANTER UPLOAD: LocalPlanterUploadService.deleteLocalImagesThatWereUploaded")
+        Logger.log("PLANTER IMAGE DELETION: Deleting local images")
         // Delete all local image files for registrations except for the currently logged in users photo...
         guard let planterIdentifications = coreDataManager.perform(fetchRequest: identificationsToDelete) else {
             throw PlanterUploadServiceError.planterIdentificationFetchError
         }
-
-        Logger.log("PLANTER UPLOAD: Will remove \(planterIdentifications.count - 1) local planter photos")
 
         try planterIdentifications
             .filter({ $0.planter?.identifier != planter.identifier })
@@ -156,14 +144,13 @@ extension LocalPlanterUploadService {
                 guard let localPhotoPath = planterIdentification.localPhotoPath else {
                     return
                 }
-                Logger.log("PLANTER UPLOAD: Removing local photo for planter \(planterIdentification.uuid ?? "")")
                 if try documentManager.fileExists(withFileName: localPhotoPath) {
                     try documentManager.removeFile(withFileName: localPhotoPath)
                     planterIdentification.localPhotoPath = nil
                     coreDataManager.saveContext()
                 }
             }
-        Logger.log("PLANTER UPLOAD: Removed local planter images")
+        Logger.log("PLANTER IMAGE DELETION: Deleted local images successfully")
     }
 }
 

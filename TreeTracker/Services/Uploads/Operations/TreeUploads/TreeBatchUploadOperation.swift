@@ -27,6 +27,8 @@ class TreeBatchUploadOperation: Operation {
 
     override func main() {
 
+        Logger.log("TREE UPLOAD: TreeBatchUploadOperation: Started")
+
         let imageUploadOperation = TreeBatchImagesUploadOperation(
             trees: trees,
             treeUploadService: treeUploadService

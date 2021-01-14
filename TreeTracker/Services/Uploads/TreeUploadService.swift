@@ -11,8 +11,8 @@ import CoreData
 
 protocol TreeUploadService {
     var treesToUpload: [Tree]? { get }
-    func uploadImage(forTree tree: Tree) throws
-    func uploadDataBundle(forTrees trees: [Tree]) throws
+    func uploadImage(forTree tree: Tree, completion: @escaping (Result<String, Error>) -> Void)
+    func uploadDataBundle(forTrees trees: [Tree], completion: @escaping (Result<String?, Error>) -> Void)
     func deleteLocalImages(forTrees trees: [Tree]) throws
     func uploadTreeLocations()
 }
@@ -54,32 +54,27 @@ class LocalTreeUploadService: TreeUploadService {
 // MARK: - Upload Tree Image
 extension LocalTreeUploadService {
 
-    func uploadImage(forTree tree: Tree) throws {
-        Logger.log("TREE UPLOAD: LocalTreeUploadService.uploadImage")
+    func uploadImage(forTree tree: Tree, completion: @escaping (Result<String, Error>) -> Void) {
+
+        Logger.log("TREE IMAGE UPLOAD: Uploading image")
 
         guard let request = tree.imageUploadRequest(documentManager: self.documentManager) else {
-            throw TreeUploadServiceError.invalidTreeData
+            Logger.log("TREE IMAGE UPLOAD ERROR: TreeUploadServiceError.invalidTreeData")
+            completion(.failure(TreeUploadServiceError.invalidTreeData))
+            return
         }
-
-        let semaphore = DispatchSemaphore(value: 0)
-        var uploadError: Error?
 
         self.imageUploadService.uploadImage(request: request) { (result) in
             switch result {
             case .success(let url):
-                Logger.log("TREE UPLOAD: Did Upload Tree Image \(tree.uuid ?? "")")
                 tree.photoURL = url
                 self.coreDataManager.saveContext()
+                Logger.log("TREE IMAGE UPLOAD: Image upload success")
+                completion(.success(url))
             case .failure(let error):
-                Logger.log("TREE UPLOAD: Error Uploading Tree Image \(tree.uuid ?? "")")
-                uploadError = error
+                Logger.log("TREE IMAGE UPLOAD ERROR: \(error.localizedDescription)")
+                completion(.failure(error))
             }
-            semaphore.signal()
-        }
-        semaphore.wait()
-
-        if let uploadError = uploadError {
-            throw uploadError
         }
     }
 }
@@ -87,47 +82,42 @@ extension LocalTreeUploadService {
 // MARK: - Upload Tree Data Bundle
 extension LocalTreeUploadService {
 
-    func uploadDataBundle(forTrees trees: [Tree]) throws {
+    func uploadDataBundle(forTrees trees: [Tree], completion: @escaping (Result<String?, Error>) -> Void) {
 
-        Logger.log("TREE UPLOAD: LocalTreeUploadService.uploadTrees")
+        Logger.log("TREE DATA UPLOAD: Uploading data")
 
         let newTreeRequests = trees.compactMap(\.newTreeRequest)
 
         guard newTreeRequests.count > 0 else {
+            Logger.log("TREE DATA UPLOAD: No data to upload")
+            completion(.success(nil))
             return
         }
-        Logger.log("TREE UPLOAD: Will upload \(newTreeRequests.count) / \(trees.count) Trees")
-        let uploadBundle = UploadBundle(trees: newTreeRequests, registrations: nil)
-        guard let uploadRequest = uploadBundle.treeBundleUploadRequest else {
-            throw TreeUploadServiceError.bundleCreationError
-        }
 
-        let semaphore = DispatchSemaphore(value: 0)
-        var uploadError: Error?
+        let uploadBundle = UploadBundle(trees: newTreeRequests, registrations: nil)
+
+        guard let uploadRequest = uploadBundle.treeBundleUploadRequest else {
+            Logger.log("TREE DATA UPLOAD ERROR: TreeUploadServiceError.bundleCreationError")
+            completion(.failure(TreeUploadServiceError.bundleCreationError))
+            return
+        }
 
         bundleUploadService.upload(withRequest: uploadRequest) { (result) in
             switch result {
-            case .success:
-                Logger.log("TREE UPLOAD: Did upload \(newTreeRequests.count) / \(trees.count) Trees")
+            case .success(let url):
                 trees
                     .filter({ $0.newTreeRequest != nil })
                     .forEach { (tree) in
-                        Logger.log("TREE UPLOAD: Updating Tree upload status \(tree.uuid ?? "")")
                         tree.uploaded = true
                         self.coreDataManager.saveContext()
                     }
+                Logger.log("TREE DATA UPLOAD: Data upload success")
+                completion(.success(url))
             case .failure(let error):
-                Logger.log("TREE UPLOAD: Error uploading Tree Bundle")
-                uploadError = error
+                Logger.log("TREE DATA UPLOAD ERROR: \(error.localizedDescription)")
+                completion(.failure(error))
             }
-            semaphore.signal()
         }
-        semaphore.wait()
-
-        if let error = uploadError {
-            throw error
-        }
-        Logger.log("TREE UPLOAD: Uploaded \(trees.count) Tree Captures")
     }
 }
 
@@ -135,7 +125,7 @@ extension LocalTreeUploadService {
 extension LocalTreeUploadService {
 
     func deleteLocalImages(forTrees trees: [Tree]) throws {
-        Logger.log("TREE UPLOAD: LocalTreeUploadService.deleteLocalImages: Will remove \(trees.count) local tree photos")
+        Logger.log("TREE IMAGE DELETION: Deleting images")
         try trees
             .filter({ $0.localPhotoPath != nil })
             .filter({ $0.photoURL != nil })
@@ -144,18 +134,20 @@ extension LocalTreeUploadService {
                       try documentManager.fileExists(withFileName: localPhotoPath) else {
                     return
                 }
-                Logger.log("TREE UPLOAD: LocalTreeUploadService.deleteLocalImages: Removing local photo for tree \(tree.uuid ?? "")")
                 try documentManager.removeFile(withFileName: localPhotoPath)
                 tree.localPhotoPath = nil
                 coreDataManager.saveContext()
+
             }
+        Logger.log("TREE IMAGE DELETION: Deleted images successfully")
     }
 }
 
 // MARK: - Tree Locations Upload
 extension LocalTreeUploadService {
     func uploadTreeLocations() {
-        Logger.log("TREE UPLOAD: LocalTreeUploadService.uploadTreeLocations")
+        Logger.log("TREE LOCATION UPLOAD: Uploading locations")
+        Logger.log("TREE LOCATION UPLOAD: Nothing to upload")
     }
 }
 

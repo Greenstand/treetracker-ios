@@ -26,7 +26,7 @@ class TreeBatchImagesUploadOperation: Operation {
     }
 
     override func main() {
-        Logger.log("TREE UPLOAD: TreeBatchImagesUploadOperation: Started")
+        Logger.log("TREE IMAGE UPLOAD: TreeBatchImagesUploadOperation: Started")
 
         let operations = trees
             .filter({ $0.photoURL == nil })

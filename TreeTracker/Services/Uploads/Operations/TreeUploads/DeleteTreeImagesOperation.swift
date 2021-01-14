@@ -19,7 +19,7 @@ class DeleteTreeImagesOperation: Operation {
     }
 
     override func main() {
-        Logger.log("TREE UPLOAD: DeleteTreeImagesOperation: Started")
+        Logger.log("TREE IMAGE DELETION: DeleteTreeImagesOperation: Started")
         do {
             try treeUploadService.deleteLocalImages(forTrees: trees)
         } catch {
