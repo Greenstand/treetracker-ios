@@ -15,7 +15,7 @@ class PlanterImagesUploadOperation: Operation {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         queue.qualityOfService = .userInitiated
-        queue.name = "treeBatchImagesUploadQueue"
+        queue.name = "PlanterImagesUploadQueue"
         return queue
     }()
 

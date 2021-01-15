@@ -33,7 +33,7 @@ class UploadManager: UploadManaging {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         queue.qualityOfService = .userInitiated
-        queue.name = "UploadQueue"
+        queue.name = "UploadManagerQueue"
         return queue
     }()
 
@@ -49,40 +49,27 @@ class UploadManager: UploadManaging {
             return
         }
 
-        let planterUploadOperation = PlanterUploadOperation(
-            planterUploadService: planterUploadService
-        )
-
-        let treeUploadOperation = TreeUploadOperation(
+        let uploadOperation = UploadOperation(
+            planterUploadService: planterUploadService,
             treeUploadService: treeUploadService
         )
-        treeUploadOperation.addDependency(planterUploadOperation)
-
-        let treeLocationsUploadOperation = UploadTreeLocationsOperation(
-            treeUploadService: treeUploadService
-        )
-        treeLocationsUploadOperation.addDependency(treeUploadOperation)
 
         let finishOperation = BlockOperation {
             DispatchQueue.main.async {
-                Logger.log("UploadManager: Upload operation complete")
-                self.isUploading = false
-                self.delegate?.uploadManagerDidStopUploadingTrees(self)
+                Logger.log("UploadManager: Uploads complete")
+                self.stopUpoading()
             }
         }
-        finishOperation.addDependency(treeLocationsUploadOperation)
 
         uploadOperationQueue.addOperations(
             [
-                planterUploadOperation,
-                treeUploadOperation,
-                treeLocationsUploadOperation,
+                uploadOperation,
                 finishOperation
             ],
             waitUntilFinished: false
         )
 
-        Logger.log("UploadManager.startUploading() started")
+        Logger.log("UploadManager: Uploads started")
         isUploading = true
         delegate?.uploadManagerDidStartUploadingTrees(self)
     }
@@ -91,9 +78,16 @@ class UploadManager: UploadManaging {
         guard isUploading else {
             return
         }
-        Logger.log("UploadManager.stopUploading()")
-        isUploading = false
+        Logger.log("UploadManager: Uploads stopped")
         uploadOperationQueue.cancelAllOperations()
+        stopUpoading()
+    }
+}
+
+private extension UploadManager {
+
+    func stopUpoading() {
+        isUploading = false
         delegate?.uploadManagerDidStopUploadingTrees(self)
     }
 }

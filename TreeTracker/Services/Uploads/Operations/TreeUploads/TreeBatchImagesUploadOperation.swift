@@ -16,7 +16,7 @@ class TreeBatchImagesUploadOperation: Operation {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         queue.qualityOfService = .userInitiated
-        queue.name = "treeBatchImagesUploadQueue"
+        queue.name = "TreeBatchImagesUploadQueue"
         return queue
     }()
 

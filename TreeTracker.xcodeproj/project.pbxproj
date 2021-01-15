@@ -18,6 +18,7 @@
 		932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EA1AF247954B40035394D /* BaseNavigationViewController.swift */; };
 		9331FE89257C3B6B00DFFDD9 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331FE88257C3B6B00DFFDD9 /* String+MD5.swift */; };
 		933809782576D70E0009247A /* PlanterUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933809772576D70E0009247A /* PlanterUploadService.swift */; };
+		935C48E825B1F57E00EA3142 /* UploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C48E725B1F57E00EA3142 /* UploadOperation.swift */; };
 		9376A65E2586C48E00D7FDC1 /* TreeUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A65D2586C48E00D7FDC1 /* TreeUploadOperation.swift */; };
 		9376A6662586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6652586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift */; };
 		9376A66B2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A66A2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift */; };
@@ -131,6 +132,7 @@
 		932EA1AF247954B40035394D /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		9331FE88257C3B6B00DFFDD9 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		933809772576D70E0009247A /* PlanterUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterUploadService.swift; sourceTree = "<group>"; };
+		935C48E725B1F57E00EA3142 /* UploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadOperation.swift; sourceTree = "<group>"; };
 		9376A65D2586C48E00D7FDC1 /* TreeUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeUploadOperation.swift; sourceTree = "<group>"; };
 		9376A6652586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeBatchUploadOperation.swift; sourceTree = "<group>"; };
 		9376A66A2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeBatchImagesUploadOperation.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 		9376A65C2586C47000D7FDC1 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				935C48E725B1F57E00EA3142 /* UploadOperation.swift */,
 				9376A6822586CE3E00D7FDC1 /* PlanterUploads */,
 				9376A6812586CE3800D7FDC1 /* TreeUploads */,
 				9376A6832586CE4500D7FDC1 /* TreeLocationsUploads */,
@@ -970,6 +973,7 @@
 				93C5799B249E580E009C0E46 /* Username.swift in Sources */,
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
 				93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */,
+				935C48E825B1F57E00EA3142 /* UploadOperation.swift in Sources */,
 				93BC71FA24C647C3008DE96C /* TreeMonitoringService.swift in Sources */,
 				93EC8C3B24AA52E900946C0C /* HomeViewModel.swift in Sources */,
 				93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */,
