@@ -91,8 +91,8 @@ private extension AWSS3Client {
 
     struct Constants {
         static let s3ServiceKey: String = "treetracker-s3-service"
-        static let imagesBucketName: String = "treetracker-alex-images"
-        static let batchUploadsBucketName: String = "treetracker-alex-batch-uploads"
+        static let imagesBucketName: String = "treetracker-dev-images"
+        static let batchUploadsBucketName: String = "treetracker-dev-batch-uploads"
     }
 
     struct AWSCredentials {
