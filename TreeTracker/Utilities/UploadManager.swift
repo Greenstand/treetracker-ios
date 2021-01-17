@@ -49,6 +49,10 @@ class UploadManager: UploadManaging {
             return
         }
 
+        Logger.log("UploadManager: Uploads started")
+        isUploading = true
+        delegate?.uploadManagerDidStartUploadingTrees(self)
+
         let uploadOperation = UploadOperation(
             planterUploadService: planterUploadService,
             treeUploadService: treeUploadService
@@ -60,6 +64,7 @@ class UploadManager: UploadManaging {
                 self.stopUpoading()
             }
         }
+        finishOperation.addDependency(uploadOperation)
 
         uploadOperationQueue.addOperations(
             [
@@ -68,10 +73,6 @@ class UploadManager: UploadManaging {
             ],
             waitUntilFinished: false
         )
-
-        Logger.log("UploadManager: Uploads started")
-        isUploading = true
-        delegate?.uploadManagerDidStartUploadingTrees(self)
     }
 
     func stopUploading() {
