@@ -9,7 +9,7 @@
 import Foundation
 
 struct TreeServiceData {
-    let pngData: Data
+    let jpegData: Data
     let location: Location
 }
 
@@ -48,7 +48,7 @@ class LocalTreeService: TreeService {
 
         let treeID = UUID().uuidString
 
-        guard let photoPath = try? documentManager.store(data: treeData.pngData, withFileName: treeID).get() else {
+        guard let photoPath = try? documentManager.store(data: treeData.jpegData, withFileName: treeID).get() else {
             completion(.failure(TreeServiceError.documentStorageError))
             return
         }

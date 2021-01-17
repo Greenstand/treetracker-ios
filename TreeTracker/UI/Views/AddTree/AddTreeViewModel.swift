@@ -105,12 +105,12 @@ private extension AddTreeViewModel {
     var treeData: TreeServiceData? {
 
         guard let location = location,
-            let imageData = image?.pngData() else {
+              let imageData = image?.jpegData(compressionQuality: 1.0) else {
             return nil
         }
 
         return TreeServiceData(
-            pngData: imageData,
+            jpegData: imageData,
             location: location
         )
     }
