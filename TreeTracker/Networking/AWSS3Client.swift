@@ -25,7 +25,7 @@ class AWSS3Client {
 
     func uploadImage(imageData: Data, uuid: String, latitude: Double, logitude: Double, completion: @escaping (Result<String, Error>) -> Void) {
         let key = "\(formattedDate())_\(latitude)_\(logitude)_\(UUID().uuidString)_\(uuid)"
-        put(data: imageData, bucketName: Constants.imagesBucketName, key: key, completion: completion)
+        put(data: imageData, bucketName: Constants.imagesBucketName, key: key, acl: .publicRead, completion: completion)
     }
 
     func uploadBundle(jsonBundle: String, bundleId: String, completion: @escaping (Result<String, Error>) -> Void) {
@@ -36,7 +36,7 @@ class AWSS3Client {
             return
         }
 
-        put(data: jsonData, bucketName: Constants.batchUploadsBucketName, key: key, completion: completion)
+        put(data: jsonData, bucketName: Constants.batchUploadsBucketName, key: key, acl: nil, completion: completion)
     }
 }
 
@@ -63,7 +63,7 @@ private extension AWSS3Client {
         return dateFormatter.string(from: date)
     }
 
-    func put(data: Data, bucketName: String, key: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func put(data: Data, bucketName: String, key: String, acl: AWSS3ObjectCannedACL?, completion: @escaping (Result<String, Error>) -> Void) {
 
         guard let request = AWSS3PutObjectRequest() else {
             return
@@ -72,8 +72,11 @@ private extension AWSS3Client {
         request.bucket = bucketName
         request.body = data
         request.key = key
-        request.acl = .bucketOwnerRead
         request.contentLength = NSNumber(value: data.count)
+
+        if let acl = acl {
+            request.acl = acl
+        }
 
         s3Client.putObject(request) { (_, error) in
 
@@ -81,7 +84,8 @@ private extension AWSS3Client {
                 completion(.failure(error))
                 return
             }
-            completion(.success(key))
+            let url = "https://\(bucketName).s3.\(AWSCredentials.regionString).amazonaws.com/\(key)"
+            completion(.success(url))
         }
     }
 }
@@ -98,5 +102,6 @@ private extension AWSS3Client {
     struct AWSCredentials {
         static let identityPoolId: String = ""
         static let regionType: AWSRegionType = .EUCentral1
+        static let regionString: String = "eu-central-1"
     }
 }
