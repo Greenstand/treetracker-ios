@@ -99,14 +99,9 @@ extension LocalPlanterUploadService {
             return
         }
 
-        let uploadBundle = UploadBundle(trees: nil, registrations: registrationRequests)
-        guard let uploadRequest = uploadBundle.registrationBundleUploadRequest else {
-            Logger.log("PLANTER INFO UPLOAD ERROR: PlanterUploadServiceError.bundleCreationError")
-            completion(.failure(PlanterUploadServiceError.bundleCreationError))
-            return
-        }
+        let uploadBundle = RegistrationsUploadBundle(registrations: registrationRequests)
 
-        bundleUploadService.upload(withRequest: uploadRequest) { (result) in
+        bundleUploadService.upload(bundle: uploadBundle) { (result) in
             switch result {
             case .success(let url):
                 planters

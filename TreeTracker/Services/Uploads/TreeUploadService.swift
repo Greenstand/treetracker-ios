@@ -94,15 +94,9 @@ extension LocalTreeUploadService {
             return
         }
 
-        let uploadBundle = UploadBundle(trees: newTreeRequests, registrations: nil)
+        let uploadBundle = TreeUploadBundle(trees: newTreeRequests)
 
-        guard let uploadRequest = uploadBundle.treeBundleUploadRequest else {
-            Logger.log("TREE DATA UPLOAD ERROR: TreeUploadServiceError.bundleCreationError")
-            completion(.failure(TreeUploadServiceError.bundleCreationError))
-            return
-        }
-
-        bundleUploadService.upload(withRequest: uploadRequest) { (result) in
+        bundleUploadService.upload(bundle: uploadBundle) { (result) in
             switch result {
             case .success(let url):
                 trees

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol BundleUploadService {
-    func upload(withRequest bundleUploadRequest: UploadBundleRequest, completion: @escaping (Result<String, Error>) -> Void)
+    func upload(bundle: UploadBundle, completion: @escaping (Result<String, Error>) -> Void)
 }
 
 class AWSS3BundleUploadService: BundleUploadService {
@@ -20,8 +20,14 @@ class AWSS3BundleUploadService: BundleUploadService {
         self.s3Client = s3Client
     }
 
-    func upload(withRequest bundleUploadRequest: UploadBundleRequest, completion: @escaping (Result<String, Error>) -> Void) {
-        s3Client.uploadBundle(jsonBundle: bundleUploadRequest.jsonString, bundleId: bundleUploadRequest.bundleId) { (result) in
+    func upload(bundle: UploadBundle, completion: @escaping (Result<String, Error>) -> Void) {
+
+        guard let jsonData = bundle.jsonData else {
+            completion(.failure(BundleUploadServiceError.jsonStringEncodingError))
+            return
+        }
+
+        s3Client.uploadBundle(jsonBundle: jsonData.jsonString, bundleId: jsonData.bundleId) { (result) in
             completion(result)
         }
     }

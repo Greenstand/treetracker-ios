@@ -8,53 +8,67 @@
 
 import Foundation
 
-struct UploadBundleRequest {
+struct UploadBundleJSONData {
     let jsonString: String
     let bundleId: String
 }
 
-struct UploadBundle: Encodable {
+protocol UploadBundle: Encodable {
+    var jsonData: UploadBundleJSONData? { get }
+}
 
-    let trees: [NewTreeRequest]?
-    let registrations: [RegistrationRequest]?
-    let devices: [DeviceRequest] = [DeviceRequest()]
+fileprivate extension UploadBundle {
 
-    private var encodedString: String? {
+    var encodedString: String? {
         guard let data = try? JSONEncoder().encode(self),
            let encodedString = String(data: data, encoding: .utf8) else {
             return nil
         }
         return encodedString
     }
+}
 
-    var registrationBundleUploadRequest: UploadBundleRequest? {
+struct RegistrationsUploadBundle: UploadBundle {
+
+    let registrations: [RegistrationRequest]?
+    let devices: [DeviceRequest] = [DeviceRequest()]
+
+    var jsonData: UploadBundleJSONData? {
         guard let encodedString = encodedString else {
             return nil
         }
-        return UploadBundleRequest(
+        return UploadBundleJSONData(
             jsonString: encodedString,
             bundleId: "\(encodedString.md5)_registrations"
         )
     }
+}
 
-    var treeBundleUploadRequest: UploadBundleRequest? {
+struct TreeUploadBundle: UploadBundle {
+
+    let trees: [NewTreeRequest]?
+    let devices: [DeviceRequest] = [DeviceRequest()]
+
+    var jsonData: UploadBundleJSONData? {
         guard let encodedString = encodedString else {
             return nil
         }
-        return UploadBundleRequest(
+        return UploadBundleJSONData(
             jsonString: encodedString,
             bundleId: "\(encodedString.md5)"
         )
     }
+}
 
-    var treeLocationBundleUploadRequest: UploadBundleRequest? {
+struct TreeLocationUploadBundle: UploadBundle {
+
+    var jsonData: UploadBundleJSONData? {
         guard let encodedString = encodedString else {
             return nil
         }
-        return UploadBundleRequest(
+        return UploadBundleJSONData(
             jsonString: encodedString,
             bundleId: "loc_data\(encodedString.md5)"
         )
     }
-
 }
