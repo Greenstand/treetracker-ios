@@ -11,7 +11,7 @@ import Foundation
 class PlanterImagesUploadOperation: Operation {
 
     private let planterUploadService: PlanterUploadService
-    private lazy var treeBatchImagesUploadQueue: OperationQueue = {
+    private lazy var planterImagesUploadQueue: OperationQueue = {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         queue.qualityOfService = .userInitiated
@@ -39,11 +39,11 @@ class PlanterImagesUploadOperation: Operation {
             )
         }
 
-        treeBatchImagesUploadQueue.addOperations(operations, waitUntilFinished: true)
+        planterImagesUploadQueue.addOperations(operations, waitUntilFinished: true)
     }
 
     override func cancel() {
         super.cancel()
-        treeBatchImagesUploadQueue.cancelAllOperations()
+        planterImagesUploadQueue.cancelAllOperations()
     }
 }
