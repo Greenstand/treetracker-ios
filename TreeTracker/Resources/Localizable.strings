@@ -42,14 +42,18 @@
 "Home.Title" = "Welcome Home";
 "Home.InfoLabel.TreesPlantedLabel.Text" = "Trees Planted";
 "Home.InfoLabel.TreesUploadedLabel.Text" = "Trees Uploaded";
-"Home.UploadButton.Title" = "UPLOAD";
-"Home.AddTreeButton.Title" = "ADD TREE";
 "Home.LogoutButton.Title" = "Log out";
+"Home.AddTreeButton.Title" = "ADD TREE";
+"Home.UploadTreesButton.Title.Start" = "START UPLOADS";
+"Home.UploadTreesButton.Title.Stop" = "STOP UPLOADS";
+"Home.MyTreesButton.Title" = "MY TREES";
+
 //Add Tree Screen
 "AddTree.Title" = "Add Tree";
 "AddTree.PhotoButton.Title.TakePhoto" = "Take Photo";
 "AddTree.PhotoButton.Title.Retake" = "Retake";
 "AddTree.SaveButton.Title" = "Save";
+"AddTree.PhotoLibraryButton.Title" = "Choose Photo";
 
 //GPS Accuracy
 "GPSAccuracyLabel.Text.Base" = "GPS Accuracy: ";

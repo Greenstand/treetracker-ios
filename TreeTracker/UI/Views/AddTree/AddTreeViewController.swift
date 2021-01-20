@@ -27,6 +27,15 @@ class AddTreeViewController: UIViewController, AlertPresenting {
             gpsAccuracyLabel.accuracy = .unknown
         }
     }
+    @IBOutlet private var choosePhotoButton: PrimaryButton! {
+        didSet {
+            choosePhotoButton.setTitle(L10n.AddTree.PhotoLibraryButton.title, for: .normal)
+            choosePhotoButton.isHidden = true
+            #if DEBUG
+            choosePhotoButton.isHidden = false
+            #endif
+        }
+    }
     @IBOutlet private var takePhotoButton: PrimaryButton! {
         didSet {
             takePhotoButton.setTitle(L10n.AddTree.PhotoButton.Title.takePhoto, for: .normal)
@@ -55,6 +64,15 @@ class AddTreeViewController: UIViewController, AlertPresenting {
 
 // MARK: - Button Actions
 private extension AddTreeViewController {
+
+#if DEBUG
+    @IBAction func choosePhotoButtonPressed() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true)
+    }
+#endif
 
     @IBAction func takePhotoButtonPressed() {
         let imagePicker = UIImagePickerController()

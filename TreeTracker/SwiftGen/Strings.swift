@@ -23,6 +23,10 @@ internal enum L10n {
         internal static let takePhoto = L10n.tr("Localizable", "AddTree.PhotoButton.Title.TakePhoto")
       }
     }
+    internal enum PhotoLibraryButton {
+      /// Choose Photo
+      internal static let title = L10n.tr("Localizable", "AddTree.PhotoLibraryButton.Title")
+    }
     internal enum SaveButton {
       /// Save
       internal static let title = L10n.tr("Localizable", "AddTree.SaveButton.Title")
@@ -79,9 +83,17 @@ internal enum L10n {
       /// Log out
       internal static let title = L10n.tr("Localizable", "Home.LogoutButton.Title")
     }
-    internal enum UploadButton {
-      /// UPLOAD
-      internal static let title = L10n.tr("Localizable", "Home.UploadButton.Title")
+    internal enum MyTreesButton {
+      /// MY TREES
+      internal static let title = L10n.tr("Localizable", "Home.MyTreesButton.Title")
+    }
+    internal enum UploadTreesButton {
+      internal enum Title {
+        /// START UPLOADS
+        internal static let start = L10n.tr("Localizable", "Home.UploadTreesButton.Title.Start")
+        /// STOP UPLOADS
+        internal static let stop = L10n.tr("Localizable", "Home.UploadTreesButton.Title.Stop")
+      }
     }
   }
 

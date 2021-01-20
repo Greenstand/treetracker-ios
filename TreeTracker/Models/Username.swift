@@ -30,4 +30,13 @@ extension Username {
             return Validation.validate(phoneNumber, type: .phoneNumber)
         }
     }
+
+    var value: String {
+        switch self {
+        case .email(let email):
+            return email
+        case .phoneNumber(let phoneNumber):
+            return phoneNumber
+        }
+    }
 }

@@ -3,16 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
+		93039D41251A505800EEF36D /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93039D40251A505800EEF36D /* ImageUploadService.swift */; };
+		930837FE25ACF37900A64A18 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930837FD25ACF37900A64A18 /* Logger.swift */; };
 		931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */; };
 		931C37BA249BAD0900EE24DC /* Selfie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931C37B9249BAD0900EE24DC /* Selfie.storyboard */; };
+		93204ED3251618D20059E136 /* TreeUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93204ED2251618D20059E136 /* TreeUploadService.swift */; };
+		93204ED6251627D30059E136 /* AWSS3Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93204ED5251627D30059E136 /* AWSS3Client.swift */; };
 		932EA1AC2478311F0035394D /* KeyboardDismissing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EA1AB2478311F0035394D /* KeyboardDismissing.swift */; };
 		932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EA1AF247954B40035394D /* BaseNavigationViewController.swift */; };
+		9331FE89257C3B6B00DFFDD9 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331FE88257C3B6B00DFFDD9 /* String+MD5.swift */; };
+		933809782576D70E0009247A /* PlanterUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933809772576D70E0009247A /* PlanterUploadService.swift */; };
+		935C48E825B1F57E00EA3142 /* UploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C48E725B1F57E00EA3142 /* UploadOperation.swift */; };
+		9376A65E2586C48E00D7FDC1 /* TreeUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A65D2586C48E00D7FDC1 /* TreeUploadOperation.swift */; };
+		9376A6662586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6652586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift */; };
+		9376A66B2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A66A2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift */; };
+		9376A6732586C79200D7FDC1 /* TreeBundleUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6722586C79200D7FDC1 /* TreeBundleUploadOperation.swift */; };
+		9376A6782586C92600D7FDC1 /* DeleteTreeImagesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6772586C92600D7FDC1 /* DeleteTreeImagesOperation.swift */; };
+		9376A67D2586CD4500D7FDC1 /* UploadTreeLocationsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A67C2586CD4500D7FDC1 /* UploadTreeLocationsOperation.swift */; };
+		9376A6852586CE6F00D7FDC1 /* PlanterUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6842586CE6F00D7FDC1 /* PlanterUploadOperation.swift */; };
+		9376A68A2586CE9400D7FDC1 /* PlanterImagesUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6892586CE9400D7FDC1 /* PlanterImagesUploadOperation.swift */; };
+		9376A68F2586CEB600D7FDC1 /* PlanterInfoUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A68E2586CEB600D7FDC1 /* PlanterInfoUploadOperation.swift */; };
+		9376A6942586CECC00D7FDC1 /* DeletePlanterImagesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6932586CECC00D7FDC1 /* DeletePlanterImagesOperation.swift */; };
+		9376A6B42588144500D7FDC1 /* TreeImageUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6B32588144500D7FDC1 /* TreeImageUploadOperation.swift */; };
+		9376A6B9258815D200D7FDC1 /* PlanterImageUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6B8258815D200D7FDC1 /* PlanterImageUploadOperation.swift */; };
+		937D0A022554A8B900E103EB /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D0A012554A8B900E103EB /* UploadManager.swift */; };
+		937D0A072554B30100E103EB /* UploadBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D0A062554B30100E103EB /* UploadBundle.swift */; };
 		937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FC5DB2486F1530018B247 /* SelfieViewController.swift */; };
+		93814CDA2569605900FC70E5 /* MyTreesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93814CD92569605900FC70E5 /* MyTreesButton.swift */; };
 		93989CF0246C479400A1B21F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CEF246C479400A1B21F /* Validation.swift */; };
 		93989CF3246C5F7F00A1B21F /* ValidationUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */; };
 		93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF4246EA33600A1B21F /* SignUpViewController.swift */; };
@@ -26,6 +48,7 @@
 		93989D06246ED00D00A1B21F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D05246ED00D00A1B21F /* PrimaryButton.swift */; };
 		93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D07246ED51C00A1B21F /* SignInTextField.swift */; };
 		939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939CA84E246C0A1000B1C184 /* Colors.xcassets */; };
+		93AD1D38257BD242009479FD /* BundleUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD1D37257BD242009479FD /* BundleUploadService.swift */; };
 		93BC71FA24C647C3008DE96C /* TreeMonitoringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */; };
 		93C57996249E5599009C0E46 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C57995249E5599009C0E46 /* LoginService.swift */; };
 		93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C57997249E57A6009C0E46 /* SignUpService.swift */; };
@@ -35,6 +58,9 @@
 		93C579A624A26E6B009C0E46 /* SelfieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C579A524A26E6B009C0E46 /* SelfieService.swift */; };
 		93C579A824A33DE7009C0E46 /* AlertPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C579A724A33DE7009C0E46 /* AlertPresenting.swift */; };
 		93C579AC24AA0909009C0E46 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C579AB24AA0909009C0E46 /* Organization.swift */; };
+		93CBA5352555D9B8009DA5D9 /* DeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CBA5342555D9B8009DA5D9 /* DeviceRequest.swift */; };
+		93CBA53D2555D9EA009DA5D9 /* NewTreeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CBA53C2555D9EA009DA5D9 /* NewTreeRequest.swift */; };
+		93CBA5422555DD39009DA5D9 /* RegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CBA5412555DD39009DA5D9 /* RegistrationRequest.swift */; };
 		93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D7295724C49CA700271256 /* GPSAccuracyLabel.swift */; };
 		93E18931245B737D00217F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18930245B737D00217F21 /* AppDelegate.swift */; };
 		93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E18932245B737D00217F21 /* SceneDelegate.swift */; };
@@ -73,6 +99,9 @@
 		93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB024BCF26600946C0C /* LocationManager.swift */; };
 		93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CB224BCFC7E00946C0C /* Location.swift */; };
 		93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3771D24EC419A00B7D051 /* DocumentManager.swift */; };
+		93FC587C25A7ABAE00B93F14 /* PlanterCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC587B25A7ABAE00B93F14 /* PlanterCheckIn.swift */; };
+		93FC588425A7B05500B93F14 /* DeviceInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC588325A7B05500B93F14 /* DeviceInfoProvider.swift */; };
+		93FC588925A7B2FD00B93F14 /* AppBundleInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,11 +122,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93039D40251A505800EEF36D /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
+		930837FD25ACF37900A64A18 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewModel.swift; sourceTree = "<group>"; };
 		931C37B9249BAD0900EE24DC /* Selfie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Selfie.storyboard; sourceTree = "<group>"; };
+		93204ED2251618D20059E136 /* TreeUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeUploadService.swift; sourceTree = "<group>"; };
+		93204ED5251627D30059E136 /* AWSS3Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Client.swift; sourceTree = "<group>"; };
 		932EA1AB2478311F0035394D /* KeyboardDismissing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissing.swift; sourceTree = "<group>"; };
 		932EA1AF247954B40035394D /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		9331FE88257C3B6B00DFFDD9 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		933809772576D70E0009247A /* PlanterUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterUploadService.swift; sourceTree = "<group>"; };
+		935C48E725B1F57E00EA3142 /* UploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadOperation.swift; sourceTree = "<group>"; };
+		9376A65D2586C48E00D7FDC1 /* TreeUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeUploadOperation.swift; sourceTree = "<group>"; };
+		9376A6652586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeBatchUploadOperation.swift; sourceTree = "<group>"; };
+		9376A66A2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeBatchImagesUploadOperation.swift; sourceTree = "<group>"; };
+		9376A6722586C79200D7FDC1 /* TreeBundleUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeBundleUploadOperation.swift; sourceTree = "<group>"; };
+		9376A6772586C92600D7FDC1 /* DeleteTreeImagesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTreeImagesOperation.swift; sourceTree = "<group>"; };
+		9376A67C2586CD4500D7FDC1 /* UploadTreeLocationsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTreeLocationsOperation.swift; sourceTree = "<group>"; };
+		9376A6842586CE6F00D7FDC1 /* PlanterUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterUploadOperation.swift; sourceTree = "<group>"; };
+		9376A6892586CE9400D7FDC1 /* PlanterImagesUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterImagesUploadOperation.swift; sourceTree = "<group>"; };
+		9376A68E2586CEB600D7FDC1 /* PlanterInfoUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterInfoUploadOperation.swift; sourceTree = "<group>"; };
+		9376A6932586CECC00D7FDC1 /* DeletePlanterImagesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePlanterImagesOperation.swift; sourceTree = "<group>"; };
+		9376A6B32588144500D7FDC1 /* TreeImageUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeImageUploadOperation.swift; sourceTree = "<group>"; };
+		9376A6B8258815D200D7FDC1 /* PlanterImageUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterImageUploadOperation.swift; sourceTree = "<group>"; };
+		937D0A012554A8B900E103EB /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
+		937D0A062554B30100E103EB /* UploadBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadBundle.swift; sourceTree = "<group>"; };
 		937FC5DB2486F1530018B247 /* SelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
+		93814CD92569605900FC70E5 /* MyTreesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTreesButton.swift; sourceTree = "<group>"; };
 		93989CEF246C479400A1B21F /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUnitTests.swift; sourceTree = "<group>"; };
 		93989CF4246EA33600A1B21F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +162,7 @@
 		93989D05246ED00D00A1B21F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		93989D07246ED51C00A1B21F /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
 		939CA84E246C0A1000B1C184 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		93AD1D37257BD242009479FD /* BundleUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleUploadService.swift; sourceTree = "<group>"; };
 		93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeMonitoringService.swift; sourceTree = "<group>"; };
 		93C57995249E5599009C0E46 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		93C57997249E57A6009C0E46 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
@@ -120,6 +172,9 @@
 		93C579A524A26E6B009C0E46 /* SelfieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieService.swift; sourceTree = "<group>"; };
 		93C579A724A33DE7009C0E46 /* AlertPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenting.swift; sourceTree = "<group>"; };
 		93C579AB24AA0909009C0E46 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		93CBA5342555D9B8009DA5D9 /* DeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRequest.swift; sourceTree = "<group>"; };
+		93CBA53C2555D9EA009DA5D9 /* NewTreeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTreeRequest.swift; sourceTree = "<group>"; };
+		93CBA5412555DD39009DA5D9 /* RegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRequest.swift; sourceTree = "<group>"; };
 		93D7295724C49CA700271256 /* GPSAccuracyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSAccuracyLabel.swift; sourceTree = "<group>"; };
 		93E1892D245B737D00217F21 /* TreeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E18930245B737D00217F21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +206,7 @@
 		93EC8C3A24AA52E900946C0C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		93EC8C3C24AA52F000946C0C /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		93EC8C4124AA8A8400946C0C /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
-		93EC8C4324AA8EE900946C0C /* TreeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeService.swift; sourceTree = "<group>"; };
+		93EC8C4324AA8EE900946C0C /* TreeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeService.swift; path = "../New Group/TreeService.swift"; sourceTree = "<group>"; };
 		93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTreeButton.swift; sourceTree = "<group>"; };
 		93EC8C4924AB7EA100946C0C /* UploadsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadsButton.swift; sourceTree = "<group>"; };
 		93EC8C4D24ABA5B500946C0C /* TreeTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TreeTracker.xcdatamodel; sourceTree = "<group>"; };
@@ -164,6 +219,9 @@
 		93EC8CB024BCF26600946C0C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		93EC8CB224BCFC7E00946C0C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		93F3771D24EC419A00B7D051 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
+		93FC587B25A7ABAE00B93F14 /* PlanterCheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterCheckIn.swift; sourceTree = "<group>"; };
+		93FC588325A7B05500B93F14 /* DeviceInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoProvider.swift; sourceTree = "<group>"; };
+		93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBundleInfoProvider.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +254,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93204ED4251627C60059E136 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				93204ED5251627D30059E136 /* AWSS3Client.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9376A65C2586C47000D7FDC1 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				935C48E725B1F57E00EA3142 /* UploadOperation.swift */,
+				9376A6822586CE3E00D7FDC1 /* PlanterUploads */,
+				9376A6812586CE3800D7FDC1 /* TreeUploads */,
+				9376A6832586CE4500D7FDC1 /* TreeLocationsUploads */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		9376A6812586CE3800D7FDC1 /* TreeUploads */ = {
+			isa = PBXGroup;
+			children = (
+				9376A65D2586C48E00D7FDC1 /* TreeUploadOperation.swift */,
+				9376A6652586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift */,
+				9376A66A2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift */,
+				9376A6B32588144500D7FDC1 /* TreeImageUploadOperation.swift */,
+				9376A6722586C79200D7FDC1 /* TreeBundleUploadOperation.swift */,
+				9376A6772586C92600D7FDC1 /* DeleteTreeImagesOperation.swift */,
+			);
+			path = TreeUploads;
+			sourceTree = "<group>";
+		};
+		9376A6822586CE3E00D7FDC1 /* PlanterUploads */ = {
+			isa = PBXGroup;
+			children = (
+				9376A6842586CE6F00D7FDC1 /* PlanterUploadOperation.swift */,
+				9376A6892586CE9400D7FDC1 /* PlanterImagesUploadOperation.swift */,
+				9376A6B8258815D200D7FDC1 /* PlanterImageUploadOperation.swift */,
+				9376A68E2586CEB600D7FDC1 /* PlanterInfoUploadOperation.swift */,
+				9376A6932586CECC00D7FDC1 /* DeletePlanterImagesOperation.swift */,
+			);
+			path = PlanterUploads;
+			sourceTree = "<group>";
+		};
+		9376A6832586CE4500D7FDC1 /* TreeLocationsUploads */ = {
+			isa = PBXGroup;
+			children = (
+				9376A67C2586CD4500D7FDC1 /* UploadTreeLocationsOperation.swift */,
+			);
+			path = TreeLocationsUploads;
+			sourceTree = "<group>";
+		};
 		937FC5DA2486EEC40018B247 /* Selfie */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +322,11 @@
 				93989CEF246C479400A1B21F /* Validation.swift */,
 				93EC8CB024BCF26600946C0C /* LocationManager.swift */,
 				93F3771D24EC419A00B7D051 /* DocumentManager.swift */,
+				937D0A012554A8B900E103EB /* UploadManager.swift */,
+				9331FE88257C3B6B00DFFDD9 /* String+MD5.swift */,
+				93FC588325A7B05500B93F14 /* DeviceInfoProvider.swift */,
+				93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */,
+				930837FD25ACF37900A64A18 /* Logger.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -248,15 +363,49 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		93AD1D3C257BD2FA009479FD /* User */ = {
+			isa = PBXGroup;
+			children = (
+				93C57995249E5599009C0E46 /* LoginService.swift */,
+				93C57997249E57A6009C0E46 /* SignUpService.swift */,
+				93C579A324A26D95009C0E46 /* TermsService.swift */,
+				93C579A524A26E6B009C0E46 /* SelfieService.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		93AD1D3D257BD311009479FD /* Trees */ = {
+			isa = PBXGroup;
+			children = (
+				93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */,
+				93EC8C4324AA8EE900946C0C /* TreeService.swift */,
+			);
+			path = Trees;
+			sourceTree = "<group>";
+		};
+		93AD1D3E257BD322009479FD /* Uploads */ = {
+			isa = PBXGroup;
+			children = (
+				9376A65C2586C47000D7FDC1 /* Operations */,
+				93039D40251A505800EEF36D /* ImageUploadService.swift */,
+				93AD1D37257BD242009479FD /* BundleUploadService.swift */,
+				93204ED2251618D20059E136 /* TreeUploadService.swift */,
+				933809772576D70E0009247A /* PlanterUploadService.swift */,
+			);
+			path = Uploads;
+			sourceTree = "<group>";
+		};
 		93C57999249E57EA009C0E46 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				93CBA5332555D9A3009DA5D9 /* Uploads */,
 				93C5799A249E580E009C0E46 /* Username.swift */,
 				93C5799C249E5865009C0E46 /* Name.swift */,
 				93C579AB24AA0909009C0E46 /* Organization.swift */,
 				93EC8C3024AA27FF00946C0C /* Terms.swift */,
 				93EC8C4124AA8A8400946C0C /* Tree.swift */,
 				93EC8CA224AD2E7B00946C0C /* Planter.swift */,
+				93FC587B25A7ABAE00B93F14 /* PlanterCheckIn.swift */,
 				93EC8CB224BCFC7E00946C0C /* Location.swift */,
 			);
 			path = Models;
@@ -265,14 +414,22 @@
 		93C579A024A269A7009C0E46 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				93C57995249E5599009C0E46 /* LoginService.swift */,
-				93C57997249E57A6009C0E46 /* SignUpService.swift */,
-				93C579A324A26D95009C0E46 /* TermsService.swift */,
-				93C579A524A26E6B009C0E46 /* SelfieService.swift */,
-				93EC8C4324AA8EE900946C0C /* TreeService.swift */,
-				93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */,
+				93AD1D3C257BD2FA009479FD /* User */,
+				93AD1D3D257BD311009479FD /* Trees */,
+				93AD1D3E257BD322009479FD /* Uploads */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		93CBA5332555D9A3009DA5D9 /* Uploads */ = {
+			isa = PBXGroup;
+			children = (
+				937D0A062554B30100E103EB /* UploadBundle.swift */,
+				93CBA5342555D9B8009DA5D9 /* DeviceRequest.swift */,
+				93CBA53C2555D9EA009DA5D9 /* NewTreeRequest.swift */,
+				93CBA5412555DD39009DA5D9 /* RegistrationRequest.swift */,
+			);
+			path = Uploads;
 			sourceTree = "<group>";
 		};
 		93D7295624C49C8A00271256 /* Components */ = {
@@ -308,6 +465,7 @@
 		93E1892F245B737D00217F21 /* TreeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				93204ED4251627C60059E136 /* Networking */,
 				93EC8C4B24ABA51800946C0C /* Storage */,
 				93C579A024A269A7009C0E46 /* Services */,
 				93C57999249E57EA009C0E46 /* Models */,
@@ -490,6 +648,7 @@
 			children = (
 				93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */,
 				93EC8C4924AB7EA100946C0C /* UploadsButton.swift */,
+				93814CD92569605900FC70E5 /* MyTreesButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -553,6 +712,7 @@
 				93E1892B245B737D00217F21 /* Resources */,
 				93E18960245B78FF00217F21 /* SwiftLint */,
 				93E18961245C938000217F21 /* SwiftGen */,
+				12B06DAACD21487CCF4195BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -606,7 +766,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Greenstand;
 				TargetAttributes = {
 					93E1892C245B737D00217F21 = {
@@ -679,6 +839,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		12B06DAACD21487CCF4195BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		93E18960245B78FF00217F21 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -744,17 +921,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9376A65E2586C48E00D7FDC1 /* TreeUploadOperation.swift in Sources */,
+				9376A6662586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift in Sources */,
 				93989D06246ED00D00A1B21F /* PrimaryButton.swift in Sources */,
+				93039D41251A505800EEF36D /* ImageUploadService.swift in Sources */,
+				93FC587C25A7ABAE00B93F14 /* PlanterCheckIn.swift in Sources */,
 				93E82F56246C35FF00006C91 /* SignInViewModel.swift in Sources */,
 				93EC8CAD24BBA9F600946C0C /* AddTreeViewModel.swift in Sources */,
 				93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */,
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
+				93CBA53D2555D9EA009DA5D9 /* NewTreeRequest.swift in Sources */,
+				9376A68F2586CEB600D7FDC1 /* PlanterInfoUploadOperation.swift in Sources */,
 				93EC8C4E24ABA5B500946C0C /* TreeTracker.xcdatamodeld in Sources */,
 				93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */,
 				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,
 				93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */,
 				93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */,
+				9376A66B2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift in Sources */,
 				93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */,
+				93FC588425A7B05500B93F14 /* DeviceInfoProvider.swift in Sources */,
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
 				93C579A424A26D95009C0E46 /* TermsService.swift in Sources */,
 				93C579A624A26E6B009C0E46 /* SelfieService.swift in Sources */,
@@ -762,9 +947,13 @@
 				93989CF0246C479400A1B21F /* Validation.swift in Sources */,
 				93E82F4C246C262900006C91 /* SignInCoordinator.swift in Sources */,
 				93E18966245C95F200217F21 /* StoryboardSegues.swift in Sources */,
+				9376A6B42588144500D7FDC1 /* TreeImageUploadOperation.swift in Sources */,
+				9376A6852586CE6F00D7FDC1 /* PlanterUploadOperation.swift in Sources */,
 				93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */,
 				93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */,
 				93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */,
+				93204ED3251618D20059E136 /* TreeUploadService.swift in Sources */,
+				93CBA5422555DD39009DA5D9 /* RegistrationRequest.swift in Sources */,
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
 				932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */,
 				93C579AC24AA0909009C0E46 /* Organization.swift in Sources */,
@@ -772,11 +961,19 @@
 				93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */,
 				932EA1AC2478311F0035394D /* KeyboardDismissing.swift in Sources */,
 				93EC8C9124ABD25100946C0C /* CoreDataManager.swift in Sources */,
+				93AD1D38257BD242009479FD /* BundleUploadService.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
+				93FC588925A7B2FD00B93F14 /* AppBundleInfoProvider.swift in Sources */,
 				93EC8C4224AA8A8400946C0C /* Tree.swift in Sources */,
+				9331FE89257C3B6B00DFFDD9 /* String+MD5.swift in Sources */,
+				9376A6942586CECC00D7FDC1 /* DeletePlanterImagesOperation.swift in Sources */,
+				9376A67D2586CD4500D7FDC1 /* UploadTreeLocationsOperation.swift in Sources */,
+				937D0A022554A8B900E103EB /* UploadManager.swift in Sources */,
+				93814CDA2569605900FC70E5 /* MyTreesButton.swift in Sources */,
 				93C5799B249E580E009C0E46 /* Username.swift in Sources */,
 				93E82F4F246C27E100006C91 /* SignInViewController.swift in Sources */,
 				93EC8CB124BCF26600946C0C /* LocationManager.swift in Sources */,
+				935C48E825B1F57E00EA3142 /* UploadOperation.swift in Sources */,
 				93BC71FA24C647C3008DE96C /* TreeMonitoringService.swift in Sources */,
 				93EC8C3B24AA52E900946C0C /* HomeViewModel.swift in Sources */,
 				93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */,
@@ -786,14 +983,23 @@
 				93989CFF246EAC0400A1B21F /* TermsViewModel.swift in Sources */,
 				93E1896B245DEBDB00217F21 /* Coordinator.swift in Sources */,
 				93E82F66246C439100006C91 /* Strings.swift in Sources */,
+				930837FE25ACF37900A64A18 /* Logger.swift in Sources */,
 				93C57996249E5599009C0E46 /* LoginService.swift in Sources */,
+				9376A6B9258815D200D7FDC1 /* PlanterImageUploadOperation.swift in Sources */,
+				933809782576D70E0009247A /* PlanterUploadService.swift in Sources */,
 				93989CFB246EABF100A1B21F /* TermsViewController.swift in Sources */,
+				93CBA5352555D9B8009DA5D9 /* DeviceRequest.swift in Sources */,
 				93EC8CAB24BBA9E100946C0C /* AddTreeViewController.swift in Sources */,
 				93C5799D249E5865009C0E46 /* Name.swift in Sources */,
 				93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */,
+				93204ED6251627D30059E136 /* AWSS3Client.swift in Sources */,
+				937D0A072554B30100E103EB /* UploadBundle.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
 				93EC8CA324AD2E7B00946C0C /* Planter.swift in Sources */,
+				9376A6732586C79200D7FDC1 /* TreeBundleUploadOperation.swift in Sources */,
+				9376A68A2586CE9400D7FDC1 /* PlanterImagesUploadOperation.swift in Sources */,
 				93EC8C3424AA4AE100946C0C /* HomeCoordinator.swift in Sources */,
+				9376A6782586C92600D7FDC1 /* DeleteTreeImagesOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,6 +1072,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -926,6 +1133,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -968,7 +1176,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.TreeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -986,7 +1194,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.TreeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

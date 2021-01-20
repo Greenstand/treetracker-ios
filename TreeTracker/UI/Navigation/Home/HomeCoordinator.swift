@@ -16,14 +16,17 @@ class HomeCoordinator: Coordinator {
 
     weak var delegate: HomeCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
+
     let configuration: CoordinatorConfigurable
     let coreDataManager: CoreDataManaging
     let planter: Planter
+    let uploadManager: UploadManaging
 
-    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManaging, planter: Planter) {
+    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManaging, planter: Planter, uploadManager: UploadManaging) {
         self.configuration = configuration
-        self.planter = planter
         self.coreDataManager = coreDataManager
+        self.planter = planter
+        self.uploadManager = uploadManager
     }
 
     func start() {
@@ -72,7 +75,8 @@ private extension HomeCoordinator {
             let viewModel = HomeViewModel(
                 planter: planter,
                 treeMonitoringService: treeMonitoringService,
-                selfieService: selfieService
+                selfieService: selfieService,
+                uploadManager: uploadManager
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -83,7 +87,7 @@ private extension HomeCoordinator {
     var uploadListViewController: UIViewController {
         let viewcontroller = UIViewController()
         viewcontroller.view.backgroundColor = .white
-        viewcontroller.title = "Uploads"
+        viewcontroller.title = "My Trees"
         return viewcontroller
     }
 

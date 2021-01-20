@@ -63,11 +63,35 @@ private extension RootCoordinator {
     }
 
     func homeCoordinator(planter: Planter) -> Coordinator {
+
+        let treeUploadService = LocalTreeUploadService(
+            coreDataManager: coreDataManager,
+            bundleUploadService: AWSS3BundleUploadService(s3Client: AWSS3Client()),
+            imageUploadService: AWSS3ImageUploadService(s3Client: AWSS3Client()),
+            documentManager: DocumentManager()
+        )
+
+        let planterUploadService = LocalPlanterUploadService(
+            coreDataManager: coreDataManager,
+            imageUploadService: AWSS3ImageUploadService(s3Client: AWSS3Client()),
+            bundleUploadService: AWSS3BundleUploadService(s3Client: AWSS3Client()),
+            documentManager: DocumentManager(),
+            planter: planter
+        )
+
+        let uploadManager = UploadManager(
+            treeUploadService: treeUploadService,
+            planterUploadService: planterUploadService,
+            coredataManager: coreDataManager
+        )
+
         let homeCoordinator = HomeCoordinator(
             configuration: configuration,
             coreDataManager: coreDataManager,
-            planter: planter
+            planter: planter,
+            uploadManager: uploadManager
         )
+
         homeCoordinator.delegate = self
         return homeCoordinator
     }

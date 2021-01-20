@@ -17,21 +17,34 @@ protocol Planter: class {
     var organization: String? { get set }
     var phoneNumber: String? { get set }
     var uploaded: Bool { get set }
-    var identification: NSSet? { get set }
+    var checkIns: [PlanterCheckIn]? { get }
     var acceptedTerms: Bool { get set }
+    var uuid: String? { get }
 }
 
 extension PlanterDetail: Planter {
-    var latestIdentification: PlanterIdentification? {
-        let sortedPlanterIdentification = identification?.sorted(by: { (lhs, rhs) -> Bool in
-            guard let lhs = lhs as? PlanterIdentification,
-                let rhs = rhs as? PlanterIdentification,
-                let lhsDate = lhs.createdAt,
-                let rhsDate = rhs.createdAt else {
+
+    var checkIns: [PlanterCheckIn]? {
+        return identification?.allObjects as? [PlanterIdentification]
+    }
+
+    private var sortedCheckIns: [PlanterCheckIn]? {
+        return checkIns?
+            .sorted(by: { (lhs, rhs) -> Bool in
+                guard let lhsDate = lhs.createdAt,
+                      let rhsDate = rhs.createdAt else {
                     return false
-            }
-            return lhsDate > rhsDate
-        })
-        return sortedPlanterIdentification?.first as? PlanterIdentification
+                }
+                //Most Recent First
+                return lhsDate > rhsDate
+            })
+    }
+
+    var latestIdentification: PlanterCheckIn? {
+        return sortedCheckIns?.first
+    }
+
+    var firstIdentificationURL: String? {
+        return sortedCheckIns?.last?.photoURL
     }
 }
