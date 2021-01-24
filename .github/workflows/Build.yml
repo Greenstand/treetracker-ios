@@ -6,21 +6,14 @@ on:
   pull_request:
     branches: [ master ]
 
-jobs: 
-  swiftlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: GitHub Action for SwiftLint
-        uses: norio-nomura/action-swiftlint@3.2.1
-  test:
-    runs-on: macos-latest
-    steps:
-    - name: Run tests
-      run: swift test -v
-  build:
-    runs-on: macos-latest
+jobs:
+  fastlane:
+    runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
+    - name: Run fastlane analysis
+      run: fastlane analysis
+    - name: Run fastlane test
+      run: fastlane test
+    - name: Run fastlane build
+      run: fastlane build
