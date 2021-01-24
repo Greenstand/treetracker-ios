@@ -6,11 +6,15 @@ on:
   pull_request:
     branches: [ master ]
 
-jobs:
+jobs: 
+  swiftlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: GitHub Action for SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
   build:
-
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: GitHub Action for SwiftLint
