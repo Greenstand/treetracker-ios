@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vq6-qS-O62">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vq6-qS-O62">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UUb-y1-78U">
-                                <rect key="frame" x="20" y="64" width="374" height="510"/>
+                                <rect key="frame" x="20" y="64" width="374" height="434"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="greenstandlogo" translatesAutoresizingMaskIntoConstraints="NO" id="OZc-2w-4S2">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="176"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="OZc-2w-4S2">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="YrA-HZ-fqX"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovY-eg-Lcl">
-                                        <rect key="frame" x="0.0" y="206" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="130" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Svs-Qb-bf6"/>
                                         </constraints>
@@ -33,7 +37,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Pmh-MY-11D">
-                                        <rect key="frame" x="0.0" y="286" width="374" height="150"/>
+                                        <rect key="frame" x="0.0" y="210" width="374" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pp4-Lu-EE4">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="38"/>
@@ -115,8 +119,8 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JO9-NH-gzS" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="466" width="374" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JO9-NH-gzS" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="390" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="8HD-4H-GF7"/>
                                         </constraints>
@@ -130,14 +134,14 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="T1m-Ef-7d1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="T1m-Ef-7d1" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UUb-y1-78U" secondAttribute="bottom" id="EDT-6N-8KL"/>
                             <constraint firstItem="T1m-Ef-7d1" firstAttribute="trailing" secondItem="UUb-y1-78U" secondAttribute="trailing" constant="20" id="jkb-bs-Hqz"/>
                             <constraint firstItem="UUb-y1-78U" firstAttribute="top" secondItem="T1m-Ef-7d1" secondAttribute="top" constant="20" id="sQ2-MM-QEy"/>
                             <constraint firstItem="UUb-y1-78U" firstAttribute="leading" secondItem="T1m-Ef-7d1" secondAttribute="leading" constant="20" id="trC-0R-OjO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="T1m-Ef-7d1"/>
                     </view>
                     <connections>
                         <outlet property="firstNameTextField" destination="rGp-fd-X58" id="qUx-qf-w6M"/>
@@ -154,11 +158,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="greenstandlogo" width="141" height="176"/>
+        <image name="Logo" width="1500" height="1500"/>
         <image name="people" width="44" height="28"/>
         <image name="person" width="32" height="32"/>
         <namedColor name="GrayDark">
             <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

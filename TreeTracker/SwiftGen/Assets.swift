@@ -29,7 +29,9 @@ internal enum Asset {
     internal static let saplingIcon = ImageAsset(name: "sapling_Icon")
     internal static let seed = ImageAsset(name: "seed")
     internal static let upload = ImageAsset(name: "upload")
-    internal static let greenstandlogo = ImageAsset(name: "greenstandlogo")
+    internal static let launchScreenLogo = ImageAsset(name: "LaunchScreenLogo")
+    internal static let logo = ImageAsset(name: "Logo")
+    internal static let logoWithTitle = ImageAsset(name: "LogoWithTitle")
   }
   internal enum Colors {
     internal static let grayDark = ColorAsset(name: "GrayDark")

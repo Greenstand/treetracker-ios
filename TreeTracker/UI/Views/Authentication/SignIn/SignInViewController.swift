@@ -12,7 +12,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
 
     @IBOutlet private var logoImageView: UIImageView! {
         didSet {
-            logoImageView.image = Asset.Assets.greenstandlogo.image
+            logoImageView.image = Asset.Assets.logo.image
         }
     }
     @IBOutlet private var usernameTextField: SignInTextField! {
