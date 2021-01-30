@@ -95,13 +95,13 @@ private extension AWSS3Client {
 
     struct Constants {
         static let s3ServiceKey: String = "treetracker-s3-service"
-        static let imagesBucketName: String = "treetracker-dev-images"
-        static let batchUploadsBucketName: String = "treetracker-dev-batch-uploads"
+        static let imagesBucketName: String = Configuration.AWS.imagesBucketName
+        static let batchUploadsBucketName: String = Configuration.AWS.batchUploadsBucketName
     }
 
     struct AWSCredentials {
-        static let identityPoolId: String = ""
-        static let regionType: AWSRegionType = .EUCentral1
-        static let regionString: String = "eu-central-1"
+        static let identityPoolId: String = Configuration.AWS.identityPoolId
+        static let regionType: AWSRegionType = Configuration.AWS.region
+        static let regionString: String = Configuration.AWS.regionString
     }
 }
