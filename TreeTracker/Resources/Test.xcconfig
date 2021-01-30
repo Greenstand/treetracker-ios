@@ -9,6 +9,7 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+ENVIRONMENT = TEST
 AWSS3_BUCKET_NAME_IMAGE_UPLOAD = treetracker-test-images
 AWSS3_BUCKET_NAME_BUNDLE_UPLOAD = treetracker-test-batch-uploads
 AWS_REGION_STRING = eu-central-1

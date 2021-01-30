@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Environment</key>
+	<string>$(ENVIRONMENT)</string>
 	<key>AWSS3_BucketName_ImageUploads</key>
 	<string>$(AWSS3_BUCKET_NAME_IMAGE_UPLOAD)</string>
 	<key>AWSS3_BucketName_BundleUploads</key>
