@@ -1,0 +1,14 @@
+//
+//  Production.xcconfig
+//  TreeTracker
+//
+//  Created by Alex Cornforth on 26/01/2021.
+//  Copyright © 2021 Greenstand. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+AWSS3_BUCKET_NAME_IMAGE_UPLOAD = treetracker-production-images
+AWSS3_BUCKET_NAME_BUNDLE_UPLOAD = treetracker-production-batch-uploads
+AWS_REGION_STRING = eu-central-1
