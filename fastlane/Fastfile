@@ -13,11 +13,29 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-# setup_travis
 default_platform(:ios)
 
-
 platform :ios do
+
+  before_each do |lane, options|
+    # TODO: Pull the actual cocoapods-keys in from CI
+    set_pod_key(
+      key: "AWSIdentityPoolId_Dev",
+      value: "dev",
+      project: "TreeTracker"
+    )
+    set_pod_key(
+      key: "AWSIdentityPoolId_Test",
+      value: "test",
+      project: "TreeTracker"
+    )
+    set_pod_key(
+      key: "AWSIdentityPoolId_Prod",
+      value: "prod",
+      project: "TreeTracker"
+    )
+    cocoapods
+  end
 
   desc 'Runs analysis on the code using swiftlint'
   lane :analysis do
