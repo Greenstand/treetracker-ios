@@ -14,8 +14,27 @@ For more on design intent and the app's user story see the [wiki in this reposit
 &nbsp;
 
 ## Project Setup
-### Dependencies
+
+### Bundler
+This project uses bundler (https://bundler.io/) to manage cocoapods, fastlane and CocoapodsKeys. Use `bundle exec` when using these dependencies.
+
+Install with `gem install bundler`
+
+Run `bundle install` to install cocoapods, fastlane and CocoapodsKeys.
+
+### CocoaPods
 Dependencies are managed using [CocoaPods](https://guides.cocoapods.org/) and are checked into to repository.
+Even though we check in the dependencies you will need to install CocoaPods to run the project as we use a plugin called CocoapodsKeys.
+
+### CocoapodsKeys
+CocoapodsKeys (https://github.com/orta/cocoapods-keys) is used to manage keys we don't want to check into the repository. We currently only use this for AWS identity pool ID's.
+
+Then run a pod install:
+`bundle exec pod install`
+
+You will be prompted to enter AWS identity pool ID's for dev, test and production environments. Just enter anything for now, if you need to actually upload some trees to one of the environments reach out to the #ios_treetracker channel in the Greenstand slack workspace.
+
+You could also set up your own environment on AWS. Reach out on slack if you need help with this.
 
 ### SwiftLint
 [SwiftLint](https://github.com/realm/SwiftLint) is used to keep the codebase consistent. Rules can be configured or disabled in the [.swiftlint.yml](.swiftlint.yml) file.

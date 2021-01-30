@@ -55,7 +55,10 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 # Pods/
-#
+
+# Don't check in CocoaPodsKeys keys folder as this contains secrets
+Pods/CocoaPodsKeys
+
 # Add this line if you want to avoid checking in source code from the Xcode workspace
 # *.xcworkspace
 
