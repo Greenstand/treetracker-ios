@@ -11,6 +11,12 @@ jobs:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
+    - name: configure ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: install fastlane & plugins
+      run: bundle install
     - name: Run fastlane analysis
       run: fastlane analysis
     - name: Run fastlane test
