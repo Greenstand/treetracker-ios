@@ -15,11 +15,11 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
-    - name: install fastlane & plugins
+    - name: Install fastlane & plugins
       run: bundle install
     - name: Run fastlane analysis
-      run: fastlane analysis
+      run: bundle exec fastlane analysis
     - name: Run fastlane test
-      run: fastlane test
+      run: bundle exec fastlane test
     - name: Run fastlane build
-      run: fastlane build
+      run: bundle exec fastlane build

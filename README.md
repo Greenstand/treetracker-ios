@@ -16,9 +16,11 @@ For more on design intent and the app's user story see the [wiki in this reposit
 ## Project Setup
 
 ### Bundler
-This project uses bundler to manage cocoapods, fastlane and CocoapodsKeys. Use `bundle exec` when using these dependencies.
+This project uses bundler (https://bundler.io/) to manage cocoapods, fastlane and CocoapodsKeys. Use `bundle exec` when using these dependencies.
 
-Run `bundle install` to get started.
+Install with `gem install bundler`
+
+Run `bundle install` to install cocoapods, fastlane and CocoapodsKeys.
 
 ### CocoaPods
 Dependencies are managed using [CocoaPods](https://guides.cocoapods.org/) and are checked into to repository.
@@ -26,9 +28,6 @@ Even though we check in the dependencies you will need to install CocoaPods to r
 
 ### CocoapodsKeys
 CocoapodsKeys (https://github.com/orta/cocoapods-keys) is used to manage keys we don't want to check into the repository. We currently only use this for AWS identity pool ID's.
-
-To get started you will need to install CocoapodsKeys:
-`gem install cocoapods-keys`
 
 Then run a pod install:
 `bundle exec pod install`
