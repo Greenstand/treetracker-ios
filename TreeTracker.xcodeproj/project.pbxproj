@@ -35,6 +35,7 @@
 		937D0A072554B30100E103EB /* UploadBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D0A062554B30100E103EB /* UploadBundle.swift */; };
 		937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FC5DB2486F1530018B247 /* SelfieViewController.swift */; };
 		93814CDA2569605900FC70E5 /* MyTreesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93814CD92569605900FC70E5 /* MyTreesButton.swift */; };
+		9390BECC25C6D295000B29AB /* CurrentPlanterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390BECB25C6D295000B29AB /* CurrentPlanterService.swift */; };
 		93989CF0246C479400A1B21F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CEF246C479400A1B21F /* Validation.swift */; };
 		93989CF3246C5F7F00A1B21F /* ValidationUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */; };
 		93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF4246EA33600A1B21F /* SignUpViewController.swift */; };
@@ -151,6 +152,7 @@
 		937D0A062554B30100E103EB /* UploadBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadBundle.swift; sourceTree = "<group>"; };
 		937FC5DB2486F1530018B247 /* SelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		93814CD92569605900FC70E5 /* MyTreesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTreesButton.swift; sourceTree = "<group>"; };
+		9390BECB25C6D295000B29AB /* CurrentPlanterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlanterService.swift; sourceTree = "<group>"; };
 		93989CEF246C479400A1B21F /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		93989CF2246C5F7F00A1B21F /* ValidationUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUnitTests.swift; sourceTree = "<group>"; };
 		93989CF4246EA33600A1B21F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				93C57997249E57A6009C0E46 /* SignUpService.swift */,
 				93C579A324A26D95009C0E46 /* TermsService.swift */,
 				93C579A524A26E6B009C0E46 /* SelfieService.swift */,
+				9390BECB25C6D295000B29AB /* CurrentPlanterService.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */,
 				9376A66B2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift in Sources */,
 				93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */,
+				9390BECC25C6D295000B29AB /* CurrentPlanterService.swift in Sources */,
 				93FC588425A7B05500B93F14 /* DeviceInfoProvider.swift in Sources */,
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
 				93C579A424A26D95009C0E46 /* TermsService.swift in Sources */,
