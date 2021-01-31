@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, AlertPresenting {
         didSet {
             treesPlantedView.layer.cornerRadius = 5.0
             treesPlantedView.layer.masksToBounds = true
-            treesPlantedView.backgroundColor = Asset.Colors.grayLightest.color
+            treesPlantedView.backgroundColor = Asset.Colors.grayLight.color
         }
     }
     @IBOutlet private var treesPlantedLabel: UILabel! {
@@ -37,7 +37,7 @@ class HomeViewController: UIViewController, AlertPresenting {
         didSet {
             treesUploadedView.layer.cornerRadius = 5.0
             treesUploadedView.layer.masksToBounds = true
-            treesUploadedView.backgroundColor = Asset.Colors.grayLightest.color
+            treesUploadedView.backgroundColor = Asset.Colors.grayLight.color
         }
     }
     @IBOutlet private var treesUploadedLabel: UILabel! {
@@ -66,7 +66,7 @@ class HomeViewController: UIViewController, AlertPresenting {
     @IBOutlet private var myTreesButton: UploadsButton!
     @IBOutlet private var uploadsCountView: UIView! {
         didSet {
-            uploadsCountView.backgroundColor = Asset.Colors.secondaryOrangeDark.color
+            uploadsCountView.backgroundColor = Asset.Colors.secondaryRed.color
             uploadsCountView.layer.cornerRadius = uploadsCountLabel.frame.size.height / 2
             uploadsCountView.layer.masksToBounds = true
             uploadsCountView.isHidden = true

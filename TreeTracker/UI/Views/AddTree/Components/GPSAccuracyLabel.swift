@@ -48,7 +48,7 @@ private extension GPSAccuracyLabel.Accuracy {
         case .good:
             return Asset.Colors.primaryGreen.color
         case .bad:
-            return Asset.Colors.secondaryOrangeDark.color
+            return Asset.Colors.secondaryRed.color
         case .unknown:
             return Asset.Colors.grayMedium.color
         }

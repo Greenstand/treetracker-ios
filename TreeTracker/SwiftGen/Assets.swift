@@ -35,15 +35,13 @@ internal enum Asset {
   }
   internal enum Colors {
     internal static let grayDark = ColorAsset(name: "GrayDark")
-    internal static let grayDarkest = ColorAsset(name: "GrayDarkest")
     internal static let grayLight = ColorAsset(name: "GrayLight")
-    internal static let grayLightest = ColorAsset(name: "GrayLightest")
     internal static let grayMedium = ColorAsset(name: "GrayMedium")
     internal static let primaryGreen = ColorAsset(name: "PrimaryGreen")
     internal static let secondaryGreen = ColorAsset(name: "SecondaryGreen")
     internal static let secondaryOrangeDark = ColorAsset(name: "SecondaryOrangeDark")
     internal static let secondaryOrangeLight = ColorAsset(name: "SecondaryOrangeLight")
-    internal static let secondaryOrangeMedium = ColorAsset(name: "SecondaryOrangeMedium")
+    internal static let secondaryRed = ColorAsset(name: "SecondaryRed")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
