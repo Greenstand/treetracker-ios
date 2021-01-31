@@ -64,8 +64,8 @@ private extension SignInTextField {
             iconImageView?.tintColor = Asset.Colors.secondaryGreen.color
             underlineView?.backgroundColor = Asset.Colors.secondaryGreen.color
         case .invalid:
-            iconImageView?.tintColor = Asset.Colors.secondaryOrangeDark.color
-            underlineView?.backgroundColor = Asset.Colors.secondaryOrangeDark.color
+            iconImageView?.tintColor = Asset.Colors.secondaryRed.color
+            underlineView?.backgroundColor = Asset.Colors.secondaryRed.color
         }
     }
 }
