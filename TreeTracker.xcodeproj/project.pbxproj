@@ -33,6 +33,10 @@
 		9376A6B9258815D200D7FDC1 /* PlanterImageUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376A6B8258815D200D7FDC1 /* PlanterImageUploadOperation.swift */; };
 		937D0A022554A8B900E103EB /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D0A012554A8B900E103EB /* UploadManager.swift */; };
 		937D0A072554B30100E103EB /* UploadBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D0A062554B30100E103EB /* UploadBundle.swift */; };
+		937D78C225C70E45007A7A37 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 937D78BF25C70E45007A7A37 /* Lato-Regular.ttf */; };
+		937D78C325C70E45007A7A37 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 937D78C025C70E45007A7A37 /* Montserrat-Bold.ttf */; };
+		937D78C425C70E45007A7A37 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 937D78C125C70E45007A7A37 /* Montserrat-SemiBold.ttf */; };
+		937D78C925C70F11007A7A37 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D78C825C70F11007A7A37 /* Fonts.swift */; };
 		937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FC5DB2486F1530018B247 /* SelfieViewController.swift */; };
 		93814CDA2569605900FC70E5 /* MyTreesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93814CD92569605900FC70E5 /* MyTreesButton.swift */; };
 		9390BECC25C6D295000B29AB /* CurrentPlanterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390BECB25C6D295000B29AB /* CurrentPlanterService.swift */; };
@@ -150,6 +154,10 @@
 		9376A6B8258815D200D7FDC1 /* PlanterImageUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterImageUploadOperation.swift; sourceTree = "<group>"; };
 		937D0A012554A8B900E103EB /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
 		937D0A062554B30100E103EB /* UploadBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadBundle.swift; sourceTree = "<group>"; };
+		937D78BF25C70E45007A7A37 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		937D78C025C70E45007A7A37 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		937D78C125C70E45007A7A37 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		937D78C825C70F11007A7A37 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		937FC5DB2486F1530018B247 /* SelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		93814CD92569605900FC70E5 /* MyTreesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTreesButton.swift; sourceTree = "<group>"; };
 		9390BECB25C6D295000B29AB /* CurrentPlanterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlanterService.swift; sourceTree = "<group>"; };
@@ -314,6 +322,16 @@
 			path = TreeLocationsUploads;
 			sourceTree = "<group>";
 		};
+		937D78BE25C70E21007A7A37 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				937D78BF25C70E45007A7A37 /* Lato-Regular.ttf */,
+				937D78C025C70E45007A7A37 /* Montserrat-Bold.ttf */,
+				937D78C125C70E45007A7A37 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		937FC5DA2486EEC40018B247 /* Selfie */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +381,7 @@
 		939CA850246C0F9500B1C184 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				937D78BE25C70E21007A7A37 /* Fonts */,
 				93D3FE1725C0C83000EB3B3C /* Development.xcconfig */,
 				93D3FE1825C0C84700EB3B3C /* Test.xcconfig */,
 				93D3FE1C25C0C8AE00EB3B3C /* Production.xcconfig */,
@@ -517,6 +536,7 @@
 				93E18967245C96F000217F21 /* Assets.swift */,
 				93E18963245C95F200217F21 /* StoryboardScenes.swift */,
 				93E18964245C95F200217F21 /* StoryboardSegues.swift */,
+				937D78C825C70F11007A7A37 /* Fonts.swift */,
 			);
 			path = SwiftGen;
 			sourceTree = "<group>";
@@ -827,10 +847,13 @@
 				93E82F63246C41B000006C91 /* Localizable.strings in Resources */,
 				93989CFD246EABFA00A1B21F /* Terms.storyboard in Resources */,
 				93989D01246EB20D00A1B21F /* Terms.html in Resources */,
+				937D78C325C70E45007A7A37 /* Montserrat-Bold.ttf in Resources */,
 				93E82F52246C35C700006C91 /* SignIn.storyboard in Resources */,
 				93989CF7246EA34A00A1B21F /* SignUp.storyboard in Resources */,
+				937D78C425C70E45007A7A37 /* Montserrat-SemiBold.ttf in Resources */,
 				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
 				93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */,
+				937D78C225C70E45007A7A37 /* Lato-Regular.ttf in Resources */,
 				93EC8CAF24BBAA0200946C0C /* AddTree.storyboard in Resources */,
 				93E1893A245B738100217F21 /* Assets.xcassets in Resources */,
 			);
@@ -995,6 +1018,7 @@
 				93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */,
 				931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */,
 				937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */,
+				937D78C925C70F11007A7A37 /* Fonts.swift in Sources */,
 				93C579A824A33DE7009C0E46 /* AlertPresenting.swift in Sources */,
 				93989CFF246EAC0400A1B21F /* TermsViewModel.swift in Sources */,
 				93E1896B245DEBDB00217F21 /* Coordinator.swift in Sources */,
