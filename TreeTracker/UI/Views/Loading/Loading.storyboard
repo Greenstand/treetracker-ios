@@ -27,7 +27,7 @@
                                             <constraint firstAttribute="height" constant="100" id="dxX-Tf-wyg"/>
                                         </constraints>
                                     </imageView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vTr-Qx-3yd">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vTr-Qx-3yd">
                                         <rect key="frame" x="0.0" y="100" width="374" height="37"/>
                                         <color key="tintColor" name="GrayMedium"/>
                                     </activityIndicatorView>

@@ -12,15 +12,21 @@ class RootCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
     let configuration: CoordinatorConfigurable
-    let coreDataManager: CoreDataManaging
+    private let coreDataManager: CoreDataManaging
+    private let currentPlanterService: CurrentPlanterService
 
     required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManaging) {
         self.configuration = configuration
         self.coreDataManager = coreDataManager
+        self.currentPlanterService = LocalCurrentPlanterService(coreDataManager: coreDataManager)
     }
 
     func start() {
-        showSignIn()
+        guard let currentPlanter = currentPlanterService.currentPlanter() else {
+            showSignIn()
+            return
+        }
+        showHome(planter: currentPlanter)
     }
 }
 
@@ -28,6 +34,8 @@ class RootCoordinator: Coordinator {
 private extension RootCoordinator {
 
     func showLoadingViewController() {
+        // Currently we don't use the loading view.
+        // Lets keep it though for future use.
         configuration.navigationController.viewControllers = [
             loadingViewController
         ]
@@ -101,6 +109,7 @@ private extension RootCoordinator {
 extension RootCoordinator: SignInCoordinatorDelegate {
 
     func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInPlanter planter: Planter) {
+        currentPlanterService.updateCurrentPlanter(planter: planter)
         childCoordinators.removeAll()
         showHome(planter: planter)
     }
@@ -110,6 +119,7 @@ extension RootCoordinator: SignInCoordinatorDelegate {
 extension RootCoordinator: HomeCoordinatorDelegate {
 
     func homeCoordinatorDidLogout(_ homeCoordinator: HomeCoordinator) {
+        currentPlanterService.clearCurrentPlanter()
         childCoordinators.removeAll()
         showSignIn()
     }
