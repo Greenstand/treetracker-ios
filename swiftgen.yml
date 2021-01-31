@@ -17,3 +17,8 @@ strings:
   outputs:
     templateName: structured-swift4
     output: Strings.swift
+fonts:
+  inputs: ./
+  outputs:
+    templateName: swift4
+    output: Fonts.swift
