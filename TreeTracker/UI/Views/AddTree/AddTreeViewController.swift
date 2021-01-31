@@ -59,8 +59,8 @@ private extension AddTreeViewController {
     @IBAction func takePhotoButtonPressed() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-//        imagePicker.sourceType = .camera
-//        imagePicker.cameraDevice = .rear
+        imagePicker.sourceType = .camera
+        imagePicker.cameraDevice = .rear
         present(imagePicker, animated: true)
     }
 

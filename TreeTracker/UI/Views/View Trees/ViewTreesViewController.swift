@@ -9,49 +9,51 @@
 import UIKit
 
 class ViewTreesViewController: UIViewController {
+    var trees: [Tree] = [] {
+        didSet {
+            viewTreesCollectionview.reloadData()
+        }
+    }
     var viewModel: ViewTreesViewModel? {
         didSet {
             viewModel?.viewDelegate = self
             title = viewModel?.title
         }
     }
-   @IBOutlet weak var viewTrees: UICollectionView!
-   //private let treeMonitoringService: TreeMonitoringService
-
+    @IBOutlet weak var viewTreesCollectionview: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-         viewTrees.delegate = self
-         viewTrees.dataSource = self
-         viewTrees.register(ViewTreesCollectionViewCell.self, forCellWithReuseIdentifier: "ViewTreesCollectionViewCell")
-         viewModel?.fetchTrees()
-
+        viewTreesCollectionview.delegate = self
+        viewTreesCollectionview.dataSource = self
+//      collectionView.register(ViewTreesCollectionViewCell.self, forCellWithReuseIdentifier: "ViewTreesCollectionViewCell")
+        viewModel?.fetchTrees()
     }
 }
-
+// MARK: - CollectionView cell implementation
 extension ViewTreesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return trees.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let cell = viewTrees.dequeueReusableCell(withReuseIdentifier: "ViewTreesCollectionViewCell", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
-    }
-
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewTreesCollectionViewCell", for: indexPath) as? ViewTreesCollectionViewCell
+        let tree = trees[indexPath.item]
+        if let photoURL = tree.photoURL {
+        let url = URL(string: photoURL)
+        let data = try? Data(contentsOf: url!)
+        let image: UIImage = UIImage(data: data!)!
+        cell?.treesImage.image = image
+        }
+        return cell!
+        }
 }
-
 // MARK: - ViewTreesViewModelViewDelegate
 extension ViewTreesViewController: ViewTreesViewModelViewDelegate {
-    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didReceiveError error: Error){
-        
+    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didReceiveError error: Error) {
     }
-    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didUpdateTreeCount data: ViewTreesViewModel.TreeCountData){
-        
+    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didUpdateTrees trees: [Tree]) {
+        self.trees = trees
     }
-    
 }

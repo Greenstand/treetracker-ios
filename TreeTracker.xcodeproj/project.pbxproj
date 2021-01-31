@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -75,7 +75,6 @@
 		93F3771E24EC419A00B7D051 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3771D24EC419A00B7D051 /* DocumentManager.swift */; };
 		F202BB0D25570E6700F5A8AB /* ViewTreesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F202BB0C25570E6700F5A8AB /* ViewTreesViewModel.swift */; };
 		F2A3006525508CB400739425 /* ViewTreesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3006325508CB400739425 /* ViewTreesCollectionViewCell.swift */; };
-		F2A3006625508CB400739425 /* ViewTreesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A3006425508CB400739425 /* ViewTreesCollectionViewCell.xib */; };
 		F2CE1C272548D0890048C7F5 /* ViewTreesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1C262548D0890048C7F5 /* ViewTreesButton.swift */; };
 		F2CE1C2A2548DA1C0048C7F5 /* ViewTreesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1C292548DA1C0048C7F5 /* ViewTreesViewController.swift */; };
 		F2CE1C2C2548DA4C0048C7F5 /* ViewTrees.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1C2B2548DA4C0048C7F5 /* ViewTrees.storyboard */; };
@@ -174,7 +173,6 @@
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F202BB0C25570E6700F5A8AB /* ViewTreesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTreesViewModel.swift; sourceTree = "<group>"; };
 		F2A3006325508CB400739425 /* ViewTreesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTreesCollectionViewCell.swift; sourceTree = "<group>"; };
-		F2A3006425508CB400739425 /* ViewTreesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewTreesCollectionViewCell.xib; sourceTree = "<group>"; };
 		F2CE1C262548D0890048C7F5 /* ViewTreesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTreesButton.swift; sourceTree = "<group>"; };
 		F2CE1C292548DA1C0048C7F5 /* ViewTreesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTreesViewController.swift; sourceTree = "<group>"; };
 		F2CE1C2B2548DA4C0048C7F5 /* ViewTrees.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewTrees.storyboard; sourceTree = "<group>"; };
@@ -559,7 +557,6 @@
 			children = (
 				F2CE1C292548DA1C0048C7F5 /* ViewTreesViewController.swift */,
 				F2A3006325508CB400739425 /* ViewTreesCollectionViewCell.swift */,
-				F2A3006425508CB400739425 /* ViewTreesCollectionViewCell.xib */,
 				F2CE1C2B2548DA4C0048C7F5 /* ViewTrees.storyboard */,
 				F202BB0C25570E6700F5A8AB /* ViewTreesViewModel.swift */,
 			);
@@ -579,6 +576,7 @@
 				93E1892B245B737D00217F21 /* Resources */,
 				93E18960245B78FF00217F21 /* SwiftLint */,
 				93E18961245C938000217F21 /* SwiftGen */,
+				5C7B2FC128F3594D9DA5F128 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -686,7 +684,6 @@
 				93EC8CAF24BBAA0200946C0C /* AddTree.storyboard in Resources */,
 				F2CE1C2C2548DA4C0048C7F5 /* ViewTrees.storyboard in Resources */,
 				93E1893A245B738100217F21 /* Assets.xcassets in Resources */,
-				F2A3006625508CB400739425 /* ViewTreesCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +704,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5C7B2FC128F3594D9DA5F128 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		93E18960245B78FF00217F21 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

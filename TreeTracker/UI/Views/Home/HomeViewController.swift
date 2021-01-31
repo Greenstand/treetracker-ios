@@ -101,7 +101,6 @@ private extension HomeViewController {
 
     @IBAction func viewTreesButtonPressed() {
         viewModel?.viewTreesSelected()
-        print("view trees button pressed")
     }
 }
 
