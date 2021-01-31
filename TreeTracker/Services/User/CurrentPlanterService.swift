@@ -26,10 +26,10 @@ class LocalCurrentPlanterService: CurrentPlanterService {
     }
 
     func currentPlanter() -> Planter? {
-        guard let currentUserIdentifier = userDefaults.string(forKey: UserDefaultsKey.currentUserIdentity),
-              let lastLoginTimestamp = userDefaults.value(forKey: UserDefaultsKey.currentUserLoginTime) as? Date,
-              -lastLoginTimestamp.timeIntervalSinceNow < Constants.currentuserTimeout,
-              let planter = planter(forUserIdentifier: currentUserIdentifier) else {
+        guard let currentPlanterIdentifier = userDefaults.string(forKey: UserDefaultsKey.currentPlanterIdentity),
+              let lastLoginTimestamp = userDefaults.value(forKey: UserDefaultsKey.currentPlanterLoginTime) as? Date,
+              -lastLoginTimestamp.timeIntervalSinceNow < Constants.currentPlanterTimeout,
+              let planter = planter(forUserIdentifier: currentPlanterIdentifier) else {
             clearCurrentPlanter()
             return nil
         }
@@ -37,13 +37,13 @@ class LocalCurrentPlanterService: CurrentPlanterService {
     }
 
     func updateCurrentPlanter(planter: Planter) {
-        userDefaults.setValue(planter.identifier, forKey: UserDefaultsKey.currentUserIdentity)
-        userDefaults.setValue(Date(), forKey: UserDefaultsKey.currentUserLoginTime)
+        userDefaults.setValue(planter.identifier, forKey: UserDefaultsKey.currentPlanterIdentity)
+        userDefaults.setValue(Date(), forKey: UserDefaultsKey.currentPlanterLoginTime)
     }
 
     func clearCurrentPlanter() {
-        userDefaults.removeObject(forKey: UserDefaultsKey.currentUserIdentity)
-        userDefaults.removeObject(forKey: UserDefaultsKey.currentUserLoginTime)
+        userDefaults.removeObject(forKey: UserDefaultsKey.currentPlanterIdentity)
+        userDefaults.removeObject(forKey: UserDefaultsKey.currentPlanterLoginTime)
     }
 }
 
@@ -67,10 +67,10 @@ private extension LocalCurrentPlanterService {
 private extension LocalCurrentPlanterService {
 
     enum Constants {
-        static let currentuserTimeout: TimeInterval = 7200.0 // 2 hours
+        static let currentPlanterTimeout: TimeInterval = 7200.0 // 2 hours
     }
     enum UserDefaultsKey {
-        static let currentUserIdentity: String = "currentUserIdentity"
-        static let currentUserLoginTime: String = "currentUserLoginTime"
+        static let currentPlanterIdentity: String = "currentPlanterIdentity"
+        static let currentPlanterLoginTime: String = "currentPlanterLoginTime"
     }
 }
