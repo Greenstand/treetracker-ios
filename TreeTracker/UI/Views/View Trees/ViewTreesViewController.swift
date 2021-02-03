@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ViewTreesViewController: UIViewController {
+class ViewTreesViewController: UIViewController, AlertPresenting {
     var trees: [Tree] = [] {
         didSet {
-            viewTreesCollectionview.reloadData()
+            viewTreesCollectionView.reloadData()
         }
     }
     var viewModel: ViewTreesViewModel? {
@@ -20,22 +20,17 @@ class ViewTreesViewController: UIViewController {
             title = viewModel?.title
         }
     }
-    @IBOutlet weak var viewTreesCollectionview: UICollectionView!
+    @IBOutlet weak var viewTreesCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewTreesCollectionview.delegate = self
-        viewTreesCollectionview.dataSource = self
-//      collectionView.register(ViewTreesCollectionViewCell.self, forCellWithReuseIdentifier: "ViewTreesCollectionViewCell")
+        viewTreesCollectionView.dataSource = self
         viewModel?.fetchTrees()
     }
 }
 // MARK: - CollectionView cell implementation
-extension ViewTreesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewTreesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return trees.count
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewTreesCollectionViewCell", for: indexPath) as? ViewTreesCollectionViewCell
@@ -51,9 +46,10 @@ extension ViewTreesViewController: UICollectionViewDelegate, UICollectionViewDat
 }
 // MARK: - ViewTreesViewModelViewDelegate
 extension ViewTreesViewController: ViewTreesViewModelViewDelegate {
-    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didReceiveError error: Error) {
-    }
     func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didUpdateTrees trees: [Tree]) {
         self.trees = trees
+    }
+    func viewTreesViewModel(_ viewTreesViewModel: ViewTreesViewModel, didReceiveError error: Error) {
+        present(alert: .error(error))
     }
 }

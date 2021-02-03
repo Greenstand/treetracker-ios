@@ -1,26 +1,20 @@
 PODS:
-  - SDWebImage (5.10.2):
-    - SDWebImage/Core (= 5.10.2)
-  - SDWebImage/Core (5.10.2)
   - SwiftGen (6.4.0)
   - SwiftLint (0.42.0)
 
 DEPENDENCIES:
-  - SDWebImage (~> 5.0)
   - SwiftGen (~> 6.0)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
-    - SDWebImage
     - SwiftGen
     - SwiftLint
 
 SPEC CHECKSUMS:
-  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
 
-PODFILE CHECKSUM: 6cbbd2947b99cc2b0ab25d71f6dbe8370c553bcf
+PODFILE CHECKSUM: 3aa728d3101f9c0e6a98bd14f63414a7e3b7c494
 
 COCOAPODS: 1.8.4

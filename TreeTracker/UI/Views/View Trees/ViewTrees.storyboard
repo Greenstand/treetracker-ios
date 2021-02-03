@@ -66,7 +66,7 @@
                         <viewLayoutGuide key="safeArea" id="r3r-T7-4Np"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="C0D-HX-AXp" id="j6W-wX-E0z"/>
+                        <outlet property="viewTreesCollectionView" destination="C0D-HX-AXp" id="Sgm-Ev-lti"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXk-QA-ZOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
