@@ -18,56 +18,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-57-uo8">
-                                <rect key="frame" x="20" y="64" width="374" height="367"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Forest" translatesAutoresizingMaskIntoConstraints="NO" id="sDc-Z9-CCJ">
+                                <rect key="frame" x="0.0" y="474" width="414" height="422"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-57-uo8">
+                                <rect key="frame" x="20" y="64" width="374" height="798"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Rb3-x4-bAY">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoWithTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Rb3-x4-bAY">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="577"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="xac-Ph-lGu"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-Kg-4Yg">
-                                        <rect key="frame" x="0.0" y="150" width="374" height="42"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-MP-cDo">
+                                        <rect key="frame" x="0.0" y="607" width="374" height="50"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-MP-cDo">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-aa-lzu">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-aa-lzu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="d88-hO-nKC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
-                                                                <color key="tintColor" name="GrayDark"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="25" id="22Y-uS-rOe"/>
-                                                                    <constraint firstAttribute="width" secondItem="d88-hO-nKC" secondAttribute="height" multiplier="1:1" id="j0f-oJ-wqF"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PHONE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLe-97-w0N" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
-                                                                <rect key="frame" x="46" y="0.0" width="328" height="36"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <connections>
-                                                                    <outlet property="iconImageView" destination="d88-hO-nKC" id="OLl-PL-RmX"/>
-                                                                    <outlet property="underlineView" destination="Y8o-zt-Ogl" id="a2j-wm-NBA"/>
-                                                                </connections>
-                                                            </textField>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8o-zt-Ogl">
-                                                        <rect key="frame" x="0.0" y="41" width="374" height="1"/>
-                                                        <color key="backgroundColor" name="GrayDark"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" image="Phone" translatesAutoresizingMaskIntoConstraints="NO" id="d88-hO-nKC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                        <color key="tintColor" name="GrayDark"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="bIp-bc-Pdj"/>
+                                                            <constraint firstAttribute="width" secondItem="d88-hO-nKC" secondAttribute="height" multiplier="1:1" id="j0f-oJ-wqF"/>
                                                         </constraints>
-                                                    </view>
+                                                    </imageView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PHONE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLe-97-w0N" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
+                                                        <rect key="frame" x="54" y="0.0" width="320" height="44"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="iconImageView" destination="d88-hO-nKC" id="OLl-PL-RmX"/>
+                                                            <outlet property="underlineView" destination="Y8o-zt-Ogl" id="a2j-wm-NBA"/>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                             </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8o-zt-Ogl">
+                                                <rect key="frame" x="0.0" y="49" width="374" height="1"/>
+                                                <color key="backgroundColor" name="GrayDark"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="bIp-bc-Pdj"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="NR1-Vy-9P6"/>
+                                        </constraints>
                                     </stackView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9L8-kQ-iHo">
-                                        <rect key="frame" x="0.0" y="256" width="374" height="32"/>
+                                        <rect key="frame" x="0.0" y="707" width="374" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="Phone "/>
@@ -78,9 +78,9 @@
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="323" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="748" width="374" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="WGV-Zd-ZAY"/>
+                                            <constraint firstAttribute="height" constant="50" id="WGV-Zd-ZAY"/>
                                         </constraints>
                                         <state key="normal" title="LOGIN">
                                             <color key="titleColor" name="GrayDark"/>
@@ -96,9 +96,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="OXG-lw-S0f" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="L0y-57-uo8" secondAttribute="bottom" id="LKW-DN-hOQ"/>
+                            <constraint firstItem="sDc-Z9-CCJ" firstAttribute="leading" secondItem="0PG-DV-loF" secondAttribute="leading" id="Ll4-R9-Wi7"/>
+                            <constraint firstAttribute="trailing" secondItem="sDc-Z9-CCJ" secondAttribute="trailing" id="N7o-H3-hb3"/>
                             <constraint firstItem="L0y-57-uo8" firstAttribute="top" secondItem="OXG-lw-S0f" secondAttribute="top" constant="20" id="P5t-a1-EJ9"/>
                             <constraint firstItem="OXG-lw-S0f" firstAttribute="trailing" secondItem="L0y-57-uo8" secondAttribute="trailing" constant="20" id="XQC-01-7k8"/>
                             <constraint firstItem="L0y-57-uo8" firstAttribute="leading" secondItem="OXG-lw-S0f" secondAttribute="leading" constant="20" id="cEy-AZ-T9D"/>
+                            <constraint firstAttribute="bottom" secondItem="sDc-Z9-CCJ" secondAttribute="bottom" id="hiI-t6-acq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -114,10 +117,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="1500" height="1500"/>
-        <image name="phone" width="36" height="36"/>
+        <image name="Forest" width="360" height="422"/>
+        <image name="LogoWithTitle" width="7500" height="1611"/>
+        <image name="Phone" width="18" height="18"/>
         <namedColor name="GrayDark">
-            <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.13333333333333333" green="0.14901960784313725" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

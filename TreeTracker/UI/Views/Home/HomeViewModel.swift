@@ -6,18 +6,19 @@
 //  Copyright © 2020 Greenstand. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol HomeViewModelCoordinatorDelegate: class {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewProfileForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter)
 }
 
 protocol HomeViewModelViewDelegate: class {
     func homeViewModel(_ homeViewModel: HomeViewModel, didReceiveError error: Error)
     func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateTreeCount data: HomeViewModel.TreeCountData)
-    func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfileImage imageData: Data)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile profile: HomeViewModel.ProfileData)
     func homeViewModelDidStartUploadingTrees(_ homeViewModel: HomeViewModel)
     func homeViewModelDidStopUploadingTrees(_ homeViewModel: HomeViewModel)
 }
@@ -43,25 +44,36 @@ class HomeViewModel {
         self.uploadManager.delegate = self
     }
 
-    let title = L10n.Home.title
+    var title: String {
+        return L10n.Home.title(planter.firstName ?? "")
+    }
 }
 
 // MARK: - Profile
 extension HomeViewModel {
 
     func fetchProfileData() {
+
         selfieService.fetchSelfie(forPlanter: planter) { (result) in
             switch result {
             case .success(let data):
-                viewDelegate?.homeViewModel(self, didFetchProfileImage: data)
-            case .failure(let error):
-                guard let imageData = Asset.Assets.person.image.jpegData(compressionQuality: 1.0) else {
-                    viewDelegate?.homeViewModel(self, didReceiveError: error)
-                    return
+                guard let image = UIImage(data: data) else {
+                    fallthrough
                 }
-                viewDelegate?.homeViewModel(self, didFetchProfileImage: imageData)
+                let profileData = ProfileData(name: planterName, image: image)
+                viewDelegate?.homeViewModel(self, didFetchProfile: profileData)
+            case .failure:
+                let profileData = ProfileData(name: planterName, image: Asset.Assets.person.image)
+                viewDelegate?.homeViewModel(self, didFetchProfile: profileData)
             }
         }
+    }
+
+    private var planterName: String {
+        guard let firstName = planter.firstName else {
+            return ""
+        }
+        return firstName
     }
 }
 
@@ -94,6 +106,10 @@ extension HomeViewModel {
 
     func addTreeSelected() {
         coordinatorDelegate?.homeViewModel(self, didSelectAddTreeForPlanter: planter)
+    }
+
+    func viewProfileSelected() {
+        coordinatorDelegate?.homeViewModel(self, didSelectViewProfileForPlanter: planter)
     }
 
     func logoutPlanter() {
@@ -156,5 +172,10 @@ extension HomeViewModel {
         var hasPendingUploads: Bool {
             return pendingUpload > 0
         }
+    }
+
+    struct ProfileData {
+        let name: String
+        let image: UIImage
     }
 }

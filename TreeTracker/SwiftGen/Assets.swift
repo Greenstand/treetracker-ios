@@ -19,19 +19,29 @@
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
   internal enum Assets {
+    internal static let forest = ImageAsset(name: "Forest")
+    internal static let gardening = ImageAsset(name: "gardening")
+    internal static let phoneViewfinder = ImageAsset(name: "phoneViewfinder")
+    internal static let planting = ImageAsset(name: "planting")
     internal static let selfie = ImageAsset(name: "selfie")
-    internal static let forward = ImageAsset(name: "forward")
-    internal static let mail = ImageAsset(name: "mail")
+    internal static let key = ImageAsset(name: "Key")
+    internal static let mail = ImageAsset(name: "Mail")
+    internal static let padlock = ImageAsset(name: "Padlock")
+    internal static let phone = ImageAsset(name: "Phone")
+    internal static let add = ImageAsset(name: "add")
+    internal static let arrow = ImageAsset(name: "arrow")
     internal static let people = ImageAsset(name: "people")
     internal static let person = ImageAsset(name: "person")
-    internal static let phone = ImageAsset(name: "phone")
     internal static let profile = ImageAsset(name: "profile")
     internal static let saplingIcon = ImageAsset(name: "sapling_Icon")
     internal static let seed = ImageAsset(name: "seed")
+    internal static let signOut = ImageAsset(name: "sign-out")
     internal static let upload = ImageAsset(name: "upload")
+    internal static let launchScreenForest = ImageAsset(name: "LaunchScreenForest")
     internal static let launchScreenLogo = ImageAsset(name: "LaunchScreenLogo")
     internal static let logo = ImageAsset(name: "Logo")
     internal static let logoWithTitle = ImageAsset(name: "LogoWithTitle")
+    internal static let trees = ImageAsset(name: "Trees")
   }
   internal enum Colors {
     internal static let grayDark = ColorAsset(name: "GrayDark")

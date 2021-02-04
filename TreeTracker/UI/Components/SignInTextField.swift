@@ -12,12 +12,12 @@ class SignInTextField: UITextField {
 
     @IBOutlet var iconImageView: UIImageView? {
         didSet {
-            iconImageView?.tintColor = Asset.Colors.grayMedium.color
+            iconImageView?.tintColor = Asset.Colors.grayLight.color
         }
     }
     @IBOutlet private var underlineView: UIView? {
         didSet {
-            underlineView?.backgroundColor = Asset.Colors.grayMedium.color
+            underlineView?.backgroundColor = Asset.Colors.grayLight.color
         }
     }
 
@@ -52,17 +52,17 @@ private extension SignInTextField {
 
     func commonInit() {
         borderStyle = .none
-        font = .systemFont(ofSize: 14.0)
+        font = FontFamily.Lato.regular.font(size: 20.0)
     }
 
     func updateTextField(forValidationState validationState: ValidationState) {
         switch validationState {
         case .normal:
-            iconImageView?.tintColor = Asset.Colors.grayMedium.color
-            underlineView?.backgroundColor = Asset.Colors.grayMedium.color
+            iconImageView?.tintColor = Asset.Colors.grayLight.color
+            underlineView?.backgroundColor = Asset.Colors.grayLight.color
         case .valid:
-            iconImageView?.tintColor = Asset.Colors.secondaryGreen.color
-            underlineView?.backgroundColor = Asset.Colors.secondaryGreen.color
+            iconImageView?.tintColor = Asset.Colors.primaryGreen.color
+            underlineView?.backgroundColor = Asset.Colors.primaryGreen.color
         case .invalid:
             iconImageView?.tintColor = Asset.Colors.secondaryRed.color
             underlineView?.backgroundColor = Asset.Colors.secondaryRed.color

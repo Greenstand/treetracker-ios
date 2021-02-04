@@ -27,8 +27,6 @@ private extension AddTreeButton {
     func commonInit() {
         backgroundColor = Asset.Colors.primaryGreen.color
         tintColor = .white
-        layer.borderWidth = 1.0
-        layer.borderColor = Asset.Colors.grayLight.color.cgColor
         layer.cornerRadius = 5.0
         layer.masksToBounds = true
         setAttributedTitle(attributedTitle, for: .normal)
@@ -36,31 +34,26 @@ private extension AddTreeButton {
 
     var attributedTitle: NSAttributedString {
         let attributedString = NSMutableAttributedString()
-        attributedString.append(NSAttributedString(string: "+", attributes: textAttributes))
-        attributedString.append(NSAttributedString(attachment: iconTextAttachment))
-        attributedString.append(NSAttributedString(string: "  "))
-        attributedString.append(NSAttributedString(string: title, attributes: textAttributes))
+        attributedString.append(NSAttributedString(attachment: treeIconTextAttachment))
+        attributedString.append(NSAttributedString(string: "   "))
+        attributedString.append(NSAttributedString(attachment: plusIconTextAttachment))
         return attributedString
-    }
-
-    var textAttributes: [NSAttributedString.Key: Any] {
-        return [
-            .font: UIFont.boldSystemFont(ofSize: 20.0)
-        ]
     }
 
     var title: String {
         return L10n.Home.AddTreeButton.title
     }
 
-    var icon: UIImage {
-        return Asset.Assets.saplingIcon.image
-    }
-
-    var iconTextAttachment: NSTextAttachment {
+    var plusIconTextAttachment: NSTextAttachment {
         let textAttachment = NSTextAttachment()
-        textAttachment.image = icon
-        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -50.0), size: CGSize(width: 50.0, height: 100.0))
+        textAttachment.image = Asset.Assets.add.image
+        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -20.0), size: CGSize(width: 40.0, height: 40.0))
+        return textAttachment
+    }
+    var treeIconTextAttachment: NSTextAttachment {
+        let textAttachment = NSTextAttachment()
+        textAttachment.image = Asset.Assets.seed.image
+        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -30.0), size: CGSize(width: 60.0, height: 60.0))
         return textAttachment
     }
 }

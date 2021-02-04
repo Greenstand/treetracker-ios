@@ -10,16 +10,22 @@ import UIKit
 
 class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresenting {
 
-    @IBOutlet private var logoImageView: UIImageView! {
+    @IBOutlet private var usernameIconImageView: UIImageView! {
         didSet {
-            logoImageView.image = Asset.Assets.logo.image
+            usernameIconImageView.contentMode = .left
+            usernameIconImageView.tintColor = Asset.Colors.primaryGreen.color
         }
     }
     @IBOutlet private var usernameLabel: UILabel! {
         didSet {
-            usernameLabel.font = .systemFont(ofSize: 16.0)
-            usernameLabel.textColor = Asset.Colors.grayDark.color
-            usernameLabel.textAlignment = .center
+            usernameLabel.font = FontFamily.Lato.regular.font(size: 20.0)
+            usernameLabel.textColor = Asset.Colors.primaryGreen.color
+            usernameLabel.textAlignment = .left
+        }
+    }
+    @IBOutlet private var usernameUnderlineView: UIView! {
+        didSet {
+            usernameUnderlineView.backgroundColor = Asset.Colors.primaryGreen.color
         }
     }
     @IBOutlet private var firstNameTextField: SignInTextField! {
@@ -66,7 +72,10 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
     override func viewDidLoad() {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
+        addKeyboardObservers()
         usernameLabel.text = viewModel?.usernameText
+        usernameIconImageView.image = viewModel?.usernameIcon
+
     }
 }
 
@@ -138,5 +147,17 @@ extension SignUpViewController: SignUpViewModelViewDelegate {
 
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didUpdateSignUpEnabled enabled: Bool) {
         signUpButton.isEnabled = enabled
+    }
+}
+
+// MARK: - KeyboardObserving
+extension SignUpViewController: KeyboardObserving {
+
+    func keyboardWillShow(notification: Notification) {
+
+    }
+
+    func keyboardWillHide(notification: Notification) {
+
     }
 }

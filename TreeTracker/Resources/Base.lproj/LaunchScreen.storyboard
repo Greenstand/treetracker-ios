@@ -17,18 +17,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LaunchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="IlQ-70-Qmc">
-                                <rect key="frame" x="20" y="398" width="374" height="100"/>
+                                <rect key="frame" x="20" y="144" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="dZt-rE-jgP"/>
                                 </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="LaunchScreenForest" translatesAutoresizingMaskIntoConstraints="NO" id="oez-TG-X62">
+                                <rect key="frame" x="0.0" y="474" width="414" height="422"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="oez-TG-X62" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8BX-Ea-BFc"/>
+                            <constraint firstAttribute="bottom" secondItem="oez-TG-X62" secondAttribute="bottom" id="91A-J6-FCs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IlQ-70-Qmc" secondAttribute="trailing" constant="20" id="OzG-K6-HbQ"/>
+                            <constraint firstItem="IlQ-70-Qmc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="PJL-SL-2Dx"/>
                             <constraint firstItem="IlQ-70-Qmc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Try-Vk-6Pf"/>
-                            <constraint firstItem="IlQ-70-Qmc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Yv8-Bi-XN4"/>
+                            <constraint firstItem="oez-TG-X62" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="od4-1I-Udn"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +44,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LaunchScreenForest" width="360" height="422"/>
         <image name="LaunchScreenLogo" width="500" height="107"/>
     </resources>
 </document>

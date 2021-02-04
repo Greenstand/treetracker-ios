@@ -15,6 +15,7 @@ extension KeyboardDismissing where Self: UIViewController {
     func addEndEditingBackgroundTapGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.addTarget(self, action: #selector(endEditingBackgroundTapped))
+        tapGestureRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureRecognizer)
     }
 }

@@ -10,16 +10,29 @@ import UIKit
 
 class AddTreeViewController: UIViewController, AlertPresenting {
 
+    @IBOutlet private var viewfinderGuidenceImageView: UIImageView! {
+        didSet {
+            viewfinderGuidenceImageView.contentMode = .scaleAspectFit
+            viewfinderGuidenceImageView.image = Asset.Assets.phoneViewfinder.image
+            viewfinderGuidenceImageView.isHidden = false
+        }
+    }
+    @IBOutlet private var treeGuidenceImageView: UIImageView! {
+        didSet {
+            treeGuidenceImageView.contentMode = .scaleAspectFit
+            treeGuidenceImageView.image = Asset.Assets.planting.image
+            treeGuidenceImageView.isHidden = false
+        }
+    }
     @IBOutlet private var treeImageView: UIImageView! {
         didSet {
-
-            treeImageView.layer.cornerRadius = 20.0
+            treeImageView.layer.cornerRadius = 5.0
             treeImageView.layer.masksToBounds = true
-            treeImageView.layer.borderColor = Asset.Colors.grayDark.color.cgColor
-            treeImageView.layer.borderWidth = 5.0
             treeImageView.clipsToBounds = true
+
             treeImageView.contentMode = .scaleAspectFill
-            treeImageView.image = Asset.Assets.saplingIcon.image
+            treeImageView.image = nil
+            treeImageView.isHidden = true
         }
     }
     @IBOutlet private var gpsAccuracyLabel: GPSAccuracyLabel! {
@@ -123,7 +136,10 @@ extension AddTreeViewController: AddTreeViewModelViewDelegate {
         gpsAccuracyLabel.accuracy = accuracy.gpsLabelAccuracy
     }
 
-    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage) {
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage?) {
+        treeGuidenceImageView.isHidden = image != nil
+        viewfinderGuidenceImageView.isHidden = image != nil
+        treeImageView.isHidden = image == nil
         treeImageView.image = image
     }
 
