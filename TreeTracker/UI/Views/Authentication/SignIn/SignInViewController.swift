@@ -12,7 +12,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
 
     @IBOutlet private var logoImageView: UIImageView! {
         didSet {
-            logoImageView.image = Asset.Assets.logo.image
+            logoImageView.image = Asset.Assets.logoWithTitle.image
         }
     }
     @IBOutlet private var usernameTextField: SignInTextField! {
@@ -30,6 +30,8 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             usernameSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
             usernameSegmentedControl.setImage(Asset.Assets.phone.image, forSegmentAt: 0)
             usernameSegmentedControl.setImage(Asset.Assets.mail.image, forSegmentAt: 1)
+            usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
+            usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayLight.color], for: .normal)
         }
     }
     @IBOutlet private var loginButton: PrimaryButton! {
@@ -49,6 +51,16 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
     override func viewDidLoad() {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
     }
 }
 

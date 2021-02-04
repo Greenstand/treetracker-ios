@@ -13,7 +13,7 @@ protocol AddTreeViewModelCoordinatorDelegate: class {
 }
 
 protocol AddTreeViewModelViewDelegate: class {
-    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage)
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage?)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateGPSAccuracy accuracy: AddTreeViewModel.GPSAccuracy)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTakePhotoEnabled enabled: Bool)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateAddTreeEnabled enabled: Bool)
@@ -42,7 +42,7 @@ class AddTreeViewModel {
 
     private var image: UIImage? {
         didSet {
-            viewDelegate?.addTreeViewModel(self, didUpdateTreeImage: treePreviewImage)
+            viewDelegate?.addTreeViewModel(self, didUpdateTreeImage: image)
             viewDelegate?.addTreeViewModel(self, didUpdateAddTreeEnabled: addTreeEnabled)
         }
     }
@@ -80,13 +80,6 @@ class AddTreeViewModel {
 
 // MARK: - Private
 private extension AddTreeViewModel {
-
-    var treePreviewImage: UIImage {
-        guard let image = image else {
-            return Asset.Assets.saplingIcon.image
-        }
-        return image
-    }
 
     var addTreeEnabled: Bool {
         guard image != nil else {

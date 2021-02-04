@@ -22,13 +22,13 @@ class PrimaryButton: UIButton {
 
     override var isHighlighted: Bool {
         didSet {
-            updateColors()
+            backgroundColor = backgroundColor(forState: state)
         }
     }
 
     override var isEnabled: Bool {
         didSet {
-            updateColors()
+            backgroundColor = backgroundColor(forState: state)
         }
     }
 }
@@ -37,36 +37,26 @@ class PrimaryButton: UIButton {
 private extension PrimaryButton {
 
     func commonInit() {
-        setBorder()
-        setTextAttributes()
-    }
 
-    func setBorder() {
-        layer.borderWidth = 1.0
-        layer.borderColor = Asset.Colors.grayDark.color.cgColor
         layer.cornerRadius = 5.0
         layer.masksToBounds = true
         clipsToBounds = true
+
+        setTitleColor(.white, for: .normal)
+        setTitleColor(Asset.Colors.grayDark.color, for: .disabled)
+        titleLabel?.font = FontFamily.Lato.regular.font(size: 20.0)
+
+        backgroundColor = Asset.Colors.primaryGreen.color
     }
 
-    func setTextAttributes() {
-        [.normal, .highlighted, .disabled].forEach({
-            setTitleColor(buttonColor(forState: $0), for: $0)
-        })
-    }
-
-    func updateColors() {
-        layer.borderColor = buttonColor(forState: state).cgColor
-    }
-
-    func buttonColor(forState state: State) -> UIColor {
+    func backgroundColor(forState state: State) -> UIColor {
         switch state {
         case .highlighted:
-            return Asset.Colors.grayMedium.color
+            return Asset.Colors.primaryGreen.color.withAlphaComponent(0.5)
         case .disabled:
-            return Asset.Colors.grayLight.color
+            return Asset.Colors.grayLight.color.withAlphaComponent(0.2)
         default:
-            return Asset.Colors.grayDark.color
+            return Asset.Colors.primaryGreen.color
         }
     }
 }

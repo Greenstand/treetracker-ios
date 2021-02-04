@@ -6,7 +6,7 @@
 //  Copyright © 2020 Greenstand. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SignUpViewModelCoordinatorDelegate: class {
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername planter: Planter)
@@ -33,14 +33,18 @@ class SignUpViewModel {
         self.signUpService = signUpService
     }
 
-    let title: String = L10n.SignIn.title
+    let title: String = L10n.SignUp.title
 
     var usernameText: String {
+        return username.value
+    }
+
+    var usernameIcon: UIImage {
         switch username {
-        case .email(let email):
-            return "Email: \(email)"
-        case .phoneNumber(let phoneNumber):
-            return "Phone: \(phoneNumber)"
+        case .email:
+            return Asset.Assets.mail.image
+        case .phoneNumber:
+            return Asset.Assets.phone.image
         }
     }
 

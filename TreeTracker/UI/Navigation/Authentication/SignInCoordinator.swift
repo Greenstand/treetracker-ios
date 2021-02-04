@@ -132,6 +132,8 @@ private extension SignInCoordinator {
 extension SignInCoordinator: SignInViewModelCoordinatorDelegate {
 
     func signInViewModel(_ signInViewModel: SignInViewModel, didLoginPlanter planter: Planter) {
+        // Unhide nav bar is a bit of a hack here - should be handled better
+        configuration.navigationController.setNavigationBarHidden(false, animated: false)
         signUpComplete(planter: planter)
     }
 

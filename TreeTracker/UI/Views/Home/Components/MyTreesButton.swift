@@ -27,8 +27,6 @@ private extension MyTreesButton {
     func commonInit() {
         backgroundColor = Asset.Colors.primaryGreen.color
         tintColor = .white
-        layer.borderWidth = 1.0
-        layer.borderColor = Asset.Colors.grayLight.color.cgColor
         layer.cornerRadius = 5.0
         layer.masksToBounds = true
         setAttributedTitle(attributedTitle, for: .normal)
@@ -36,16 +34,15 @@ private extension MyTreesButton {
 
     var attributedTitle: NSAttributedString {
         let attributedString = NSMutableAttributedString()
-        attributedString.append(NSAttributedString(attachment: iconTextAttachment))
-        attributedString.append(NSAttributedString(attachment: iconTextAttachment))
-        attributedString.append(NSAttributedString(string: "  "))
         attributedString.append(NSAttributedString(string: title, attributes: textAttributes))
+        attributedString.append(NSAttributedString(string: " "))
+        attributedString.append(NSAttributedString(attachment: iconTextAttachment))
         return attributedString
     }
 
     var textAttributes: [NSAttributedString.Key: Any] {
         return [
-            .font: UIFont.boldSystemFont(ofSize: 20.0)
+            .font: FontFamily.Montserrat.semiBold.font(size: 20.0)
         ]
     }
 
@@ -53,14 +50,10 @@ private extension MyTreesButton {
         return L10n.Home.MyTreesButton.title
     }
 
-    var icon: UIImage {
-        return Asset.Assets.saplingIcon.image
-    }
-
     var iconTextAttachment: NSTextAttachment {
         let textAttachment = NSTextAttachment()
-        textAttachment.image = icon
-        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -50.0), size: CGSize(width: 50.0, height: 100.0))
+        textAttachment.image = Asset.Assets.arrow.image
+        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -3.0), size: CGSize(width: 20.0, height: 20))
         return textAttachment
     }
 }

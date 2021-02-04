@@ -13,8 +13,14 @@ class GPSAccuracyLabel: UILabel {
     var accuracy: Accuracy = .unknown {
         didSet {
             let attributedString = NSMutableAttributedString()
-            attributedString.append(NSAttributedString(string: L10n.GPSAccuracyLabel.Text.base))
-            attributedString.append(NSAttributedString(string: accuracy.text, attributes: [.foregroundColor: accuracy.color]))
+            attributedString.append(NSAttributedString(string: L10n.GPSAccuracyLabel.Text.base, attributes: [
+                .foregroundColor: Asset.Colors.grayDark.color,
+                .font: FontFamily.Lato.regular.font(size: 18.0)
+            ]))
+            attributedString.append(NSAttributedString(string: accuracy.text, attributes: [
+                .foregroundColor: accuracy.color,
+                .font: FontFamily.Montserrat.semiBold.font(size: 18.0)
+            ]))
             attributedText = attributedString
         }
     }

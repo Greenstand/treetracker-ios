@@ -32,14 +32,14 @@
 "Terms.AcceptTermsButton.Title" = "Accept Terms";
 
 //Selfie Screen
-"Selfie.Title" = "Selfie";
+"Selfie.Title" = "Take Selfie";
 "Selfie.SaveButton.Title" = "Save";
 "Selfie.PhotoButton.Title.TakePhoto" = "Take Photo";
 "Selfie.PhotoButton.Title.Retake" = "Retake";
 "Selfie.LibraryButton.Title.LibraryPhoto" = "From library";
 
 //Home Screen
-"Home.Title" = "Welcome Home";
+"Home.Title" = "Welcome %@";
 "Home.InfoLabel.TreesPlantedLabel.Text" = "Trees Planted";
 "Home.InfoLabel.TreesUploadedLabel.Text" = "Trees Uploaded";
 "Home.LogoutButton.Title" = "Log out";

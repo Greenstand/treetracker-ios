@@ -52,7 +52,14 @@ private extension HomeCoordinator {
 
     func showAddTree(planter: Planter) {
         configuration.navigationController.pushViewController(
-            addTreeViewController,
+            addTreeViewController(planter: planter),
+            animated: true
+        )
+    }
+
+    func showPlanterProfile(planter: Planter) {
+        configuration.navigationController.pushViewController(
+            profileViewController(planter: planter),
             animated: true
         )
     }
@@ -91,7 +98,7 @@ private extension HomeCoordinator {
         return viewcontroller
     }
 
-    var addTreeViewController: UIViewController {
+    func addTreeViewController(planter: Planter) -> UIViewController {
         let viewcontroller = StoryboardScene.AddTree.initialScene.instantiate()
         viewcontroller.viewModel = {
             let locationService = LocationService()
@@ -109,6 +116,18 @@ private extension HomeCoordinator {
         }()
         return viewcontroller
     }
+
+    func profileViewController(planter: Planter) -> UIViewController {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .white
+        viewController.title = {
+            guard let firstName = planter.firstName else {
+                return "Me"
+            }
+            return "\(firstName) \(planter.lastName ?? "")"
+        }()
+        return viewController
+    }
 }
 
 // MARK: - HomeViewModelCoordinatorDelegate
@@ -120,6 +139,10 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter) {
         showUploadList(planter: planter)
+    }
+
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewProfileForPlanter planter: Planter) {
+        showPlanterProfile(planter: planter)
     }
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter) {

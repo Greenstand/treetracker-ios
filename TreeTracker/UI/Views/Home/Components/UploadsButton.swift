@@ -42,8 +42,6 @@ class UploadsButton: UIButton {
 private extension UploadsButton {
 
     func commonInit() {
-        layer.borderWidth = 1.0
-        layer.borderColor = Asset.Colors.grayLight.color.cgColor
         layer.cornerRadius = 5.0
         layer.masksToBounds = true
 
@@ -56,8 +54,8 @@ private extension UploadsButton {
             backgroundColor = Asset.Colors.primaryGreen.color
             tintColor = .white
         } else {
-            backgroundColor = Asset.Colors.grayLight.color
-            tintColor = Asset.Colors.grayDark.color
+            backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.2)
+            tintColor = Asset.Colors.grayLight.color
         }
     }
 
@@ -90,22 +88,21 @@ private extension UploadsButton {
 
     var normalTextAttributes: [NSAttributedString.Key: Any] {
         return [
-            .font: UIFont.boldSystemFont(ofSize: 20.0),
+            .font: FontFamily.Montserrat.semiBold.font(size: 20.0) ,
             .foregroundColor: UIColor.white
         ]
     }
 
     var disabledTextAttributes: [NSAttributedString.Key: Any] {
         return [
-            .font: UIFont.boldSystemFont(ofSize: 20.0),
-            .foregroundColor: Asset.Colors.grayDark.color
-
+            .font: FontFamily.Montserrat.semiBold.font(size: 20.0),
+            .foregroundColor: Asset.Colors.grayLight.color.withAlphaComponent(0.5)
         ]
     }
 
     var iconTextAttachment: NSTextAttachment {
         let textAttachment = NSTextAttachment()
-        textAttachment.image = Asset.Assets.forward.image
+        textAttachment.image = Asset.Assets.upload.image
         textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -20.0), size: CGSize(width: 50.0, height: 50))
         return textAttachment
     }
