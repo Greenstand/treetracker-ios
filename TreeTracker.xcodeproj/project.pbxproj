@@ -38,7 +38,6 @@
 		937D78C425C70E45007A7A37 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 937D78C125C70E45007A7A37 /* Montserrat-SemiBold.ttf */; };
 		937D78C925C70F11007A7A37 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D78C825C70F11007A7A37 /* Fonts.swift */; };
 		937D78D425C76450007A7A37 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D78D325C76450007A7A37 /* KeyboardObserving.swift */; };
-		937D79D025CB46D7007A7A37 /* ProfileBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D79CF25CB46D7007A7A37 /* ProfileBarButtonItem.swift */; };
 		937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FC5DB2486F1530018B247 /* SelfieViewController.swift */; };
 		93814CDA2569605900FC70E5 /* MyTreesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93814CD92569605900FC70E5 /* MyTreesButton.swift */; };
 		9390BECC25C6D295000B29AB /* CurrentPlanterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390BECB25C6D295000B29AB /* CurrentPlanterService.swift */; };
@@ -161,7 +160,6 @@
 		937D78C125C70E45007A7A37 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		937D78C825C70F11007A7A37 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		937D78D325C76450007A7A37 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
-		937D79CF25CB46D7007A7A37 /* ProfileBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBarButtonItem.swift; sourceTree = "<group>"; };
 		937FC5DB2486F1530018B247 /* SelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		93814CD92569605900FC70E5 /* MyTreesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTreesButton.swift; sourceTree = "<group>"; };
 		9390BECB25C6D295000B29AB /* CurrentPlanterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlanterService.swift; sourceTree = "<group>"; };
@@ -687,7 +685,6 @@
 				93EC8C4524AB7A6900946C0C /* AddTreeButton.swift */,
 				93EC8C4924AB7EA100946C0C /* UploadsButton.swift */,
 				93814CD92569605900FC70E5 /* MyTreesButton.swift */,
-				937D79CF25CB46D7007A7A37 /* ProfileBarButtonItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1006,7 +1003,6 @@
 				93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */,
 				932EA1AC2478311F0035394D /* KeyboardDismissing.swift in Sources */,
 				93EC8C9124ABD25100946C0C /* CoreDataManager.swift in Sources */,
-				937D79D025CB46D7007A7A37 /* ProfileBarButtonItem.swift in Sources */,
 				93AD1D38257BD242009479FD /* BundleUploadService.swift in Sources */,
 				93E18965245C95F200217F21 /* StoryboardScenes.swift in Sources */,
 				93FC588925A7B2FD00B93F14 /* AppBundleInfoProvider.swift in Sources */,

@@ -10,11 +10,45 @@ import UIKit
 
 class HomeViewController: UIViewController, AlertPresenting {
 
+    @IBOutlet private var profileImageView: UIImageView! {
+        didSet {
+            profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2.0
+            profileImageView.layer.borderWidth = 2.0
+            profileImageView.layer.borderColor = Asset.Colors.grayLight.color.withAlphaComponent(0.5).cgColor
+            profileImageView.image = Asset.Assets.profile.image
+            profileImageView.contentMode = .scaleAspectFill
+        }
+    }
+    @IBOutlet private var nameButton: UIButton! {
+        didSet {
+            nameButton.setTitle("", for: .normal)
+            nameButton.titleLabel?.font = FontFamily.Montserrat.semiBold.font(size: 20.0)
+            nameButton.setTitleColor(Asset.Colors.grayDark.color, for: .normal)
+        }
+    }
+    @IBOutlet private var logoutButton: UIButton! {
+        didSet {
+
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = Asset.Assets.logout.image
+            imageAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -3.0), size: CGSize(width: 16.0, height: 16.0))
+
+            let attributedTitle = NSMutableAttributedString()
+            attributedTitle.append(NSAttributedString(string: L10n.Home.LogoutButton.title))
+            attributedTitle.append(NSAttributedString(string: "  "))
+            attributedTitle.append(NSAttributedString(attachment: imageAttachment))
+
+            logoutButton.setAttributedTitle(attributedTitle, for: .normal)
+            logoutButton.setTitleColor(Asset.Colors.grayLight.color, for: .normal)
+            logoutButton.titleLabel?.font = FontFamily.Lato.regular.font(size: 16)
+        }
+    }
+
     @IBOutlet private var treesPlantedView: UIView! {
         didSet {
             treesPlantedView.layer.cornerRadius = 5.0
             treesPlantedView.layer.masksToBounds = true
-            treesPlantedView.backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.5)
+            treesPlantedView.backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.2)
         }
     }
     @IBOutlet private var treesPlantedLabel: UILabel! {
@@ -41,7 +75,7 @@ class HomeViewController: UIViewController, AlertPresenting {
         didSet {
             treesUploadedView.layer.cornerRadius = 5.0
             treesUploadedView.layer.masksToBounds = true
-            treesUploadedView.backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.5)
+            treesUploadedView.backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.2)
         }
     }
     @IBOutlet private var treesUploadedLabel: UILabel! {
@@ -65,17 +99,19 @@ class HomeViewController: UIViewController, AlertPresenting {
             treesUploadedImageview.contentMode = .scaleAspectFit
         }
     }
-    @IBOutlet private var addTreeButton: AddTreeButton!
+    @IBOutlet private var separatorView: UIView! {
+        didSet {
+            separatorView.backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.2)
+        }
+    }
     @IBOutlet private var uploadTreesButton: UploadsButton! {
         didSet {
-            uploadTreesButton.setTitle(L10n.Home.UploadTreesButton.Title.start, for: .normal)
             uploadTreesButton.isEnabled = false
         }
     }
-    @IBOutlet private var myTreesButton: UploadsButton!
     @IBOutlet private var uploadsCountView: UIView! {
         didSet {
-            uploadsCountView.backgroundColor = Asset.Colors.secondaryRed.color
+            uploadsCountView.backgroundColor = .white
             uploadsCountView.layer.cornerRadius = uploadsCountLabel.frame.size.height / 2
             uploadsCountView.layer.masksToBounds = true
             uploadsCountView.isHidden = true
@@ -83,11 +119,12 @@ class HomeViewController: UIViewController, AlertPresenting {
     }
     @IBOutlet private var uploadsCountLabel: UILabel! {
         didSet {
-            uploadsCountLabel.textColor = .white
+            uploadsCountLabel.textColor = Asset.Colors.secondaryOrangeLight.color
             uploadsCountLabel.font = FontFamily.Montserrat.semiBold.font(size: 20.0)
             uploadsCountLabel.text = "0"
         }
     }
+    @IBOutlet private var addTreeButton: AddTreeButton!
 
     var viewModel: HomeViewModel? {
         didSet {
@@ -103,64 +140,44 @@ class HomeViewController: UIViewController, AlertPresenting {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showLogoutButton()
         viewModel?.fetchProfileData()
     }
 }
+
 // MARK: - Private
 private extension HomeViewController {
 
-    private func showLogoutButton() {
-        let logoutButton = UIBarButtonItem(
-            title: L10n.Home.LogoutButton.title,
-            style: .plain,
-            target: self,
-            action: #selector(logoutButtonPressed)
-        )
-        logoutButton.tintColor = Asset.Colors.grayDark.color
-        logoutButton.setTitleTextAttributes([
-            .font: FontFamily.Lato.regular.font(size: 16),
-            .foregroundColor: Asset.Colors.grayDark.color
-        ], for: .normal)
-        logoutButton.setTitleTextAttributes([
-            .font: FontFamily.Lato.regular.font(size: 16),
-            .foregroundColor: Asset.Colors.grayLight.color
-        ], for: .highlighted)
-        navigationItem.rightBarButtonItem = logoutButton
+    func configureNameButton(name: String) {
+
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = Asset.Assets.arrow.image
+        imageAttachment.bounds = CGRect(origin: .zero, size: CGSize(width: 13.0, height: 13.0))
+
+        let attributedTitle = NSMutableAttributedString()
+        attributedTitle.append(NSAttributedString(string: name))
+        attributedTitle.append(NSAttributedString(string: " "))
+        attributedTitle.append(NSAttributedString(attachment: imageAttachment))
+        nameButton.setAttributedTitle(attributedTitle, for: .normal)
     }
 }
 
 // MARK: - Button Actions
 private extension HomeViewController {
 
-    @IBAction func addTreeButtonPressed() {
-        viewModel?.addTreeSelected()
+    @IBAction func nameButtonPressed() {
+        viewModel?.viewProfileSelected()
     }
 
-    @IBAction func uploadsButtonPressed() {
-        viewModel?.uploadListSelected()
+    @IBAction func addTreeButtonPressed() {
+        viewModel?.addTreeSelected()
     }
 
     @IBAction func uploadTreesButtonPressed() {
         viewModel?.toggleTreeUploads()
     }
 
-    @objc func logoutButtonPressed() {
+    @IBAction func logoutButtonPressed() {
         viewModel?.logoutPlanter()
-    }
-}
-
-// MARK: - Private
-private extension HomeViewController {
-
-    func updateProfileButton(withProfileData profile: HomeViewModel.ProfileData) {
-        navigationItem.leftBarButtonItem = ProfileBarButtonItem(
-            planterName: profile.name,
-            planterImage: profile.image,
-            action: {
-                self.viewModel?.viewProfileSelected()
-            }
-        )
     }
 }
 
@@ -180,7 +197,8 @@ extension HomeViewController: HomeViewModelViewDelegate {
     }
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile profile: HomeViewModel.ProfileData) {
-        updateProfileButton(withProfileData: profile)
+        profileImageView.image = profile.image
+        configureNameButton(name: profile.name)
     }
 
     func homeViewModelDidStartUploadingTrees(_ homeViewModel: HomeViewModel) {

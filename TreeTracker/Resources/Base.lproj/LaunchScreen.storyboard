@@ -22,8 +22,8 @@
                                     <constraint firstAttribute="height" constant="100" id="dZt-rE-jgP"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="LaunchScreenForest" translatesAutoresizingMaskIntoConstraints="NO" id="oez-TG-X62">
-                                <rect key="frame" x="0.0" y="474" width="414" height="422"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" image="LaunchScreenForest" translatesAutoresizingMaskIntoConstraints="NO" id="oez-TG-X62">
+                                <rect key="frame" x="0.0" y="402" width="414" height="494"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

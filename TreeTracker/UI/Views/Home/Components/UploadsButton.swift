@@ -10,6 +10,12 @@ import UIKit
 
 class UploadsButton: UIButton {
 
+    private lazy var loadingSpinner: UIActivityIndicatorView = {
+        let activityIndicatorView = UIActivityIndicatorView(style: .white)
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicatorView
+    }()
+
     enum UploadState {
         case start
         case stop
@@ -33,7 +39,7 @@ class UploadsButton: UIButton {
 
     var uploadState: UploadState = .start {
         didSet {
-            updatUploadeState()
+            updateUploadeState()
         }
     }
 }
@@ -45,13 +51,17 @@ private extension UploadsButton {
         layer.cornerRadius = 5.0
         layer.masksToBounds = true
 
+        addSubview(loadingSpinner)
+        loadingSpinner.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        loadingSpinner.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 30.0).isActive = true
+
         updateState()
-        updatUploadeState()
+        updateUploadeState()
     }
 
     func updateState() {
         if isEnabled {
-            backgroundColor = Asset.Colors.primaryGreen.color
+            backgroundColor = Asset.Colors.secondaryOrangeLight.color
             tintColor = .white
         } else {
             backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.2)
@@ -59,12 +69,14 @@ private extension UploadsButton {
         }
     }
 
-    func updatUploadeState() {
+    func updateUploadeState() {
         switch uploadState {
         case .start:
+            loadingSpinner.stopAnimating()
             setAttributedTitle(startUploadsAttributedTitle(withAtributes: normalTextAttributes), for: .normal)
             setAttributedTitle(startUploadsAttributedTitle(withAtributes: disabledTextAttributes), for: .disabled)
         case .stop:
+            loadingSpinner.startAnimating()
             setAttributedTitle(stopUploadsAttributedTitle(withAtributes: normalTextAttributes), for: .normal)
             setAttributedTitle(stopUploadsAttributedTitle(withAtributes: disabledTextAttributes), for: .disabled)
         }

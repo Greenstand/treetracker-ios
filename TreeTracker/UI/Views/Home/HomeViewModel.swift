@@ -73,7 +73,7 @@ extension HomeViewModel {
         guard let firstName = planter.firstName else {
             return ""
         }
-        return firstName
+        return "\(firstName) \(planter.lastName ?? "")"
     }
 }
 
