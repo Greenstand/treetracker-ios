@@ -44,9 +44,9 @@ private extension PrimaryButton {
 
         setTitleColor(.white, for: .normal)
         setTitleColor(Asset.Colors.grayDark.color, for: .disabled)
-        titleLabel?.font = FontFamily.Lato.regular.font(size: 20.0)
+        titleLabel?.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
 
-        backgroundColor = Asset.Colors.primaryGreen.color
+        backgroundColor = backgroundColor(forState: state)
     }
 
     func backgroundColor(forState state: State) -> UIColor {

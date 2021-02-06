@@ -82,7 +82,7 @@ internal enum L10n {
       }
     }
     internal enum LogoutButton {
-      /// Log out
+      /// Change User
       internal static let title = L10n.tr("Localizable", "Home.LogoutButton.Title")
     }
     internal enum MyTreesButton {
