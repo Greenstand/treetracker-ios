@@ -2,18 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Lato-Regular.ttf</string>
-		<string>Montserrat-Bold.ttf</string>
-		<string>Montserrat-SemiBold.ttf</string>
-	</array>
-	<key>Environment</key>
-	<string>$(ENVIRONMENT)</string>
-	<key>AWSS3_BucketName_ImageUploads</key>
-	<string>$(AWSS3_BUCKET_NAME_IMAGE_UPLOAD)</string>
 	<key>AWSS3_BucketName_BundleUploads</key>
 	<string>$(AWSS3_BUCKET_NAME_BUNDLE_UPLOAD)</string>
+	<key>AWSS3_BucketName_ImageUploads</key>
+	<string>$(AWSS3_BUCKET_NAME_IMAGE_UPLOAD)</string>
 	<key>AWS_RegionString</key>
 	<string>$(AWS_REGION_STRING)</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -33,13 +25,21 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>Environment</key>
+	<string>$(ENVIRONMENT)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>In order to take a selfie you need to grant Tree Tracker accress to your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need to access your location in order to locate trees</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Lato-Regular.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

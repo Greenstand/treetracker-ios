@@ -18,9 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Trees" translatesAutoresizingMaskIntoConstraints="NO" id="rk3-1h-G39">
-                                <rect key="frame" x="0.0" y="518" width="414" height="378"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UUb-y1-78U">
                                 <rect key="frame" x="20" y="64" width="374" height="291"/>
                                 <subviews>
@@ -169,10 +166,7 @@
                         <viewLayoutGuide key="safeArea" id="T1m-Ef-7d1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rk3-1h-G39" firstAttribute="leading" secondItem="49U-NM-v7F" secondAttribute="leading" id="C1F-Td-9NX"/>
                             <constraint firstItem="T1m-Ef-7d1" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UUb-y1-78U" secondAttribute="bottom" id="EDT-6N-8KL"/>
-                            <constraint firstAttribute="bottom" secondItem="rk3-1h-G39" secondAttribute="bottom" id="Hpq-dI-Sja"/>
-                            <constraint firstAttribute="trailing" secondItem="rk3-1h-G39" secondAttribute="trailing" id="hkf-8t-0Pp"/>
                             <constraint firstItem="T1m-Ef-7d1" firstAttribute="trailing" secondItem="UUb-y1-78U" secondAttribute="trailing" constant="20" id="jkb-bs-Hqz"/>
                             <constraint firstItem="UUb-y1-78U" firstAttribute="top" secondItem="T1m-Ef-7d1" secondAttribute="top" constant="20" id="sQ2-MM-QEy"/>
                             <constraint firstItem="UUb-y1-78U" firstAttribute="leading" secondItem="T1m-Ef-7d1" secondAttribute="leading" constant="20" id="trC-0R-OjO"/>
@@ -195,7 +189,6 @@
     </scenes>
     <resources>
         <image name="Phone" width="18" height="18"/>
-        <image name="Trees" width="360" height="378"/>
         <image name="people" width="44" height="28"/>
         <image name="person" width="32" height="32"/>
         <namedColor name="GrayDark">
