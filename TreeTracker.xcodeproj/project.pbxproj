@@ -129,7 +129,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05EF92495AB414DFD8B4E8D5 /* Pods-TreeTracker.debugtest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debugtest.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debugtest.xcconfig"; sourceTree = "<group>"; };
 		93039D40251A505800EEF36D /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
 		930837FD25ACF37900A64A18 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewModel.swift; sourceTree = "<group>"; };
@@ -242,6 +241,7 @@
 		93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBundleInfoProvider.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.test.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.test.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -722,7 +722,7 @@
 			children = (
 				CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */,
 				FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */,
-				05EF92495AB414DFD8B4E8D5 /* Pods-TreeTracker.debugtest.xcconfig */,
+				F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1090,7 +1090,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9390BE8525C58D95000B29AB /* DebugTest */ = {
+		9390BE8525C58D95000B29AB /* Test */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D3FE1825C0C84700EB3B3C /* Test.xcconfig */;
 			buildSettings = {
@@ -1150,11 +1150,11 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = DebugTest;
+			name = Test;
 		};
-		9390BE8625C58D95000B29AB /* DebugTest */ = {
+		9390BE8625C58D95000B29AB /* Test */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05EF92495AB414DFD8B4E8D5 /* Pods-TreeTracker.debugtest.xcconfig */;
+			baseConfigurationReference = F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1163,14 +1163,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.TreeTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.treetracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = DebugTest;
+			name = Test;
 		};
-		9390BE8725C58D95000B29AB /* DebugTest */ = {
+		9390BE8725C58D95000B29AB /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1189,9 +1189,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TreeTracker.app/TreeTracker";
 			};
-			name = DebugTest;
+			name = Test;
 		};
-		9390BE8825C58D95000B29AB /* DebugTest */ = {
+		9390BE8825C58D95000B29AB /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1208,7 +1208,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TreeTracker;
 			};
-			name = DebugTest;
+			name = Test;
 		};
 		93E18955245B738100217F21 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1339,7 +1339,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.TreeTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.treetracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1357,7 +1357,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.TreeTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.treetracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1451,7 +1451,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93E18955245B738100217F21 /* Debug */,
-				9390BE8525C58D95000B29AB /* DebugTest */,
+				9390BE8525C58D95000B29AB /* Test */,
 				93E18956245B738100217F21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1461,7 +1461,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93E18958245B738100217F21 /* Debug */,
-				9390BE8625C58D95000B29AB /* DebugTest */,
+				9390BE8625C58D95000B29AB /* Test */,
 				93E18959245B738100217F21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1471,7 +1471,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93E1895B245B738100217F21 /* Debug */,
-				9390BE8725C58D95000B29AB /* DebugTest */,
+				9390BE8725C58D95000B29AB /* Test */,
 				93E1895C245B738100217F21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1481,7 +1481,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93E1895E245B738100217F21 /* Debug */,
-				9390BE8825C58D95000B29AB /* DebugTest */,
+				9390BE8825C58D95000B29AB /* Test */,
 				93E1895F245B738100217F21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
