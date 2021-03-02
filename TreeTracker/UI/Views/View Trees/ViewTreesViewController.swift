@@ -37,12 +37,16 @@ extension ViewTreesViewController: UICollectionViewDataSource {
         let tree = trees[indexPath.item]
         if let photoURL = tree.photoURL {
         let url = URL(string: photoURL)
-        let data = try? Data(contentsOf: url!)
-        let image: UIImage = UIImage(data: data!)!
-        cell?.treesImage.image = image
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    let image: UIImage = UIImage(data: data!)!
+                    cell?.treesImage.image = image
+                    }
+                }
         }
-        return cell!
-        }
+    return cell!
+    }
 }
 // MARK: - ViewTreesViewModelViewDelegate
 extension ViewTreesViewController: ViewTreesViewModelViewDelegate {

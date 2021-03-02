@@ -32,3 +32,5 @@ internal extension SegueType where RawValue == String {
     self.init(rawValue: identifier)
   }
 }
+
+private final class BundleToken {}
