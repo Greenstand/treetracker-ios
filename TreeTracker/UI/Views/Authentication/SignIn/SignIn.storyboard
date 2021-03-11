@@ -81,9 +81,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="WGV-Zd-ZAY"/>
                                         </constraints>
-                                        <state key="normal" title="LOGIN">
-                                            <color key="titleColor" name="GrayDark"/>
-                                        </state>
+                                        <state key="normal" title="LOGIN"/>
                                         <connections>
                                             <action selector="logInButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="KFQ-nQ-2D4"/>
                                         </connections>

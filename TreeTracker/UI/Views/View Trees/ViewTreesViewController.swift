@@ -33,19 +33,12 @@ extension ViewTreesViewController: UICollectionViewDataSource {
         return trees.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewTreesCollectionViewCell", for: indexPath) as? ViewTreesCollectionViewCell
-        let tree = trees[indexPath.item]
-        if let photoURL = tree.photoURL {
-        let url = URL(string: photoURL)
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!)
-                DispatchQueue.main.async {
-                    let image: UIImage = UIImage(data: data!)!
-                    cell?.treesImage.image = image
-                    }
-                }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewTreesCollectionViewCell", for: indexPath) as? ViewTreesCollectionViewCell else {
+            return UICollectionViewCell()
         }
-    return cell!
+        let tree = trees[indexPath.item]
+        cell.loadImageTree(tree: tree)
+        return cell
     }
 }
 // MARK: - ViewTreesViewModelViewDelegate
@@ -57,3 +50,4 @@ extension ViewTreesViewController: ViewTreesViewModelViewDelegate {
         present(alert: .error(error))
     }
 }
+
