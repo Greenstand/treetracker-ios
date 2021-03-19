@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyTreesButton: UIButton {
+class ViewTreesButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +42,7 @@ private extension MyTreesButton {
 
     var textAttributes: [NSAttributedString.Key: Any] {
         return [
-            .font: FontFamily.Montserrat.semiBold.font(size: 20.0)
+            .font: FontFamily.Montserrat.semiBold.font(size: 20.0)!
         ]
     }
 
