@@ -125,7 +125,8 @@ class HomeViewController: UIViewController, AlertPresenting {
         }
     }
     @IBOutlet private var addTreeButton: AddTreeButton!
-
+    @IBOutlet private var myTreesButton: MyTreesButton!
+    
     var viewModel: HomeViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -178,6 +179,10 @@ private extension HomeViewController {
 
     @IBAction func logoutButtonPressed() {
         viewModel?.logoutPlanter()
+    }
+    
+    @IBAction func myTreesButtonPressed() {
+        viewModel?.myTreesSelected()
     }
 }
 
