@@ -1,7 +1,104 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="Z2u-Ko-AO9">
+            <objects>
+                <viewController id="ycb-8A-a2p" customClass="ProfileViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XEi-a5-1ie">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nyf-4j-4Ik">
+                                <rect key="frame" x="107" y="100" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="MVf-x2-5ea"/>
+                                    <constraint firstAttribute="width" constant="200" id="eKD-Yl-cUI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y62-rh-Usu">
+                                <rect key="frame" x="107" y="350" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9mA-yP-JPI"/>
+                                    <constraint firstAttribute="height" constant="50" id="hph-uM-dEJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email/Phone#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW6-1u-yud">
+                                <rect key="frame" x="107" y="450" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="hIb-TB-1pi"/>
+                                    <constraint firstAttribute="height" constant="50" id="oiz-2l-OCq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZC-Ki-pUF">
+                                <rect key="frame" x="107" y="550" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HNU-Ja-uVw"/>
+                                    <constraint firstAttribute="width" constant="200" id="kkf-a1-L3U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HW5-Tc-hfY">
+                                <rect key="frame" x="107" y="650" width="200" height="50"/>
+                                <color key="backgroundColor" name="SecondaryRed"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="24l-lJ-YKb"/>
+                                    <constraint firstAttribute="height" constant="50" id="tci-f1-WmA"/>
+                                </constraints>
+                                <state key="normal" title="Change User"/>
+                                <connections>
+                                    <action selector="changeuserButton:" destination="ycb-8A-a2p" eventType="touchUpInside" id="jPA-es-69D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pW6-1u-yud" firstAttribute="top" secondItem="Y62-rh-Usu" secondAttribute="bottom" constant="50" id="0px-Ay-tQl"/>
+                            <constraint firstItem="Y62-rh-Usu" firstAttribute="centerX" secondItem="XEi-a5-1ie" secondAttribute="centerX" id="2xE-g4-rIW"/>
+                            <constraint firstItem="eZC-Ki-pUF" firstAttribute="top" secondItem="pW6-1u-yud" secondAttribute="bottom" constant="50" id="5rl-Ce-HWp"/>
+                            <constraint firstItem="nyf-4j-4Ik" firstAttribute="top" secondItem="QMo-ZN-1jw" secondAttribute="top" constant="100" id="6Gl-HT-v2P"/>
+                            <constraint firstItem="pW6-1u-yud" firstAttribute="centerX" secondItem="XEi-a5-1ie" secondAttribute="centerX" id="COV-TK-SWV"/>
+                            <constraint firstItem="eZC-Ki-pUF" firstAttribute="top" secondItem="pW6-1u-yud" secondAttribute="bottom" constant="50" id="GxU-zH-ok5"/>
+                            <constraint firstItem="HW5-Tc-hfY" firstAttribute="centerX" secondItem="XEi-a5-1ie" secondAttribute="centerX" id="YIm-c7-3uq"/>
+                            <constraint firstItem="pW6-1u-yud" firstAttribute="top" secondItem="Y62-rh-Usu" secondAttribute="bottom" constant="50" id="dQK-23-cru"/>
+                            <constraint firstItem="eZC-Ki-pUF" firstAttribute="centerX" secondItem="XEi-a5-1ie" secondAttribute="centerX" id="j7r-rl-FMk"/>
+                            <constraint firstItem="HW5-Tc-hfY" firstAttribute="top" secondItem="eZC-Ki-pUF" secondAttribute="bottom" constant="50" id="kqq-yu-Lxn"/>
+                            <constraint firstItem="nyf-4j-4Ik" firstAttribute="centerX" secondItem="XEi-a5-1ie" secondAttribute="centerX" id="mXr-cY-Aaj"/>
+                            <constraint firstItem="Y62-rh-Usu" firstAttribute="top" secondItem="nyf-4j-4Ik" secondAttribute="bottom" constant="50" id="whp-nL-4Fa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QMo-ZN-1jw"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailphoneLabel" destination="pW6-1u-yud" id="7I5-5T-PT0"/>
+                        <outlet property="nameLabel" destination="Y62-rh-Usu" id="v1H-27-sKt"/>
+                        <outlet property="organizationLabel" destination="eZC-Ki-pUF" id="MTV-ks-OdZ"/>
+                        <outlet property="profilepic" destination="nyf-4j-4Ik" id="zph-Ja-g5d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f75-xj-IWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-122" y="167"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="SecondaryRed">
+            <color red="0.98431372549019602" green="0.29411764705882354" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -9,6 +9,17 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    //MARK: - IBoutlets
+    
+    @IBOutlet weak var profilepic: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailphoneLabel: UILabel!
+    @IBOutlet weak var organizationLabel: UILabel!
+    @IBAction func changeuserButton(_ sender: UIButton) {
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
