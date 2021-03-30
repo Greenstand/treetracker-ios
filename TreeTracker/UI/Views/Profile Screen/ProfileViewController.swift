@@ -9,9 +9,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    
     //MARK: - IBoutlets
-    
     @IBOutlet weak var profilepic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailphoneLabel: UILabel!
