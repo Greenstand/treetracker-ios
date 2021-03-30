@@ -178,7 +178,7 @@ internal enum L10n {
   }
 
   internal enum ViewTrees {
-    /// View Trees
+    /// My Trees
     internal static let title = L10n.tr("Localizable", "ViewTrees.Title")
   }
 }

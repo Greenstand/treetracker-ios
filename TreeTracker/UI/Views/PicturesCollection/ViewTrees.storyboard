@@ -37,14 +37,22 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9M5-9M-KVj">
                                                     <rect key="frame" x="0.0" y="0.0" width="413" height="162"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="6Jh-0f-DtS"/>
+                                                        <constraint firstAttribute="height" constant="200" id="vcN-KB-L4D"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" name="SecondaryOrangeDark"/>
                                             <constraints>
                                                 <constraint firstItem="9M5-9M-KVj" firstAttribute="height" secondItem="6hQ-ky-LRx" secondAttribute="height" id="1CQ-Ab-JtK"/>
+                                                <constraint firstItem="9M5-9M-KVj" firstAttribute="top" secondItem="6hQ-ky-LRx" secondAttribute="top" id="Iae-Eo-YCz"/>
                                                 <constraint firstItem="9M5-9M-KVj" firstAttribute="centerX" secondItem="6hQ-ky-LRx" secondAttribute="centerX" id="Ira-0u-R8H"/>
+                                                <constraint firstAttribute="bottom" secondItem="9M5-9M-KVj" secondAttribute="bottom" id="Ozi-y2-TQM"/>
+                                                <constraint firstItem="9M5-9M-KVj" firstAttribute="leading" secondItem="6hQ-ky-LRx" secondAttribute="leading" id="gNt-o9-DeB"/>
                                                 <constraint firstItem="9M5-9M-KVj" firstAttribute="width" secondItem="6hQ-ky-LRx" secondAttribute="width" id="tY8-w5-0UF"/>
                                                 <constraint firstItem="9M5-9M-KVj" firstAttribute="centerY" secondItem="6hQ-ky-LRx" secondAttribute="centerY" id="wac-Bt-zRl"/>
+                                                <constraint firstAttribute="trailing" secondItem="9M5-9M-KVj" secondAttribute="trailing" id="xwh-BI-kju"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="413" height="162"/>
