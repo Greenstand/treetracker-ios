@@ -91,9 +91,9 @@ internal enum L10n {
     }
     internal enum UploadTreesButton {
       internal enum Title {
-        /// START UPLOADS
+        /// START UPLOAD
         internal static let start = L10n.tr("Localizable", "Home.UploadTreesButton.Title.Start")
-        /// STOP UPLOADS
+        /// STOP UPLOAD
         internal static let stop = L10n.tr("Localizable", "Home.UploadTreesButton.Title.Stop")
       }
     }

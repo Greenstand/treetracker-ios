@@ -44,8 +44,8 @@
 "Home.InfoLabel.TreesUploadedLabel.Text" = "Trees Uploaded";
 "Home.LogoutButton.Title" = "Change User";
 "Home.AddTreeButton.Title" = "ADD TREE";
-"Home.UploadTreesButton.Title.Start" = "START UPLOADS";
-"Home.UploadTreesButton.Title.Stop" = "STOP UPLOADS";
+"Home.UploadTreesButton.Title.Start" = "START UPLOAD";
+"Home.UploadTreesButton.Title.Stop" = "STOP UPLOAD";
 "Home.MyTreesButton.Title" = "MY TREES";
 
 //Add Tree Screen
