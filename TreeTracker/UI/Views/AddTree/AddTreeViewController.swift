@@ -52,13 +52,8 @@ class AddTreeViewController: UIViewController, AlertPresenting {
     @IBOutlet private var takePhotoButton: PrimaryButton! {
         didSet {
             takePhotoButton.setTitle(L10n.AddTree.PhotoButton.Title.takePhoto, for: .normal)
-            if gpsAccuracyLabel.accuracy == .good {
-                takePhotoButton.isEnabled = true
-                takePhotoButton.isHidden = false
-            } else {
                 takePhotoButton.isEnabled = false
                 takePhotoButton.isHidden = true
-            }
         }
     }
     @IBOutlet private var saveTreeButton: PrimaryButton! {
@@ -69,15 +64,15 @@ class AddTreeViewController: UIViewController, AlertPresenting {
     }
     @IBOutlet weak var searchGPSSignalImageView: UIImageView! {
         didSet {
-            if gpsAccuracyLabel.accuracy == .good {
-                searchGPSSignalImageView.isHidden = true
-            } else {
-                searchGPSSignalImageView.animationImages = animatedImages(for: "gpsSearchAnimation")
+            searchGPSSignalImageView.animationImages = [
+                Asset.Assets.GpsSearchAnimation.gpsLoad0,
+                Asset.Assets.GpsSearchAnimation.gpsLoad1,
+                Asset.Assets.GpsSearchAnimation.gpsLoad2
+            ].map({$0.image})
                 searchGPSSignalImageView.animationDuration = 0.9
                 searchGPSSignalImageView.animationRepeatCount = 0
-                searchGPSSignalImageView.image = searchGPSSignalImageView.animationImages?.first
+                searchGPSSignalImageView.image = Asset.Assets.GpsSearchAnimation.gpsLoad0.image
                 searchGPSSignalImageView.startAnimating()
-            }
         }
     }
     var viewModel: AddTreeViewModel? {
@@ -118,17 +113,6 @@ private extension AddTreeViewController {
     }
 }
 
-// MARK: - Class Methods
-func animatedImages(for name: String) -> [UIImage] {
-    var int = 0
-    var images = [UIImage]()
-    while let image = UIImage(named: "\(name)/gps-load-\(int)") {
-        images.append(image)
-        int += 1
-    }
-    return images
-}
-
 // MARK: - UIImagePickerControllerDelegate
 extension AddTreeViewController: UIImagePickerControllerDelegate {
 
@@ -163,12 +147,13 @@ extension AddTreeViewController: AddTreeViewModelViewDelegate {
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateGPSAccuracy accuracy: AddTreeViewModel.GPSAccuracy) {
         gpsAccuracyLabel.accuracy = accuracy.gpsLabelAccuracy
-        if accuracy.gpsLabelAccuracy == .good {
+        switch accuracy {
+        case .good:
             searchGPSSignalImageView.stopAnimating()
             searchGPSSignalImageView.isHidden = true
             takePhotoButton.isEnabled = true
             takePhotoButton.isHidden = false
-        } else {
+        case .bad, .unknown:
             searchGPSSignalImageView.startAnimating()
             searchGPSSignalImageView.isHidden = false
             takePhotoButton.isEnabled = false
