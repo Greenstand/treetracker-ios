@@ -264,6 +264,7 @@ GEM
       xcpretty (~> 0.2, >= 0.0.7)
 
 PLATFORMS
+  universal-darwin-19
   universal-darwin-20
 
 DEPENDENCIES
@@ -272,4 +273,4 @@ DEPENDENCIES
   fastlane
 
 BUNDLED WITH
-   2.2.7
+   2.2.16

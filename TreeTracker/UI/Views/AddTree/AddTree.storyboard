@@ -22,17 +22,17 @@
                                 <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6FW-r5-8Jp">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="538"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="478"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xSI-zv-QQU">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="538"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="478"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gardening" translatesAutoresizingMaskIntoConstraints="NO" id="3Hj-Fo-eNR" customClass="AV">
-                                                <rect key="frame" x="103.5" y="194.5" width="167" height="149"/>
+                                                <rect key="frame" x="103.5" y="173.5" width="167" height="131"/>
                                                 <color key="tintColor" name="PrimaryGreen"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="phoneViewfinder" translatesAutoresizingMaskIntoConstraints="NO" id="Ult-3x-hnO">
-                                                <rect key="frame" x="20" y="20" width="334" height="498"/>
+                                                <rect key="frame" x="20" y="20" width="334" height="438"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,7 +52,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="GPS ACCURACY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5D-vA-1iO" customClass="GPSAccuracyLabel" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="558" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="498" width="374" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="aNH-Fz-W21"/>
                                         </constraints>
@@ -61,20 +61,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nEU-4l-5Fm">
-                                        <rect key="frame" x="0.0" y="608" width="374" height="170"/>
+                                        <rect key="frame" x="0.0" y="548" width="374" height="230"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kua-rl-Tpa" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="fP8-7f-wRO"/>
-                                                </constraints>
-                                                <state key="normal" title="PHOTO LIBRARY"/>
-                                                <connections>
-                                                    <action selector="choosePhotoButtonPressed" destination="QqA-0g-MHc" eventType="touchUpInside" id="hYi-An-8be"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVh-Az-lD5" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="60" width="374" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="jFA-SW-QtN"/>
                                                 </constraints>
@@ -83,8 +73,21 @@
                                                     <action selector="takePhotoButtonPressed" destination="QqA-0g-MHc" eventType="touchUpInside" id="eOy-PZ-OZR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOR-gW-lk7" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xXR-fS-Zni">
+                                                <rect key="frame" x="0.0" y="60" width="374" height="50"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kua-rl-Tpa" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="120" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="fP8-7f-wRO"/>
+                                                </constraints>
+                                                <state key="normal" title="PHOTO LIBRARY"/>
+                                                <connections>
+                                                    <action selector="choosePhotoButtonPressed" destination="QqA-0g-MHc" eventType="touchUpInside" id="hYi-An-8be"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOR-gW-lk7" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="180" width="374" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="TSq-Gj-eoe"/>
                                                 </constraints>
@@ -94,6 +97,9 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="xXR-fS-Zni" firstAttribute="height" secondItem="yVh-Az-lD5" secondAttribute="height" id="hsx-Tj-zwW"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -111,6 +117,7 @@
                         <outlet property="choosePhotoButton" destination="kua-rl-Tpa" id="3Nu-pv-mQ3"/>
                         <outlet property="gpsAccuracyLabel" destination="q5D-vA-1iO" id="ibb-DA-7RB"/>
                         <outlet property="saveTreeButton" destination="FOR-gW-lk7" id="mce-1T-y2Y"/>
+                        <outlet property="searchGPSSignalImageView" destination="xXR-fS-Zni" id="WVO-K4-wYN"/>
                         <outlet property="takePhotoButton" destination="yVh-Az-lD5" id="lko-a8-9cL"/>
                         <outlet property="treeGuidenceImageView" destination="3Hj-Fo-eNR" id="R2z-cE-btW"/>
                         <outlet property="treeImageView" destination="xSI-zv-QQU" id="oPL-lc-w6V"/>

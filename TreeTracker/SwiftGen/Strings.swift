@@ -126,7 +126,7 @@ internal enum L10n {
     /// Sign In
     internal static let title = L10n.tr("Localizable", "SignIn.Title")
     internal enum LoginButton {
-      /// Login
+      /// Log In
       internal static let title = L10n.tr("Localizable", "SignIn.LoginButton.Title")
     }
     internal enum OrLabel {

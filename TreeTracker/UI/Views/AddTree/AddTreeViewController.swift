@@ -52,7 +52,8 @@ class AddTreeViewController: UIViewController, AlertPresenting {
     @IBOutlet private var takePhotoButton: PrimaryButton! {
         didSet {
             takePhotoButton.setTitle(L10n.AddTree.PhotoButton.Title.takePhoto, for: .normal)
-            takePhotoButton.isEnabled = false
+                takePhotoButton.isEnabled = false
+                takePhotoButton.isHidden = true
         }
     }
     @IBOutlet private var saveTreeButton: PrimaryButton! {
@@ -61,7 +62,19 @@ class AddTreeViewController: UIViewController, AlertPresenting {
             saveTreeButton.isEnabled = false
         }
     }
-
+    @IBOutlet weak var searchGPSSignalImageView: UIImageView! {
+        didSet {
+            searchGPSSignalImageView.animationImages = [
+                Asset.Assets.GpsSearchAnimation.gpsLoad0,
+                Asset.Assets.GpsSearchAnimation.gpsLoad1,
+                Asset.Assets.GpsSearchAnimation.gpsLoad2
+            ].map({$0.image})
+                searchGPSSignalImageView.animationDuration = 0.9
+                searchGPSSignalImageView.animationRepeatCount = 0
+                searchGPSSignalImageView.image = Asset.Assets.GpsSearchAnimation.gpsLoad0.image
+                searchGPSSignalImageView.startAnimating()
+        }
+    }
     var viewModel: AddTreeViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -134,6 +147,18 @@ extension AddTreeViewController: AddTreeViewModelViewDelegate {
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateGPSAccuracy accuracy: AddTreeViewModel.GPSAccuracy) {
         gpsAccuracyLabel.accuracy = accuracy.gpsLabelAccuracy
+        switch accuracy {
+        case .good:
+            searchGPSSignalImageView.stopAnimating()
+            searchGPSSignalImageView.isHidden = true
+            takePhotoButton.isEnabled = true
+            takePhotoButton.isHidden = false
+        case .bad, .unknown:
+            searchGPSSignalImageView.startAnimating()
+            searchGPSSignalImageView.isHidden = false
+            takePhotoButton.isEnabled = false
+            takePhotoButton.isHidden = true
+        }
     }
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage?) {
