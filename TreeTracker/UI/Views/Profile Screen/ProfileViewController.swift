@@ -9,31 +9,56 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    //MARK: - IBoutlets
+    var trees: [Tree] = []
+    weak var rootcoordinator: RootCoordinator!
+    var homecoordinator: HomeCoordinator!
+    // MARK: - IBOutlets
     @IBOutlet weak var profilepic: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailphoneLabel: UILabel!
-    @IBOutlet weak var organizationLabel: UILabel!
-    @IBAction func changeuserButton(_ sender: UIButton) {
-        
+    @IBOutlet private var nameLabel: UILabel! {
+        didSet {
+            nameLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
+        }
     }
-    
-
+    @IBOutlet private var emailphoneLabel: UILabel! {
+           didSet {
+               emailphoneLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
+           }
+    }
+    @IBOutlet private var organizationLabel: UILabel! {
+        didSet {
+            organizationLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
+        }
+    }
+    @IBAction func changeuserButton(_ sender: UIButton) {
+        viewModel?.changeUser()
+    }
+    var viewModel: ProfileViewModel? {
+        didSet {
+            viewModel?.viewDelegate = self
+            //title = viewModel?.title
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        viewModel?.fetchDetails()
+
+}
+}
+
+extension ProfileViewController: ProfileViewModelViewDelegate, AlertPresenting {
+    func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails) {
+        profilepic.image = details.image
+        nameLabel.text = details.name
+        organizationLabel.text = details.organization
+        emailphoneLabel.text = details.emailPhone
     }
-    
+    func profileViewModel(_ viewTreesViewModel: ProfileViewModel, didUpdateTrees trees: [Tree]) {
+         self.trees = trees
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    func profileViewModel(_ viewTreesViewModel: ProfileViewModel, didReceiveError error: Error) {
+         present(alert: .error(error))
+    }
 }

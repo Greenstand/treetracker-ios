@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 protocol HomeViewModelCoordinatorDelegate: class {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)
@@ -120,7 +121,6 @@ extension HomeViewModel {
         coordinatorDelegate?.homeViewModel(self, didLogoutPlanter: planter)
     }
 }
-
 // MARK: - TreeServiceDelegate
 extension HomeViewModel: TreeMonitoringServiceDelegate {
 

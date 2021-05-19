@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 protocol HomeCoordinatorDelegate: class {
     func homeCoordinatorDidLogout(_ homeCoordinator: HomeCoordinator)
@@ -116,20 +117,27 @@ private extension HomeCoordinator {
         }()
         return viewcontroller
     }
-
+    
     func profileViewController(planter: Planter) -> UIViewController {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
-        viewController.title = {
-            guard let firstName = planter.firstName else {
-                return "Me"
-            }
-            return "\(firstName) \(planter.lastName ?? "")"
+        let viewController = StoryboardScene.Profile.initialScene.instantiate()
+        viewController.viewModel = {
+            let treeMonitoringService = LocalTreeMonitoringService(coreDataManager: coreDataManager)
+            let selfieService = LocalSelfieService(
+                coreDataManager: coreDataManager,
+                documentManager: DocumentManager()
+            )
+            let viewModel = ProfileViewModel(planter: planter,
+                                             treeMonitoringService: treeMonitoringService, selfieService: selfieService,
+                                             uploadManager: uploadManager)
+            viewModel.coordinatorDelegate = self
+            return viewModel
         }()
-        return viewController
+        viewController.title = {
+            return "\(planter.firstName ?? "") \(planter.lastName ?? "")"
+        }()
+       return viewController
     }
 }
-
 // MARK: - HomeViewModelCoordinatorDelegate
 extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
 
@@ -149,7 +157,12 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
         delegate?.homeCoordinatorDidLogout(self)
     }
 }
-
+// MARK: - ProfileViewModelCoordinatorDelegate
+extension HomeCoordinator: ProfileViewModelCoordinatorDelegate {
+   func profileViewModel(_ profileViewModel: ProfileViewModel, changeUser planter: Planter) {
+        delegate?.homeCoordinatorDidLogout(self)
+   }
+}
 // MARK: - AddTreeViewModelCoordinatorDelegate
 extension HomeCoordinator: AddTreeViewModelCoordinatorDelegate {
 

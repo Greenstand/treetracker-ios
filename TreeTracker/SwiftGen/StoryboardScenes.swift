@@ -34,6 +34,8 @@ internal enum StoryboardScene {
   }
   internal enum Profile: StoryboardType {
     internal static let storyboardName = "Profile"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.ProfileViewController>(storyboard: Profile.self)
   }
   internal enum Selfie: StoryboardType {
     internal static let storyboardName = "Selfie"
