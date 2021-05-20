@@ -52,6 +52,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<TreeTracker.TermsViewController>(storyboard: Terms.self)
   }
+  internal enum ViewTrees: StoryboardType {
+    internal static let storyboardName = "ViewTrees"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.ViewTreesViewController>(storyboard: ViewTrees.self)
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

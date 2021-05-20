@@ -63,6 +63,14 @@ private extension HomeCoordinator {
             animated: true
         )
     }
+    
+    func showViewTrees(planter: Planter) {
+        configuration.navigationController.pushViewController(
+            viewTreesViewController,
+            animated: true
+        )
+    }
+
 }
 
 // MARK: - View Controllers
@@ -116,6 +124,22 @@ private extension HomeCoordinator {
         }()
         return viewcontroller
     }
+    
+    var viewTreesViewController: UIViewController {
+        let viewController = StoryboardScene.ViewTrees.initialScene.instantiate()
+        viewController.viewModel = {
+            let treeMonitoringService = LocalTreeMonitoringService(
+                coreDataManager: coreDataManager
+            )
+            let viewModel = ViewTreesViewModel(
+                planter: planter,
+                treeMonitoringService: treeMonitoringService
+            )
+            return viewModel
+        }()
+        return viewController
+
+    }
 
     func profileViewController(planter: Planter) -> UIViewController {
         let viewController = UIViewController()
@@ -148,6 +172,11 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter) {
         delegate?.homeCoordinatorDidLogout(self)
     }
+    
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewTreesForPlanter planter: Planter) {
+        showViewTrees(planter: planter)
+    }
+
 }
 
 // MARK: - AddTreeViewModelCoordinatorDelegate

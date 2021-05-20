@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4B-25-WOc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4B-25-WOc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m42-LK-6b5">
-                                <rect key="frame" x="20" y="20" width="374" height="481.5"/>
+                                <rect key="frame" x="20" y="20" width="374" height="391.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RNm-Ry-Tr2">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
@@ -33,15 +32,15 @@
                                             <stackView opaque="NO" contentMode="left" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vtO-or-ojT">
                                                 <rect key="frame" x="120" y="20" width="254" height="60"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxM-GO-ysI">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxM-GO-ysI">
                                                         <rect key="frame" x="0.0" y="0.0" width="43" height="30"/>
                                                         <state key="normal" title="NAME"/>
                                                         <connections>
                                                             <action selector="nameButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="PYe-JC-HqR"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Qr-Hel">
-                                                        <rect key="frame" x="0.0" y="30" width="109" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Qr-Hel">
+                                                        <rect key="frame" x="0.0" y="30" width="107" height="30"/>
                                                         <state key="normal" title="CHANGE_USER"/>
                                                         <connections>
                                                             <action selector="logoutButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="1hJ-c9-eJ2"/>
@@ -153,31 +152,36 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zXG-hz-i9A">
-                                        <rect key="frame" x="0.0" y="261.5" width="374" height="220"/>
+                                        <rect key="frame" x="0.0" y="261.5" width="374" height="130"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QqC-aQ-0Lz" customClass="UploadsButton" customModule="TreeTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QqC-aQ-0Lz" customClass="UploadsButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="gMM-kE-sht"/>
-                                                </constraints>
                                                 <state key="normal" title="UPLOAD"/>
                                                 <connections>
                                                     <action selector="uploadTreesButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="t4r-2C-rS2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhj-rd-bdN" customClass="AddTreeButton" customModule="TreeTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="120" width="374" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhj-rd-bdN" customClass="AddTreeButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="374" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="zJG-qE-EKX"/>
-                                                </constraints>
                                                 <state key="normal" title="ADD_TREE"/>
                                                 <connections>
                                                     <action selector="addTreeButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="6rT-b8-4gX"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9s6-z1-bo1" customClass="MyTreesButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="100" width="374" height="30"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="MY TREES"/>
+                                                <connections>
+                                                    <action selector="myTreesButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="wMT-V5-PCB"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9s6-z1-bo1" firstAttribute="centerX" secondItem="zXG-hz-i9A" secondAttribute="centerX" id="0Se-4j-VHd"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -195,7 +199,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="SQa-Oy-BZK" firstAttribute="leading" secondItem="H4G-QY-aoV" secondAttribute="leading" constant="5" id="6ZT-bM-Fq1"/>
                                     <constraint firstAttribute="trailing" secondItem="SQa-Oy-BZK" secondAttribute="trailing" constant="5" id="6om-z4-CNP"/>
@@ -204,21 +208,22 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="5eT-24-qVC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="5eT-24-qVC" firstAttribute="trailing" secondItem="m42-LK-6b5" secondAttribute="trailing" constant="20" id="5E4-3i-i6L"/>
                             <constraint firstItem="QqC-aQ-0Lz" firstAttribute="top" secondItem="H4G-QY-aoV" secondAttribute="top" constant="-5" id="7HL-SW-Qhn"/>
                             <constraint firstItem="m42-LK-6b5" firstAttribute="top" secondItem="5eT-24-qVC" secondAttribute="top" constant="20" id="IbW-PJ-gLR"/>
                             <constraint firstItem="5eT-24-qVC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="m42-LK-6b5" secondAttribute="bottom" constant="20" id="OSM-lY-Hvh"/>
+                            <constraint firstItem="m42-LK-6b5" firstAttribute="trailing" secondItem="Hfq-bh-jS1" secondAttribute="trailingMargin" id="cuU-e3-XIG"/>
                             <constraint firstItem="H4G-QY-aoV" firstAttribute="trailing" secondItem="QqC-aQ-0Lz" secondAttribute="trailing" constant="-5" id="mmo-Za-a8M"/>
-                            <constraint firstItem="m42-LK-6b5" firstAttribute="leading" secondItem="5eT-24-qVC" secondAttribute="leading" constant="20" id="yZF-oT-uri"/>
+                            <constraint firstItem="m42-LK-6b5" firstAttribute="leading" secondItem="Hfq-bh-jS1" secondAttribute="leadingMargin" id="xTJ-mj-ngI"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="5eT-24-qVC"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="addTreeButton" destination="Fhj-rd-bdN" id="2rZ-zP-GWY"/>
                         <outlet property="logoutButton" destination="dtG-Qr-Hel" id="4M2-CC-Y94"/>
+                        <outlet property="myTreesButton" destination="9s6-z1-bo1" id="oxi-3Z-dal"/>
                         <outlet property="nameButton" destination="TxM-GO-ysI" id="hq9-Ra-6tA"/>
                         <outlet property="profileImageView" destination="BLJ-l5-Lzr" id="TmI-Fk-cjv"/>
                         <outlet property="separatorView" destination="3jI-3g-uV1" id="jJb-cI-P0L"/>
@@ -244,8 +249,5 @@
         <image name="profile" width="359" height="359"/>
         <image name="seed" width="512" height="512"/>
         <image name="upload" width="478" height="478"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

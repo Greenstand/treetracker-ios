@@ -109,6 +109,10 @@
 		93FC587C25A7ABAE00B93F14 /* PlanterCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC587B25A7ABAE00B93F14 /* PlanterCheckIn.swift */; };
 		93FC588425A7B05500B93F14 /* DeviceInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC588325A7B05500B93F14 /* DeviceInfoProvider.swift */; };
 		93FC588925A7B2FD00B93F14 /* AppBundleInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */; };
+		F22998C326027E2300EAF361 /* ViewTrees.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22998BF26027E2300EAF361 /* ViewTrees.storyboard */; };
+		F22998C426027E2300EAF361 /* ViewTreesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22998C026027E2300EAF361 /* ViewTreesCollectionViewCell.swift */; };
+		F22998C526027E2300EAF361 /* ViewTreesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22998C126027E2300EAF361 /* ViewTreesViewModel.swift */; };
+		F22998C626027E2300EAF361 /* ViewTreesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22998C226027E2300EAF361 /* ViewTreesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +245,10 @@
 		93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBundleInfoProvider.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		F22998BF26027E2300EAF361 /* ViewTrees.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewTrees.storyboard; sourceTree = "<group>"; };
+		F22998C026027E2300EAF361 /* ViewTreesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTreesCollectionViewCell.swift; sourceTree = "<group>"; };
+		F22998C126027E2300EAF361 /* ViewTreesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTreesViewModel.swift; sourceTree = "<group>"; };
+		F22998C226027E2300EAF361 /* ViewTreesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTreesViewController.swift; sourceTree = "<group>"; };
 		F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.test.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.test.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -603,6 +611,7 @@
 		93E82F57246C368200006C91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F22516DD2602782F00B7C64B /* PicturesCollection */,
 				93E82F58246C36A300006C91 /* Loading */,
 				93E82F5F246C3B3200006C91 /* Authentication */,
 				93EC8C3524AA4FD100946C0C /* Home */,
@@ -736,6 +745,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F22516DD2602782F00B7C64B /* PicturesCollection */ = {
+			isa = PBXGroup;
+			children = (
+				F22998BF26027E2300EAF361 /* ViewTrees.storyboard */,
+				F22998C026027E2300EAF361 /* ViewTreesCollectionViewCell.swift */,
+				F22998C226027E2300EAF361 /* ViewTreesViewController.swift */,
+				F22998C126027E2300EAF361 /* ViewTreesViewModel.swift */,
+			);
+			path = PicturesCollection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -853,6 +873,7 @@
 				937D78C325C70E45007A7A37 /* Montserrat-Bold.ttf in Resources */,
 				93E82F52246C35C700006C91 /* SignIn.storyboard in Resources */,
 				93989CF7246EA34A00A1B21F /* SignUp.storyboard in Resources */,
+				F22998C326027E2300EAF361 /* ViewTrees.storyboard in Resources */,
 				937D78C425C70E45007A7A37 /* Montserrat-SemiBold.ttf in Resources */,
 				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
 				93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */,
@@ -984,6 +1005,7 @@
 				93FC588425A7B05500B93F14 /* DeviceInfoProvider.swift in Sources */,
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
 				93C579A424A26D95009C0E46 /* TermsService.swift in Sources */,
+				F22998C426027E2300EAF361 /* ViewTreesCollectionViewCell.swift in Sources */,
 				93C579A624A26E6B009C0E46 /* SelfieService.swift in Sources */,
 				93E18968245C96F000217F21 /* Assets.swift in Sources */,
 				93989CF0246C479400A1B21F /* Validation.swift in Sources */,
@@ -995,6 +1017,7 @@
 				93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */,
 				93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */,
 				93204ED3251618D20059E136 /* TreeUploadService.swift in Sources */,
+				F22998C626027E2300EAF361 /* ViewTreesViewController.swift in Sources */,
 				93CBA5422555DD39009DA5D9 /* RegistrationRequest.swift in Sources */,
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,
 				932EA1B0247954B40035394D /* BaseNavigationViewController.swift in Sources */,
@@ -1036,6 +1059,7 @@
 				93EC8CAB24BBA9E100946C0C /* AddTreeViewController.swift in Sources */,
 				93C5799D249E5865009C0E46 /* Name.swift in Sources */,
 				93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */,
+				F22998C526027E2300EAF361 /* ViewTreesViewModel.swift in Sources */,
 				93204ED6251627D30059E136 /* AWSS3Client.swift in Sources */,
 				937D0A072554B30100E103EB /* UploadBundle.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
