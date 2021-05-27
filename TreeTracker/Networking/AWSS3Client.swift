@@ -24,7 +24,7 @@ class AWSS3Client {
     }
 
     func uploadImage(imageData: Data, uuid: String, latitude: Double, logitude: Double, completion: @escaping (Result<String, Error>) -> Void) {
-        let key = "\(formattedDate())_\(latitude)_\(logitude)_\(UUID().uuidString)_\(uuid)"
+        let key = "\(formattedDate())_\(latitude)_\(logitude)_\(UUID().uuidString)_\(uuid).jpg"
         put(data: imageData, bucketName: Constants.imagesBucketName, key: key, acl: .publicRead, completion: completion)
     }
 
@@ -105,3 +105,4 @@ private extension AWSS3Client {
         static let regionString: String = Configuration.AWS.regionString
     }
 }
+ 
