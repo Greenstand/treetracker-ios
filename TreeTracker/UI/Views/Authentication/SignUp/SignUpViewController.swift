@@ -33,6 +33,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
             firstNameTextField.delegate = self
             firstNameTextField.keyboardType = .default
             firstNameTextField.returnKeyType = .next
+            firstNameTextField.autocapitalizationType = .words
             firstNameTextField.placeholder = L10n.SignUp.TextInput.FirstName.placeholder
             firstNameTextField.validationState = .normal
         }
@@ -42,6 +43,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
             lastNameTextField.delegate = self
             lastNameTextField.keyboardType = .default
             lastNameTextField.returnKeyType = .next
+            lastNameTextField.autocapitalizationType = .words
             lastNameTextField.placeholder = L10n.SignUp.TextInput.LastName.placeholder
             lastNameTextField.validationState = .normal
         }
@@ -51,6 +53,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
             organizationTextField.delegate = self
             organizationTextField.keyboardType = .default
             organizationTextField.returnKeyType = .done
+            organizationTextField.autocapitalizationType = .words
             organizationTextField.placeholder = L10n.SignUp.TextInput.Organization.placeholder
             organizationTextField.validationState = .normal
         }

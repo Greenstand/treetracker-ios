@@ -42,6 +42,11 @@ internal enum Asset {
     internal static let logo = ImageAsset(name: "Logo")
     internal static let logoWithTitle = ImageAsset(name: "LogoWithTitle")
     internal static let trees = ImageAsset(name: "Trees")
+    internal enum GpsSearchAnimation {
+      internal static let gpsLoad0 = ImageAsset(name: "gpsSearchAnimation/gps-load-0")
+      internal static let gpsLoad1 = ImageAsset(name: "gpsSearchAnimation/gps-load-1")
+      internal static let gpsLoad2 = ImageAsset(name: "gpsSearchAnimation/gps-load-2")
+    }
   }
   internal enum Colors {
     internal static let grayDark = ColorAsset(name: "GrayDark")
