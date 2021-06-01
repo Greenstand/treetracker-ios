@@ -93,7 +93,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="changeuserButton:" destination="ycb-8A-a2p" eventType="touchUpInside" id="xji-Jq-lLa"/>
+                                                    <action selector="changeUserButtonPressed:" destination="ycb-8A-a2p" eventType="touchUpInside" id="XvO-0S-E4N"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -115,10 +115,10 @@
                         <viewLayoutGuide key="safeArea" id="QMo-ZN-1jw"/>
                     </view>
                     <connections>
-                        <outlet property="emailphoneLabel" destination="8au-AN-6en" id="zEM-Ep-NfE"/>
                         <outlet property="nameLabel" destination="XvD-Hj-ftg" id="OXM-Mz-fNv"/>
                         <outlet property="organizationLabel" destination="ICb-5v-0pW" id="rLd-D2-Rgg"/>
-                        <outlet property="profilepic" destination="AgP-NW-OBu" id="qzx-t5-cfr"/>
+                        <outlet property="profilePictureImageView" destination="AgP-NW-OBu" id="RWJ-Vw-yhc"/>
+                        <outlet property="usernameLabel" destination="8au-AN-6en" id="tOO-ac-RQE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f75-xj-IWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

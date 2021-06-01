@@ -9,19 +9,18 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    var trees: [Tree] = []
-    weak var rootcoordinator: RootCoordinator!
-    var homecoordinator: HomeCoordinator!
+    private weak var rootcoordinator: RootCoordinator!
+    private var homecoordinator: HomeCoordinator!
     // MARK: - IBOutlets
-    @IBOutlet weak var profilepic: UIImageView!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel! {
         didSet {
             nameLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
         }
     }
-    @IBOutlet private var emailphoneLabel: UILabel! {
+    @IBOutlet private var usernameLabel: UILabel! {
            didSet {
-               emailphoneLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
+               usernameLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
            }
     }
     @IBOutlet private var organizationLabel: UILabel! {
@@ -29,7 +28,7 @@ class ProfileViewController: UIViewController {
             organizationLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
         }
     }
-    @IBAction func changeuserButton(_ sender: UIButton) {
+    @IBAction private func changeUserButtonPressed(_ sender: Any) {
         viewModel?.changeUser()
     }
     var viewModel: ProfileViewModel? {
@@ -49,16 +48,9 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewModelViewDelegate, AlertPresenting {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails) {
-        profilepic.image = details.image
+        profilePictureImageView.image = details.image
         nameLabel.text = details.name
         organizationLabel.text = details.organization
-        emailphoneLabel.text = details.emailPhone
-    }
-    func profileViewModel(_ viewTreesViewModel: ProfileViewModel, didUpdateTrees trees: [Tree]) {
-         self.trees = trees
-
-    }
-    func profileViewModel(_ viewTreesViewModel: ProfileViewModel, didReceiveError error: Error) {
-         present(alert: .error(error))
+        usernameLabel.text = details.username
     }
 }
