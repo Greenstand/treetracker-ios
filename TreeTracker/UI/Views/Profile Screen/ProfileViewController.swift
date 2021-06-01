@@ -9,10 +9,10 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    private weak var rootcoordinator: RootCoordinator!
-    private var homecoordinator: HomeCoordinator!
+     weak var rootcoordinator: RootCoordinator!
+     var homecoordinator: HomeCoordinator!
     // MARK: - IBOutlets
-    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet private weak var profilePictureImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel! {
         didSet {
             nameLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
