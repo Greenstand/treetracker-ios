@@ -61,7 +61,11 @@ class SignInViewModel {
     }
 
     func updateUsername(username: String) {
-        usernameValue = username
+        if loginType == .phoneNumber {
+            usernameValue = Validation.cleanedPhoneNumber(phoneNumber: username) }
+        else {
+            usernameValue = username
+        }
     }
 
     func login() {
