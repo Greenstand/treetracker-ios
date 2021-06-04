@@ -132,9 +132,6 @@ private extension HomeCoordinator {
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
-        viewController.title = {
-            return "\(planter.firstName ?? "") \(planter.lastName ?? "")"
-        }()
        return viewController
     }
 }

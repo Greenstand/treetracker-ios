@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 protocol HomeViewModelCoordinatorDelegate: class {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)

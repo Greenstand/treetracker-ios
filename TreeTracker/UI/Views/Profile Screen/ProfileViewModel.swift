@@ -6,7 +6,6 @@
 //  Copyright © 2021 Greenstand. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 protocol ProfileViewModelCoordinatorDelegate: class {
@@ -35,6 +34,9 @@ class ProfileViewModel {
         let username: String
         let organization: String
     }
+    var title: String {
+        return "\(planter.firstName ?? "") \(planter.lastName ?? "")"
+    }
 }
 // MARK: - Profile
 extension ProfileViewModel {
@@ -51,7 +53,7 @@ extension ProfileViewModel {
         return planter.phoneNumber!
     }
     var planterOrganization: String? {
-        return planter.organization!
+        return planter.organization
     }
     func fetchDetails() {
        selfieService.fetchSelfie(forPlanter: planter) { (result) in

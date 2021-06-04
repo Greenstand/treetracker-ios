@@ -9,8 +9,6 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-     weak var rootcoordinator: RootCoordinator!
-     var homecoordinator: HomeCoordinator!
     // MARK: - IBOutlets
     @IBOutlet private weak var profilePictureImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel! {
@@ -34,7 +32,7 @@ class ProfileViewController: UIViewController {
     var viewModel: ProfileViewModel? {
         didSet {
             viewModel?.viewDelegate = self
-            //title = viewModel?.title
+            title = viewModel?.title
         }
     }
     override func viewDidLoad() {
