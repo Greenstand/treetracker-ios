@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zej-1G-2Wm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zej-1G-2Wm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -77,7 +76,7 @@
                                             <action selector="usernameSegmentedControlChangedWithSender:" destination="Zej-1G-2Wm" eventType="valueChanged" id="CAK-d0-6jd"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="748" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="WGV-Zd-ZAY"/>
@@ -92,8 +91,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="OXG-lw-S0f"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="sDc-Z9-CCJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0PG-DV-loF" secondAttribute="top" constant="300" id="Dco-Ly-6MH"/>
                             <constraint firstItem="OXG-lw-S0f" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="L0y-57-uo8" secondAttribute="bottom" id="LKW-DN-hOQ"/>
@@ -104,6 +102,7 @@
                             <constraint firstItem="L0y-57-uo8" firstAttribute="leading" secondItem="OXG-lw-S0f" secondAttribute="leading" constant="20" id="cEy-AZ-T9D"/>
                             <constraint firstAttribute="bottom" secondItem="sDc-Z9-CCJ" secondAttribute="bottom" id="hiI-t6-acq"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="OXG-lw-S0f"/>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="6Nv-eB-zKw" id="wEK-gy-8un"/>
@@ -124,8 +123,5 @@
         <namedColor name="GrayDark">
             <color red="0.13333333333333333" green="0.14901960784313725" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

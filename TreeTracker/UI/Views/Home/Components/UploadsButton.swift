@@ -100,7 +100,7 @@ private extension UploadsButton {
 
     var normalTextAttributes: [NSAttributedString.Key: Any] {
         return [
-            .font: FontFamily.Montserrat.semiBold.font(size: 20.0) ,
+            .font: FontFamily.Montserrat.semiBold.font(size: 20.0),
             .foregroundColor: UIColor.white
         ]
     }
