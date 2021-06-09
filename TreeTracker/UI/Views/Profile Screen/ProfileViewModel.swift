@@ -35,7 +35,10 @@ class ProfileViewModel {
         let organization: String
     }
     var title: String {
+        guard planter.firstName == nil, planter.lastName == nil else {
         return "\(planter.firstName ?? "") \(planter.lastName ?? "")"
+        }
+        return "My Profile"
     }
 }
 // MARK: - Profile
@@ -46,11 +49,12 @@ extension ProfileViewModel {
         }
         return "\(firstName) \(planter.lastName ?? "")"
     }
-    var planterUsername: String {
-        guard planter.email == nil else {
-            return planter.email ?? ""
+    var planterUsername: String? {
+        if planter.email != nil {
+            return planter.email
+        } else {
+        return planter.phoneNumber
         }
-        return planter.phoneNumber!
     }
     var planterOrganization: String? {
         return planter.organization
@@ -62,10 +66,10 @@ extension ProfileViewModel {
                 guard let localPhotoPathImage = UIImage(data: data) else {
                     fallthrough
                 }
-                let profiledetails = ProfileDetails(name: planterName, image: localPhotoPathImage, username: planterUsername, organization: planterOrganization!)
+                let profiledetails = ProfileDetails(name: planterName, image: localPhotoPathImage, username: planterUsername!, organization: planterOrganization ?? "")
                 viewDelegate?.profileViewModel(self, didFetchDetails: profiledetails)
             case .failure:
-                let profiledetails = ProfileDetails(name: planterName, image: Asset.Assets.person.image, username: planterUsername, organization: planterOrganization!)
+                let profiledetails = ProfileDetails(name: planterName, image: Asset.Assets.person.image, username: planterUsername!, organization: planterOrganization ?? "")
                 viewDelegate?.profileViewModel(self, didFetchDetails: profiledetails)
             }
         }

@@ -99,13 +99,6 @@ internal enum L10n {
     }
   }
 
-  internal enum ProfileView {
-    internal enum ChangeUserButton {
-      /// Change User
-      internal static let title = L10n.tr("Localizable", "ProfileView.ChangeUserButton.Title")
-    }
-  }
-
   internal enum Selfie {
     /// Take Selfie
     internal static let title = L10n.tr("Localizable", "Selfie.Title")
