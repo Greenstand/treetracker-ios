@@ -26,6 +26,7 @@
                                 <rect key="frame" x="0.0" y="402" width="414" height="494"/>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oez-TG-X62" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8BX-Ea-BFc"/>
