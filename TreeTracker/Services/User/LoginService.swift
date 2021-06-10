@@ -30,6 +30,7 @@ class LocalLoginService: LoginService {
     }
 
     func login(withUsername username: Username, completion: (Result<Planter, Error>) -> Void) {
+        
         let managedObjectContext = coreDataManager.viewContext
         let fetchRequest: NSFetchRequest<PlanterDetail> = PlanterDetail.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "identifier == %@", username.value)
