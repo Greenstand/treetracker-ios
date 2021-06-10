@@ -29,7 +29,7 @@ class LocalLoginService: LoginService {
         self.coreDataManager = coreDataManager
     }
 
-    func login(withUsername username: Username, completion: (Result<Planter, Error>) -> Void) {
+    func login(withUsername username: Username, completion: (Result<Planter, Error>) -> Void) {        
         
         let managedObjectContext = coreDataManager.viewContext
         let fetchRequest: NSFetchRequest<PlanterDetail> = PlanterDetail.fetchRequest()
