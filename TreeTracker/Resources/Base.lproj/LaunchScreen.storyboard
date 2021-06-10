@@ -36,7 +36,6 @@
                             <constraint firstItem="IlQ-70-Qmc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Try-Vk-6Pf"/>
                             <constraint firstItem="oez-TG-X62" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="od4-1I-Udn"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
