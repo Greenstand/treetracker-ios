@@ -104,7 +104,6 @@
                             <constraint firstItem="L0y-57-uo8" firstAttribute="leading" secondItem="OXG-lw-S0f" secondAttribute="leading" constant="20" id="cEy-AZ-T9D"/>
                             <constraint firstAttribute="bottom" secondItem="sDc-Z9-CCJ" secondAttribute="bottom" id="hiI-t6-acq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="OXG-lw-S0f"/>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="6Nv-eB-zKw" id="wEK-gy-8un"/>
