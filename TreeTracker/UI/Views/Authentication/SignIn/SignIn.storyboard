@@ -77,7 +77,7 @@
                                             <action selector="usernameSegmentedControlChangedWithSender:" destination="Zej-1G-2Wm" eventType="valueChanged" id="CAK-d0-6jd"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="748" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="WGV-Zd-ZAY"/>
