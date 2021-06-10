@@ -92,6 +92,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="OXG-lw-S0f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="sDc-Z9-CCJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0PG-DV-loF" secondAttribute="top" constant="300" id="Dco-Ly-6MH"/>
