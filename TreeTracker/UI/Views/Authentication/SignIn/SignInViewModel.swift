@@ -41,7 +41,7 @@ class SignInViewModel {
 
     let title: String = L10n.SignIn.title
 
-    var loginType: LoginType = .phoneNumber {
+    private var loginType: LoginType = .phoneNumber {
         didSet {
             viewDelegate?.signInViewModel(self, didUpdateLoginType: loginType)
             viewDelegate?.signInViewModel(self, didUpdateValidationState: usernameValid)

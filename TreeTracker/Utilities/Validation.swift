@@ -42,11 +42,7 @@ struct Validation {
     
     static func cleanedPhoneNumber(phoneNumber: String) -> String {
               return phoneNumber
-                    .replacingOccurrences(of: "+", with: "")
                     .replacingOccurrences(of: " ", with: "")
-                    .replacingOccurrences(of: "(", with: "")
-                    .replacingOccurrences(of: ")", with: "")
-                    .replacingOccurrences(of: "-", with: "")
     }
 
 }
