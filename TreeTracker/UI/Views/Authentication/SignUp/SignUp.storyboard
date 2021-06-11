@@ -163,7 +163,8 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="T1m-Ef-7d1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="T1m-Ef-7d1" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UUb-y1-78U" secondAttribute="bottom" id="EDT-6N-8KL"/>
                             <constraint firstItem="T1m-Ef-7d1" firstAttribute="trailing" secondItem="UUb-y1-78U" secondAttribute="trailing" constant="20" id="jkb-bs-Hqz"/>
