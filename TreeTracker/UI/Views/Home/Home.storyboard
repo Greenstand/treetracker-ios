@@ -244,5 +244,8 @@
         <image name="profile" width="359" height="359"/>
         <image name="seed" width="512" height="512"/>
         <image name="upload" width="478" height="478"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
