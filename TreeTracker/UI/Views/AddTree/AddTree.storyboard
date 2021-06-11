@@ -112,7 +112,6 @@
                             <constraint firstItem="6h2-Pn-xih" firstAttribute="leading" secondItem="ABb-le-R5N" secondAttribute="leading" constant="20" id="ZtE-66-yAw"/>
                             <constraint firstItem="ABb-le-R5N" firstAttribute="bottom" secondItem="6h2-Pn-xih" secondAttribute="bottom" constant="20" id="uTG-Kd-EXO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ABb-le-R5N"/>
                     </view>
                     <connections>
                         <outlet property="choosePhotoButton" destination="kua-rl-Tpa" id="3Nu-pv-mQ3"/>
