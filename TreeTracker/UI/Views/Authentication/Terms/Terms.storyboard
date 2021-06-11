@@ -67,7 +67,7 @@
     </scenes>
     <resources>
         <namedColor name="GrayDark">
-            <color red="0.13333333333333333" green="0.14901960784313725" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
