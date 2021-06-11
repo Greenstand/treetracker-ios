@@ -214,7 +214,6 @@
                             <constraint firstItem="H4G-QY-aoV" firstAttribute="trailing" secondItem="QqC-aQ-0Lz" secondAttribute="trailing" constant="-5" id="mmo-Za-a8M"/>
                             <constraint firstItem="m42-LK-6b5" firstAttribute="leading" secondItem="5eT-24-qVC" secondAttribute="leading" constant="20" id="yZF-oT-uri"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="5eT-24-qVC"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
