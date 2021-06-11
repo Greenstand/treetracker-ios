@@ -171,7 +171,6 @@
                             <constraint firstItem="UUb-y1-78U" firstAttribute="top" secondItem="T1m-Ef-7d1" secondAttribute="top" constant="20" id="sQ2-MM-QEy"/>
                             <constraint firstItem="UUb-y1-78U" firstAttribute="leading" secondItem="T1m-Ef-7d1" secondAttribute="leading" constant="20" id="trC-0R-OjO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="T1m-Ef-7d1"/>
                     </view>
                     <connections>
                         <outlet property="firstNameTextField" destination="rGp-fd-X58" id="qUx-qf-w6M"/>
