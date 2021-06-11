@@ -136,5 +136,6 @@
             <color red="0.52549019607843139" green="0.76078431372549016" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     </resources>
 </document>
