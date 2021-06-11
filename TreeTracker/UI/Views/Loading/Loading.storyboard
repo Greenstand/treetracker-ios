@@ -34,7 +34,8 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="BZK-el-BD3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Kfi-ou-o3a" firstAttribute="leading" secondItem="BZK-el-BD3" secondAttribute="leading" constant="20" id="3rw-rz-vue"/>
                             <constraint firstItem="BZK-el-BD3" firstAttribute="trailing" secondItem="Kfi-ou-o3a" secondAttribute="trailing" constant="20" id="LNv-9h-IYr"/>
