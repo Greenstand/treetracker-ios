@@ -204,7 +204,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5eT-24-qVC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5eT-24-qVC" firstAttribute="trailing" secondItem="m42-LK-6b5" secondAttribute="trailing" constant="20" id="5E4-3i-i6L"/>
                             <constraint firstItem="QqC-aQ-0Lz" firstAttribute="top" secondItem="H4G-QY-aoV" secondAttribute="top" constant="-5" id="7HL-SW-Qhn"/>
