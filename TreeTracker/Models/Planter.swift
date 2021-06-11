@@ -23,7 +23,6 @@ protocol Planter: class {
 }
 
 extension PlanterDetail: Planter {
-    
     var checkIns: [PlanterCheckIn]? {
         return identification?.allObjects as? [PlanterIdentification]
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProfileViewModelCoordinatorDelegate: class {
-    func profileViewModel(_ profileViewModel: ProfileViewModel, changeUser planter: Planter)
+    func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter)
 }
 
 protocol ProfileViewModelViewDelegate: class {
@@ -43,20 +43,20 @@ class ProfileViewModel {
 }
 // MARK: - Profile
 extension ProfileViewModel {
-    var planterName: String {
+    private var planterName: String {
         guard let firstName = planter.firstName else {
             return ""
         }
         return "\(firstName) \(planter.lastName ?? "")"
     }
-    var planterUsername: String? {
+    private var planterUsername: String? {
         if planter.email != nil {
             return planter.email
         } else {
         return planter.phoneNumber
         }
     }
-    var planterOrganization: String? {
+    private var planterOrganization: String? {
         return planter.organization
     }
     func fetchDetails() {
@@ -78,6 +78,6 @@ extension ProfileViewModel {
         if uploadManager.isUploading {
             uploadManager.stopUploading()
         }
-        coordinatorDelegate?.profileViewModel(self, changeUser: planter)
+        coordinatorDelegate?.profileViewModel(self, didLogoutPlanter: planter)
     }
 }

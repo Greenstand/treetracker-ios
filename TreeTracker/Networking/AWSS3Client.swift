@@ -105,4 +105,3 @@ private extension AWSS3Client {
         static let regionString: String = Configuration.AWS.regionString
     }
 }
- 
