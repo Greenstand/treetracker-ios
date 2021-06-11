@@ -104,6 +104,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ABb-le-R5N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ABb-le-R5N" firstAttribute="trailing" secondItem="6h2-Pn-xih" secondAttribute="trailing" constant="20" id="0tu-Ro-RNk"/>
