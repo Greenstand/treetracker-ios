@@ -124,5 +124,8 @@
         <namedColor name="GrayDark">
             <color red="0.13333333333333333" green="0.14901960784313725" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+         </systemColor>
     </resources>
 </document>
