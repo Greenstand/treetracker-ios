@@ -43,7 +43,6 @@
                             <constraint firstItem="Kfi-ou-o3a" firstAttribute="centerY" secondItem="MVn-kd-r2u" secondAttribute="centerY" id="rV4-hx-9sA"/>
                             <constraint firstItem="Kfi-ou-o3a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BZK-el-BD3" secondAttribute="top" id="rfX-xE-fc6"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="BZK-el-BD3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQg-Ym-Qat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
