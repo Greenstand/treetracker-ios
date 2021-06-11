@@ -40,8 +40,8 @@
                                                             <action selector="nameButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="PYe-JC-HqR"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Qr-Hel">
-                                                        <rect key="frame" x="0.0" y="30" width="107" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Qr-Hel">
+                                                        <rect key="frame" x="0.0" y="30" width="109" height="30"/>
                                                         <state key="normal" title="CHANGE_USER"/>
                                                         <connections>
                                                             <action selector="logoutButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="1hJ-c9-eJ2"/>
