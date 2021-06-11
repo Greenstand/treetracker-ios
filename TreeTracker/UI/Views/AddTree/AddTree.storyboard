@@ -86,7 +86,7 @@
                                                     <action selector="choosePhotoButtonPressed" destination="QqA-0g-MHc" eventType="touchUpInside" id="hYi-An-8be"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOR-gW-lk7" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOR-gW-lk7" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="180" width="374" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="TSq-Gj-eoe"/>
