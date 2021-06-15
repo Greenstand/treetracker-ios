@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ycb-8A-a2p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ycb-8A-a2p">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -81,9 +82,9 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uH-Ds-BVy">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="226"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsq-RB-vJj">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsq-RB-vJj">
                                                 <rect key="frame" x="0.0" y="226" width="374" height="50"/>
                                                 <color key="backgroundColor" name="SecondaryRed"/>
                                                 <constraints>
@@ -105,14 +106,14 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QMo-ZN-1jw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QMo-ZN-1jw" firstAttribute="bottom" secondItem="bUW-da-Vs3" secondAttribute="bottom" constant="20" id="3Km-gY-12p"/>
                             <constraint firstItem="bUW-da-Vs3" firstAttribute="leading" secondItem="XEi-a5-1ie" secondAttribute="leadingMargin" id="DHd-DF-F7I"/>
                             <constraint firstItem="bUW-da-Vs3" firstAttribute="top" secondItem="QMo-ZN-1jw" secondAttribute="top" constant="50" id="Ts3-AN-M3M"/>
                             <constraint firstItem="bUW-da-Vs3" firstAttribute="centerX" secondItem="XEi-a5-1ie" secondAttribute="centerX" id="Wbf-aH-avg"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="QMo-ZN-1jw"/>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="XvD-Hj-ftg" id="OXM-Mz-fNv"/>
@@ -131,5 +132,8 @@
         <namedColor name="SecondaryRed">
             <color red="0.98431372549019602" green="0.29411764705882354" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
