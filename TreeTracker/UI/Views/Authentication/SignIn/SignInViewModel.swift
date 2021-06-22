@@ -61,9 +61,10 @@ class SignInViewModel {
     }
 
     func updateUsername(username: String) {
-        if loginType == .phoneNumber {
-            usernameValue = Validation.cleanedPhoneNumber(phoneNumber: username) }
-        else {
+        switch loginType {
+        case .phoneNumber:
+            usernameValue = Validation.cleanedPhoneNumber(phoneNumber: username)
+        case .email:
             usernameValue = username
         }
     }
