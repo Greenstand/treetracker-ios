@@ -35,10 +35,10 @@ class ProfileViewModel {
         let organization: String
     }
     var title: String {
-        guard planter.firstName == nil, planter.lastName == nil else {
-        return "\(planter.firstName ?? "") \(planter.lastName ?? "")"
+        guard let firstName = planter.firstName, let lastName = planter.lastName else {
+            return L10n.Profile.fallbackTitle
         }
-        return "My Profile"
+        return "\(planter.firstName ?? "") \(planter.lastName ?? "")"
     }
 }
 // MARK: - Profile
