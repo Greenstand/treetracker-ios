@@ -96,7 +96,7 @@ private extension SignInViewModel {
         case .email:
             return .email(usernameValue)
         case .phoneNumber:
-            return .phoneNumber(usernameValue)
+            return .phoneNumber(usernameValue.replacingOccurrences(of: " ", with: ""))
         }
     }
 
