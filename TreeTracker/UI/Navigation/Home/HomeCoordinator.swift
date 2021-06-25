@@ -134,6 +134,7 @@ private extension HomeCoordinator {
         return viewController
     }
 }
+
 // MARK: - HomeViewModelCoordinatorDelegate
 extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
 
@@ -153,12 +154,14 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
         delegate?.homeCoordinatorDidLogout(self)
     }
 }
+
 // MARK: - ProfileViewModelCoordinatorDelegate
 extension HomeCoordinator: ProfileViewModelCoordinatorDelegate {
    func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter) {
         delegate?.homeCoordinatorDidLogout(self)
    }
 }
+
 // MARK: - AddTreeViewModelCoordinatorDelegate
 extension HomeCoordinator: AddTreeViewModelCoordinatorDelegate {
 
