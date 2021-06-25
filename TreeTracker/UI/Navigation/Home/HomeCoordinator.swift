@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 protocol HomeCoordinatorDelegate: class {
     func homeCoordinatorDidLogout(_ homeCoordinator: HomeCoordinator)
