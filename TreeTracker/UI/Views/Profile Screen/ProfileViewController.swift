@@ -9,8 +9,8 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    // MARK: - IBOutlets
-    @IBOutlet private weak var profilePictureImageView: UIImageView!
+   
+    @IBOutlet private var profilePictureImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel! {
         didSet {
             nameLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
@@ -26,25 +26,31 @@ class ProfileViewController: UIViewController {
             organizationLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
         }
     }
-    @IBAction private func changeUserButtonPressed(_ sender: Any) {
-        viewModel?.changeUser()
-    }
+
     var viewModel: ProfileViewModel? {
         didSet {
             viewModel?.viewDelegate = self
             title = viewModel?.title
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         viewModel?.fetchDetails()
-
+    }
 }
+
+// MARK: - Button Actions
+private extension ProfileViewController {
+
+    @IBAction func changeUserButtonPressed() {
+        viewModel?.changeUser()
+    }
 }
 
+// MARK: - ProfileViewModelViewDelegate
 extension ProfileViewController: ProfileViewModelViewDelegate {
+    
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails) {
         profilePictureImageView.image = details.image
         nameLabel.text = details.name
