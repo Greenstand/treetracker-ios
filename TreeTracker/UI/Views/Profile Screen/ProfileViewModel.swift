@@ -46,11 +46,9 @@ class ProfileViewModel {
                 guard let localPhotoPathImage = UIImage(data: data) else {
                     fallthrough
                 }
-                let profiledetails = ProfileDetails(name: planterName, image: localPhotoPathImage, username: planterUsername, organization: planterOrganization)
-                viewDelegate?.profileViewModel(self, didFetchDetails: profiledetails)
+                viewDelegate?.profileViewModel(self, didFetchDetails: profileData(withImage: localPhotoPathImage))
             case .failure:
-                let profiledetails = ProfileDetails(name: planterName, image: Asset.Assets.person.image, username: planterUsername, organization: planterOrganization)
-                viewDelegate?.profileViewModel(self, didFetchDetails: profiledetails)
+                viewDelegate?.profileViewModel(self, didFetchDetails: profileData(withImage: Asset.Assets.person.image))
             }
         }
     }
@@ -83,8 +81,17 @@ private extension ProfileViewModel {
         }
     }
     
-    private var planterOrganization: String? {
+    var planterOrganization: String? {
         return planter.organization
+    }
+    
+    func profileData(withImage image: UIImage) -> ProfileDetails {
+        return ProfileDetails(
+            name: planterName, 
+            image: image, 
+            username: planterUsername, 
+            organization: planterOrganization
+        )
     }
 }
 
