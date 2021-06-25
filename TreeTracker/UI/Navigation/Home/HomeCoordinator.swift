@@ -116,7 +116,7 @@ private extension HomeCoordinator {
         }()
         return viewcontroller
     }
-    
+
     func profileViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Profile.initialScene.instantiate()
         viewController.viewModel = {
