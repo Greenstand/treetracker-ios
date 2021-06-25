@@ -120,7 +120,6 @@ private extension HomeCoordinator {
     func profileViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Profile.initialScene.instantiate()
         viewController.viewModel = {
-            let treeMonitoringService = LocalTreeMonitoringService(coreDataManager: coreDataManager)
             let selfieService = LocalSelfieService(
                 coreDataManager: coreDataManager,
                 documentManager: DocumentManager()
