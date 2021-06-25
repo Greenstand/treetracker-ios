@@ -17,8 +17,10 @@ protocol ProfileViewModelViewDelegate: class {
 }
 
 class ProfileViewModel {
+    
     weak var viewDelegate: ProfileViewModelViewDelegate?
     weak var coordinatorDelegate: ProfileViewModelCoordinatorDelegate?
+  
     private let planter: Planter
     private let selfieService: SelfieService
     private let uploadManager: UploadManaging
@@ -28,56 +30,71 @@ class ProfileViewModel {
         self.selfieService = selfieService
         self.uploadManager = uploadManager
     }
-    struct ProfileDetails {
-        let name: String
-        let image: UIImage
-        let username: String
-        let organization: String
-    }
+    
     var title: String {
-        guard let firstName = planter.firstName, let lastName = planter.lastName else {
+        guard let firstName = planter.firstName, 
+              let lastName = planter.lastName else {
             return L10n.Profile.fallbackTitle
         }
-        return "\(planter.firstName ?? "") \(planter.lastName ?? "")"
+        return "\(firstName) \(lastName)"
     }
-}
-// MARK: - Profile
-extension ProfileViewModel {
-    private var planterName: String {
-        guard let firstName = planter.firstName else {
-            return ""
-        }
-        return "\(firstName) \(planter.lastName ?? "")"
-    }
-    private var planterUsername: String? {
-        if planter.email != nil {
-            return planter.email
-        } else {
-        return planter.phoneNumber
-        }
-    }
-    private var planterOrganization: String? {
-        return planter.organization
-    }
+    
     func fetchDetails() {
-       selfieService.fetchSelfie(forPlanter: planter) { (result) in
+        selfieService.fetchSelfie(forPlanter: planter) { (result) in
             switch result {
             case .success(let data):
                 guard let localPhotoPathImage = UIImage(data: data) else {
                     fallthrough
                 }
-                let profiledetails = ProfileDetails(name: planterName, image: localPhotoPathImage, username: planterUsername!, organization: planterOrganization ?? "")
+                let profiledetails = ProfileDetails(name: planterName, image: localPhotoPathImage, username: planterUsername, organization: planterOrganization)
                 viewDelegate?.profileViewModel(self, didFetchDetails: profiledetails)
             case .failure:
-                let profiledetails = ProfileDetails(name: planterName, image: Asset.Assets.person.image, username: planterUsername!, organization: planterOrganization ?? "")
+                let profiledetails = ProfileDetails(name: planterName, image: Asset.Assets.person.image, username: planterUsername, organization: planterOrganization)
                 viewDelegate?.profileViewModel(self, didFetchDetails: profiledetails)
             }
         }
     }
+    
     func changeUser() {
         if uploadManager.isUploading {
             uploadManager.stopUploading()
         }
         coordinatorDelegate?.profileViewModel(self, didLogoutPlanter: planter)
     }
+}
+
+// MARK: - Private
+private extension ProfileViewModel {
+    
+    var planterName: String {
+        guard let firstName = planter.firstName else {
+            return ""
+        }
+        return "\(firstName) \(planter.lastName ?? "")"
+    }
+    
+    var planterUsername: String {
+        if planter.email != nil {
+            return planter.email
+        } else planter.phoneNumber != nil {
+            return planter.phoneNumber
+        } else {
+            return ""
+        }
+    }
+    
+    private var planterOrganization: String? {
+        return planter.organization
+    }
+}
+
+// MARK: - Structs
+extension ProfileViewModel {
+        
+    struct ProfileDetails {
+        let name: String
+        let image: UIImage
+        let username: String
+        let organization: String?
+    }   
 }
