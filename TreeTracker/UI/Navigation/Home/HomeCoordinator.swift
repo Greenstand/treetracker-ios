@@ -124,9 +124,11 @@ private extension HomeCoordinator {
                 coreDataManager: coreDataManager,
                 documentManager: DocumentManager()
             )
-            let viewModel = ProfileViewModel(planter: planter,
-                                             selfieService: selfieService,
-                                             uploadManager: uploadManager)
+            let viewModel = ProfileViewModel(
+                planter: planter,
+                selfieService: selfieService,
+                uploadManager: uploadManager
+            )
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
