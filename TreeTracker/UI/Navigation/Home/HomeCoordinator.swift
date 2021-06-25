@@ -158,6 +158,7 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
 
 // MARK: - ProfileViewModelCoordinatorDelegate
 extension HomeCoordinator: ProfileViewModelCoordinatorDelegate {
+
    func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter) {
         delegate?.homeCoordinatorDidLogout(self)
    }
