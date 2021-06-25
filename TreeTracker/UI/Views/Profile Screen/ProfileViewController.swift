@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
 }
 }
 
-extension ProfileViewController: ProfileViewModelViewDelegate, AlertPresenting {
+extension ProfileViewController: ProfileViewModelViewDelegate {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails) {
         profilePictureImageView.image = details.image
         nameLabel.text = details.name
