@@ -191,7 +191,7 @@ extension HomeViewController: HomeViewModelViewDelegate {
         uploadsCountLabel.text = "\(data.pendingUpload)"
         uploadsCountView.isHidden = !data.hasPendingUploads
     }
-    
+
     func homeViewModel(_ homeViewModel: HomeViewModel, didReceiveError error: Error) {
         present(alert: .error(error))
     }
