@@ -109,6 +109,9 @@
 		93FC587C25A7ABAE00B93F14 /* PlanterCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC587B25A7ABAE00B93F14 /* PlanterCheckIn.swift */; };
 		93FC588425A7B05500B93F14 /* DeviceInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC588325A7B05500B93F14 /* DeviceInfoProvider.swift */; };
 		93FC588925A7B2FD00B93F14 /* AppBundleInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */; };
+		F258B5A3260A4E980053DAD7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F258B5A2260A4E980053DAD7 /* Profile.storyboard */; };
+		F258B5A7260A4ED50053DAD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */; };
+		F258B5A9260A4EF20053DAD7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A8260A4EF20053DAD7 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +244,9 @@
 		93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBundleInfoProvider.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		F258B5A2260A4E980053DAD7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F258B5A8260A4EF20053DAD7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.test.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.test.xcconfig"; sourceTree = "<group>"; };
 		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -603,6 +609,7 @@
 		93E82F57246C368200006C91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F258B5A1260A4C730053DAD7 /* Profile Screen */,
 				93E82F58246C36A300006C91 /* Loading */,
 				93E82F5F246C3B3200006C91 /* Authentication */,
 				93EC8C3524AA4FD100946C0C /* Home */,
@@ -736,6 +743,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F258B5A1260A4C730053DAD7 /* Profile Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F258B5A2260A4E980053DAD7 /* Profile.storyboard */,
+				F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */,
+				F258B5A8260A4EF20053DAD7 /* ProfileViewModel.swift */,
+			);
+			path = "Profile Screen";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -854,6 +871,7 @@
 				93E82F52246C35C700006C91 /* SignIn.storyboard in Resources */,
 				93989CF7246EA34A00A1B21F /* SignUp.storyboard in Resources */,
 				937D78C425C70E45007A7A37 /* Montserrat-SemiBold.ttf in Resources */,
+				F258B5A3260A4E980053DAD7 /* Profile.storyboard in Resources */,
 				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
 				93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */,
 				937D78C225C70E45007A7A37 /* Lato-Regular.ttf in Resources */,
@@ -979,6 +997,7 @@
 				93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */,
 				93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */,
 				9376A66B2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift in Sources */,
+				F258B5A7260A4ED50053DAD7 /* ProfileViewController.swift in Sources */,
 				93EC8CB324BCFC7E00946C0C /* Location.swift in Sources */,
 				9390BECC25C6D295000B29AB /* CurrentPlanterService.swift in Sources */,
 				93FC588425A7B05500B93F14 /* DeviceInfoProvider.swift in Sources */,
@@ -1024,6 +1043,7 @@
 				937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */,
 				937D78C925C70F11007A7A37 /* Fonts.swift in Sources */,
 				93C579A824A33DE7009C0E46 /* AlertPresenting.swift in Sources */,
+				F258B5A9260A4EF20053DAD7 /* ProfileViewModel.swift in Sources */,
 				93989CFF246EAC0400A1B21F /* TermsViewModel.swift in Sources */,
 				93E1896B245DEBDB00217F21 /* Coordinator.swift in Sources */,
 				93E82F66246C439100006C91 /* Strings.swift in Sources */,

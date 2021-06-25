@@ -60,3 +60,6 @@
 "GPSAccuracyLabel.Text.Good" = "Good";
 "GPSAccuracyLabel.Text.Bad" = "Bad";
 "GPSAccuracyLabel.Text.Unknown" = "Unknown";
+
+//Profile screen
+"Profile.FallbackTitle" = "My Profile";

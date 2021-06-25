@@ -99,6 +99,11 @@ internal enum L10n {
     }
   }
 
+  internal enum Profile {
+    /// My Profile
+    internal static let fallbackTitle = L10n.tr("Localizable", "Profile.FallbackTitle")
+  }
+
   internal enum Selfie {
     /// Take Selfie
     internal static let title = L10n.tr("Localizable", "Selfie.Title")
