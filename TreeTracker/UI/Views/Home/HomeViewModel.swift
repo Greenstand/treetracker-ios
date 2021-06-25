@@ -120,6 +120,7 @@ extension HomeViewModel {
         coordinatorDelegate?.homeViewModel(self, didLogoutPlanter: planter)
     }
 }
+
 // MARK: - TreeServiceDelegate
 extension HomeViewModel: TreeMonitoringServiceDelegate {
 
