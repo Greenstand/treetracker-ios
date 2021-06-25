@@ -72,10 +72,10 @@ private extension ProfileViewModel {
     }
     
     var planterUsername: String {
-        if planter.email != nil {
-            return planter.email
-        } else if planter.phoneNumber != nil {
-            return planter.phoneNumber
+        if let email = planter.email {
+            return email
+        } else if let phoneNumber = planter.phoneNumber {
+            return phoneNumber
         } else {
             return ""
         }
