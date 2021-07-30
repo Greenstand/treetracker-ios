@@ -63,3 +63,4 @@
 
 //Profile screen
 "Profile.FallbackTitle" = "My Profile";
+"Profile.ChangeUserButton.Title" = "Change User";

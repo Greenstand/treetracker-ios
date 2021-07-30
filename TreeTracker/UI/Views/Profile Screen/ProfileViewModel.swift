@@ -32,11 +32,7 @@ class ProfileViewModel {
     }
 
     var title: String {
-        guard let firstName = planter.firstName, 
-              let lastName = planter.lastName else {
-            return L10n.Profile.fallbackTitle
-        }
-        return "\(firstName) \(lastName)"
+        return self.planterName ?? L10n.Profile.fallbackTitle
     }
 
     func fetchDetails() {
@@ -63,10 +59,10 @@ class ProfileViewModel {
 
 // MARK: - Private
 private extension ProfileViewModel {
-    
-    var planterName: String {
+
+    var planterName: String? {
         guard let firstName = planter.firstName else {
-            return ""
+            return nil
         }
         return "\(firstName) \(planter.lastName ?? "")"
     }
@@ -87,15 +83,15 @@ private extension ProfileViewModel {
 
     func profileData(withImage image: UIImage) -> ProfileDetails {
         return ProfileDetails(
-            name: planterName, 
-            image: image, 
-            username: planterUsername, 
+            name: planterName ?? "",
+            image: image,
+            username: planterUsername,
             organization: planterOrganization
         )
     }
 }
 
-// MARK: - Structs
+// MARK: - Nested Types
 extension ProfileViewModel {
 
     struct ProfileDetails {
@@ -103,5 +99,5 @@ extension ProfileViewModel {
         let image: UIImage
         let username: String
         let organization: String?
-    }   
+    }
 }
