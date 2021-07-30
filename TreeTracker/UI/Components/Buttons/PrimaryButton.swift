@@ -8,16 +8,18 @@
 
 import UIKit
 
-class PrimaryButton: UIButton {
+class PrimaryButton: RoundedButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        super.commonInit()
+        backgroundColor = backgroundColor(forState: state)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
+        super.commonInit()
+        backgroundColor = backgroundColor(forState: state)
     }
 
     override var isHighlighted: Bool {
@@ -35,19 +37,6 @@ class PrimaryButton: UIButton {
 
 // MARK: - Private
 private extension PrimaryButton {
-
-    func commonInit() {
-
-        layer.cornerRadius = 5.0
-        layer.masksToBounds = true
-        clipsToBounds = true
-
-        setTitleColor(.white, for: .normal)
-        setTitleColor(Asset.Colors.grayDark.color, for: .disabled)
-        titleLabel?.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
-
-        backgroundColor = backgroundColor(forState: state)
-    }
 
     func backgroundColor(forState state: State) -> UIColor {
         switch state {
