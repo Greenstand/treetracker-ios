@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol SelfieViewModelCoordinatorDelegate: class {
+protocol SelfieViewModelCoordinatorDelegate: AnyObject {
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForPlanter planter: Planter)
 }
 
-protocol SelfieViewModelViewDelegate: class {
+protocol SelfieViewModelViewDelegate: AnyObject {
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didReceiveError error: Error)
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdatePreviewImage image: UIImage)
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateSaveSelfieEnabled enabled: Bool)

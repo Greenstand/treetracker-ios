@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol ProfileViewModelCoordinatorDelegate: class {
+protocol ProfileViewModelCoordinatorDelegate: AnyObject {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter)
 }
 
-protocol ProfileViewModelViewDelegate: class {
+protocol ProfileViewModelViewDelegate: AnyObject {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails)
 }
 

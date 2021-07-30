@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Tree: class {
+protocol Tree: AnyObject {
     var createdAt: Date? { get set }
     var horizontalAccuracy: Double { get set }
     var latitude: Double { get }

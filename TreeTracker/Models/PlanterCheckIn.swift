@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PlanterCheckIn: class {
+protocol PlanterCheckIn: AnyObject {
     var createdAt: Date? { get }
     var uuid: String? { get }
     var localPhotoPath: String? { get }

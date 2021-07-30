@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol SignUpViewModelCoordinatorDelegate: class {
+protocol SignUpViewModelCoordinatorDelegate: AnyObject {
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername planter: Planter)
 }
 
-protocol SignUpViewModelViewDelegate: class {
+protocol SignUpViewModelViewDelegate: AnyObject {
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didReceiveError error: Error)
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateFirstName result: Validation.Result)
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateLastName result: Validation.Result)

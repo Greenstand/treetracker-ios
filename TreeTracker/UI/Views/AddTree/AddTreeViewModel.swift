@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol AddTreeViewModelCoordinatorDelegate: class {
+protocol AddTreeViewModelCoordinatorDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree)
 }
 
-protocol AddTreeViewModelViewDelegate: class {
+protocol AddTreeViewModelViewDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage?)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateGPSAccuracy accuracy: AddTreeViewModel.GPSAccuracy)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTakePhotoEnabled enabled: Bool)

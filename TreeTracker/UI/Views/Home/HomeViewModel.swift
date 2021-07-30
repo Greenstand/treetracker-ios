@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol HomeViewModelCoordinatorDelegate: class {
+protocol HomeViewModelCoordinatorDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewProfileForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter)
 }
 
-protocol HomeViewModelViewDelegate: class {
+protocol HomeViewModelViewDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didReceiveError error: Error)
     func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateTreeCount data: HomeViewModel.TreeCountData)
     func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile profile: HomeViewModel.ProfileData)

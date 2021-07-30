@@ -9,12 +9,12 @@
 import Foundation
 import CoreData
 
-protocol TreeMonitoringServiceDelegate: class {
+protocol TreeMonitoringServiceDelegate: AnyObject {
     func treeMonitoringService(_ treeMonitoringService: TreeMonitoringService, didUpdateTrees trees: [Tree])
     func treeMonitoringService(_ treeMonitoringService: TreeMonitoringService, didError error: Error)
 }
 
-protocol TreeMonitoringService: class {
+protocol TreeMonitoringService: AnyObject {
     var delegate: TreeMonitoringServiceDelegate? { get set }
     func startMonitoringTrees(forPlanter planter: Planter)
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol HomeCoordinatorDelegate: class {
+protocol HomeCoordinatorDelegate: AnyObject {
     func homeCoordinatorDidLogout(_ homeCoordinator: HomeCoordinator)
 }
 
