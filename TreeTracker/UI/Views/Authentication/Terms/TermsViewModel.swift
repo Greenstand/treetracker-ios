@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol TermsViewModelCoordinatorDelegate: class {
+protocol TermsViewModelCoordinatorDelegate: AnyObject {
     func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForPlanter planter: Planter)
 }
 
-protocol TermsViewModelViewDelegate: class {
+protocol TermsViewModelViewDelegate: AnyObject {
     func termsViewModel(_ termsViewModel: TermsViewModel, didReceiveError error: Error)
     func termsViewModel(_ termsViewModel: TermsViewModel, didFetchTerms string: String)
     func termsViewModel(_ termsViewModel: TermsViewModel, didUpdateAcceptTermsEnabled enabled: Bool)

@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-protocol LocationServiceDelegate: class {
+protocol LocationServiceDelegate: AnyObject {
     func locationService(_ locationService: LocationService, didUpdateAccuracy: Double?)
 }
 

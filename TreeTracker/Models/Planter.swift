@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Planter: class {
+protocol Planter: AnyObject {
     var createdAt: Date? { get set }
     var email: String? { get set }
     var firstName: String? { get set }

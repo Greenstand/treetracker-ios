@@ -16,7 +16,7 @@ struct CoordinatorConfiguration: CoordinatorConfigurable {
     let navigationController: UINavigationController
 }
 
-protocol Coordinator: class {
+protocol Coordinator: AnyObject {
     var childCoordinators: [Coordinator] { get set }
     var configuration: CoordinatorConfigurable { get }
     func start()

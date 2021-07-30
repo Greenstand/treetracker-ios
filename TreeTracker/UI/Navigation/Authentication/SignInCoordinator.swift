@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SignInCoordinatorDelegate: class {
+protocol SignInCoordinatorDelegate: AnyObject {
     func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInPlanter planter: Planter)
 }
 

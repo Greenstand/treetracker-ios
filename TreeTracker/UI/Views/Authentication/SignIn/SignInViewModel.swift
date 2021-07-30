@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SignInViewModelCoordinatorDelegate: class {
+protocol SignInViewModelCoordinatorDelegate: AnyObject {
     func signInViewModel(_ signInViewModel: SignInViewModel, didLoginPlanter planter: Planter)
     func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession planter: Planter)
     func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithUnknownUser username: Username)
@@ -16,7 +16,7 @@ protocol SignInViewModelCoordinatorDelegate: class {
     func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithSelfieRequired planter: Planter)
 }
 
-protocol SignInViewModelViewDelegate: class {
+protocol SignInViewModelViewDelegate: AnyObject {
     func signInViewModel(_ signInViewModel: SignInViewModel, didReceiveError error: Error)
     func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateValidationState result: Validation.Result)
     func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginEnabled enabled: Bool)

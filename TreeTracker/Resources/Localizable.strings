@@ -63,3 +63,10 @@
 
 //Profile screen
 "Profile.FallbackTitle" = "My Profile";
+"Profile.ChangeUserButton.Title" = "Change User";
+
+//Logout Confirmation
+"LogOutConfirmation.Title" = "Change User";
+"LogOutConfirmation.Message" = "Are you sure you want to log out and change user?";
+"LogOutConfirmation.CancelButton.Title" = "Cancel";
+"LogOutConfirmation.LogOutButton.Title" = "Log Out";

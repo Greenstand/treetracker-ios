@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol UploadManagerDelegate: class {
+protocol UploadManagerDelegate: AnyObject {
     func uploadManagerDidStartUploadingTrees(_ uploadManager: UploadManager)
     func uploadManagerDidStopUploadingTrees(_ uploadManager: UploadManager)
     func uploadManager(_ uploadManager: UploadManager, didError error: Error)
 }
 
-protocol UploadManaging: class {
+protocol UploadManaging: AnyObject {
     var delegate: UploadManagerDelegate? { get set }
     func startUploading()
     func stopUploading()

@@ -8,37 +8,33 @@
 
 import UIKit
 
-protocol ProfileViewModelCoordinatorDelegate: class {
+protocol ProfileViewModelCoordinatorDelegate: AnyObject {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter)
 }
 
-protocol ProfileViewModelViewDelegate: class {
+protocol ProfileViewModelViewDelegate: AnyObject {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails)
 }
 
 class ProfileViewModel {
-    
+
     weak var viewDelegate: ProfileViewModelViewDelegate?
     weak var coordinatorDelegate: ProfileViewModelCoordinatorDelegate?
-  
+
     private let planter: Planter
     private let selfieService: SelfieService
     private let uploadManager: UploadManaging
-    
+
     init(planter: Planter, selfieService: SelfieService, uploadManager: UploadManaging) {
         self.planter = planter
         self.selfieService = selfieService
         self.uploadManager = uploadManager
     }
-    
+
     var title: String {
-        guard let firstName = planter.firstName, 
-              let lastName = planter.lastName else {
-            return L10n.Profile.fallbackTitle
-        }
-        return "\(firstName) \(lastName)"
+        return self.planterName ?? L10n.Profile.fallbackTitle
     }
-    
+
     func fetchDetails() {
         selfieService.fetchSelfie(forPlanter: planter) { (result) in
             switch result {
@@ -52,7 +48,7 @@ class ProfileViewModel {
             }
         }
     }
-    
+
     func changeUser() {
         if uploadManager.isUploading {
             uploadManager.stopUploading()
@@ -63,14 +59,14 @@ class ProfileViewModel {
 
 // MARK: - Private
 private extension ProfileViewModel {
-    
-    var planterName: String {
+
+    var planterName: String? {
         guard let firstName = planter.firstName else {
-            return ""
+            return nil
         }
         return "\(firstName) \(planter.lastName ?? "")"
     }
-    
+
     var planterUsername: String {
         if let email = planter.email {
             return email
@@ -80,28 +76,28 @@ private extension ProfileViewModel {
             return ""
         }
     }
-    
+
     var planterOrganization: String? {
         return planter.organization
     }
-    
+
     func profileData(withImage image: UIImage) -> ProfileDetails {
         return ProfileDetails(
-            name: planterName, 
-            image: image, 
-            username: planterUsername, 
+            name: planterName ?? "",
+            image: image,
+            username: planterUsername,
             organization: planterOrganization
         )
     }
 }
 
-// MARK: - Structs
+// MARK: - Nested Types
 extension ProfileViewModel {
-        
+
     struct ProfileDetails {
         let name: String
         let image: UIImage
         let username: String
         let organization: String?
-    }   
+    }
 }

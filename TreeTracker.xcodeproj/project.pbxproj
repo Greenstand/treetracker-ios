@@ -10,6 +10,8 @@
 		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
 		93039D41251A505800EEF36D /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93039D40251A505800EEF36D /* ImageUploadService.swift */; };
 		930837FE25ACF37900A64A18 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930837FD25ACF37900A64A18 /* Logger.swift */; };
+		9311609126B40E5E007FCA52 /* DestructiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609026B40E5E007FCA52 /* DestructiveButton.swift */; };
+		9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609A26B4108A007FCA52 /* RoundedButton.swift */; };
 		931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */; };
 		931C37BA249BAD0900EE24DC /* Selfie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931C37B9249BAD0900EE24DC /* Selfie.storyboard */; };
 		93204ED3251618D20059E136 /* TreeUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93204ED2251618D20059E136 /* TreeUploadService.swift */; };
@@ -134,6 +136,8 @@
 /* Begin PBXFileReference section */
 		93039D40251A505800EEF36D /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
 		930837FD25ACF37900A64A18 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9311609026B40E5E007FCA52 /* DestructiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveButton.swift; sourceTree = "<group>"; };
+		9311609A26B4108A007FCA52 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewModel.swift; sourceTree = "<group>"; };
 		931C37B9249BAD0900EE24DC /* Selfie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Selfie.storyboard; sourceTree = "<group>"; };
 		93204ED2251618D20059E136 /* TreeUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeUploadService.swift; sourceTree = "<group>"; };
@@ -278,6 +282,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9311609426B40EE0007FCA52 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				93989D05246ED00D00A1B21F /* PrimaryButton.swift */,
+				9311609026B40E5E007FCA52 /* DestructiveButton.swift */,
+				9311609A26B4108A007FCA52 /* RoundedButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		9311609526B40EF0007FCA52 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				932EA1AB2478311F0035394D /* KeyboardDismissing.swift */,
+				93C579A724A33DE7009C0E46 /* AlertPresenting.swift */,
+				937D78D325C76450007A7A37 /* KeyboardObserving.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9311609626B40F02007FCA52 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				93989D07246ED51C00A1B21F /* SignInTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		9311609726B40F0C007FCA52 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				932EA1AF247954B40035394D /* BaseNavigationViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		93204ED4251627C60059E136 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,12 +417,10 @@
 		93989D04246ECFED00A1B21F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				93989D05246ED00D00A1B21F /* PrimaryButton.swift */,
-				93989D07246ED51C00A1B21F /* SignInTextField.swift */,
-				932EA1AB2478311F0035394D /* KeyboardDismissing.swift */,
-				932EA1AF247954B40035394D /* BaseNavigationViewController.swift */,
-				93C579A724A33DE7009C0E46 /* AlertPresenting.swift */,
-				937D78D325C76450007A7A37 /* KeyboardObserving.swift */,
+				9311609726B40F0C007FCA52 /* ViewControllers */,
+				9311609626B40F02007FCA52 /* TextFields */,
+				9311609526B40EF0007FCA52 /* Protocols */,
+				9311609426B40EE0007FCA52 /* Buttons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -979,6 +1017,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9311609126B40E5E007FCA52 /* DestructiveButton.swift in Sources */,
 				9376A65E2586C48E00D7FDC1 /* TreeUploadOperation.swift in Sources */,
 				9376A6662586C4DF00D7FDC1 /* TreeBatchUploadOperation.swift in Sources */,
 				93989D06246ED00D00A1B21F /* PrimaryButton.swift in Sources */,
@@ -1060,6 +1099,7 @@
 				937D0A072554B30100E103EB /* UploadBundle.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
 				93EC8CA324AD2E7B00946C0C /* Planter.swift in Sources */,
+				9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */,
 				9376A6732586C79200D7FDC1 /* TreeBundleUploadOperation.swift in Sources */,
 				9376A68A2586CE9400D7FDC1 /* PlanterImagesUploadOperation.swift in Sources */,
 				93EC8C3424AA4AE100946C0C /* HomeCoordinator.swift in Sources */,
