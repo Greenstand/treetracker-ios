@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
             title = viewModel?.title
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.fetchDetails()
@@ -50,7 +50,7 @@ private extension ProfileViewController {
 
 // MARK: - ProfileViewModelViewDelegate
 extension ProfileViewController: ProfileViewModelViewDelegate {
-    
+
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails) {
         profilePictureImageView.image = details.image
         nameLabel.text = details.name

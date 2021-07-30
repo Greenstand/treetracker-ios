@@ -17,20 +17,20 @@ protocol ProfileViewModelViewDelegate: AnyObject {
 }
 
 class ProfileViewModel {
-    
+
     weak var viewDelegate: ProfileViewModelViewDelegate?
     weak var coordinatorDelegate: ProfileViewModelCoordinatorDelegate?
-  
+
     private let planter: Planter
     private let selfieService: SelfieService
     private let uploadManager: UploadManaging
-    
+
     init(planter: Planter, selfieService: SelfieService, uploadManager: UploadManaging) {
         self.planter = planter
         self.selfieService = selfieService
         self.uploadManager = uploadManager
     }
-    
+
     var title: String {
         guard let firstName = planter.firstName, 
               let lastName = planter.lastName else {
@@ -38,7 +38,7 @@ class ProfileViewModel {
         }
         return "\(firstName) \(lastName)"
     }
-    
+
     func fetchDetails() {
         selfieService.fetchSelfie(forPlanter: planter) { (result) in
             switch result {
@@ -52,7 +52,7 @@ class ProfileViewModel {
             }
         }
     }
-    
+
     func changeUser() {
         if uploadManager.isUploading {
             uploadManager.stopUploading()
@@ -70,7 +70,7 @@ private extension ProfileViewModel {
         }
         return "\(firstName) \(planter.lastName ?? "")"
     }
-    
+
     var planterUsername: String {
         if let email = planter.email {
             return email
@@ -80,11 +80,11 @@ private extension ProfileViewModel {
             return ""
         }
     }
-    
+
     var planterOrganization: String? {
         return planter.organization
     }
-    
+
     func profileData(withImage image: UIImage) -> ProfileDetails {
         return ProfileDetails(
             name: planterName, 
@@ -97,7 +97,7 @@ private extension ProfileViewModel {
 
 // MARK: - Structs
 extension ProfileViewModel {
-        
+
     struct ProfileDetails {
         let name: String
         let image: UIImage
