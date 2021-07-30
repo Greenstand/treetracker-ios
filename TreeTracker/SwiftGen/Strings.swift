@@ -99,6 +99,21 @@ internal enum L10n {
     }
   }
 
+  internal enum LogOutConfirmation {
+    /// Are you sure you want to log out and change user?
+    internal static let message = L10n.tr("Localizable", "LogOutConfirmation.Message")
+    /// Change User
+    internal static let title = L10n.tr("Localizable", "LogOutConfirmation.Title")
+    internal enum CancelButton {
+      /// Cancel
+      internal static let title = L10n.tr("Localizable", "LogOutConfirmation.CancelButton.Title")
+    }
+    internal enum LogOutButton {
+      /// Log Out
+      internal static let title = L10n.tr("Localizable", "LogOutConfirmation.LogOutButton.Title")
+    }
+  }
+
   internal enum Profile {
     /// My Profile
     internal static let fallbackTitle = L10n.tr("Localizable", "Profile.FallbackTitle")

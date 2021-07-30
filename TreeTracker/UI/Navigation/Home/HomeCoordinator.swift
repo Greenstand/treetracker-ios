@@ -63,6 +63,13 @@ private extension HomeCoordinator {
             animated: true
         )
     }
+
+    func showLogoutConfirmation() {
+        configuration.navigationController.viewControllers.first?.present(
+            confirmLogoutViewController,
+            animated: true
+        )
+    }
 }
 
 // MARK: - View Controllers
@@ -134,6 +141,26 @@ private extension HomeCoordinator {
         }()
         return viewController
     }
+
+    var confirmLogoutViewController: UIViewController {
+
+        let alertController = UIAlertController(
+            title: "Change user",
+            message: "Are you sure you want to logout and change user?",
+            preferredStyle: .alert
+        )
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+            self.delegate?.homeCoordinatorDidLogout(self)
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(logoutAction)
+
+        return alertController
+
+    }
 }
 
 // MARK: - HomeViewModelCoordinatorDelegate
@@ -152,7 +179,7 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
     }
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter) {
-        delegate?.homeCoordinatorDidLogout(self)
+        showLogoutConfirmation()
     }
 }
 
@@ -160,7 +187,7 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
 extension HomeCoordinator: ProfileViewModelCoordinatorDelegate {
 
    func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter) {
-        delegate?.homeCoordinatorDidLogout(self)
+        showLogoutConfirmation()
    }
 }
 
