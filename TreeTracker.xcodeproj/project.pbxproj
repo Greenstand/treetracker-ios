@@ -111,6 +111,7 @@
 		93FC587C25A7ABAE00B93F14 /* PlanterCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC587B25A7ABAE00B93F14 /* PlanterCheckIn.swift */; };
 		93FC588425A7B05500B93F14 /* DeviceInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC588325A7B05500B93F14 /* DeviceInfoProvider.swift */; };
 		93FC588925A7B2FD00B93F14 /* AppBundleInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */; };
+		AE6A994F26C4E1AB00AAAEFC /* CustomCameraOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6A994E26C4E1AB00AAAEFC /* CustomCameraOverlayView.swift */; };
 		F258B5A3260A4E980053DAD7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F258B5A2260A4E980053DAD7 /* Profile.storyboard */; };
 		F258B5A7260A4ED50053DAD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */; };
 		F258B5A9260A4EF20053DAD7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A8260A4EF20053DAD7 /* ProfileViewModel.swift */; };
@@ -246,6 +247,7 @@
 		93FC587B25A7ABAE00B93F14 /* PlanterCheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanterCheckIn.swift; sourceTree = "<group>"; };
 		93FC588325A7B05500B93F14 /* DeviceInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoProvider.swift; sourceTree = "<group>"; };
 		93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBundleInfoProvider.swift; sourceTree = "<group>"; };
+		AE6A994E26C4E1AB00AAAEFC /* CustomCameraOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraOverlayView.swift; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F258B5A2260A4E980053DAD7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				93D7295724C49CA700271256 /* GPSAccuracyLabel.swift */,
+				AE6A994E26C4E1AB00AAAEFC /* CustomCameraOverlayView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1050,6 +1053,7 @@
 				9376A6B42588144500D7FDC1 /* TreeImageUploadOperation.swift in Sources */,
 				9376A6852586CE6F00D7FDC1 /* PlanterUploadOperation.swift in Sources */,
 				93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */,
+				AE6A994F26C4E1AB00AAAEFC /* CustomCameraOverlayView.swift in Sources */,
 				93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */,
 				93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */,
 				93204ED3251618D20059E136 /* TreeUploadService.swift in Sources */,
