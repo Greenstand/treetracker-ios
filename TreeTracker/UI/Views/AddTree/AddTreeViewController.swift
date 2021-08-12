@@ -106,6 +106,10 @@ private extension AddTreeViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
         imagePicker.cameraDevice = .rear
+        imagePicker.showsCameraControls = false
+        customCameraOverlayView.frame = self.view.frame
+        customCameraOverlayView.imagePicker = imagePicker
+        imagePicker.cameraOverlayView = customCameraOverlayView
         present(imagePicker, animated: true)
     }
 
@@ -140,6 +144,7 @@ extension AddTreeViewController: AddTreeViewModelViewDelegate {
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTakePhotoEnabled enabled: Bool) {
         takePhotoButton.isEnabled = enabled
+        customCameraOverlayView.takePhotoButton.isEnabled = enabled
     }
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateAddTreeEnabled enabled: Bool) {
@@ -148,17 +153,26 @@ extension AddTreeViewController: AddTreeViewModelViewDelegate {
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateGPSAccuracy accuracy: AddTreeViewModel.GPSAccuracy) {
         gpsAccuracyLabel.accuracy = accuracy.gpsLabelAccuracy
+        customCameraOverlayView.gpsAccuracyLabel.accuracy = accuracy.gpsLabelAccuracy
         switch accuracy {
         case .good:
             searchGPSSignalImageView.stopAnimating()
             searchGPSSignalImageView.isHidden = true
             takePhotoButton.isEnabled = true
             takePhotoButton.isHidden = false
+            customCameraOverlayView.searchGPSSignalImageView.stopAnimating()
+            customCameraOverlayView.searchGPSSignalImageView.isHidden = true
+            customCameraOverlayView.takePhotoButton.isEnabled = true
+            customCameraOverlayView.takePhotoButton.isHidden = false
         case .bad, .unknown:
             searchGPSSignalImageView.startAnimating()
             searchGPSSignalImageView.isHidden = false
             takePhotoButton.isEnabled = false
             takePhotoButton.isHidden = true
+            customCameraOverlayView.searchGPSSignalImageView.startAnimating()
+            customCameraOverlayView.searchGPSSignalImageView.isHidden = false
+            customCameraOverlayView.takePhotoButton.isEnabled = false
+            customCameraOverlayView.takePhotoButton.isHidden = true
         }
     }
 
