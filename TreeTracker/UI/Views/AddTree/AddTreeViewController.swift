@@ -81,6 +81,7 @@ class AddTreeViewController: UIViewController, AlertPresenting {
             title = viewModel?.title
         }
     }
+    private lazy var customCameraOverlayView = CustomCameraOverlayView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
