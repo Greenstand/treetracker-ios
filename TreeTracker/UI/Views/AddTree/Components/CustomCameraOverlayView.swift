@@ -37,7 +37,24 @@ class CustomCameraOverlayView: UIView {
         takePhotoButton.setTitle(L10n.AddTree.PhotoButton.Title.takePhoto, for: .normal)
         takePhotoButton.isEnabled = false
         takePhotoButton.isHidden = true
+        takePhotoButton.translatesAutoresizingMaskIntoConstraints = false
         return takePhotoButton
+    }()
+    lazy var stackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .equalCentering
+        stackView.spacing = 10
+        stackView.backgroundColor = .white
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    lazy var backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     // MARK: - Init
     init() {
@@ -49,26 +66,26 @@ class CustomCameraOverlayView: UIView {
     }
     // MARK: - Private
     private func setupView() {
-        addSubview(gpsAccuracyLabel)
-        addSubview(searchGPSSignalImageView)
-        addSubview(takePhotoButton)
+        addSubview(backgroundView)
+        backgroundView.addSubview(stackView)
+        stackView.addArrangedSubview(gpsAccuracyLabel)
+        stackView.addArrangedSubview(searchGPSSignalImageView)
+        stackView.addArrangedSubview(takePhotoButton)
         setupLayout()
         setupActions()
     }
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            takePhotoButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            takePhotoButton.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            takePhotoButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            takePhotoButton.heightAnchor.constraint(equalToConstant: 50),
-            searchGPSSignalImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            searchGPSSignalImageView.bottomAnchor.constraint(equalTo: takePhotoButton.topAnchor, constant: -10),
-            searchGPSSignalImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            gpsAccuracyLabel.heightAnchor.constraint(equalToConstant: 50),
             searchGPSSignalImageView.heightAnchor.constraint(equalToConstant: 50),
-            gpsAccuracyLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            gpsAccuracyLabel.bottomAnchor.constraint(equalTo: searchGPSSignalImageView.topAnchor, constant: -10),
-            gpsAccuracyLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            gpsAccuracyLabel.heightAnchor.constraint(equalToConstant: 30)
+            takePhotoButton.heightAnchor.constraint(equalToConstant: 50),
+            backgroundView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            backgroundView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            backgroundView.heightAnchor.constraint(equalToConstant: 184),
+            stackView.widthAnchor.constraint(equalTo: backgroundView.widthAnchor, constant: -40),
+            stackView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, constant: -40),
+            stackView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor)
         ])
     }
     private func setupActions() {
@@ -78,4 +95,3 @@ class CustomCameraOverlayView: UIView {
         imagePicker?.takePicture()
     }
 }
-
