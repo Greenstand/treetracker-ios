@@ -113,9 +113,16 @@ private extension HomeCoordinator {
                 coreDataManager: coreDataManager,
                 documentManager: DocumentManager()
             )
+            let locationDataService = LocalLocationDataService(
+                coreDataManager: coreDataManager
+            )
+            let locationDataCapturer = LocationDataCapturer(
+                locationDataService: locationDataService
+            )
             let viewModel = AddTreeViewModel(
                 locationService: locationService,
                 treeService: treeService,
+                locationDataCapturer: locationDataCapturer,
                 planter: planter
             )
             viewModel.coordinatorDelegate = self

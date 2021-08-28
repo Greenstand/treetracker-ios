@@ -62,6 +62,8 @@ struct TreeUploadBundle: UploadBundle {
 
 struct TreeLocationUploadBundle: UploadBundle {
 
+    let locations: [LocationDataRequest]?
+
     var jsonData: UploadBundleJSONData? {
         guard let encodedString = encodedString else {
             return nil

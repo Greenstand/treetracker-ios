@@ -12,6 +12,7 @@ class UploadOperation: Operation {
 
     private let planterUploadService: PlanterUploadService
     private let treeUploadService: TreeUploadService
+    private let locationDataUploadService: LocationDataUploadService
 
     private lazy var uploadOperationQueue: OperationQueue = {
         let queue = OperationQueue()
@@ -21,9 +22,14 @@ class UploadOperation: Operation {
         return queue
     }()
 
-    init(planterUploadService: PlanterUploadService, treeUploadService: TreeUploadService) {
+    init(
+        planterUploadService: PlanterUploadService,
+        treeUploadService: TreeUploadService,
+        locationDataUploadService: LocationDataUploadService
+    ) {
         self.planterUploadService = planterUploadService
         self.treeUploadService = treeUploadService
+        self.locationDataUploadService = locationDataUploadService
     }
 
     override func main() {
@@ -39,16 +45,16 @@ class UploadOperation: Operation {
         )
         treeUploadOperation.addDependency(planterUploadOperation)
 
-        let treeLocationsUploadOperation = UploadTreeLocationsOperation(
-            treeUploadService: treeUploadService
+        let locationUploadOperation = LocationUploadOperation(
+            locationDataUploadService: locationDataUploadService
         )
-        treeLocationsUploadOperation.addDependency(treeUploadOperation)
+        locationUploadOperation.addDependency(treeUploadOperation)
 
         uploadOperationQueue.addOperations(
             [
                 planterUploadOperation,
                 treeUploadOperation,
-                treeLocationsUploadOperation
+                locationUploadOperation
             ],
             waitUntilFinished: true
         )

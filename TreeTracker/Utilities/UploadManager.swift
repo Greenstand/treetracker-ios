@@ -28,6 +28,8 @@ class UploadManager: UploadManaging {
     private let coredataManager: CoreDataManaging
     private let treeUploadService: TreeUploadService
     private let planterUploadService: PlanterUploadService
+    private let locationDataUploadService: LocationDataUploadService
+
     private(set) var isUploading: Bool = false
     private lazy var uploadOperationQueue: OperationQueue = {
         let queue = OperationQueue()
@@ -37,9 +39,15 @@ class UploadManager: UploadManaging {
         return queue
     }()
 
-    init(treeUploadService: TreeUploadService, planterUploadService: PlanterUploadService, coredataManager: CoreDataManaging) {
+    init(
+        treeUploadService: TreeUploadService,
+        planterUploadService: PlanterUploadService,
+        locationDataUploadService: LocationDataUploadService,
+        coredataManager: CoreDataManaging
+    ) {
         self.treeUploadService = treeUploadService
         self.planterUploadService = planterUploadService
+        self.locationDataUploadService = locationDataUploadService
         self.coredataManager = coredataManager
     }
 
@@ -55,7 +63,8 @@ class UploadManager: UploadManaging {
 
         let uploadOperation = UploadOperation(
             planterUploadService: planterUploadService,
-            treeUploadService: treeUploadService
+            treeUploadService: treeUploadService,
+            locationDataUploadService: locationDataUploadService
         )
 
         let finishOperation = BlockOperation {

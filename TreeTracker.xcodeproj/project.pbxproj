@@ -12,6 +12,8 @@
 		930837FE25ACF37900A64A18 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930837FD25ACF37900A64A18 /* Logger.swift */; };
 		9311609126B40E5E007FCA52 /* DestructiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609026B40E5E007FCA52 /* DestructiveButton.swift */; };
 		9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609A26B4108A007FCA52 /* RoundedButton.swift */; };
+		9311609D26B43F06007FCA52 /* Convergence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609C26B43F06007FCA52 /* Convergence.swift */; };
+		931A3F9D26B8400C00755E17 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A3F9C26B8400C00755E17 /* LocationData.swift */; };
 		931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */; };
 		931C37BA249BAD0900EE24DC /* Selfie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931C37B9249BAD0900EE24DC /* Selfie.storyboard */; };
 		93204ED3251618D20059E136 /* TreeUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93204ED2251618D20059E136 /* TreeUploadService.swift */; };
@@ -58,6 +60,12 @@
 		939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939CA84E246C0A1000B1C184 /* Colors.xcassets */; };
 		93AD1D38257BD242009479FD /* BundleUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD1D37257BD242009479FD /* BundleUploadService.swift */; };
 		93BC71FA24C647C3008DE96C /* TreeMonitoringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */; };
+		93BE54DF26B94AF400E73C8A /* LocationDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE54DE26B94AF400E73C8A /* LocationDataService.swift */; };
+		93BE54E126B957FF00E73C8A /* LocationDataCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE54E026B957FF00E73C8A /* LocationDataCapturer.swift */; };
+		93BE54E326B96DDD00E73C8A /* LocationDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE54E226B96DDD00E73C8A /* LocationDataRequest.swift */; };
+		93BE54E526B96E8100E73C8A /* LocationDataUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE54E426B96E8100E73C8A /* LocationDataUploadService.swift */; };
+		93BE54E726B974E300E73C8A /* ClearTreeLocationsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE54E626B974E300E73C8A /* ClearTreeLocationsOperation.swift */; };
+		93BE54E926B976A400E73C8A /* LocationUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE54E826B976A400E73C8A /* LocationUploadOperation.swift */; };
 		93C57996249E5599009C0E46 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C57995249E5599009C0E46 /* LoginService.swift */; };
 		93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C57997249E57A6009C0E46 /* SignUpService.swift */; };
 		93C5799B249E580E009C0E46 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5799A249E580E009C0E46 /* Username.swift */; };
@@ -138,6 +146,8 @@
 		930837FD25ACF37900A64A18 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9311609026B40E5E007FCA52 /* DestructiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveButton.swift; sourceTree = "<group>"; };
 		9311609A26B4108A007FCA52 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		9311609C26B43F06007FCA52 /* Convergence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convergence.swift; sourceTree = "<group>"; };
+		931A3F9C26B8400C00755E17 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewModel.swift; sourceTree = "<group>"; };
 		931C37B9249BAD0900EE24DC /* Selfie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Selfie.storyboard; sourceTree = "<group>"; };
 		93204ED2251618D20059E136 /* TreeUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeUploadService.swift; sourceTree = "<group>"; };
@@ -184,6 +194,12 @@
 		939CA84E246C0A1000B1C184 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		93AD1D37257BD242009479FD /* BundleUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleUploadService.swift; sourceTree = "<group>"; };
 		93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeMonitoringService.swift; sourceTree = "<group>"; };
+		93BE54DE26B94AF400E73C8A /* LocationDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataService.swift; sourceTree = "<group>"; };
+		93BE54E026B957FF00E73C8A /* LocationDataCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataCapturer.swift; sourceTree = "<group>"; };
+		93BE54E226B96DDD00E73C8A /* LocationDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataRequest.swift; sourceTree = "<group>"; };
+		93BE54E426B96E8100E73C8A /* LocationDataUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataUploadService.swift; sourceTree = "<group>"; };
+		93BE54E626B974E300E73C8A /* ClearTreeLocationsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearTreeLocationsOperation.swift; sourceTree = "<group>"; };
+		93BE54E826B976A400E73C8A /* LocationUploadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUploadOperation.swift; sourceTree = "<group>"; };
 		93C57995249E5599009C0E46 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		93C57997249E57A6009C0E46 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		93C5799A249E580E009C0E46 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
@@ -366,6 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				9376A67C2586CD4500D7FDC1 /* UploadTreeLocationsOperation.swift */,
+				93BE54E626B974E300E73C8A /* ClearTreeLocationsOperation.swift */,
+				93BE54E826B976A400E73C8A /* LocationUploadOperation.swift */,
 			);
 			path = TreeLocationsUploads;
 			sourceTree = "<group>";
@@ -402,6 +420,7 @@
 				93FC588825A7B2FD00B93F14 /* AppBundleInfoProvider.swift */,
 				930837FD25ACF37900A64A18 /* Logger.swift */,
 				93D3FE2D25C0CC4100EB3B3C /* Configuration.swift */,
+				93BE54E026B957FF00E73C8A /* LocationDataCapturer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -458,6 +477,7 @@
 			children = (
 				93BC71F924C647C3008DE96C /* TreeMonitoringService.swift */,
 				93EC8C4324AA8EE900946C0C /* TreeService.swift */,
+				93BE54DE26B94AF400E73C8A /* LocationDataService.swift */,
 			);
 			path = Trees;
 			sourceTree = "<group>";
@@ -470,6 +490,7 @@
 				93AD1D37257BD242009479FD /* BundleUploadService.swift */,
 				93204ED2251618D20059E136 /* TreeUploadService.swift */,
 				933809772576D70E0009247A /* PlanterUploadService.swift */,
+				93BE54E426B96E8100E73C8A /* LocationDataUploadService.swift */,
 			);
 			path = Uploads;
 			sourceTree = "<group>";
@@ -486,6 +507,8 @@
 				93EC8CA224AD2E7B00946C0C /* Planter.swift */,
 				93FC587B25A7ABAE00B93F14 /* PlanterCheckIn.swift */,
 				93EC8CB224BCFC7E00946C0C /* Location.swift */,
+				931A3F9C26B8400C00755E17 /* LocationData.swift */,
+				9311609C26B43F06007FCA52 /* Convergence.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -507,6 +530,7 @@
 				93CBA5342555D9B8009DA5D9 /* DeviceRequest.swift */,
 				93CBA53C2555D9EA009DA5D9 /* NewTreeRequest.swift */,
 				93CBA5412555DD39009DA5D9 /* RegistrationRequest.swift */,
+				93BE54E226B96DDD00E73C8A /* LocationDataRequest.swift */,
 			);
 			path = Uploads;
 			sourceTree = "<group>";
@@ -1025,14 +1049,18 @@
 				93FC587C25A7ABAE00B93F14 /* PlanterCheckIn.swift in Sources */,
 				93E82F56246C35FF00006C91 /* SignInViewModel.swift in Sources */,
 				93D3FE2E25C0CC4100EB3B3C /* Configuration.swift in Sources */,
+				93BE54E726B974E300E73C8A /* ClearTreeLocationsOperation.swift in Sources */,
 				93EC8CAD24BBA9F600946C0C /* AddTreeViewModel.swift in Sources */,
 				93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */,
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
+				9311609D26B43F06007FCA52 /* Convergence.swift in Sources */,
 				93CBA53D2555D9EA009DA5D9 /* NewTreeRequest.swift in Sources */,
 				9376A68F2586CEB600D7FDC1 /* PlanterInfoUploadOperation.swift in Sources */,
 				93EC8C4E24ABA5B500946C0C /* TreeTracker.xcdatamodeld in Sources */,
 				93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */,
+				93BE54E326B96DDD00E73C8A /* LocationDataRequest.swift in Sources */,
 				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,
+				931A3F9D26B8400C00755E17 /* LocationData.swift in Sources */,
 				93EC8C4424AA8EE900946C0C /* TreeService.swift in Sources */,
 				93C57998249E57A6009C0E46 /* SignUpService.swift in Sources */,
 				9376A66B2586C5E800D7FDC1 /* TreeBatchImagesUploadOperation.swift in Sources */,
@@ -1050,6 +1078,7 @@
 				9376A6B42588144500D7FDC1 /* TreeImageUploadOperation.swift in Sources */,
 				9376A6852586CE6F00D7FDC1 /* PlanterUploadOperation.swift in Sources */,
 				93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */,
+				93BE54E526B96E8100E73C8A /* LocationDataUploadService.swift in Sources */,
 				93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */,
 				93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */,
 				93204ED3251618D20059E136 /* TreeUploadService.swift in Sources */,
@@ -1059,6 +1088,7 @@
 				93C579AC24AA0909009C0E46 /* Organization.swift in Sources */,
 				93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */,
 				93EC8C3124AA27FF00946C0C /* Terms.swift in Sources */,
+				93BE54E926B976A400E73C8A /* LocationUploadOperation.swift in Sources */,
 				932EA1AC2478311F0035394D /* KeyboardDismissing.swift in Sources */,
 				93EC8C9124ABD25100946C0C /* CoreDataManager.swift in Sources */,
 				93AD1D38257BD242009479FD /* BundleUploadService.swift in Sources */,
@@ -1094,7 +1124,9 @@
 				93CBA5352555D9B8009DA5D9 /* DeviceRequest.swift in Sources */,
 				93EC8CAB24BBA9E100946C0C /* AddTreeViewController.swift in Sources */,
 				93C5799D249E5865009C0E46 /* Name.swift in Sources */,
+				93BE54E126B957FF00E73C8A /* LocationDataCapturer.swift in Sources */,
 				93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */,
+				93BE54DF26B94AF400E73C8A /* LocationDataService.swift in Sources */,
 				93204ED6251627D30059E136 /* AWSS3Client.swift in Sources */,
 				937D0A072554B30100E103EB /* UploadBundle.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,

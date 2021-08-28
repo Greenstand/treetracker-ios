@@ -9,7 +9,7 @@
 import CoreLocation
 
 protocol LocationServiceDelegate: AnyObject {
-    func locationService(_ locationService: LocationService, didUpdateAccuracy: Double?)
+    func locationService(_ locationService: LocationService, didUpdateLocation: Location?)
 }
 
 class LocationService: NSObject {
@@ -42,7 +42,7 @@ class LocationService: NSObject {
 extension LocationService: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        delegate?.locationService(self, didUpdateAccuracy: locations.last?.horizontalAccuracy)
+        delegate?.locationService(self, didUpdateLocation: locations.last)
     }
 }
 
