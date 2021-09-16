@@ -10,13 +10,26 @@ import Foundation
 
 class UploadTreeLocationsOperation: Operation {
 
-    private let treeUploadService: TreeUploadService
+    private let locationDataUploadService: LocationDataUploadService
 
-    init(treeUploadService: TreeUploadService) {
-        self.treeUploadService = treeUploadService
+    init(locationDataUploadService: LocationDataUploadService) {
+        self.locationDataUploadService = locationDataUploadService
     }
+
     override func main() {
         Logger.log("LOCATION UPLOAD: UploadTreeLocationsOperation: Started")
-        treeUploadService.uploadTreeLocations()
+
+        let semaphore = DispatchSemaphore(value: 0)
+
+        locationDataUploadService.uploadTreeLocations { (result) in
+            switch result {
+            case .success:
+                break
+            case .failure:
+                self.cancel()
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
     }
 }

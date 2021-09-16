@@ -87,9 +87,15 @@ private extension RootCoordinator {
             planter: planter
         )
 
+        let locationDataUploadService = LocalLocationDataUploadService(
+            coreDataManager: coreDataManager,
+            bundleUploadService: AWSS3BundleUploadService(s3Client: AWSS3Client())
+        )
+
         let uploadManager = UploadManager(
             treeUploadService: treeUploadService,
             planterUploadService: planterUploadService,
+            locationDataUploadService: locationDataUploadService,
             coredataManager: coreDataManager
         )
 

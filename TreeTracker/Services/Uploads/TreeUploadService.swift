@@ -14,7 +14,6 @@ protocol TreeUploadService {
     func uploadImage(forTree tree: Tree, completion: @escaping (Result<String, Error>) -> Void)
     func uploadDataBundle(forTrees trees: [Tree], completion: @escaping (Result<String?, Error>) -> Void)
     func deleteLocalImages(forTrees trees: [Tree]) throws
-    func uploadTreeLocations()
 }
 
 enum TreeUploadServiceError: Error {
@@ -134,14 +133,6 @@ extension LocalTreeUploadService {
 
             }
         Logger.log("TREE IMAGE DELETION: Deleted images successfully")
-    }
-}
-
-// MARK: - Tree Locations Upload
-extension LocalTreeUploadService {
-    func uploadTreeLocations() {
-        Logger.log("TREE LOCATION UPLOAD: Uploading locations")
-        Logger.log("TREE LOCATION UPLOAD: Nothing to upload")
     }
 }
 

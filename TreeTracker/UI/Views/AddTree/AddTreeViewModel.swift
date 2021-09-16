@@ -27,12 +27,24 @@ class AddTreeViewModel {
 
     private let locationService: LocationService
     private let treeService: TreeService
+    private let locationDataCapturer: LocationDataCapturer
     private let planter: Planter
+    private let treeUUID: String
 
-    init(locationService: LocationService, treeService: TreeService, planter: Planter) {
+    init(
+        locationService: LocationService,
+        treeService: TreeService,
+        locationDataCapturer: LocationDataCapturer,
+        planter: Planter
+    ) {
+        self.treeUUID = UUID().uuidString
+
         self.treeService = treeService
+        self.locationDataCapturer = locationDataCapturer
         self.planter = planter
         self.locationService = locationService
+
+        locationDataCapturer.delegate = self
         locationService.delegate = self
     }
 
@@ -104,34 +116,38 @@ private extension AddTreeViewModel {
 
         return TreeServiceData(
             jpegData: imageData,
-            location: location
+            location: location,
+            uuid: self.treeUUID
         )
     }
 }
 
 // MARK: - LocationServiceDelegate
 extension AddTreeViewModel: LocationServiceDelegate {
+    func locationService(_ locationService: LocationService, didUpdateLocation location: Location?) {
 
-    func locationService(_ locationService: LocationService, didUpdateAccuracy accuracy: Double?) {
-
-        var gpsAccuracy: GPSAccuracy {
-
-            guard let accuracy = accuracy else {
-                return .unknown
-            }
-
-            guard accuracy < 10 else {
-                return .bad
-            }
-
-            return .good
+        if let location = location {
+            self.locationDataCapturer.addLocation(location: location, forTree: self.treeUUID, planter: self.planter)
         }
-
-        viewDelegate?.addTreeViewModel(self, didUpdateGPSAccuracy: gpsAccuracy)
-        viewDelegate?.addTreeViewModel(self, didUpdateTakePhotoEnabled: gpsAccuracy == .good)
     }
 }
 
+// MARK: - LocationServiceDelegate
+extension AddTreeViewModel: LocationDataCapturerDelegate {
+    func locationDataCapturer(_ locationDataCapturer: LocationDataCapturer, didUpdateConvergenceStatus convergenceStatus: ConvergenceStatus) {
+        switch convergenceStatus {
+        case .notConverged:
+            viewDelegate?.addTreeViewModel(self, didUpdateGPSAccuracy: .bad)
+        case .converged:
+            viewDelegate?.addTreeViewModel(self, didUpdateGPSAccuracy: .good)
+            viewDelegate?.addTreeViewModel(self, didUpdateTakePhotoEnabled: true)
+        case .timedOut:
+            viewDelegate?.addTreeViewModel(self, didUpdateTakePhotoEnabled: false)
+            viewDelegate?.addTreeViewModel(self, didUpdateGPSAccuracy: .bad)
+            viewDelegate?.addTreeViewModel(self, didReceiveError: AddTreeViewModel.Error.gpsTimeout)
+        }
+    }
+}
 // MARK: - Data Structures
 extension AddTreeViewModel {
 
@@ -147,5 +163,6 @@ extension AddTreeViewModel {
 
     enum Error: Swift.Error {
         case invalidTreeData
+        case gpsTimeout
     }
 }
