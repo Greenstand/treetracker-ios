@@ -2,3 +2,4 @@ ${PODS_ROOT}/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks.s
 ${BUILT_PRODUCTS_DIR}/Keys-framework/Keys.framework
 ${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework
 ${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework
+${BUILT_PRODUCTS_DIR}/Treetracker-Core/Treetracker_Core.framework

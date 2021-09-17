@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 protocol HomeCoordinatorDelegate: AnyObject {
     func homeCoordinatorDidLogout(_ homeCoordinator: HomeCoordinator)
@@ -18,15 +19,17 @@ class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
 
     let configuration: CoordinatorConfigurable
-    let coreDataManager: CoreDataManaging
-    let planter: Planter
-    let uploadManager: UploadManaging
+    let treetrackerSDK: Treetracker_Core.TreetrackerSDK
+    let planter: Treetracker_Core.Planter
 
-    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManaging, planter: Planter, uploadManager: UploadManaging) {
+    required init(
+        configuration: CoordinatorConfigurable,
+        treetrackerSDK: Treetracker_Core.TreetrackerSDK,
+        planter: Treetracker_Core.Planter
+    ) {
         self.configuration = configuration
-        self.coreDataManager = coreDataManager
+        self.treetrackerSDK = treetrackerSDK
         self.planter = planter
-        self.uploadManager = uploadManager
     }
 
     func start() {
@@ -78,19 +81,11 @@ private extension HomeCoordinator {
     func homeViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Home.initialScene.instantiate()
         viewController.viewModel = {
-            let treeMonitoringService = LocalTreeMonitoringService(
-                coreDataManager: coreDataManager
-            )
-
-            let selfieService = LocalSelfieService(
-                coreDataManager: coreDataManager,
-                documentManager: DocumentManager()
-            )
             let viewModel = HomeViewModel(
                 planter: planter,
-                treeMonitoringService: treeMonitoringService,
-                selfieService: selfieService,
-                uploadManager: uploadManager
+                treeMonitoringService: self.treetrackerSDK.treeMonitoringService,
+                selfieService: self.treetrackerSDK.selfieService,
+                uploadManager: self.treetrackerSDK.uploadManager
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -108,21 +103,10 @@ private extension HomeCoordinator {
     func addTreeViewController(planter: Planter) -> UIViewController {
         let viewcontroller = StoryboardScene.AddTree.initialScene.instantiate()
         viewcontroller.viewModel = {
-            let locationService = LocationService()
-            let treeService = LocalTreeService(
-                coreDataManager: coreDataManager,
-                documentManager: DocumentManager()
-            )
-            let locationDataService = LocalLocationDataService(
-                coreDataManager: coreDataManager
-            )
-            let locationDataCapturer = LocationDataCapturer(
-                locationDataService: locationDataService
-            )
             let viewModel = AddTreeViewModel(
-                locationService: locationService,
-                treeService: treeService,
-                locationDataCapturer: locationDataCapturer,
+                locationProvider: self.treetrackerSDK.locationService,
+                treeService: self.treetrackerSDK.treeService,
+                locationDataCapturer: self.treetrackerSDK.locationDataCapturer,
                 planter: planter
             )
             viewModel.coordinatorDelegate = self
@@ -134,14 +118,10 @@ private extension HomeCoordinator {
     func profileViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Profile.initialScene.instantiate()
         viewController.viewModel = {
-            let selfieService = LocalSelfieService(
-                coreDataManager: coreDataManager,
-                documentManager: DocumentManager()
-            )
             let viewModel = ProfileViewModel(
                 planter: planter,
-                selfieService: selfieService,
-                uploadManager: uploadManager
+                selfieService: self.treetrackerSDK.selfieService,
+                uploadManager: self.treetrackerSDK.uploadManager
             )
             viewModel.coordinatorDelegate = self
             return viewModel

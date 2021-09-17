@@ -7,18 +7,19 @@
 //
 
 import Foundation
+import Treetracker_Core
 
 protocol SignInViewModelCoordinatorDelegate: AnyObject {
-    func signInViewModel(_ signInViewModel: SignInViewModel, didLoginPlanter planter: Planter)
-    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession planter: Planter)
-    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithUnknownUser username: Username)
-    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithRequiredTerms planter: Planter)
-    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithSelfieRequired planter: Planter)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didLoginPlanter planter: Treetracker_Core.Planter)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithExpiredSession planter: Treetracker_Core.Planter)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithUnknownUser username: Treetracker_Core.Username)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithRequiredTerms planter: Treetracker_Core.Planter)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didFailLoginWithSelfieRequired planter: Treetracker_Core.Planter)
 }
 
 protocol SignInViewModelViewDelegate: AnyObject {
     func signInViewModel(_ signInViewModel: SignInViewModel, didReceiveError error: Error)
-    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateValidationState result: Validation.Result)
+    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateValidationState result: SignInViewModel.ValidationResult)
     func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginEnabled enabled: Bool)
     func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginType loginType: SignInViewModel.LoginType)
 }
@@ -100,8 +101,8 @@ private extension SignInViewModel {
         }
     }
 
-    var usernameValid: Validation.Result {
-        return username.isValid
+    var usernameValid: ValidationResult {
+        return username.isValid.viewModelResult
     }
 
     var loginEnabled: Bool {
@@ -110,6 +111,31 @@ private extension SignInViewModel {
             return true
         case .invalid, .empty:
             return false
+        }
+    }
+}
+
+// MARK: - Nested Types
+extension SignInViewModel {
+
+    enum ValidationResult {
+        case valid
+        case invalid
+        case empty
+    }
+}
+
+// MARK: - Validation.Result Extension
+private extension Validation.Result {
+
+    var viewModelResult: SignInViewModel.ValidationResult {
+        switch self {
+        case .valid:
+            return .valid
+        case .invalid:
+            return .invalid
+        case .empty:
+            return .empty
         }
     }
 }

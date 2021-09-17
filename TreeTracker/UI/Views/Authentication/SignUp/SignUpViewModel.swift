@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 protocol SignUpViewModelCoordinatorDelegate: AnyObject {
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didSignUpWithusername planter: Planter)
@@ -14,9 +15,9 @@ protocol SignUpViewModelCoordinatorDelegate: AnyObject {
 
 protocol SignUpViewModelViewDelegate: AnyObject {
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didReceiveError error: Error)
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateFirstName result: Validation.Result)
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateLastName result: Validation.Result)
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateOrganizationName result: Validation.Result)
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateFirstName result: SignUpViewModel.ValidationResult)
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateLastName result: SignUpViewModel.ValidationResult)
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateOrganizationName result: SignUpViewModel.ValidationResult)
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didUpdateSignUpEnabled enabled: Bool)
 }
 
@@ -83,16 +84,16 @@ class SignUpViewModel {
 // MARK: - Private
 private extension SignUpViewModel {
 
-    var firstNameValid: Validation.Result {
-        return name.firstNameValid
+    var firstNameValid: ValidationResult {
+        return name.firstNameValid.viewModelResult
     }
 
-    var lastNameValid: Validation.Result {
-        return name.lastNameValid
+    var lastNameValid: ValidationResult {
+        return name.lastNameValid.viewModelResult
     }
 
-    var organizationNameValid: Validation.Result {
-        return organization.isValid
+    var organizationNameValid: ValidationResult {
+        return organization.isValid.viewModelResult
     }
 
     var signUpEnabled: Bool {
@@ -124,5 +125,30 @@ private extension SignUpViewModel {
             name: name,
             organization: organization
         )
+    }
+}
+
+// MARK: - Nested Types
+extension SignUpViewModel {
+
+    enum ValidationResult {
+        case valid
+        case invalid
+        case empty
+    }
+}
+
+// MARK: - Validation.Result Extension
+private extension Validation.Result {
+
+    var viewModelResult: SignUpViewModel.ValidationResult {
+        switch self {
+        case .valid:
+            return .valid
+        case .invalid:
+            return .invalid
+        case .empty:
+            return .empty
+        }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Treetracker_Core
 
 protocol TermsViewModelCoordinatorDelegate: AnyObject {
     func termsViewModel(_ termsViewModel: TermsViewModel, didAcceptTermsForPlanter planter: Planter)

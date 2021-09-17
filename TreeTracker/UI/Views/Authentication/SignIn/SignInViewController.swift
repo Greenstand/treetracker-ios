@@ -114,7 +114,7 @@ extension SignInViewController: SignInViewModelViewDelegate {
         present(alert: .error(error))
     }
 
-    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateValidationState result: Validation.Result) {
+    func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateValidationState result: SignInViewModel.ValidationResult) {
         usernameTextField.validationState = result.textFieldValidationState
     }
 
@@ -134,5 +134,20 @@ extension SignInViewController: SignInViewModelViewDelegate {
         }
 
         usernameTextField.refreshKeyboard()
+    }
+}
+
+// MARK: - SignInViewModel.ValidationResult extension
+extension SignInViewModel.ValidationResult {
+
+    var textFieldValidationState: SignInTextField.ValidationState {
+        switch self {
+        case .valid:
+            return .valid
+        case .invalid:
+            return .invalid
+        case .empty:
+            return .normal
+        }
     }
 }

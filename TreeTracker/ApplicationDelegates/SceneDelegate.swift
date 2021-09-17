@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         rootCoordinator = RootCoordinator(
             configuration: configuration,
-            coreDataManager: appDelegate.coreDataManager
+            treetrackerSDK: appDelegate.treetrackerSDK
         )
 
         rootCoordinator?.start()
@@ -74,7 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-        (UIApplication.shared.delegate as? AppDelegate)?.coreDataManager.saveContext()
+        (UIApplication.shared.delegate as? AppDelegate)?.treetrackerSDK.sceneDidEnterBackground(scene)
     }
 
 }

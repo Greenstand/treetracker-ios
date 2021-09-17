@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 class RootCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
     let configuration: CoordinatorConfigurable
-    private let coreDataManager: CoreDataManaging
-    private let currentPlanterService: CurrentPlanterService
+    private let treetrackerSDK: Treetracker_Core.TreetrackerSDK
+    private let currentPlanterService: Treetracker_Core.CurrentPlanterService
 
-    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManaging) {
+    required init(configuration: CoordinatorConfigurable, treetrackerSDK: Treetracker_Core.TreetrackerSDK) {
         self.configuration = configuration
-        self.coreDataManager = coreDataManager
-        self.currentPlanterService = LocalCurrentPlanterService(coreDataManager: coreDataManager)
+        self.treetrackerSDK = treetrackerSDK
+        self.currentPlanterService = treetrackerSDK.currentPlanterService
     }
 
     func start() {
@@ -64,7 +65,7 @@ private extension RootCoordinator {
     var signInCoordinator: Coordinator {
         let signInCoordinator = SignInCoordinator(
             configuration: configuration,
-            coreDataManager: coreDataManager
+            treetrackerSDK: self.treetrackerSDK
         )
         signInCoordinator.delegate = self
         return signInCoordinator
@@ -72,38 +73,10 @@ private extension RootCoordinator {
 
     func homeCoordinator(planter: Planter) -> Coordinator {
 
-        let treeUploadService = LocalTreeUploadService(
-            coreDataManager: coreDataManager,
-            bundleUploadService: AWSS3BundleUploadService(s3Client: AWSS3Client()),
-            imageUploadService: AWSS3ImageUploadService(s3Client: AWSS3Client()),
-            documentManager: DocumentManager()
-        )
-
-        let planterUploadService = LocalPlanterUploadService(
-            coreDataManager: coreDataManager,
-            imageUploadService: AWSS3ImageUploadService(s3Client: AWSS3Client()),
-            bundleUploadService: AWSS3BundleUploadService(s3Client: AWSS3Client()),
-            documentManager: DocumentManager(),
-            planter: planter
-        )
-
-        let locationDataUploadService = LocalLocationDataUploadService(
-            coreDataManager: coreDataManager,
-            bundleUploadService: AWSS3BundleUploadService(s3Client: AWSS3Client())
-        )
-
-        let uploadManager = UploadManager(
-            treeUploadService: treeUploadService,
-            planterUploadService: planterUploadService,
-            locationDataUploadService: locationDataUploadService,
-            coredataManager: coreDataManager
-        )
-
         let homeCoordinator = HomeCoordinator(
             configuration: configuration,
-            coreDataManager: coreDataManager,
-            planter: planter,
-            uploadManager: uploadManager
+            treetrackerSDK: self.treetrackerSDK,
+            planter: planter
         )
 
         homeCoordinator.delegate = self
