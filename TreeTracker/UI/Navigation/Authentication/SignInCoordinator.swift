@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 protocol SignInCoordinatorDelegate: AnyObject {
     func signInCoordinator(_ signInCoordinator: SignInCoordinator, didSignInPlanter planter: Planter)
@@ -17,11 +18,11 @@ class SignInCoordinator: Coordinator {
     weak var delegate: SignInCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
     let configuration: CoordinatorConfigurable
-    let coreDataManager: CoreDataManaging
+    private let treetrackerSDK: Treetracker_Core.TreetrackerSDK
 
-    required init(configuration: CoordinatorConfigurable, coreDataManager: CoreDataManaging) {
+    required init(configuration: CoordinatorConfigurable, treetrackerSDK: Treetracker_Core.TreetrackerSDK) {
         self.configuration = configuration
-        self.coreDataManager = coreDataManager
+        self.treetrackerSDK = treetrackerSDK
     }
 
     func start() {
@@ -70,9 +71,10 @@ private extension SignInCoordinator {
     var signInViewController: UIViewController {
         let viewController = StoryboardScene.SignIn.initialScene.instantiate()
         viewController.viewModel = {
-            let loginService = LocalLoginService(coreDataManager: coreDataManager)
-            let viewModel = SignInViewModel(loginService: loginService)
-             viewModel.coordinatorDelegate = self
+            let viewModel = SignInViewModel(
+                loginService: self.treetrackerSDK.loginService
+            )
+            viewModel.coordinatorDelegate = self
             return viewModel
         }()
         return viewController
@@ -81,12 +83,9 @@ private extension SignInCoordinator {
     func signUpViewController(username: Username) -> UIViewController {
         let viewController = StoryboardScene.SignUp.initialScene.instantiate()
         viewController.viewModel = {
-            let localSignUpService = LocalSignUpService(
-                coreDataManager: coreDataManager
-            )
             let viewModel = SignUpViewModel(
                 username: username,
-                signUpService: localSignUpService
+                signUpService: self.treetrackerSDK.signUpService
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -97,12 +96,9 @@ private extension SignInCoordinator {
     func termsViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Terms.initialScene.instantiate()
         viewController.viewModel = {
-            let termsService = LocalTermsService(
-                coreDataManager: coreDataManager
-            )
             let viewModel = TermsViewModel(
                 planter: planter,
-                termsService: termsService
+                termsService: self.treetrackerSDK.termsService
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -113,13 +109,9 @@ private extension SignInCoordinator {
     func selfieViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Selfie.initialScene.instantiate()
         viewController.viewModel = {
-            let selfieService = LocalSelfieService(
-                coreDataManager: coreDataManager,
-                documentManager: DocumentManager()
-            )
             let viewModel = SelfieViewModel(
                 planter: planter,
-                selfieService: selfieService
+                selfieService: self.treetrackerSDK.selfieService
             )
             viewModel.coordinatorDelegate = self
             return viewModel

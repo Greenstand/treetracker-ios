@@ -1,0 +1,29 @@
+{
+  "name": "Treetracker-Core",
+  "version": "0.0.8",
+  "license": {
+    "type": "GNU",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/Greenstand/treetracker-ios-core",
+  "summary": "Greenstand Treetracker core library.",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "authors": {
+    "Alex Cornforth": "alexcornforth@me.com"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/Greenstand/treetracker-ios-core.git",
+    "tag": "v0.0.8"
+  },
+  "source_files": "treetracker-core/**/*.{h,m,swift}",
+  "resources": "Resources/*",
+  "dependencies": {
+    "AWSS3": [
+      "2.16.0"
+    ]
+  },
+  "swift_version": "5.0"
+}

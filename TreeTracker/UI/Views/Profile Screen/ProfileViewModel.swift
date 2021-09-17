@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 protocol ProfileViewModelCoordinatorDelegate: AnyObject {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter)
@@ -21,11 +22,15 @@ class ProfileViewModel {
     weak var viewDelegate: ProfileViewModelViewDelegate?
     weak var coordinatorDelegate: ProfileViewModelCoordinatorDelegate?
 
-    private let planter: Planter
-    private let selfieService: SelfieService
-    private let uploadManager: UploadManaging
+    private let planter: Treetracker_Core.Planter
+    private let selfieService: Treetracker_Core.SelfieService
+    private let uploadManager: Treetracker_Core.UploadManaging
 
-    init(planter: Planter, selfieService: SelfieService, uploadManager: UploadManaging) {
+    init(
+        planter: Treetracker_Core.Planter,
+        selfieService: Treetracker_Core.SelfieService,
+        uploadManager: Treetracker_Core.UploadManaging
+    ) {
         self.planter = planter
         self.selfieService = selfieService
         self.uploadManager = uploadManager

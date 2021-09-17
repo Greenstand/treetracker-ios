@@ -136,15 +136,15 @@ extension SignUpViewController: SignUpViewModelViewDelegate {
         present(alert: .error(error))
     }
 
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateFirstName result: Validation.Result) {
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateFirstName result: SignUpViewModel.ValidationResult) {
         firstNameTextField.validationState = result.textFieldValidationState
     }
 
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateLastName result: Validation.Result) {
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateLastName result: SignUpViewModel.ValidationResult) {
         lastNameTextField.validationState = result.textFieldValidationState
     }
 
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateOrganizationName result: Validation.Result) {
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateOrganizationName result: SignUpViewModel.ValidationResult) {
         organizationTextField.validationState = result.textFieldValidationState
     }
 
@@ -162,5 +162,20 @@ extension SignUpViewController: KeyboardObserving {
 
     func keyboardWillHide(notification: Notification) {
 
+    }
+}
+
+// MARK: - SignUpViewModel.ValidationResult extension
+extension SignUpViewModel.ValidationResult {
+
+    var textFieldValidationState: SignInTextField.ValidationState {
+        switch self {
+        case .valid:
+            return .valid
+        case .invalid:
+            return .invalid
+        case .empty:
+            return .normal
+        }
     }
 }

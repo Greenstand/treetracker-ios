@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 protocol HomeViewModelCoordinatorDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)
@@ -92,7 +93,7 @@ extension HomeViewModel {
         if uploadManager.isUploading {
             uploadManager.stopUploading()
         } else {
-            uploadManager.startUploading()
+            uploadManager.startUploading(currentPlanter: self.planter)
         }
     }
 }
@@ -145,15 +146,15 @@ extension HomeViewModel: TreeMonitoringServiceDelegate {
 // MARK: - UploadManagerDelegate
 extension HomeViewModel: UploadManagerDelegate {
 
-    func uploadManagerDidStartUploadingTrees(_ uploadManager: UploadManager) {
+    func uploadManagerDidStartUploadingTrees(_ uploadManager: UploadManaging) {
         viewDelegate?.homeViewModelDidStartUploadingTrees(self)
     }
 
-    func uploadManagerDidStopUploadingTrees(_ uploadManager: UploadManager) {
+    func uploadManagerDidStopUploadingTrees(_ uploadManager: UploadManaging) {
         viewDelegate?.homeViewModelDidStopUploadingTrees(self)
     }
 
-    func uploadManager(_ uploadManager: UploadManager, didError error: Error) {
+    func uploadManager(_ uploadManager: UploadManaging, didError error: Error) {
         viewDelegate?.homeViewModel(self, didReceiveError: error)
     }
 }

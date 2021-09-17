@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,13 +15,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var rootCoordinator: Coordinator?
 
-    lazy var coreDataManager: CoreDataManaging = {
-        return CoreDataManager()
+    lazy var treetrackerSDK: TreetrackerSDK = {
+
+        let awsConfig: AWSConfiguration = .init(
+            identityPoolId: Configuration.AWS.identityPoolId,
+            regionType: Configuration.AWS.region,
+            regionString: Configuration.AWS.regionString,
+            imagesBucketName: Configuration.AWS.imagesBucketName,
+            batchUploadsBucketName: Configuration.AWS.batchUploadsBucketName
+        )
+
+        guard let termsURL = Bundle.main.url(forResource: "Terms", withExtension: "html") else {
+            fatalError("Missing Terms")
+        }
+
+        let configuration: TreetrackerSDK.Configuration = .init(
+            awsConfiguration: awsConfig,
+            terms: termsURL
+        )
+
+        return TreetrackerSDK(
+            configuration: configuration
+        )
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        AWSS3Client().registerS3CLient()
+        self.treetrackerSDK.application(application, didFinishLaunchingWithOptions: launchOptions)
 
         // For iOS13+ we setup the root coordinator in the scene delegate
         guard #available(iOS 13.0, *) else {
@@ -32,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             rootCoordinator = RootCoordinator(
                 configuration: configuration,
-                coreDataManager: coreDataManager
+                treetrackerSDK: treetrackerSDK
             )
             rootCoordinator?.start()
 
@@ -46,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        coreDataManager.saveContext()
+        self.treetrackerSDK.applicationDidEnterBackground(application)
     }
 
     // MARK: - UISceneSession Lifecycle

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 protocol AddTreeViewModelCoordinatorDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree)
@@ -25,16 +26,16 @@ class AddTreeViewModel {
     weak var coordinatorDelegate: AddTreeViewModelCoordinatorDelegate?
     weak var viewDelegate: AddTreeViewModelViewDelegate?
 
-    private let locationService: LocationService
+    private let locationProvider: LocationProvider
     private let treeService: TreeService
-    private let locationDataCapturer: LocationDataCapturer
+    private let locationDataCapturer: LocationDataCapturing
     private let planter: Planter
     private let treeUUID: String
 
     init(
-        locationService: LocationService,
+        locationProvider: LocationProvider,
         treeService: TreeService,
-        locationDataCapturer: LocationDataCapturer,
+        locationDataCapturer: LocationDataCapturing,
         planter: Planter
     ) {
         self.treeUUID = UUID().uuidString
@@ -42,10 +43,10 @@ class AddTreeViewModel {
         self.treeService = treeService
         self.locationDataCapturer = locationDataCapturer
         self.planter = planter
-        self.locationService = locationService
+        self.locationProvider = locationProvider
 
         locationDataCapturer.delegate = self
-        locationService.delegate = self
+        locationProvider.delegate = self
     }
 
     let title: String = L10n.AddTree.title
@@ -78,15 +79,15 @@ class AddTreeViewModel {
 
     func updateTreeImage(treeImage: UIImage) {
         image = treeImage
-        location = locationService.location
+        location = locationProvider.location
     }
 
     func startMonitoringLocation() {
-        locationService.startMonitoringLocation()
+        locationProvider.startMonitoringLocation()
     }
 
     func stopMonitoringLocation() {
-        locationService.stopMonitoringLocation()
+        locationProvider.stopMonitoringLocation()
     }
 }
 
@@ -123,9 +124,8 @@ private extension AddTreeViewModel {
 }
 
 // MARK: - LocationServiceDelegate
-extension AddTreeViewModel: LocationServiceDelegate {
-    func locationService(_ locationService: LocationService, didUpdateLocation location: Location?) {
-
+extension AddTreeViewModel: LocationProviderDelegate {
+    func locationProvider(_ locationProvider: LocationProvider, didUpdateLocation location: Location?) {
         if let location = location {
             self.locationDataCapturer.addLocation(location: location, forTree: self.treeUUID, planter: self.planter)
         }
@@ -134,7 +134,7 @@ extension AddTreeViewModel: LocationServiceDelegate {
 
 // MARK: - LocationServiceDelegate
 extension AddTreeViewModel: LocationDataCapturerDelegate {
-    func locationDataCapturer(_ locationDataCapturer: LocationDataCapturer, didUpdateConvergenceStatus convergenceStatus: ConvergenceStatus) {
+    func locationDataCapturer(_ locationDataCapturer: LocationDataCapturing, didUpdateConvergenceStatus convergenceStatus: ConvergenceStatus) {
         switch convergenceStatus {
         case .notConverged:
             viewDelegate?.addTreeViewModel(self, didUpdateGPSAccuracy: .bad)

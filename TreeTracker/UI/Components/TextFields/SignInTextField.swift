@@ -69,18 +69,3 @@ private extension SignInTextField {
         }
     }
 }
-
-// MARK: - Validation.Result extension
-extension Validation.Result {
-
-    var textFieldValidationState: SignInTextField.ValidationState {
-        switch self {
-        case .valid:
-            return .valid
-        case .invalid:
-            return .invalid
-        case .empty:
-            return .normal
-        }
-    }
-}

@@ -1,0 +1,6 @@
+framework module Treetracker_Core {
+  umbrella header "Treetracker-Core-umbrella.h"
+
+  export *
+  module * { export * }
+}
