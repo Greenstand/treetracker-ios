@@ -10,9 +10,10 @@ import UIKit
 
 class SignInViewController: UIViewController, KeyboardDismissing, AlertPresenting {
 
-    @IBOutlet private var logoImageView: UIImageView! {
+    @IBOutlet weak var textFieldContainer: UIView! {
         didSet {
-            logoImageView.image = Asset.Assets.logoWithTitle.image
+            textFieldContainer.layer.borderWidth = 1
+            textFieldContainer.layer.cornerRadius = 10
         }
     }
     @IBOutlet private var usernameTextField: SignInTextField! {
@@ -23,24 +24,37 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             usernameTextField.returnKeyType = .done
             usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
             usernameTextField.validationState = .normal
+            usernameTextField.backgroundColor = .black
+            usernameTextField.layer.borderColor = UIColor.lightGray.cgColor
+            usernameTextField.layer.cornerRadius = 10.0
+            usernameTextField.layer.borderWidth = 1.0
+            usernameTextField.clipsToBounds = true
         }
     }
     @IBOutlet private var usernameSegmentedControl: UISegmentedControl! {
         didSet {
             usernameSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            usernameSegmentedControl.setImage(Asset.Assets.phone.image, forSegmentAt: 0)
-            usernameSegmentedControl.setImage(Asset.Assets.mail.image, forSegmentAt: 1)
-            usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
-            usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayLight.color], for: .normal)
+            let attr = NSDictionary(object: UIFont(name: "Montserrat-Bold", size: 16)!, forKey: NSAttributedString.Key.font as NSCopying)
+            usernameSegmentedControl.setTitleTextAttributes(attr as? [ NSAttributedString.Key : AnyObject ], for: .normal)
+            if #available(iOS 13.0, *) {
+                usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
+                usernameSegmentedControl.selectedSegmentTintColor = Asset.Colors.primaryGreen.color
+                usernameSegmentedControl.backgroundColor = Asset.Colors.secondaryGreen.color
+            }
         }
     }
-    @IBOutlet private var loginButton: PrimaryButton! {
+    @IBOutlet private var goBackButton: UIButton! {
         didSet {
-            loginButton.setTitle(L10n.SignIn.LoginButton.title, for: .normal)
-            loginButton.isEnabled = false
+            goBackButton.isEnabled = false
+            goBackButton.setBackgroundImage(Asset.Assets.goback.image, for: .normal)
         }
     }
-
+    @IBOutlet private var nextOnButton: UIButton! {
+        didSet {
+            nextOnButton.isEnabled = false
+            nextOnButton.setBackgroundImage(Asset.Assets.nextup.image, for: .normal)
+        }
+    }
     var viewModel: SignInViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -50,6 +64,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.black
         addEndEditingBackgroundTapGesture()
     }
 
@@ -69,7 +84,7 @@ private extension SignInViewController {
 
     @IBAction func logInButtonPressed() {
         viewModel?.login()
-    }
+     }
 
     @IBAction func usernameSegmentedControlChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -107,7 +122,7 @@ extension SignInViewController: UITextFieldDelegate {
 extension SignInViewController: SignInViewModelViewDelegate {
 
     func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginEnabled enabled: Bool) {
-        loginButton.isEnabled = enabled
+        nextOnButton.isEnabled = enabled
     }
 
     func signInViewModel(_ signInViewModel: SignInViewModel, didReceiveError error: Error) {
