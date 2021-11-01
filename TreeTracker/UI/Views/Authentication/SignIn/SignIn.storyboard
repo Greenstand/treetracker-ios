@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ukg-6H-lHn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ukg-6H-lHn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -58,18 +58,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsx-82-0gA" userLabel="Button Stackiew">
                                 <rect key="frame" x="20" y="772" width="374" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJN-Xp-hCD" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
-                                        <color key="backgroundColor" name="PrimaryGreen"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="eKE-gv-bYf"/>
-                                        </constraints>
-                                        <state key="normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHM-jv-SMC">
-                                        <rect key="frame" x="80" y="0.0" width="214" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="iFf-fM-dfU"/>
                                         </constraints>
@@ -101,7 +91,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="goBackButton" destination="uJN-Xp-hCD" id="xZg-A9-GAJ"/>
                         <outlet property="nextOnButton" destination="AZZ-SM-Jxr" id="eii-us-Jbg"/>
                         <outlet property="textFieldContainer" destination="aJY-od-Twt" id="aMo-Uq-Xer"/>
                         <outlet property="usernameSegmentedControl" destination="s1o-rx-dGT" id="pxA-iW-jL7"/>

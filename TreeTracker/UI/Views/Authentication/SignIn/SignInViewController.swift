@@ -33,20 +33,19 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
     }
     @IBOutlet private var usernameSegmentedControl: UISegmentedControl! {
         didSet {
-            usernameSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            let attr = NSDictionary(object: UIFont(name: "Montserrat-Bold", size: 16)!, forKey: NSAttributedString.Key.font as NSCopying)
-            usernameSegmentedControl.setTitleTextAttributes(attr as? [ NSAttributedString.Key : AnyObject ], for: .normal)
-            if #available(iOS 13.0, *) {
-                usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
-                usernameSegmentedControl.selectedSegmentTintColor = Asset.Colors.primaryGreen.color
-                usernameSegmentedControl.backgroundColor = Asset.Colors.secondaryGreen.color
+             usernameSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
+             usernameSegmentedControl.setImage(Asset.Assets.phone.image, forSegmentAt: 0)
+             usernameSegmentedControl.setImage(Asset.Assets.mail.image, forSegmentAt: 1)
+             usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
+             usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayLight.color], for: .normal)
+             let attr = NSDictionary(object: UIFont(name: "Montserrat-Bold", size: 16)!, forKey: NSAttributedString.Key.font as NSCopying)
+             usernameSegmentedControl.setTitleTextAttributes(attr as? [ NSAttributedString.Key : AnyObject ], for: .normal)
+             if #available(iOS 13.0, *) {
+                 usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
+                 usernameSegmentedControl.selectedSegmentTintColor = Asset.Colors.primaryGreen.color
+                 usernameSegmentedControl.backgroundColor = Asset.Colors.secondaryGreen.color
             }
-        }
-    }
-    @IBOutlet private var goBackButton: UIButton! {
-        didSet {
-            goBackButton.isEnabled = false
-            goBackButton.setBackgroundImage(Asset.Assets.goback.image, for: .normal)
+                   
         }
     }
     @IBOutlet private var nextOnButton: UIButton! {
@@ -64,7 +63,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.black
+        self.view.backgroundColor = .black
         addEndEditingBackgroundTapGesture()
     }
 
