@@ -10,7 +10,7 @@ import UIKit
 
 class SignInViewController: UIViewController, KeyboardDismissing, AlertPresenting {
 
-    @IBOutlet weak var textFieldContainer: UIView! {
+    @IBOutlet private var textFieldContainer: UIView! {
         didSet {
             textFieldContainer.layer.borderWidth = 1
             textFieldContainer.layer.cornerRadius = 10
