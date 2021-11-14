@@ -3,7 +3,8 @@ CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AWSCore" "${PODS_CONFIGURATION_BUILD_DIR}/AWSS3" "${PODS_CONFIGURATION_BUILD_DIR}/Keys-framework" "${PODS_CONFIGURATION_BUILD_DIR}/Treetracker-Core"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AWSCore/AWSCore.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/AWSS3/AWSS3.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Keys-framework/Keys.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Treetracker-Core/Treetracker_Core.framework/Headers" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Keys"
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LD_RUNPATH_SEARCH_PATHS = $(inherited) /usr/lib/swift '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
 OTHER_LDFLAGS = $(inherited) -l"sqlite3" -l"z" -framework "AWSCore" -framework "AWSS3" -framework "CoreGraphics" -framework "Foundation" -framework "Keys" -framework "Security" -framework "SystemConfiguration" -framework "Treetracker_Core" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
