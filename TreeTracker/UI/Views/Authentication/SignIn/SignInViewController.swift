@@ -38,14 +38,15 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
              usernameSegmentedControl.setImage(Asset.Assets.mail.image, forSegmentAt: 1)
              usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
              usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayLight.color], for: .normal)
-             let attr = NSDictionary(object: UIFont(name: "Montserrat-Bold", size: 16)!, forKey: NSAttributedString.Key.font as NSCopying)
-             usernameSegmentedControl.setTitleTextAttributes(attr as? [ NSAttributedString.Key : AnyObject ], for: .normal)
-             if #available(iOS 13.0, *) {
-                 usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
-                 usernameSegmentedControl.selectedSegmentTintColor = Asset.Colors.primaryGreen.color
-                 usernameSegmentedControl.backgroundColor = Asset.Colors.secondaryGreen.color
+             usernameSegmentedControl.backgroundColor = Asset.Colors.secondaryGreen.color
+             let attributes: [NSAttributedString.Key: Any] = [.font: FontFamily.Montserrat.bold.font(size: 16.0) ?? ""]
+             usernameSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
+             usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
+            if #available(iOS 13.0, *) {
+                usernameSegmentedControl.selectedSegmentTintColor = Asset.Colors.primaryGreen.color
+            } else {
+                // Fallback on earlier versions
             }
-                   
         }
     }
     @IBOutlet private var nextOnButton: UIButton! {
@@ -84,7 +85,6 @@ private extension SignInViewController {
     @IBAction func logInButtonPressed() {
         viewModel?.login()
      }
-
     @IBAction func usernameSegmentedControlChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -106,11 +106,9 @@ extension SignInViewController: UITextFieldDelegate {
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
         guard let text = textField.text as NSString? else {
             return true
         }
-
         let newText = text.replacingCharacters(in: range, with: string)
         viewModel?.updateUsername(username: newText)
         return true
