@@ -22,7 +22,8 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             usernameTextField.textContentType = .telephoneNumber
             usernameTextField.keyboardType = .phonePad
             usernameTextField.returnKeyType = .done
-            usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
+            usernameTextField.attributedPlaceholder = NSAttributedString( string: L10n.SignIn.TextInput.PhoneNumber.placeholder,attributes: [NSAttributedString.Key.foregroundColor: Asset.Colors.grayLight.color]
+            )
             usernameTextField.validationState = .normal
             usernameTextField.backgroundColor = .black
             usernameTextField.layer.borderColor = UIColor.lightGray.cgColor
