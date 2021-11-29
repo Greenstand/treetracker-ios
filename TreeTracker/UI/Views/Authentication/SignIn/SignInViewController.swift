@@ -10,9 +10,10 @@ import UIKit
 
 class SignInViewController: UIViewController, KeyboardDismissing, AlertPresenting {
 
-    @IBOutlet private var logoImageView: UIImageView! {
+    @IBOutlet private var textFieldContainer: UIView! {
         didSet {
-            logoImageView.image = Asset.Assets.logoWithTitle.image
+            textFieldContainer.layer.borderWidth = 1
+            textFieldContainer.layer.cornerRadius = 10
         }
     }
     @IBOutlet private var usernameTextField: SignInTextField! {
@@ -21,26 +22,40 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             usernameTextField.textContentType = .telephoneNumber
             usernameTextField.keyboardType = .phonePad
             usernameTextField.returnKeyType = .done
-            usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
+            usernameTextField.attributedPlaceholder = NSAttributedString( string: L10n.SignIn.TextInput.PhoneNumber.placeholder,attributes: [NSAttributedString.Key.foregroundColor: Asset.Colors.grayLight.color]
+            )
             usernameTextField.validationState = .normal
+            usernameTextField.backgroundColor = .black
+            usernameTextField.layer.borderColor = UIColor.lightGray.cgColor
+            usernameTextField.layer.cornerRadius = 10.0
+            usernameTextField.layer.borderWidth = 1.0
+            usernameTextField.clipsToBounds = true
         }
     }
     @IBOutlet private var usernameSegmentedControl: UISegmentedControl! {
         didSet {
-            usernameSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            usernameSegmentedControl.setImage(Asset.Assets.phone.image, forSegmentAt: 0)
-            usernameSegmentedControl.setImage(Asset.Assets.mail.image, forSegmentAt: 1)
-            usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
-            usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayLight.color], for: .normal)
+             usernameSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
+             usernameSegmentedControl.setImage(Asset.Assets.phone.image, forSegmentAt: 0)
+             usernameSegmentedControl.setImage(Asset.Assets.mail.image, forSegmentAt: 1)
+             usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
+             usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayLight.color], for: .normal)
+             usernameSegmentedControl.backgroundColor = Asset.Colors.secondaryGreen.color
+             let attributes: [NSAttributedString.Key: Any] = [.font: FontFamily.Montserrat.bold.font(size: 16.0) ?? ""]
+             usernameSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
+             usernameSegmentedControl.setTitleTextAttributes([.foregroundColor: Asset.Colors.grayDark.color], for: .selected)
+            if #available(iOS 13.0, *) {
+                usernameSegmentedControl.selectedSegmentTintColor = Asset.Colors.primaryGreen.color
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
-    @IBOutlet private var loginButton: PrimaryButton! {
+    @IBOutlet private var nextOnButton: UIButton! {
         didSet {
-            loginButton.setTitle(L10n.SignIn.LoginButton.title, for: .normal)
-            loginButton.isEnabled = false
+            nextOnButton.isEnabled = false
+            nextOnButton.setBackgroundImage(Asset.Assets.nextup.image, for: .normal)
         }
     }
-
     var viewModel: SignInViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -50,6 +65,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .black
         addEndEditingBackgroundTapGesture()
     }
 
@@ -69,8 +85,7 @@ private extension SignInViewController {
 
     @IBAction func logInButtonPressed() {
         viewModel?.login()
-    }
-
+     }
     @IBAction func usernameSegmentedControlChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -92,11 +107,9 @@ extension SignInViewController: UITextFieldDelegate {
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
         guard let text = textField.text as NSString? else {
             return true
         }
-
         let newText = text.replacingCharacters(in: range, with: string)
         viewModel?.updateUsername(username: newText)
         return true
@@ -107,7 +120,7 @@ extension SignInViewController: UITextFieldDelegate {
 extension SignInViewController: SignInViewModelViewDelegate {
 
     func signInViewModel(_ signInViewModel: SignInViewModel, didUpdateLoginEnabled enabled: Bool) {
-        loginButton.isEnabled = enabled
+        nextOnButton.isEnabled = enabled
     }
 
     func signInViewModel(_ signInViewModel: SignInViewModel, didReceiveError error: Error) {

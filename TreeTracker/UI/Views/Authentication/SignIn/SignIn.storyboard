@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zej-1G-2Wm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ukg-6H-lHn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,121 +11,106 @@
     </dependencies>
     <scenes>
         <!--Sign In View Controller-->
-        <scene sceneID="wNG-zl-fIK">
+        <scene sceneID="HIS-VE-fJF">
             <objects>
-                <viewController id="Zej-1G-2Wm" customClass="SignInViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0PG-DV-loF">
+                <viewController id="Ukg-6H-lHn" customClass="SignInViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wu4-Tl-VTL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Forest" translatesAutoresizingMaskIntoConstraints="NO" id="sDc-Z9-CCJ">
-                                <rect key="frame" x="0.0" y="474" width="414" height="422"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-57-uo8">
-                                <rect key="frame" x="20" y="64" width="374" height="798"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-od-Twt" userLabel="Userinfo Stackview">
+                                <rect key="frame" x="109.5" y="84" width="195" height="136"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoWithTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Rb3-x4-bAY">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="577"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="xac-Ph-lGu"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-MP-cDo">
-                                        <rect key="frame" x="0.0" y="607" width="374" height="50"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-aa-lzu">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" image="Phone" translatesAutoresizingMaskIntoConstraints="NO" id="d88-hO-nKC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                        <color key="tintColor" name="GrayDark"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="d88-hO-nKC" secondAttribute="height" multiplier="1:1" id="j0f-oJ-wqF"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PHONE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLe-97-w0N" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="54" y="0.0" width="320" height="44"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="iconImageView" destination="d88-hO-nKC" id="OLl-PL-RmX"/>
-                                                            <outlet property="underlineView" destination="Y8o-zt-Ogl" id="a2j-wm-NBA"/>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8o-zt-Ogl">
-                                                <rect key="frame" x="0.0" y="49" width="374" height="1"/>
-                                                <color key="backgroundColor" name="GrayDark"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="bIp-bc-Pdj"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="NR1-Vy-9P6"/>
-                                        </constraints>
-                                    </stackView>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9L8-kQ-iHo">
-                                        <rect key="frame" x="0.0" y="707" width="374" height="32"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="s1o-rx-dGT">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="Phone "/>
-                                            <segment title="Email"/>
+                                            <segment title="PHONE"/>
+                                            <segment title="EMAIL"/>
                                         </segments>
                                         <connections>
-                                            <action selector="usernameSegmentedControlChangedWithSender:" destination="Zej-1G-2Wm" eventType="valueChanged" id="CAK-d0-6jd"/>
+                                            <action selector="usernameSegmentedControlChangedWithSender:" destination="Ukg-6H-lHn" eventType="valueChanged" id="1hJ-2i-N8L"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-eB-zKw" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="748" width="374" height="50"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWK-NM-UWi" userLabel="Text Field Container">
+                                        <rect key="frame" x="0.0" y="66" width="195" height="70"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+253 ___ ___ ___" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbw-6r-9Of" customClass="SignInTextField" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="10" width="175" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="YG2-Uc-rsJ"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="WGV-Zd-ZAY"/>
+                                            <constraint firstItem="nbw-6r-9Of" firstAttribute="centerX" secondItem="bWK-NM-UWi" secondAttribute="centerX" id="KOI-eE-z48"/>
+                                            <constraint firstAttribute="width" constant="195" id="REG-ub-n5Q"/>
+                                            <constraint firstItem="nbw-6r-9Of" firstAttribute="leading" secondItem="bWK-NM-UWi" secondAttribute="leading" constant="10" id="Te4-FV-J4e"/>
+                                            <constraint firstAttribute="height" constant="70" id="bPM-5o-cLe"/>
+                                            <constraint firstItem="nbw-6r-9Of" firstAttribute="centerY" secondItem="bWK-NM-UWi" secondAttribute="centerY" id="dHL-mb-ZOV"/>
                                         </constraints>
-                                        <state key="normal" title="LOGIN">
-                                            <color key="titleColor" name="GrayDark"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsx-82-0gA" userLabel="Button Stackiew">
+                                <rect key="frame" x="20" y="772" width="374" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHM-jv-SMC">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="iFf-fM-dfU"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZZ-SM-Jxr" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                        <rect key="frame" x="294" y="0.0" width="80" height="60"/>
+                                        <color key="backgroundColor" name="PrimaryGreen"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="FKg-Al-Shm"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="logInButtonPressed" destination="Zej-1G-2Wm" eventType="touchUpInside" id="KFQ-nQ-2D4"/>
+                                            <action selector="logInButtonPressed" destination="Ukg-6H-lHn" eventType="touchUpInside" id="8Gc-EU-QNF"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="OXG-lw-S0f"/>
+                        <viewLayoutGuide key="safeArea" id="dnf-NG-hhS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="sDc-Z9-CCJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0PG-DV-loF" secondAttribute="top" constant="300" id="Dco-Ly-6MH"/>
-                            <constraint firstItem="OXG-lw-S0f" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="L0y-57-uo8" secondAttribute="bottom" id="LKW-DN-hOQ"/>
-                            <constraint firstItem="sDc-Z9-CCJ" firstAttribute="leading" secondItem="0PG-DV-loF" secondAttribute="leading" id="Ll4-R9-Wi7"/>
-                            <constraint firstAttribute="trailing" secondItem="sDc-Z9-CCJ" secondAttribute="trailing" id="N7o-H3-hb3"/>
-                            <constraint firstItem="L0y-57-uo8" firstAttribute="top" secondItem="OXG-lw-S0f" secondAttribute="top" constant="20" id="P5t-a1-EJ9"/>
-                            <constraint firstItem="OXG-lw-S0f" firstAttribute="trailing" secondItem="L0y-57-uo8" secondAttribute="trailing" constant="20" id="XQC-01-7k8"/>
-                            <constraint firstItem="L0y-57-uo8" firstAttribute="leading" secondItem="OXG-lw-S0f" secondAttribute="leading" constant="20" id="cEy-AZ-T9D"/>
-                            <constraint firstAttribute="bottom" secondItem="sDc-Z9-CCJ" secondAttribute="bottom" id="hiI-t6-acq"/>
+                            <constraint firstItem="dnf-NG-hhS" firstAttribute="trailing" secondItem="hsx-82-0gA" secondAttribute="trailing" constant="20" id="DY3-PC-Tho"/>
+                            <constraint firstItem="hsx-82-0gA" firstAttribute="leading" secondItem="dnf-NG-hhS" secondAttribute="leading" constant="20" id="T0O-X4-huc"/>
+                            <constraint firstItem="aJY-od-Twt" firstAttribute="top" secondItem="dnf-NG-hhS" secondAttribute="top" constant="40" id="eOn-MF-OVy"/>
+                            <constraint firstItem="dnf-NG-hhS" firstAttribute="bottom" secondItem="hsx-82-0gA" secondAttribute="bottom" constant="30" id="sDc-Xm-Xhr"/>
+                            <constraint firstItem="aJY-od-Twt" firstAttribute="centerX" secondItem="wu4-Tl-VTL" secondAttribute="centerX" id="uBo-rj-dpM"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="6Nv-eB-zKw" id="wEK-gy-8un"/>
-                        <outlet property="logoImageView" destination="Rb3-x4-bAY" id="wEW-yn-seZ"/>
-                        <outlet property="usernameSegmentedControl" destination="9L8-kQ-iHo" id="PHC-PM-mSS"/>
-                        <outlet property="usernameTextField" destination="xLe-97-w0N" id="mV4-SU-veo"/>
+                        <outlet property="nextOnButton" destination="AZZ-SM-Jxr" id="eii-us-Jbg"/>
+                        <outlet property="textFieldContainer" destination="aJY-od-Twt" id="aMo-Uq-Xer"/>
+                        <outlet property="usernameSegmentedControl" destination="s1o-rx-dGT" id="pxA-iW-jL7"/>
+                        <outlet property="usernameTextField" destination="nbw-6r-9Of" id="GZh-ea-wic"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I5A-Fm-ai3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zfc-yh-EHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-125" y="49"/>
+            <point key="canvasLocation" x="-126.08695652173914" y="48.883928571428569"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Forest" width="360" height="422"/>
-        <image name="LogoWithTitle" width="7500" height="1611"/>
-        <image name="Phone" width="18" height="18"/>
-        <namedColor name="GrayDark">
-            <color red="0.13333333333333333" green="0.14901960784313725" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="PrimaryGreen">
+            <color red="0.52549019607843139" green="0.76078431372549016" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
