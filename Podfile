@@ -13,6 +13,5 @@ target 'TreeTracker' do
   use_frameworks!
   pod 'SwiftLint'
   pod 'SwiftGen', '~> 6.0'
-  pod 'Treetracker-Core', :git => 'https://github.com/Greenstand/treetracker-ios-core.git', :tag => 'v0.0.9'
-
+  pod 'Treetracker-Core', :git => 'https://github.com/Greenstand/treetracker-ios-core.git', :tag => 'v0.0.10'
 end
