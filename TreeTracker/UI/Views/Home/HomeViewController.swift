@@ -142,6 +142,12 @@ class HomeViewController: UIViewController, AlertPresenting {
         super.viewWillAppear(animated)
         viewModel?.fetchProfileData()
     }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2.0
+
+    }
 }
 
 // MARK: - Private
