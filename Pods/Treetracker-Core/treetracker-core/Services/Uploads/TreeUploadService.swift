@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 protocol TreeUploadService {
     var treesToUpload: [Tree]? { get }
@@ -168,12 +169,14 @@ private extension Tree {
 
     func imageUploadRequest(documentManager: DocumentManaging) -> ImageUploadRequest? {
         guard let photoPath = localPhotoPath,
-              let uuid = uuid,
-              let data = try? documentManager.retrieveData(withFileName: photoPath).get() else {
+                let uuid = uuid,
+                let data = try? documentManager.retrieveData(withFileName: photoPath).get(),
+                let resizedImage = UIImage(data: data)?.resize(targetSize: CGSize(width: 500.0, height: 500.0)),
+                let resizedImageData = resizedImage.jpegData(compressionQuality: 1.0) else {
             return nil
         }
         return ImageUploadRequest(
-            jpegData: data,
+            jpegData: resizedImageData,
             latitude: latitude,
             longitude: longitude,
             uuid: uuid

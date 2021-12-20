@@ -111,7 +111,9 @@ private extension AddTreeViewModel {
     var treeData: TreeServiceData? {
 
         guard let location = location,
-              let imageData = image?.jpegData(compressionQuality: 1.0) else {
+                let image = image,
+                let resizedImage = image.resize(targetSize: CGSize(width: 500.0, height: 500.0)),
+                let imageData = resizedImage.jpegData(compressionQuality: 1.0) else {
             return nil
         }
 
