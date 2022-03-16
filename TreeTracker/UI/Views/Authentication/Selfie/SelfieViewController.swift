@@ -14,7 +14,7 @@ class SelfieViewController: UIViewController, AlertPresenting {
         didSet {
             selfiePreviewImageView.layer.cornerRadius = 20.0
             selfiePreviewImageView.layer.masksToBounds = true
-            selfiePreviewImageView.layer.borderColor = Asset.Colors.grayDark.color.cgColor
+            selfiePreviewImageView.layer.borderColor = Asset.Colors.grayLight.color.cgColor
             selfiePreviewImageView.layer.borderWidth = 5.0
             selfiePreviewImageView.clipsToBounds = true
             selfiePreviewImageView.contentMode = .scaleAspectFit
@@ -24,11 +24,14 @@ class SelfieViewController: UIViewController, AlertPresenting {
     @IBOutlet private var takeSelfieButton: PrimaryButton! {
         didSet {
             takeSelfieButton.setTitle(L10n.Selfie.PhotoButton.Title.takePhoto, for: .normal)
+            takeSelfieButton.setTitleColor(UIColor.black, for: .normal)
+
         }
     }
     @IBOutlet private var fromLibraryButton: PrimaryButton! {
         didSet {
             fromLibraryButton.setTitle(L10n.Selfie.LibraryButton.Title.libraryPhoto, for: .normal)
+            fromLibraryButton.setTitleColor(UIColor.black, for: .normal)
             fromLibraryButton.isHidden = true
             #if DEBUG
             fromLibraryButton.isHidden = false
@@ -39,6 +42,7 @@ class SelfieViewController: UIViewController, AlertPresenting {
         didSet {
             doneButton.setTitle(L10n.Selfie.SaveButton.title, for: .normal)
             doneButton.isEnabled = false
+            doneButton.setTitleColor(UIColor.black, for: .normal)
         }
     }
 
@@ -52,6 +56,11 @@ class SelfieViewController: UIViewController, AlertPresenting {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.image = nil
+        UINavigationBar.appearance().tintColor = .white
+        self.view.backgroundColor = .black
+        navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 }
 
