@@ -46,7 +46,7 @@ class HomeViewModel {
     }
 
     var title: String {
-        return L10n.Home.title(planter.firstName ?? "")
+        return L10n.Home.title
     }
 }
 
