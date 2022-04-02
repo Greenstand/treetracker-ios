@@ -39,7 +39,7 @@
 "Selfie.LibraryButton.Title.LibraryPhoto" = "From library";
 
 //Home Screen
-"Home.Title" = "Welcome %@";
+"Home.Title" = "Tree Tracker";
 "Home.InfoLabel.TreesPlantedLabel.Text" = "Trees Planted";
 "Home.InfoLabel.TreesUploadedLabel.Text" = "Trees Uploaded";
 "Home.LogoutButton.Title" = "Change User";
