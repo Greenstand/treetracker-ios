@@ -92,7 +92,7 @@ private extension SelfieViewModel {
     }
 
     var selfie: SelfieData? {
-        guard let imageData = image?.jpegData(compressionQuality: 1.0) else {
+        guard let imageData = image?.jpegData(compressionQuality: 0.5) else {
             return nil
         }
         return SelfieData(jpegData: imageData)
