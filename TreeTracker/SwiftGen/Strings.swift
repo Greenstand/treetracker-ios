@@ -119,6 +119,18 @@ internal enum L10n {
       /// Change User
       internal static let title = L10n.tr("Localizable", "Profile.ChangeUserButton.Title")
     }
+    internal enum HeaderLabel {
+      /// Email Address
+      internal static let email = L10n.tr("Localizable", "Profile.HeaderLabel.Email")
+      /// Name
+      internal static let name = L10n.tr("Localizable", "Profile.HeaderLabel.Name")
+      /// Organization
+      internal static let organization = L10n.tr("Localizable", "Profile.HeaderLabel.Organization")
+      /// Phone Number
+      internal static let phone = L10n.tr("Localizable", "Profile.HeaderLabel.Phone")
+      /// Username
+      internal static let username = L10n.tr("Localizable", "Profile.HeaderLabel.Username")
+    }
   }
 
   internal enum Selfie {
