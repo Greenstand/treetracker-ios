@@ -63,10 +63,8 @@ internal enum L10n {
   }
 
   internal enum Home {
-    /// Welcome %@
-    internal static func title(_ p1: String) -> String {
-      return L10n.tr("Localizable", "Home.Title", p1)
-    }
+    /// Tree Tracker
+    internal static let title = L10n.tr("Localizable", "Home.Title")
     internal enum AddTreeButton {
       /// ADD TREE
       internal static let title = L10n.tr("Localizable", "Home.AddTreeButton.Title")
@@ -120,6 +118,18 @@ internal enum L10n {
     internal enum ChangeUserButton {
       /// Change User
       internal static let title = L10n.tr("Localizable", "Profile.ChangeUserButton.Title")
+    }
+    internal enum HeaderLabel {
+      /// Email Address
+      internal static let email = L10n.tr("Localizable", "Profile.HeaderLabel.Email")
+      /// Name
+      internal static let name = L10n.tr("Localizable", "Profile.HeaderLabel.Name")
+      /// Organization
+      internal static let organization = L10n.tr("Localizable", "Profile.HeaderLabel.Organization")
+      /// Phone Number
+      internal static let phone = L10n.tr("Localizable", "Profile.HeaderLabel.Phone")
+      /// Username
+      internal static let username = L10n.tr("Localizable", "Profile.HeaderLabel.Username")
     }
   }
 
