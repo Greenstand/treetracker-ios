@@ -10,13 +10,12 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet private var profileImageView: UIImageView! {
+    @IBOutlet private var profileImageView: ProfileImageView!
+    @IBOutlet private var nameHeaderLabel: UILabel! {
         didSet {
-            profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2.0
-            profileImageView.layer.borderWidth = 2.0
-            profileImageView.layer.borderColor = Asset.Colors.grayLight.color.withAlphaComponent(0.5).cgColor
-            profileImageView.image = Asset.Assets.profile.image
-            profileImageView.contentMode = .scaleAspectFill
+            nameHeaderLabel.text = L10n.Profile.HeaderLabel.name
+            nameHeaderLabel.font = FontFamily.Montserrat.bold.font(size: 16.0)
+            nameHeaderLabel.textColor = .black
         }
     }
     @IBOutlet private var nameLabel: UILabel! {
@@ -26,6 +25,13 @@ class ProfileViewController: UIViewController {
             nameLabel.textColor = Asset.Colors.grayDark.color
         }
     }
+    @IBOutlet private var usernameHeaderLabel: UILabel! {
+        didSet {
+            usernameHeaderLabel.text = ""
+            usernameHeaderLabel.font = FontFamily.Montserrat.bold.font(size: 16.0)
+            usernameHeaderLabel.textColor = .black
+        }
+    }
     @IBOutlet private var usernameLabel: UILabel! {
         didSet {
             usernameLabel.text = ""
@@ -33,8 +39,17 @@ class ProfileViewController: UIViewController {
             usernameLabel.textColor = Asset.Colors.grayDark.color
         }
     }
+    @IBOutlet private var organizationHeaderLabel: UILabel! {
+        didSet {
+            organizationHeaderLabel.isHidden = true
+            organizationHeaderLabel.text = L10n.Profile.HeaderLabel.organization
+            organizationHeaderLabel.font = FontFamily.Montserrat.bold.font(size: 16.0)
+            organizationHeaderLabel.textColor = .black
+        }
+    }
     @IBOutlet private var organizationLabel: UILabel! {
         didSet {
+            organizationLabel.isHidden = true
             organizationLabel.text = ""
             organizationLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
             organizationLabel.textColor = Asset.Colors.grayDark.color
@@ -71,9 +86,24 @@ private extension ProfileViewController {
 extension ProfileViewController: ProfileViewModelViewDelegate {
 
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails) {
+
+        //Title
+        title = viewModel?.title
+
+        //Profile Image
         profileImageView.image = details.image
+
+        //Name
         nameLabel.text = details.name
-        organizationLabel.text = details.organization
+
+        // Username (Phone/Email)
         usernameLabel.text = details.username
+        usernameHeaderLabel.text = profileViewModel.usernameHeaderTitle
+
+        // Organization
+        let hasOrganization = details.organization != nil
+        organizationHeaderLabel.isHidden = !hasOrganization
+        organizationLabel.isHidden = !hasOrganization
+        organizationLabel.text = details.organization
     }
 }

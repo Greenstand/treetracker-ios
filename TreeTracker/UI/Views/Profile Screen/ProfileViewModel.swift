@@ -40,6 +40,17 @@ class ProfileViewModel {
         return self.planterName ?? L10n.Profile.fallbackTitle
     }
 
+    var usernameHeaderTitle: String {
+        if planter.email != nil {
+            return L10n.Profile.HeaderLabel.email
+        } else if planter.phoneNumber != nil {
+            return L10n.Profile.HeaderLabel.phone
+        } else {
+            return ""
+        }
+    }
+
+
     func fetchDetails() {
         selfieService.fetchSelfie(forPlanter: planter) { (result) in
             switch result {

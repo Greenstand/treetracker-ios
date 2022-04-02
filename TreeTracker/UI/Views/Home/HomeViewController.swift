@@ -10,15 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController, AlertPresenting {
 
-    @IBOutlet private var profileImageView: UIImageView! {
-        didSet {
-            profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2.0
-            profileImageView.layer.borderWidth = 2.0
-            profileImageView.layer.borderColor = Asset.Colors.grayLight.color.withAlphaComponent(0.5).cgColor
-            profileImageView.image = Asset.Assets.profile.image
-            profileImageView.contentMode = .scaleAspectFill
-        }
-    }
+    @IBOutlet private var profileImageView: ProfileImageView!
     @IBOutlet private var nameButton: UIButton! {
         didSet {
             nameButton.setTitle("", for: .normal)
