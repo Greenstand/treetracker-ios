@@ -63,6 +63,11 @@
 
 //Profile screen
 "Profile.FallbackTitle" = "My Profile";
+"Profile.HeaderLabel.Name" = "Name";
+"Profile.HeaderLabel.Email" = "Email Address";
+"Profile.HeaderLabel.Phone" = "Phone Number";
+"Profile.HeaderLabel.Username" = "Username";
+"Profile.HeaderLabel.Organization" = "Organization";
 "Profile.ChangeUserButton.Title" = "Change User";
 
 //Logout Confirmation
