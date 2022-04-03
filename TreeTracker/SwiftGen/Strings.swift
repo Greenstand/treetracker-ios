@@ -45,7 +45,7 @@ internal enum L10n {
   }
 
   internal enum App {
-    /// Greenstand Tree Tracker
+    /// Greenstand Treetracker
     internal static let title = L10n.tr("Localizable", "App.Title")
   }
 
@@ -63,7 +63,7 @@ internal enum L10n {
   }
 
   internal enum Home {
-    /// Tree Tracker
+    /// Treetracker
     internal static let title = L10n.tr("Localizable", "Home.Title")
     internal enum AddTreeButton {
       /// ADD TREE
@@ -153,6 +153,35 @@ internal enum L10n {
     internal enum SaveButton {
       /// Save
       internal static let title = L10n.tr("Localizable", "Selfie.SaveButton.Title")
+    }
+  }
+
+  internal enum Settings {
+    /// Settings
+    internal static let title = L10n.tr("Localizable", "Settings.Title")
+    internal enum PhotoQuality {
+      /// Photo Quality
+      internal static let title = L10n.tr("Localizable", "Settings.PhotoQuality.Title")
+      internal enum Option {
+        internal enum High {
+          /// High resolution, high data usage.
+          internal static let info = L10n.tr("Localizable", "Settings.PhotoQuality.Option.High.Info")
+          /// High
+          internal static let title = L10n.tr("Localizable", "Settings.PhotoQuality.Option.High.Title")
+        }
+        internal enum Low {
+          /// Low resolution, low data usage.
+          internal static let info = L10n.tr("Localizable", "Settings.PhotoQuality.Option.Low.Info")
+          /// Low
+          internal static let title = L10n.tr("Localizable", "Settings.PhotoQuality.Option.Low.Title")
+        }
+        internal enum Medium {
+          /// Medium resolution, medium data usage.
+          internal static let info = L10n.tr("Localizable", "Settings.PhotoQuality.Option.Medium.Info")
+          /// Medium
+          internal static let title = L10n.tr("Localizable", "Settings.PhotoQuality.Option.Medium.Title")
+        }
+      }
     }
   }
 

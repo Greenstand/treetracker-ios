@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>TreePhotoCompressionHigh</key>
+	<string>$(TREE_PHOTO_COMPRESSION_HIGH)</string>
+	<key>TreePhotoCompressionMedium</key>
+	<string>$(TREE_PHOTO_COMPRESSION_MEDIUM)</string>
+	<key>TreePhotoCompressionLow</key>
+	<string>$(TREE_PHOTO_COMPRESSION_LOW)</string>
+	<key>TreePhotoSizeHigh</key>
+	<string>$(TREE_PHOTO_SIZE_HIGH)</string>
+	<key>TreePhotoSizeMedium</key>
+	<string>$(TREE_PHOTO_SIZE_MEDIUM)</string>
+	<key>TreePhotoSizeLow</key>
+	<string>$(TREE_PHOTO_SIZE_LOW)</string>
+	<key>DefaultTreePhotoQuality</key>
+	<string>$(DEFAULT_TREE_PHOTO_QUALITY)</string>
 	<key>AWSS3_BucketName_BundleUploads</key>
 	<string>$(AWSS3_BUCKET_NAME_BUNDLE_UPLOAD)</string>
 	<key>AWSS3_BucketName_ImageUploads</key>
