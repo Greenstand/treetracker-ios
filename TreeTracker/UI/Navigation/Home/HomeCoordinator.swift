@@ -73,6 +73,13 @@ private extension HomeCoordinator {
             animated: true
         )
     }
+
+    func showSettings() {
+        configuration.navigationController.pushViewController(
+            settingsViewController,
+            animated: true
+        )
+    }
 }
 
 // MARK: - View Controllers
@@ -106,6 +113,7 @@ private extension HomeCoordinator {
             let viewModel = AddTreeViewModel(
                 locationProvider: self.treetrackerSDK.locationService,
                 treeService: self.treetrackerSDK.treeService,
+                settingsService: self.treetrackerSDK.settingsService,
                 locationDataCapturer: self.treetrackerSDK.locationDataCapturer,
                 planter: planter
             )
@@ -148,6 +156,14 @@ private extension HomeCoordinator {
         return alertController
 
     }
+
+    var settingsViewController: UIViewController {
+        let viewController = StoryboardScene.Settings.initialScene.instantiate()
+        viewController.viewModel = SettingsViewModel(
+            settingsService: self.treetrackerSDK.settingsService
+        )
+        return viewController
+    }
 }
 
 // MARK: - HomeViewModelCoordinatorDelegate
@@ -167,6 +183,10 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
 
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter) {
         showLogoutConfirmation()
+    }
+
+    func homeViewModelDidSelectSettings(_ homeViewModel: HomeViewModel) {
+        showSettings()
     }
 }
 

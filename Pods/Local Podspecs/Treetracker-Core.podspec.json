@@ -1,6 +1,6 @@
 {
   "name": "Treetracker-Core",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": {
     "type": "GNU",
     "file": "LICENSE"
@@ -16,7 +16,7 @@
   "swift_versions": "5.0",
   "source": {
     "git": "https://github.com/Greenstand/treetracker-ios-core.git",
-    "tag": "v0.0.10"
+    "tag": "v0.0.11"
   },
   "source_files": "treetracker-core/**/*.{h,m,swift}",
   "resources": "Resources/*",
