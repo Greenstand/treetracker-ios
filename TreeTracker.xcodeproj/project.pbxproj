@@ -22,6 +22,10 @@
 		937FC5DC2486F1530018B247 /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FC5DB2486F1530018B247 /* SelfieViewController.swift */; };
 		93814CDA2569605900FC70E5 /* MyTreesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93814CD92569605900FC70E5 /* MyTreesButton.swift */; };
 		938294AB27F8A10400888E42 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938294AA27F8A10300888E42 /* ProfileImageView.swift */; };
+		938294AE27F9A79900888E42 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938294AD27F9A79900888E42 /* SettingsViewModel.swift */; };
+		938294B027F9A7A500888E42 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938294AF27F9A7A500888E42 /* SettingsViewController.swift */; };
+		938294B227F9A7AB00888E42 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938294B127F9A7AB00888E42 /* Settings.storyboard */; };
+		938294BA27F9D00800888E42 /* PhotoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938294B927F9D00800888E42 /* PhotoQuality.swift */; };
 		93989CF5246EA33600A1B21F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF4246EA33600A1B21F /* SignUpViewController.swift */; };
 		93989CF7246EA34A00A1B21F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93989CF6246EA34A00A1B21F /* SignUp.storyboard */; };
 		93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989CF8246EA35500A1B21F /* SignUpViewModel.swift */; };
@@ -101,6 +105,10 @@
 		937FC5DB2486F1530018B247 /* SelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		93814CD92569605900FC70E5 /* MyTreesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTreesButton.swift; sourceTree = "<group>"; };
 		938294AA27F8A10300888E42 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		938294AD27F9A79900888E42 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		938294AF27F9A7A500888E42 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		938294B127F9A7AB00888E42 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		938294B927F9D00800888E42 /* PhotoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoQuality.swift; sourceTree = "<group>"; };
 		93989CF4246EA33600A1B21F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		93989CF6246EA34A00A1B21F /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		93989CF8246EA35500A1B21F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -252,6 +260,24 @@
 			path = ImageViews;
 			sourceTree = "<group>";
 		};
+		938294AC27F9A77C00888E42 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				938294AD27F9A79900888E42 /* SettingsViewModel.swift */,
+				938294AF27F9A7A500888E42 /* SettingsViewController.swift */,
+				938294B127F9A7AB00888E42 /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		938294B827F9CFFF00888E42 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				938294B927F9D00800888E42 /* PhotoQuality.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		93989CEE246C477C00A1B21F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +347,7 @@
 		93E1892F245B737D00217F21 /* TreeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				938294B827F9CFFF00888E42 /* Models */,
 				93E82F61246C415400006C91 /* ApplicationDelegates */,
 				939CA850246C0F9500B1C184 /* Resources */,
 				93989CEE246C477C00A1B21F /* Utilities */,
@@ -419,6 +446,7 @@
 		93E82F57246C368200006C91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				938294AC27F9A77C00888E42 /* Settings */,
 				F258B5A1260A4C730053DAD7 /* Profile Screen */,
 				93E82F58246C36A300006C91 /* Loading */,
 				93E82F5F246C3B3200006C91 /* Authentication */,
@@ -663,6 +691,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E1893D245B738100217F21 /* LaunchScreen.storyboard in Resources */,
+				938294B227F9A7AB00888E42 /* Settings.storyboard in Resources */,
 				93EC8C3D24AA52F000946C0C /* Home.storyboard in Resources */,
 				931C37BA249BAD0900EE24DC /* Selfie.storyboard in Resources */,
 				93E82F63246C41B000006C91 /* Localizable.strings in Resources */,
@@ -785,6 +814,7 @@
 				93E82F56246C35FF00006C91 /* SignInViewModel.swift in Sources */,
 				93D3FE2E25C0CC4100EB3B3C /* Configuration.swift in Sources */,
 				93EC8CAD24BBA9F600946C0C /* AddTreeViewModel.swift in Sources */,
+				938294B027F9A7A500888E42 /* SettingsViewController.swift in Sources */,
 				93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */,
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
 				93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */,
@@ -819,8 +849,10 @@
 				93EC8CAB24BBA9E100946C0C /* AddTreeViewController.swift in Sources */,
 				93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
+				938294BA27F9D00800888E42 /* PhotoQuality.swift in Sources */,
 				9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */,
 				93EC8C3424AA4AE100946C0C /* HomeCoordinator.swift in Sources */,
+				938294AE27F9A79900888E42 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

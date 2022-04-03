@@ -5,14 +5,14 @@ PODS:
   - Keys (1.0.1)
   - SwiftGen (6.1.0)
   - SwiftLint (0.39.2)
-  - Treetracker-Core (0.0.10):
+  - Treetracker-Core (0.0.11):
     - AWSS3 (= 2.16.0)
 
 DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
   - SwiftGen (~> 6.0)
   - SwiftLint
-  - Treetracker-Core (from `https://github.com/Greenstand/treetracker-ios-core.git`, tag `v0.0.10`)
+  - Treetracker-Core (from `https://github.com/Greenstand/treetracker-ios-core.git`, tag `v0.0.11`)
 
 SPEC REPOS:
   trunk:
@@ -26,12 +26,12 @@ EXTERNAL SOURCES:
     :path: Pods/CocoaPodsKeys
   Treetracker-Core:
     :git: https://github.com/Greenstand/treetracker-ios-core.git
-    :tag: v0.0.10
+    :tag: v0.0.11
 
 CHECKOUT OPTIONS:
   Treetracker-Core:
     :git: https://github.com/Greenstand/treetracker-ios-core.git
-    :tag: v0.0.10
+    :tag: v0.0.11
 
 SPEC CHECKSUMS:
   AWSCore: 439de29e3423c637a0c475f9ea329262fd2acc67
@@ -39,8 +39,8 @@ SPEC CHECKSUMS:
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
-  Treetracker-Core: 4d19304dd09f3726fa570239dda6443f1a053639
+  Treetracker-Core: d79033ce450a81ac9d1b18397f7f90f4fa9adb70
 
-PODFILE CHECKSUM: 8ea6890c8fa764a0d62dac95a6241a0d0ea3c943
+PODFILE CHECKSUM: 4d682d52a597a33169bd9e0dcf92f5169460d2f2
 
 COCOAPODS: 1.11.2

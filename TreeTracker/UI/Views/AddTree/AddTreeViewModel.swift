@@ -28,6 +28,7 @@ class AddTreeViewModel {
 
     private let locationProvider: LocationProvider
     private let treeService: TreeService
+    private let settingsService: SettingsService
     private let locationDataCapturer: LocationDataCapturing
     private let planter: Planter
     private let treeUUID: String
@@ -35,12 +36,15 @@ class AddTreeViewModel {
     init(
         locationProvider: LocationProvider,
         treeService: TreeService,
+        settingsService: SettingsService,
         locationDataCapturer: LocationDataCapturing,
         planter: Planter
     ) {
         self.treeUUID = UUID().uuidString
 
         self.treeService = treeService
+        self.settingsService = settingsService
+
         self.locationDataCapturer = locationDataCapturer
         self.planter = planter
         self.locationProvider = locationProvider
@@ -110,10 +114,15 @@ private extension AddTreeViewModel {
 
     var treeData: TreeServiceData? {
 
+        let defaultPhotoQuality = Configuration.DefaultTreePhotoImageQuality.defaultPhotoImageQuality
+
+        let photoSize: Double = settingsService.value(forSetting: .treePhotoSize) ?? defaultPhotoQuality.photoSize
+        let compression: Double = settingsService.value(forSetting: .treePhotoCompression) ?? defaultPhotoQuality.compression
+
         guard let location = location,
                 let image = image,
-                let resizedImage = image.resize(targetSize: CGSize(width: 500.0, height: 500.0)),
-                let imageData = resizedImage.jpegData(compressionQuality: 1.0) else {
+                let resizedImage = image.resize(targetSize: CGSize(width: photoSize, height: photoSize)),
+                let imageData = resizedImage.jpegData(compressionQuality: compression) else {
             return nil
         }
 

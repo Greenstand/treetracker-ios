@@ -15,28 +15,28 @@ class ProfileViewController: UIViewController {
         didSet {
             nameHeaderLabel.text = L10n.Profile.HeaderLabel.name
             nameHeaderLabel.font = FontFamily.Montserrat.bold.font(size: 16.0)
-            nameHeaderLabel.textColor = .black
+            nameHeaderLabel.textColor = Asset.Colors.grayDark.color
         }
     }
     @IBOutlet private var nameLabel: UILabel! {
         didSet {
             nameLabel.text = ""
             nameLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
-            nameLabel.textColor = Asset.Colors.grayDark.color
+            nameLabel.textColor = Asset.Colors.grayMedium.color
         }
     }
     @IBOutlet private var usernameHeaderLabel: UILabel! {
         didSet {
             usernameHeaderLabel.text = ""
             usernameHeaderLabel.font = FontFamily.Montserrat.bold.font(size: 16.0)
-            usernameHeaderLabel.textColor = .black
+            usernameHeaderLabel.textColor = Asset.Colors.grayDark.color
         }
     }
     @IBOutlet private var usernameLabel: UILabel! {
         didSet {
             usernameLabel.text = ""
             usernameLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
-            usernameLabel.textColor = Asset.Colors.grayDark.color
+            usernameLabel.textColor = Asset.Colors.grayMedium.color
         }
     }
     @IBOutlet private var organizationHeaderLabel: UILabel! {
@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
             organizationHeaderLabel.isHidden = true
             organizationHeaderLabel.text = L10n.Profile.HeaderLabel.organization
             organizationHeaderLabel.font = FontFamily.Montserrat.bold.font(size: 16.0)
-            organizationHeaderLabel.textColor = .black
+            organizationHeaderLabel.textColor = Asset.Colors.grayDark.color
         }
     }
     @IBOutlet private var organizationLabel: UILabel! {
@@ -52,7 +52,7 @@ class ProfileViewController: UIViewController {
             organizationLabel.isHidden = true
             organizationLabel.text = ""
             organizationLabel.font = FontFamily.Montserrat.semiBold.font(size: 16.0)
-            organizationLabel.textColor = Asset.Colors.grayDark.color
+            organizationLabel.textColor = Asset.Colors.grayMedium.color
         }
     }
     @IBOutlet private var changeUserButton: DestructiveButton! {

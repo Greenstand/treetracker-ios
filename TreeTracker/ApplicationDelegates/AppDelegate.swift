@@ -31,7 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let configuration: TreetrackerSDK.Configuration = .init(
             awsConfiguration: awsConfig,
-            terms: termsURL
+            terms: termsURL,
+            defaultTreeImageQuality: .init(
+                size: Configuration.DefaultTreePhotoImageQuality.defaultPhotoImageQuality.photoSize,
+                compression: Configuration.DefaultTreePhotoImageQuality.defaultPhotoImageQuality.compression
+            )
         )
 
         return TreetrackerSDK(
