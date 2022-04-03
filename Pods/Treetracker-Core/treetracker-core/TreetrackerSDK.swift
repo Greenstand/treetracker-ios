@@ -130,6 +130,11 @@ public class TreetrackerSDK: NSObject {
         )
     }
 
+    public var settingsService: SettingsService {
+        return UserDefaultsSettingsService(configuration: configuration)
+    }
+
+
     // Initializers
     public init(configuration: Configuration) {
         self.configuration = configuration
@@ -161,15 +166,29 @@ public extension TreetrackerSDK {
 
     struct Configuration {
 
+        public struct DefaultTreeImageQuality {
+
+            let size: Double
+            let compression: Double
+
+            public init (size: Double, compression: Double) {
+                self.size = size
+                self.compression = compression
+            }
+        }
+
         let awsConfiguration: AWSConfiguration
         let terms: URL
+        let defaultTreeImageQuality: DefaultTreeImageQuality
 
         public init(
             awsConfiguration: AWSConfiguration,
-            terms: URL
+            terms: URL,
+            defaultTreeImageQuality: DefaultTreeImageQuality
         ) {
             self.awsConfiguration = awsConfiguration
             self.terms = terms
+            self.defaultTreeImageQuality = defaultTreeImageQuality
         }
     }
 }

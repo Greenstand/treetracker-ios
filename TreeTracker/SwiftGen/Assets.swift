@@ -38,6 +38,7 @@ internal enum Asset {
     internal static let profile = ImageAsset(name: "profile")
     internal static let saplingIcon = ImageAsset(name: "sapling_Icon")
     internal static let seed = ImageAsset(name: "seed")
+    internal static let settings = ImageAsset(name: "settings")
     internal static let upload = ImageAsset(name: "upload")
     internal static let launchScreenForest = ImageAsset(name: "LaunchScreenForest")
     internal static let launchScreenLogo = ImageAsset(name: "LaunchScreenLogo")

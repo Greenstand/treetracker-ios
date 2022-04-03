@@ -127,6 +127,7 @@ class HomeViewController: UIViewController, AlertPresenting {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addSettingsButton()
         viewModel?.startMonitoringTrees()
     }
 
@@ -157,6 +158,15 @@ private extension HomeViewController {
         attributedTitle.append(NSAttributedString(attachment: imageAttachment))
         nameButton.setAttributedTitle(attributedTitle, for: .normal)
     }
+
+    func addSettingsButton() {
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(
+            image: Asset.Assets.settings.image,
+            style: .plain,
+            target: self,
+            action: #selector(settingsButtonPressed)
+        )]
+    }
 }
 
 // MARK: - Button Actions
@@ -176,6 +186,10 @@ private extension HomeViewController {
 
     @IBAction func logoutButtonPressed() {
         viewModel?.logoutPlanter()
+    }
+
+    @objc func settingsButtonPressed() {
+        viewModel?.settingsSelected()
     }
 }
 

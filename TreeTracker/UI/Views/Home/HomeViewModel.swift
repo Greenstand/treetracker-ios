@@ -14,6 +14,7 @@ protocol HomeViewModelCoordinatorDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewProfileForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter)
+    func homeViewModelDidSelectSettings(_ homeViewModel: HomeViewModel)
 }
 
 protocol HomeViewModelViewDelegate: AnyObject {
@@ -119,6 +120,10 @@ extension HomeViewModel {
             uploadManager.stopUploading()
         }
         coordinatorDelegate?.homeViewModel(self, didLogoutPlanter: planter)
+    }
+
+    func settingsSelected() {
+        coordinatorDelegate?.homeViewModelDidSelectSettings(self)
     }
 }
 

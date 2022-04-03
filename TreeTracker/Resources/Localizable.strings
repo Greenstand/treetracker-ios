@@ -75,3 +75,13 @@
 "LogOutConfirmation.Message" = "Are you sure you want to log out and change user?";
 "LogOutConfirmation.CancelButton.Title" = "Cancel";
 "LogOutConfirmation.LogOutButton.Title" = "Log Out";
+
+//Settings Screen
+"Settings.Title" = "Settings";
+"Settings.PhotoQuality.Title" = "Photo Quality";
+"Settings.PhotoQuality.Option.Low.Title" = "Low";
+"Settings.PhotoQuality.Option.Low.Info" = "Low resolution, low data usage.";
+"Settings.PhotoQuality.Option.Medium.Title" = "Medium";
+"Settings.PhotoQuality.Option.Medium.Info" = "Medium resolution, medium data usage.";
+"Settings.PhotoQuality.Option.High.Title" = "High";
+"Settings.PhotoQuality.Option.High.Info" = "High resolution, high data usage.";
