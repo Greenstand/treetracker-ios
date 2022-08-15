@@ -134,7 +134,7 @@ private extension AddTreeViewModel {
     }
 }
 
-// MARK: - LocationServiceDelegate
+// MARK: - LocationProviderDelegate
 extension AddTreeViewModel: LocationProviderDelegate {
     func locationProvider(_ locationProvider: LocationProvider, didUpdateLocation location: Location?) {
         if let location = location {
@@ -143,7 +143,7 @@ extension AddTreeViewModel: LocationProviderDelegate {
     }
 }
 
-// MARK: - LocationServiceDelegate
+// MARK: - LocationDataCapturerDelegate
 extension AddTreeViewModel: LocationDataCapturerDelegate {
     func locationDataCapturer(_ locationDataCapturer: LocationDataCapturing, didUpdateConvergenceStatus convergenceStatus: ConvergenceStatus) {
         switch convergenceStatus {
