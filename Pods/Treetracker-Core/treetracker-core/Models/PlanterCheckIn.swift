@@ -15,6 +15,8 @@ public protocol PlanterCheckIn: AnyObject {
     var photoURL: String? { get }
     var planterDetail: Planter? { get }
     var trees: NSSet? { get }
+    var latitude: Double { get }
+    var longitude: Double { get }
 }
 
 extension PlanterIdentification: PlanterCheckIn {

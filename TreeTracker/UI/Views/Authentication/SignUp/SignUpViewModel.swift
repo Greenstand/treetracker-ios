@@ -18,20 +18,29 @@ protocol SignUpViewModelViewDelegate: AnyObject {
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateFirstName result: SignUpViewModel.ValidationResult)
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateLastName result: SignUpViewModel.ValidationResult)
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateOrganizationName result: SignUpViewModel.ValidationResult)
+    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didUpdateHasLocation hasLocation: Bool)
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didUpdateSignUpEnabled enabled: Bool)
 }
 
 class SignUpViewModel {
 
     private let signUpService: SignUpService
+    private let locationProvider: LocationProvider
     private let username: Username
 
     weak var coordinatorDelegate: SignUpViewModelCoordinatorDelegate?
     weak var viewDelegate: SignUpViewModelViewDelegate?
 
-    init(username: Username, signUpService: SignUpService) {
+    init(
+        username: Username,
+        signUpService: SignUpService,
+        locationProvider: LocationProvider
+    ) {
         self.username = username
         self.signUpService = signUpService
+        self.locationProvider = locationProvider
+
+        locationProvider.delegate = self
     }
 
     let title: String = L10n.SignUp.title
@@ -67,8 +76,29 @@ class SignUpViewModel {
             viewDelegate?.signUpViewModel(self, didUpdateSignUpEnabled: signUpEnabled)
         }
     }
+    private var location: Location? {
+        didSet {
+            let hasLocation: Bool = {
+                guard let location = location else {
+                    return false
+                }
+                return location.isValid
+            }()
+            viewDelegate?.signUpViewModel(self, didUpdateHasLocation: hasLocation)
+            viewDelegate?.signUpViewModel(self, didUpdateSignUpEnabled: signUpEnabled)
+        }
+    }
 
+    func startMonitoringLocation() {
+        locationProvider.startMonitoringLocation()
+    }
+    
     func signUp() {
+
+        guard let signUpDetails = signUpDetails else {
+            viewDelegate?.signUpViewModel(self, didReceiveError: SignUpViewModel.Error.invalidSignUpData)
+            return
+        }
 
         signUpService.signUp(withDetails: signUpDetails) { (result) in
             switch result {
@@ -97,6 +127,12 @@ private extension SignUpViewModel {
     }
 
     var signUpEnabled: Bool {
+
+        guard let location = location,
+                location.isValid else {
+            return false
+        }
+
         switch (name.isValid, organization.isValid) {
         case (.valid, .valid),
              (.valid, .empty):
@@ -119,12 +155,27 @@ private extension SignUpViewModel {
         )
     }
 
-    var signUpDetails: SignUpDetails {
+    var signUpDetails: SignUpDetails? {
+
+        guard let latitude = location?.latitude,
+              let longitude = location?.longitude else {
+            return nil
+        }
         return SignUpDetails(
             username: username,
             name: name,
-            organization: organization
+            organization: organization,
+            latitude: latitude,
+            longitude: longitude
         )
+    }
+}
+
+// MARK: - LocationProviderDelegate
+extension SignUpViewModel: LocationProviderDelegate {
+
+    func locationProvider(_ locationProvider: LocationProvider, didUpdateLocation location: Location?) {
+        self.location = location
     }
 }
 
@@ -137,6 +188,15 @@ extension SignUpViewModel {
         case empty
     }
 }
+
+// MARK: - Error
+extension SignUpViewModel {
+
+    enum Error: Swift.Error {
+        case invalidSignUpData
+    }
+}
+
 
 // MARK: - Validation.Result Extension
 private extension Validation.Result {

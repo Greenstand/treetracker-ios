@@ -15,3 +15,10 @@ public protocol Location {
     var horizontalAccuracy: Double { get }
     var verticalAccuracy: Double { get }
 }
+
+public extension Location {
+
+    var isValid: Bool {
+        return latitude != 0.0 && longitude != 0.0
+    }
+}
