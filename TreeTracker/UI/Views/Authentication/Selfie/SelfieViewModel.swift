@@ -8,6 +8,7 @@
 
 import UIKit
 import Treetracker_Core
+import CoreLocation
 
 protocol SelfieViewModelCoordinatorDelegate: AnyObject {
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didTakeSelfieForPlanter planter: Planter)
@@ -19,6 +20,7 @@ protocol SelfieViewModelViewDelegate: AnyObject {
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateSaveSelfieEnabled enabled: Bool)
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateSelfieActionTitle title: String)
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdatePreviewContentMode contentMode: UIView.ContentMode)
+    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateHasLocation hasLocation: Bool)
 }
 
 class SelfieViewModel {
@@ -27,11 +29,19 @@ class SelfieViewModel {
     weak var viewDelegate: SelfieViewModelViewDelegate?
 
     private let selfieService: SelfieService
+    private let locationProvider: LocationProvider
     private let planter: Planter
 
-    init(planter: Planter, selfieService: SelfieService) {
+    init(
+        planter: Planter,
+        selfieService: SelfieService,
+        locationProvider: LocationProvider
+    ) {
         self.planter = planter
         self.selfieService = selfieService
+        self.locationProvider = locationProvider
+
+        locationProvider.delegate = self
     }
 
     let title: String = L10n.Selfie.title
@@ -43,6 +53,22 @@ class SelfieViewModel {
             viewDelegate?.selfieViewModel(self, didUpdateSelfieActionTitle: selfieActionTitle)
             viewDelegate?.selfieViewModel(self, didUpdatePreviewContentMode: selfiePreviewContentMode)
         }
+    }
+    private var location: Location? {
+        didSet {
+            let hasLocation: Bool = {
+                guard let location = location else {
+                    return false
+                }
+                return location.isValid
+            }()
+            viewDelegate?.selfieViewModel(self, didUpdateHasLocation: hasLocation)
+            viewDelegate?.selfieViewModel(self, didUpdateSaveSelfieEnabled: saveSelfieEnabled)
+        }
+    }
+
+    func startMonitoringLocation() {
+        locationProvider.startMonitoringLocation()
     }
 
     func storeSelfie() {
@@ -81,6 +107,12 @@ private extension SelfieViewModel {
     }
 
     var saveSelfieEnabled: Bool {
+
+        guard let location = location,
+                location.isValid else {
+            return false
+        }
+
         return image != nil
     }
 
@@ -92,10 +124,20 @@ private extension SelfieViewModel {
     }
 
     var selfie: SelfieData? {
-        guard let imageData = image?.jpegData(compressionQuality: 0.5) else {
+        guard let imageData = image?.jpegData(compressionQuality: 0.5),
+              let latitude = location?.latitude,
+              let longitude = location?.longitude else {
             return nil
         }
-        return SelfieData(jpegData: imageData)
+        return SelfieData(jpegData: imageData, latitude: latitude, longitude: longitude)
+    }
+}
+
+// MARK: - LocationProviderDelegate
+extension SelfieViewModel: LocationProviderDelegate {
+
+    func locationProvider(_ locationProvider: LocationProvider, didUpdateLocation location: Location?) {
+        self.location = location
     }
 }
 

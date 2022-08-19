@@ -11,9 +11,17 @@ import Foundation
 public struct SelfieData {
 
     let jpegData: Data
+    let latitude: Double
+    let longitude: Double
 
-    public init(jpegData: Data) {
+    public init(
+        jpegData: Data,
+        latitude: Double,
+        longitude:  Double
+    ) {
         self.jpegData = jpegData
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }
 
@@ -58,6 +66,8 @@ class LocalSelfieService: SelfieService {
         identification.createdAt = Date()
         identification.localPhotoPath = photoPath
         identification.uuid = uuid
+        identification.latitude = data.latitude
+        identification.longitude = data.longitude
 
         planter.addToIdentification(identification)
 
