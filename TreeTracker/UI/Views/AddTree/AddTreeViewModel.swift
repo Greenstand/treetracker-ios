@@ -18,6 +18,7 @@ protocol AddTreeViewModelViewDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateGPSAccuracy accuracy: AddTreeViewModel.GPSAccuracy)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTakePhotoEnabled enabled: Bool)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateAddTreeEnabled enabled: Bool)
+    func addTreeViewModel(_ selfieViewModel: AddTreeViewModel, didUpdateTakePhotoActionTitle title: String)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didReceiveError error: Error)
 }
 
@@ -61,6 +62,7 @@ class AddTreeViewModel {
         didSet {
             viewDelegate?.addTreeViewModel(self, didUpdateTreeImage: image)
             viewDelegate?.addTreeViewModel(self, didUpdateAddTreeEnabled: addTreeEnabled)
+            viewDelegate?.addTreeViewModel(self, didUpdateTakePhotoActionTitle: takePhotoActionTitle)
         }
     }
 
@@ -134,7 +136,7 @@ private extension AddTreeViewModel {
     }
 }
 
-// MARK: - LocationServiceDelegate
+// MARK: - LocationProviderDelegate
 extension AddTreeViewModel: LocationProviderDelegate {
     func locationProvider(_ locationProvider: LocationProvider, didUpdateLocation location: Location?) {
         if let location = location {
@@ -143,7 +145,7 @@ extension AddTreeViewModel: LocationProviderDelegate {
     }
 }
 
-// MARK: - LocationServiceDelegate
+// MARK: - LocationDataCapturerDelegate
 extension AddTreeViewModel: LocationDataCapturerDelegate {
     func locationDataCapturer(_ locationDataCapturer: LocationDataCapturing, didUpdateConvergenceStatus convergenceStatus: ConvergenceStatus) {
         switch convergenceStatus {

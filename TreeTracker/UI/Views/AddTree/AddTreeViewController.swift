@@ -144,6 +144,10 @@ extension AddTreeViewController: AddTreeViewModelViewDelegate {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateAddTreeEnabled enabled: Bool) {
         saveTreeButton.isEnabled = enabled
     }
+    
+    func addTreeViewModel(_ selfieViewModel: AddTreeViewModel, didUpdateTakePhotoActionTitle title: String) {
+        takePhotoButton.setTitle(title, for: .normal)
+    }
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateGPSAccuracy accuracy: AddTreeViewModel.GPSAccuracy) {
         gpsAccuracyLabel.accuracy = accuracy.gpsLabelAccuracy
