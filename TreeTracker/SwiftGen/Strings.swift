@@ -19,8 +19,6 @@ internal enum L10n {
       internal enum Title {
         /// Retake
         internal static let retake = L10n.tr("Localizable", "AddTree.PhotoButton.Title.Retake")
-        /// Retry
-        internal static let retry = L10n.tr("Localizable", "AddTree.PhotoButton.Title.Retry")
         /// Take Photo
         internal static let takePhoto = L10n.tr("Localizable", "AddTree.PhotoButton.Title.TakePhoto")
       }

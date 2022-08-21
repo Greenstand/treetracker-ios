@@ -7,37 +7,21 @@
 //
 
 import UIKit
-import AVFoundation
 
 class AddTreeViewController: UIViewController, AlertPresenting {
 
-    @IBOutlet weak var previewView: UIView!
     @IBOutlet private var viewfinderGuidenceImageView: UIImageView! {
         didSet {
             viewfinderGuidenceImageView.contentMode = .scaleAspectFit
             viewfinderGuidenceImageView.image = Asset.Assets.phoneViewfinder.image
-            viewfinderGuidenceImageView.isHidden = true
-            viewfinderGuidenceImageView.layer.zPosition = 3
-        }
-    }
-    @IBOutlet private var treeViewFinderFocus: UIImageView! {
-        didSet {
-            treeViewFinderFocus.contentMode = .scaleToFill
-            treeViewFinderFocus.image = Asset.Assets.focus.image
-            treeViewFinderFocus.isHidden = false
-            treeViewFinderFocus.layer.zPosition = 4
-            treeViewFinderFocus.layer.cornerRadius = 10
-            treeViewFinderFocus.frame = CGRect(x: 0, y: 0,
-                                                width: previewView.bounds.size.width,
-                                                height: previewView.bounds.size.height)
+            viewfinderGuidenceImageView.isHidden = false
         }
     }
     @IBOutlet private var treeGuidenceImageView: UIImageView! {
         didSet {
             treeGuidenceImageView.contentMode = .scaleAspectFit
             treeGuidenceImageView.image = Asset.Assets.planting.image
-            treeGuidenceImageView.isHidden = true
-            treeGuidenceImageView.layer.zPosition = 2
+            treeGuidenceImageView.isHidden = false
         }
     }
     @IBOutlet private var treeImageView: UIImageView! {
@@ -49,10 +33,6 @@ class AddTreeViewController: UIViewController, AlertPresenting {
             treeImageView.contentMode = .scaleAspectFill
             treeImageView.image = nil
             treeImageView.isHidden = true
-            treeImageView.layer.zPosition = 5
-            treeImageView.frame = CGRect(x: 10, y: 0,
-                                         width: previewView.bounds.size.width - 20,
-                                         height: previewView.bounds.size.height - 20)
         }
     }
     @IBOutlet private var gpsAccuracyLabel: GPSAccuracyLabel! {
@@ -67,13 +47,6 @@ class AddTreeViewController: UIViewController, AlertPresenting {
             #if DEBUG
             choosePhotoButton.isHidden = false
             #endif
-        }
-    }
-    @IBOutlet private var retryPhotoButton: PrimaryButton! {
-        didSet {
-            retryPhotoButton.setTitle(L10n.AddTree.PhotoButton.Title.retry, for: .normal)
-                retryPhotoButton.isEnabled = true
-                retryPhotoButton.isHidden = true
         }
     }
     @IBOutlet private var takePhotoButton: PrimaryButton! {
@@ -108,27 +81,11 @@ class AddTreeViewController: UIViewController, AlertPresenting {
             title = viewModel?.title
         }
     }
-    let session = AVCaptureSession()
-    var captureDevice: AVCaptureDevice!
-    var videoDataOutput: AVCaptureVideoDataOutput!
-    var videoDataOutputQueue: DispatchQueue!
-    var previewLayer: AVCaptureVideoPreviewLayer!
-    var cameraView: UIView!
-    let photoOutput = AVCapturePhotoOutput()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.startMonitoringLocation()
-        self.createCameraView()
-        self.initializeCapture()
     }
-    @IBAction func retryPhotoButtonPressed() {
-        cameraView.isHidden = false
-        treeImageView.isHidden = true
-        retryPhotoButton.isHidden = true
-        choosePhotoButton.isHidden = false
-    }
-
 }
 
 // MARK: - Button Actions
@@ -144,15 +101,15 @@ private extension AddTreeViewController {
 #endif
 
     @IBAction func takePhotoButtonPressed() {
-        cameraView.isHidden = true
-        choosePhotoButton.isHidden = true
-        retryPhotoButton.isHidden = false
-        didTakePhoto()
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.cameraDevice = .rear
+        present(imagePicker, animated: true)
     }
 
     @IBAction func saveTreeButtonPressed() {
         viewModel?.saveTree()
-        cameraView.isHidden = false
     }
 }
 
@@ -231,79 +188,6 @@ private extension AddTreeViewModel.GPSAccuracy {
             return .good
         case .unknown:
             return .unknown
-        }
-    }
-}
- // MARK: - AddTreeModel AVCapture Extension
-extension AddTreeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func createCameraView() {
-        cameraView = UIView(frame: CGRect(x: 0, y: 0,
-                            width: previewView.bounds.size.width,
-                            height: previewView.bounds.size.height))
-        cameraView.contentMode = .scaleAspectFit
-        cameraView.layer.cornerRadius = 30
-        cameraView.layer.zPosition = 0
-        previewView.addSubview(cameraView)
-    }
-    func initializeCapture() {
-        session.sessionPreset = .photo
-        guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
-            return
-        }
-        captureDevice = device
-        beginCapture()
-    }
-    func beginCapture() {
-        var deviceInput: AVCaptureDeviceInput!
-
-        do {
-            deviceInput = try AVCaptureDeviceInput(device: captureDevice)
-            guard deviceInput != nil else {
-                print("error: cant get deviceInput")
-                return
-            }
-            if self.session.canAddInput(deviceInput) {
-                self.session.addInput(deviceInput)
-            }
-            guard session.canAddOutput(photoOutput) else {return}
-            session.addOutput(photoOutput)
-            session.commitConfiguration()
-            videoDataOutput = AVCaptureVideoDataOutput()
-            videoDataOutput.alwaysDiscardsLateVideoFrames=true
-            videoDataOutputQueue = DispatchQueue(label: "VideoDataOutputQueue")
-            videoDataOutput.setSampleBufferDelegate(self, queue: self.videoDataOutputQueue)
-
-            if session.canAddOutput( self.videoDataOutput ) {
-                session.addOutput( self.videoDataOutput )
-            }
-
-            videoDataOutput.connection(with: .video)?.isEnabled = true
-
-            previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
-            previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-
-            let rootLayer: CALayer = self.cameraView.layer
-            rootLayer.masksToBounds=true
-            previewLayer.frame = rootLayer.bounds
-            rootLayer.addSublayer(self.previewLayer)
-            session.startRunning()
-        } catch let error as NSError {
-            deviceInput = nil
-            print("error: \(error.localizedDescription)")
-        }
-    }
-
-}
-// MARK: - AddTreeModel AVCapturePhotoDelegate Extension
-extension AddTreeViewController: AVCapturePhotoCaptureDelegate {
-    func didTakePhoto() {
-        let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-        photoOutput.capturePhoto(with: settings, delegate: self)
-    }
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let imageData = photo.fileDataRepresentation() else {return}
-        if let editedImage = UIImage(data: imageData) {
-            self.viewModel?.updateTreeImage(treeImage: editedImage)
         }
     }
 }

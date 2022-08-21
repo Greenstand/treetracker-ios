@@ -965,18 +965,16 @@
 			baseConfigurationReference = F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = QWSTH3UGG6;
+				DEVELOPMENT_TEAM = 6QWPM48DDB;
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.huber.treetrackertest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.treetrackertest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1145,18 +1143,16 @@
 			baseConfigurationReference = CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = QWSTH3UGG6;
+				DEVELOPMENT_TEAM = 6QWPM48DDB;
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.huber.treetrackertest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.treetrackertest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1167,9 +1163,9 @@
 			baseConfigurationReference = FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6QWPM48DDB;
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1177,7 +1173,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenstand.treetracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

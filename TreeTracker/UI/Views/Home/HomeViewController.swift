@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class HomeViewController: UIViewController, AlertPresenting {
 
@@ -118,8 +117,7 @@ class HomeViewController: UIViewController, AlertPresenting {
         }
     }
     @IBOutlet private var addTreeButton: AddTreeButton!
-    
-    
+
     var viewModel: HomeViewModel? {
         didSet {
             viewModel?.viewDelegate = self

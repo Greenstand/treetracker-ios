@@ -266,7 +266,6 @@ GEM
 PLATFORMS
   universal-darwin-19
   universal-darwin-20
-  universal-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -275,4 +274,4 @@ DEPENDENCIES
   fastlane
 
 BUNDLED WITH
-   2.3.20
+   2.2.16
