@@ -39,7 +39,7 @@ class UploadsButton: UIButton {
 
     var uploadState: UploadState = .start {
         didSet {
-            updateUploadState()
+            updateUploadeState()
         }
     }
 }
@@ -56,7 +56,7 @@ private extension UploadsButton {
         loadingSpinner.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 30.0).isActive = true
 
         updateState()
-        updateUploadState()
+        updateUploadeState()
     }
 
     func updateState() {
@@ -69,7 +69,7 @@ private extension UploadsButton {
         }
     }
 
-    func updateUploadState() {
+    func updateUploadeState() {
         switch uploadState {
         case .start:
             loadingSpinner.stopAnimating()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X4I-dk-5j4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X4I-dk-5j4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,10 +21,10 @@
                                 <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-9b-RXe">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="498"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="558"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zE0-tZ-HBB">
-                                        <rect key="frame" x="0.0" y="548" width="374" height="230"/>
+                                        <rect key="frame" x="0.0" y="608" width="374" height="170"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9B-fJ-CuE" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -46,11 +46,8 @@
                                                     <action selector="takeSelfieButtonPressed" destination="X4I-dk-5j4" eventType="touchUpInside" id="QYU-4V-aFs"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ywv-aZ-yGF">
-                                                <rect key="frame" x="0.0" y="120" width="374" height="50"/>
-                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaG-ze-7I5" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="180" width="374" height="50"/>
+                                                <rect key="frame" x="0.0" y="120" width="374" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="8U4-ki-U9h"/>
                                                 </constraints>
@@ -60,9 +57,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Ywv-aZ-yGF" firstAttribute="height" secondItem="oaG-ze-7I5" secondAttribute="height" id="bWd-Ow-e7i"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -79,7 +73,6 @@
                     <connections>
                         <outlet property="doneButton" destination="oaG-ze-7I5" id="KbT-nr-sW1"/>
                         <outlet property="fromLibraryButton" destination="w9B-fJ-CuE" id="Q3K-bJ-h86"/>
-                        <outlet property="searchGPSSignalImageView" destination="Ywv-aZ-yGF" id="9U7-Lw-FAF"/>
                         <outlet property="selfiePreviewImageView" destination="Ede-9b-RXe" id="XzW-nr-Zxc"/>
                         <outlet property="takeSelfieButton" destination="Ib1-Vl-lft" id="Lwe-sf-chL"/>
                     </connections>

@@ -41,19 +41,6 @@ class SelfieViewController: UIViewController, AlertPresenting {
             doneButton.isEnabled = false
         }
     }
-    @IBOutlet weak var searchGPSSignalImageView: UIImageView! {
-        didSet {
-            searchGPSSignalImageView.animationImages = [
-                Asset.Assets.GpsSearchAnimation.gpsLoad0,
-                Asset.Assets.GpsSearchAnimation.gpsLoad1,
-                Asset.Assets.GpsSearchAnimation.gpsLoad2
-            ].map({$0.image})
-                searchGPSSignalImageView.animationDuration = 0.9
-                searchGPSSignalImageView.animationRepeatCount = 0
-                searchGPSSignalImageView.image = Asset.Assets.GpsSearchAnimation.gpsLoad0.image
-                searchGPSSignalImageView.startAnimating()
-        }
-    }
 
     var viewModel: SelfieViewModel? {
         didSet {
@@ -65,7 +52,6 @@ class SelfieViewController: UIViewController, AlertPresenting {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.image = nil
-        viewModel?.startMonitoringLocation()
     }
 }
 
@@ -141,15 +127,5 @@ extension SelfieViewController: SelfieViewModelViewDelegate {
 
     func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdatePreviewImage image: UIImage) {
         selfiePreviewImageView.image = image
-    }
-
-    func selfieViewModel(_ selfieViewModel: SelfieViewModel, didUpdateHasLocation hasLocation: Bool) {
-        if hasLocation {
-            searchGPSSignalImageView.stopAnimating()
-            searchGPSSignalImageView.isHidden = true
-        } else {
-            searchGPSSignalImageView.startAnimating()
-            searchGPSSignalImageView.isHidden = false
-        }
     }
 }

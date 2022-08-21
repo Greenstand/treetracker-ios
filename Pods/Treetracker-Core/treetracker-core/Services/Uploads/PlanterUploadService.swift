@@ -179,8 +179,8 @@ private extension PlanterIdentification {
         }
         return ImageUploadRequest(
             jpegData: data,
-            latitude: latitude,
-            longitude: longitude,
+            latitude: 0.0,
+            longitude: 0.0,
             uuid: uuid
         )
     }
@@ -203,8 +203,8 @@ private extension PlanterDetail {
             organization: organization,
             phone: phoneNumber,
             email: email,
-            latitude: latitude,
-            longitude: longitude,
+            latitude: nil,
+            longitude: nil,
             deviceIdentifier: "",
             recordUUID: recordUUID,
             imageURL: imageURL
