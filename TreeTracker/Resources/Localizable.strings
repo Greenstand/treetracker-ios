@@ -54,7 +54,6 @@
 "AddTree.PhotoButton.Title.Retake" = "Retake";
 "AddTree.SaveButton.Title" = "Save";
 "AddTree.PhotoLibraryButton.Title" = "Choose Photo";
-"AddTree.PhotoButton.Title.Retry" = "Retry";
 
 //GPS Accuracy
 "GPSAccuracyLabel.Text.Base" = "GPS Accuracy: ";
