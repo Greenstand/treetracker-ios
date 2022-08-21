@@ -13,21 +13,11 @@ public struct SignUpDetails {
     let username: Username
     let name: Name
     let organization: Organization
-    let latitude: Double
-    let longitude: Double
 
-    public init(
-        username: Username,
-        name: Name,
-        organization: Organization,
-        latitude: Double,
-        longitude: Double
-    ) {
+    public init(username: Username, name: Name, organization: Organization) {
         self.username = username
         self.name = name
         self.organization = organization
-        self.latitude = latitude
-        self.longitude = longitude
     }
 }
 
@@ -61,8 +51,6 @@ class LocalSignUpService: SignUpService {
         planterDetail.uploaded = false
         planterDetail.identifier = signUpDetails.username.value
         planterDetail.uuid = UUID().uuidString
-        planterDetail.latitude = signUpDetails.latitude
-        planterDetail.longitude = signUpDetails.longitude
 
         do {
             try coreDataManager.viewContext.save()
