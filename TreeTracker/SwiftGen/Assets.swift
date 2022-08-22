@@ -20,6 +20,7 @@
 internal enum Asset {
   internal enum Assets {
     internal static let forest = ImageAsset(name: "Forest")
+    internal static let focus = ImageAsset(name: "focus")
     internal static let gardening = ImageAsset(name: "gardening")
     internal static let phoneViewfinder = ImageAsset(name: "phoneViewfinder")
     internal static let planting = ImageAsset(name: "planting")
