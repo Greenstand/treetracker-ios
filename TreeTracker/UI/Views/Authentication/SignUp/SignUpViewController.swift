@@ -64,19 +64,6 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
             signUpButton.isEnabled = false
         }
     }
-    @IBOutlet weak var searchGPSSignalImageView: UIImageView! {
-        didSet {
-            searchGPSSignalImageView.animationImages = [
-                Asset.Assets.GpsSearchAnimation.gpsLoad0,
-                Asset.Assets.GpsSearchAnimation.gpsLoad1,
-                Asset.Assets.GpsSearchAnimation.gpsLoad2
-            ].map({$0.image})
-                searchGPSSignalImageView.animationDuration = 0.9
-                searchGPSSignalImageView.animationRepeatCount = 0
-                searchGPSSignalImageView.image = Asset.Assets.GpsSearchAnimation.gpsLoad0.image
-                searchGPSSignalImageView.startAnimating()
-        }
-    }
 
     var viewModel: SignUpViewModel? {
         didSet {
@@ -91,7 +78,7 @@ class SignUpViewController: UIViewController, KeyboardDismissing, AlertPresentin
         addKeyboardObservers()
         usernameLabel.text = viewModel?.usernameText
         usernameIconImageView.image = viewModel?.usernameIcon
-        viewModel?.startMonitoringLocation()
+
     }
 }
 
@@ -159,16 +146,6 @@ extension SignUpViewController: SignUpViewModelViewDelegate {
 
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didValidateOrganizationName result: SignUpViewModel.ValidationResult) {
         organizationTextField.validationState = result.textFieldValidationState
-    }
-
-    func signUpViewModel(_ signUpViewModel: SignUpViewModel, didUpdateHasLocation hasLocation: Bool) {
-        if hasLocation {
-            searchGPSSignalImageView.stopAnimating()
-            searchGPSSignalImageView.isHidden = true
-        } else {
-            searchGPSSignalImageView.startAnimating()
-            searchGPSSignalImageView.isHidden = false
-        }
     }
 
     func signUpViewModel(_ signUpViewModel: SignUpViewModel, didUpdateSignUpEnabled enabled: Bool) {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Treetracker_Core
+import AVFoundation
 
 protocol HomeViewModelCoordinatorDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)

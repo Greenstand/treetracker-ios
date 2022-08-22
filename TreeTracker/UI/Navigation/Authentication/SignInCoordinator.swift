@@ -85,8 +85,7 @@ private extension SignInCoordinator {
         viewController.viewModel = {
             let viewModel = SignUpViewModel(
                 username: username,
-                signUpService: self.treetrackerSDK.signUpService,
-                locationProvider: self.treetrackerSDK.locationService
+                signUpService: self.treetrackerSDK.signUpService
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -112,8 +111,7 @@ private extension SignInCoordinator {
         viewController.viewModel = {
             let viewModel = SelfieViewModel(
                 planter: planter,
-                selfieService: self.treetrackerSDK.selfieService,
-                locationProvider: self.treetrackerSDK.locationService
+                selfieService: self.treetrackerSDK.selfieService
             )
             viewModel.coordinatorDelegate = self
             return viewModel

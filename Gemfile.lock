@@ -64,7 +64,7 @@ GEM
       public_suffix
       typhoeus (~> 1.0)
     cocoapods-deintegrate (1.0.4)
-    cocoapods-downloader (1.6.3)
+    cocoapods-downloader (1.4.0)
     cocoapods-keys (2.2.1)
       dotenv
       osx_keychain
@@ -193,7 +193,7 @@ GEM
     httpclient (2.8.3)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
-    jmespath (1.6.1)
+    jmespath (1.4.0)
     json (2.5.1)
     jwt (2.2.2)
     memoist (0.16.2)
@@ -243,7 +243,7 @@ GEM
       tty-cursor (~> 0.7)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
-    tzinfo (1.2.10)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uber (0.1.0)
     unf (0.1.4)
@@ -266,6 +266,7 @@ GEM
 PLATFORMS
   universal-darwin-19
   universal-darwin-20
+  universal-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -274,4 +275,4 @@ DEPENDENCIES
   fastlane
 
 BUNDLED WITH
-   2.2.16
+   2.3.20
