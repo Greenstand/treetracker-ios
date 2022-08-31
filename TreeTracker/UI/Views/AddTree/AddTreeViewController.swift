@@ -187,7 +187,6 @@ extension AddTreeViewController: AddTreeViewModelViewDelegate {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateAddTreeEnabled enabled: Bool) {
         saveTreeButton.isEnabled = enabled
     }
-    
     func addTreeViewModel(_ selfieViewModel: AddTreeViewModel, didUpdateTakePhotoActionTitle title: String) {
         takePhotoButton.setTitle(title, for: .normal)
     }
@@ -236,7 +235,7 @@ private extension AddTreeViewModel.GPSAccuracy {
 }
  // MARK: - AddTreeModel AVCapture Extension
 extension AddTreeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func createCameraView() {
+    private func createCameraView() {
         cameraView = UIView(frame: CGRect(x: 0, y: 0,
                             width: previewView.bounds.size.width,
                             height: previewView.bounds.size.height))
@@ -245,7 +244,7 @@ extension AddTreeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         cameraView.layer.zPosition = 0
         previewView.addSubview(cameraView)
     }
-    func initializeCapture() {
+    private func initializeCapture() {
         session.sessionPreset = .photo
         guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
             return
@@ -253,7 +252,7 @@ extension AddTreeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         captureDevice = device
         beginCapture()
     }
-    func beginCapture() {
+    private func beginCapture() {
         var deviceInput: AVCaptureDeviceInput!
 
         do {
