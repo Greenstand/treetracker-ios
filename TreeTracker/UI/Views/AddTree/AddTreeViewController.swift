@@ -108,13 +108,13 @@ class AddTreeViewController: UIViewController, AlertPresenting {
             title = viewModel?.title
         }
     }
-    let session = AVCaptureSession()
-    var captureDevice: AVCaptureDevice!
-    var videoDataOutput: AVCaptureVideoDataOutput!
-    var videoDataOutputQueue: DispatchQueue!
-    var previewLayer: AVCaptureVideoPreviewLayer!
-    var cameraView: UIView!
-    let photoOutput = AVCapturePhotoOutput()
+    private let session = AVCaptureSession()
+    private var captureDevice: AVCaptureDevice!
+    private var videoDataOutput: AVCaptureVideoDataOutput!
+    private var videoDataOutputQueue: DispatchQueue!
+    private var previewLayer: AVCaptureVideoPreviewLayer!
+    private var cameraView: UIView!
+    private let photoOutput = AVCapturePhotoOutput()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,6 +127,7 @@ class AddTreeViewController: UIViewController, AlertPresenting {
         treeImageView.isHidden = true
         retryPhotoButton.isHidden = true
         choosePhotoButton.isHidden = false
+        takePhotoButton.isHidden = false
     }
 
 }
@@ -147,6 +148,7 @@ private extension AddTreeViewController {
         cameraView.isHidden = true
         choosePhotoButton.isHidden = true
         retryPhotoButton.isHidden = false
+        takePhotoButton.isHidden = true
         didTakePhoto()
     }
 
@@ -198,7 +200,9 @@ extension AddTreeViewController: AddTreeViewModelViewDelegate {
             searchGPSSignalImageView.stopAnimating()
             searchGPSSignalImageView.isHidden = true
             takePhotoButton.isEnabled = true
-            takePhotoButton.isHidden = false
+            if retryPhotoButton.isHidden {
+                takePhotoButton.isHidden = false
+            }
         case .bad, .unknown:
             searchGPSSignalImageView.startAnimating()
             searchGPSSignalImageView.isHidden = false
