@@ -12,6 +12,19 @@ import AVFoundation
 class AddTreeViewController: UIViewController, AlertPresenting {
 
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak private var addNoteButton: UIButton! {
+        didSet {
+            addNoteButton.imageView?.contentMode = .scaleAspectFit
+            addNoteButton.backgroundColor = .white
+            addNoteButton.setTitle("", for: .normal)
+            addNoteButton.setImage(Asset.Assets.note.image, for: .normal)
+            addNoteButton.layer.frame.size = Asset.Assets.note.image.size
+            addNoteButton.layer.zPosition = 5
+            addNoteButton.isEnabled = false
+            addNoteButton.isHidden = true
+            addNoteButton.layer.cornerRadius = 10
+        }
+    }
     @IBOutlet private var viewfinderGuidenceImageView: UIImageView! {
         didSet {
             viewfinderGuidenceImageView.contentMode = .scaleAspectFit
@@ -122,12 +135,17 @@ class AddTreeViewController: UIViewController, AlertPresenting {
         self.createCameraView()
         self.initializeCapture()
     }
+    @IBAction func addNoteSelected(_ sender: Any) {
+        viewModel?.addNoteSelected()
+    }
     @IBAction func retryPhotoButtonPressed() {
         cameraView.isHidden = false
         treeImageView.isHidden = true
         retryPhotoButton.isHidden = true
         choosePhotoButton.isHidden = false
         takePhotoButton.isHidden = false
+        addNoteButton.isHidden = true
+        addNoteButton.isEnabled = false
     }
 
 }
@@ -173,6 +191,10 @@ extension AddTreeViewController: UIImagePickerControllerDelegate {
         picker.dismiss(animated: true) {
             self.viewModel?.updateTreeImage(treeImage: editedImage ?? originalImage)
         }
+        takePhotoButton.isHidden = true
+        retryPhotoButton.isHidden = false
+        addNoteButton.isHidden = false
+        addNoteButton.isEnabled = true
     }
 }
 
@@ -308,5 +330,7 @@ extension AddTreeViewController: AVCapturePhotoCaptureDelegate {
         if let editedImage = UIImage(data: imageData) {
             self.viewModel?.updateTreeImage(treeImage: editedImage)
         }
+        addNoteButton.isHidden = false
+        addNoteButton.isEnabled = true
     }
 }

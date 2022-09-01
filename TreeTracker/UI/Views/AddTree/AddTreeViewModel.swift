@@ -11,8 +11,8 @@ import Treetracker_Core
 
 protocol AddTreeViewModelCoordinatorDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree)
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel)
 }
-
 protocol AddTreeViewModelViewDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage?)
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateGPSAccuracy accuracy: AddTreeViewModel.GPSAccuracy)
@@ -32,6 +32,7 @@ class AddTreeViewModel {
     private let settingsService: SettingsService
     private let locationDataCapturer: LocationDataCapturing
     private let planter: Planter
+    private var note: String
     private let treeUUID: String
 
     init(
@@ -39,10 +40,11 @@ class AddTreeViewModel {
         treeService: TreeService,
         settingsService: SettingsService,
         locationDataCapturer: LocationDataCapturing,
-        planter: Planter
+        planter: Planter,
+        note: String
     ) {
         self.treeUUID = UUID().uuidString
-
+        self.note = note
         self.treeService = treeService
         self.settingsService = settingsService
 
@@ -52,6 +54,7 @@ class AddTreeViewModel {
 
         locationDataCapturer.delegate = self
         locationProvider.delegate = self
+
     }
 
     let title: String = L10n.AddTree.title
@@ -65,15 +68,15 @@ class AddTreeViewModel {
             viewDelegate?.addTreeViewModel(self, didUpdateTakePhotoActionTitle: takePhotoActionTitle)
         }
     }
-
+    func addNote(_ note: String) {
+        self.note = note
+    }
     func saveTree() {
-
         guard let treeData = treeData else {
             viewDelegate?.addTreeViewModel(self, didReceiveError: AddTreeViewModel.Error.invalidTreeData)
             return
         }
-
-        treeService.saveTree(treeData: treeData, forPlanter: planter) { (result) in
+        treeService.saveTree(treeData: treeData, forPlanter: planter, withNote: note) { (result) in
             switch result {
             case .success(let tree):
                 coordinatorDelegate?.addTreeViewModel(self, didAddTree: tree)
@@ -82,7 +85,6 @@ class AddTreeViewModel {
             }
         }
     }
-
     func updateTreeImage(treeImage: UIImage) {
         image = treeImage
         location = locationProvider.location
@@ -161,6 +163,13 @@ extension AddTreeViewModel: LocationDataCapturerDelegate {
         }
     }
 }
+// MARK: - Navigation
+extension AddTreeViewModel {
+    func addNoteSelected() {
+        coordinatorDelegate?.addTreeViewModel(self)
+    }
+}
+
 // MARK: - Data Structures
 extension AddTreeViewModel {
 

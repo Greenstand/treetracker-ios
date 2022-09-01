@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Notes View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="NotesViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="82" translatesAutoresizingMaskIntoConstraints="NO" id="FJV-cK-hwh">
+                                <rect key="frame" x="20" y="94" width="374" height="693"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RBf-65-4RZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="561"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajt-JO-Ygh" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="643" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="vgu-vI-7lY"/>
+                                        </constraints>
+                                        <state key="normal" title="SAVE"/>
+                                        <connections>
+                                            <action selector="saveNote:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vCw-wU-kx0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RBf-65-4RZ" secondAttribute="trailing" id="AGz-zO-TJU"/>
+                                    <constraint firstItem="Ajt-JO-Ygh" firstAttribute="leading" secondItem="FJV-cK-hwh" secondAttribute="leading" id="IpC-9g-dEp"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ajt-JO-Ygh" secondAttribute="trailing" id="Vq9-ur-Fcp"/>
+                                    <constraint firstItem="RBf-65-4RZ" firstAttribute="leading" secondItem="FJV-cK-hwh" secondAttribute="leading" id="gCa-ai-vxS"/>
+                                    <constraint firstItem="RBf-65-4RZ" firstAttribute="top" secondItem="FJV-cK-hwh" secondAttribute="top" id="gmW-IQ-Xbr"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ajt-JO-Ygh" secondAttribute="bottom" id="i0T-9v-kOH"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FJV-cK-hwh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="AXU-zS-efh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FJV-cK-hwh" secondAttribute="trailing" constant="20" id="Cwd-gI-762"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FJV-cK-hwh" secondAttribute="bottom" constant="75" id="lkg-X2-htP"/>
+                            <constraint firstItem="FJV-cK-hwh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ti6-rE-KLU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="notesTextField" destination="RBf-65-4RZ" id="PcG-UO-l5V"/>
+                        <outlet property="saveButton" destination="Ajt-JO-Ygh" id="ubW-CK-auL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="64.955357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

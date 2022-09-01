@@ -59,6 +59,11 @@ private extension HomeCoordinator {
             animated: true
         )
     }
+    func showNotes() {
+        configuration.navigationController.pushViewController(
+            notesViewController(),
+            animated: true)
+    }
 
     func showPlanterProfile(planter: Planter) {
         configuration.navigationController.pushViewController(
@@ -107,7 +112,7 @@ private extension HomeCoordinator {
         return viewcontroller
     }
 
-    func addTreeViewController(planter: Planter) -> UIViewController {
+    func addTreeViewController(planter: Planter, withNote note: String = "") -> UIViewController {
         let viewcontroller = StoryboardScene.AddTree.initialScene.instantiate()
         viewcontroller.viewModel = {
             let viewModel = AddTreeViewModel(
@@ -115,14 +120,23 @@ private extension HomeCoordinator {
                 treeService: self.treetrackerSDK.treeService,
                 settingsService: self.treetrackerSDK.settingsService,
                 locationDataCapturer: self.treetrackerSDK.locationDataCapturer,
-                planter: planter
+                planter: planter,
+                note: note
             )
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
         return viewcontroller
     }
-
+    func notesViewController() -> UIViewController {
+        let viewcontroller = StoryboardScene.Notes.initialScene.instantiate()
+        viewcontroller.viewModel = {
+            let viewModel = NotesViewModel()
+            viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
+        return viewcontroller
+    }
     func profileViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Profile.initialScene.instantiate()
         viewController.viewModel = {
@@ -203,5 +217,17 @@ extension HomeCoordinator: AddTreeViewModelCoordinatorDelegate {
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree) {
         configuration.navigationController.popViewController(animated: true)
+    }
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel) {
+        showNotes()
+    }
+}
+
+extension HomeCoordinator: NotesViewModelCoordinatorDelegate {
+    func notesViewModel(_ notesViewModel: NotesViewModel, didAddNote note: String) {
+        configuration.navigationController.popViewController(animated: true)
+        if let addTreeViewController = configuration.navigationController.topViewController as? AddTreeViewController {
+            addTreeViewController.viewModel?.addNote(note)
+        }
     }
 }
