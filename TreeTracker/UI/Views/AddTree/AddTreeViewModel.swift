@@ -11,7 +11,7 @@ import Treetracker_Core
 
 protocol AddTreeViewModelCoordinatorDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree)
-    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel)
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didHaveSavedNote notes: String)
 }
 protocol AddTreeViewModelViewDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage?)
@@ -165,8 +165,8 @@ extension AddTreeViewModel: LocationDataCapturerDelegate {
 }
 // MARK: - Navigation
 extension AddTreeViewModel {
-    func addNoteSelected() {
-        coordinatorDelegate?.addTreeViewModel(self)
+    func addNoteSelected(notes: String) {
+        coordinatorDelegate?.addTreeViewModel(self, didHaveSavedNote: notes)
     }
 }
 

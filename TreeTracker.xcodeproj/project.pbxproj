@@ -68,6 +68,7 @@
 		93EC8CAB24BBA9E100946C0C /* AddTreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CAA24BBA9E100946C0C /* AddTreeViewController.swift */; };
 		93EC8CAD24BBA9F600946C0C /* AddTreeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CAC24BBA9F600946C0C /* AddTreeViewModel.swift */; };
 		93EC8CAF24BBAA0200946C0C /* AddTree.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93EC8CAE24BBAA0200946C0C /* AddTree.storyboard */; };
+		B0AAD80228C19BEB00640D4A /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = B0AAD80128C19BEB00640D4A /* Notes */; };
 		F258B5A3260A4E980053DAD7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F258B5A2260A4E980053DAD7 /* Profile.storyboard */; };
 		F258B5A7260A4ED50053DAD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */; };
 		F258B5A9260A4EF20053DAD7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A8260A4EF20053DAD7 /* ProfileViewModel.swift */; };
@@ -161,6 +162,7 @@
 		93EC8CAC24BBA9F600946C0C /* AddTreeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTreeViewModel.swift; sourceTree = "<group>"; };
 		93EC8CAE24BBAA0200946C0C /* AddTree.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTree.storyboard; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0AAD80128C19BEB00640D4A /* Notes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Notes; sourceTree = "<group>"; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F258B5A2260A4E980053DAD7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		93E82F57246C368200006C91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B0AAD80128C19BEB00640D4A /* Notes */,
 				938294AC27F9A77C00888E42 /* Settings */,
 				F258B5A1260A4C730053DAD7 /* Profile Screen */,
 				93E82F58246C36A300006C91 /* Loading */,
@@ -696,6 +699,7 @@
 				931C37BA249BAD0900EE24DC /* Selfie.storyboard in Resources */,
 				93E82F63246C41B000006C91 /* Localizable.strings in Resources */,
 				93989CFD246EABFA00A1B21F /* Terms.storyboard in Resources */,
+				B0AAD80228C19BEB00640D4A /* Notes in Resources */,
 				93989D01246EB20D00A1B21F /* Terms.html in Resources */,
 				937D78C325C70E45007A7A37 /* Montserrat-Bold.ttf in Resources */,
 				93E82F52246C35C700006C91 /* SignIn.storyboard in Resources */,

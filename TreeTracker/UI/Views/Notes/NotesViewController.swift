@@ -24,8 +24,9 @@ class NotesViewController: UIViewController, AlertPresenting {
     }
     var viewModel: NotesViewModel? {
         didSet {
-            //viewModel?.viewDelegate = self
+            viewModel?.viewDelegate = self
             title = viewModel?.title
+            
         }
     }
     override func viewDidLoad() {
@@ -62,5 +63,11 @@ extension NotesViewController: UITextViewDelegate {
     }
     @objc func dismissMyKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension NotesViewController: NotesViewModelDelagte {
+    func notesViewModel(_ notesViewModel: NotesViewModel, didAddNote note: String) {
+        notesTextField.text = note
     }
 }
