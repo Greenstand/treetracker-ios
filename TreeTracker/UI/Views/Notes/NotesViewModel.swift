@@ -13,21 +13,25 @@ protocol NotesViewModelCoordinatorDelegate: AnyObject {
     func notesViewModel(_ notesViewModel: NotesViewModel, didAddNote note: String)
 }
 
-protocol NotesViewModelDelagte: AnyObject{
+protocol NotesViewModelViewDelegate: AnyObject {
     func notesViewModel(_ notesViewModel: NotesViewModel, didHaveSavedNote note: String)
 }
 
 class NotesViewModel {
     weak var coordinatorDelegate: NotesViewModelCoordinatorDelegate?
-    //weak var viewDelegate: NotesViewModelViewDelegate?
+    weak var viewDelegate: NotesViewModelViewDelegate?
     private var note: String
     let title: String = L10n.Notes.title
-    
-    init(note: String = "") {
+    init(note: String) {
         self.note = note
     }
-    
     func didAddNote(note: String) {
         coordinatorDelegate?.notesViewModel(self, didAddNote: note)
+    }
+    
+    func recallSavedNote() {
+        if !note.isEmpty {
+            viewDelegate?.notesViewModel(self, didHaveSavedNote: note)
+        }
     }
 }

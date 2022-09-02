@@ -136,7 +136,7 @@ class AddTreeViewController: UIViewController, AlertPresenting {
         self.initializeCapture()
     }
     @IBAction func addNoteSelected(_ sender: Any) {
-        viewModel?.addNoteSelected(notes: notes)
+        viewModel?.addNoteSelected()
     }
     @IBAction func retryPhotoButtonPressed() {
         cameraView.isHidden = false

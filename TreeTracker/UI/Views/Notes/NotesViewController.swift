@@ -26,14 +26,16 @@ class NotesViewController: UIViewController, AlertPresenting {
         didSet {
             viewModel?.viewDelegate = self
             title = viewModel?.title
-            
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTextField.delegate = self
-        notesTextField.text = L10n.Notes.placeholder
-        notesTextField.textColor = UIColor.lightGray
+        viewModel?.recallSavedNote()
+        if notesTextField.text.isEmpty{
+            notesTextField.textColor = UIColor.lightGray
+            notesTextField.text = L10n.Notes.placeholder
+        }
         let toolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30))
                 let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
                 let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dismissMyKeyboard))
@@ -66,8 +68,9 @@ extension NotesViewController: UITextViewDelegate {
     }
 }
 
-extension NotesViewController: NotesViewModelDelagte {
-    func notesViewModel(_ notesViewModel: NotesViewModel, didAddNote note: String) {
+extension NotesViewController: NotesViewModelViewDelegate {
+    func notesViewModel(_ notesViewModel: NotesViewModel, didHaveSavedNote note: String) {
+        print(note)
         notesTextField.text = note
     }
 }

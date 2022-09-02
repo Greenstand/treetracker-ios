@@ -165,8 +165,8 @@ extension AddTreeViewModel: LocationDataCapturerDelegate {
 }
 // MARK: - Navigation
 extension AddTreeViewModel {
-    func addNoteSelected(notes: String) {
-        coordinatorDelegate?.addTreeViewModel(self, didHaveSavedNote: notes)
+    func addNoteSelected() {
+        coordinatorDelegate?.addTreeViewModel(self, didHaveSavedNote: note)
     }
 }
 
