@@ -46,7 +46,9 @@ class NotesViewController: UIViewController, AlertPresenting {
     }
 
     @IBAction func saveNote(_ sender: Any) {
-        viewModel?.didAddNote(note: notesTextField.text)
+        if notesTextField.textColor == UIColor.lightGray {
+            viewModel?.didAddNote(note: notesTextField.text)
+        }
     }
 }
 
