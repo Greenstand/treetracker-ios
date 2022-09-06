@@ -22,18 +22,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="82" translatesAutoresizingMaskIntoConstraints="NO" id="FJV-cK-hwh">
-                                <rect key="frame" x="20" y="94" width="374" height="693"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FJV-cK-hwh">
+                                <rect key="frame" x="20" y="54" width="374" height="733"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RBf-65-4RZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="561"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="678"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajt-JO-Ygh" customClass="PrimaryButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="643" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="683" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="vgu-vI-7lY"/>
                                         </constraints>
@@ -43,23 +43,15 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="RBf-65-4RZ" secondAttribute="trailing" id="AGz-zO-TJU"/>
-                                    <constraint firstItem="Ajt-JO-Ygh" firstAttribute="leading" secondItem="FJV-cK-hwh" secondAttribute="leading" id="IpC-9g-dEp"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ajt-JO-Ygh" secondAttribute="trailing" id="Vq9-ur-Fcp"/>
-                                    <constraint firstItem="RBf-65-4RZ" firstAttribute="leading" secondItem="FJV-cK-hwh" secondAttribute="leading" id="gCa-ai-vxS"/>
-                                    <constraint firstItem="RBf-65-4RZ" firstAttribute="top" secondItem="FJV-cK-hwh" secondAttribute="top" id="gmW-IQ-Xbr"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ajt-JO-Ygh" secondAttribute="bottom" id="i0T-9v-kOH"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="FJV-cK-hwh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="AXU-zS-efh"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FJV-cK-hwh" secondAttribute="trailing" constant="20" id="Cwd-gI-762"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FJV-cK-hwh" secondAttribute="bottom" constant="75" id="lkg-X2-htP"/>
-                            <constraint firstItem="FJV-cK-hwh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ti6-rE-KLU"/>
+                            <constraint firstItem="FJV-cK-hwh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="1xG-e2-n28"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FJV-cK-hwh" secondAttribute="trailing" constant="20" id="Kro-Sc-4OB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FJV-cK-hwh" secondAttribute="bottom" constant="75" id="Wkr-9y-V0h"/>
+                            <constraint firstItem="FJV-cK-hwh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="wUz-z9-VOh"/>
                         </constraints>
                     </view>
                     <connections>

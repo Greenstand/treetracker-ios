@@ -59,7 +59,7 @@ private extension HomeCoordinator {
             animated: true
         )
     }
-    func showNotes(note: String) {
+    func showNotes(note: String?) {
         configuration.navigationController.pushViewController(
             notesViewController(note: note),
             animated: true)
@@ -120,15 +120,14 @@ private extension HomeCoordinator {
                 treeService: self.treetrackerSDK.treeService,
                 settingsService: self.treetrackerSDK.settingsService,
                 locationDataCapturer: self.treetrackerSDK.locationDataCapturer,
-                planter: planter,
-                note: note
+                planter: planter
             )
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
         return viewcontroller
     }
-    func notesViewController(note: String) -> UIViewController {
+    func notesViewController(note: String?) -> UIViewController {
         let viewController = StoryboardScene.Notes.initialScene.instantiate()
         viewController.viewModel = {
             let viewModel = NotesViewModel(note: note)
@@ -218,7 +217,7 @@ extension HomeCoordinator: AddTreeViewModelCoordinatorDelegate {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree) {
         configuration.navigationController.popViewController(animated: true)
     }
-    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didHaveSavedNote note: String) {
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didHaveSavedNote note: String?) {
         showNotes(note: note)
     }
 }

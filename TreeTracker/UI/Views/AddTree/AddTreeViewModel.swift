@@ -11,7 +11,7 @@ import Treetracker_Core
 
 protocol AddTreeViewModelCoordinatorDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree)
-    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didHaveSavedNote notes: String)
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didHaveSavedNote notes: String?)
 }
 protocol AddTreeViewModelViewDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didUpdateTreeImage image: UIImage?)
@@ -32,7 +32,7 @@ class AddTreeViewModel {
     private let settingsService: SettingsService
     private let locationDataCapturer: LocationDataCapturing
     private let planter: Planter
-    private var note: String
+    private var note: String?
     private let treeUUID: String
 
     init(
@@ -40,11 +40,9 @@ class AddTreeViewModel {
         treeService: TreeService,
         settingsService: SettingsService,
         locationDataCapturer: LocationDataCapturing,
-        planter: Planter,
-        note: String
+        planter: Planter
     ) {
         self.treeUUID = UUID().uuidString
-        self.note = note
         self.treeService = treeService
         self.settingsService = settingsService
 
@@ -68,7 +66,7 @@ class AddTreeViewModel {
             viewDelegate?.addTreeViewModel(self, didUpdateTakePhotoActionTitle: takePhotoActionTitle)
         }
     }
-    func addNote(_ note: String) {
+    func addNote(_ note: String?) {
         self.note = note
     }
     func saveTree() {

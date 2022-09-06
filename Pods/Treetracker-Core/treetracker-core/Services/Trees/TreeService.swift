@@ -29,7 +29,7 @@ public enum TreeServiceError: Swift.Error {
 }
 
 public protocol TreeService {
-    func saveTree(treeData: TreeServiceData, forPlanter: Planter, withNote: String, completion: (Result<Tree, Error>) -> Void)
+    func saveTree(treeData: TreeServiceData, forPlanter: Planter, withNote: String?, completion: (Result<Tree, Error>) -> Void)
 }
 
 class LocalTreeService: TreeService {
@@ -42,7 +42,7 @@ class LocalTreeService: TreeService {
         self.documentManager = documentManager
     }
 
-    func saveTree(treeData: TreeServiceData, forPlanter planter: Planter,withNote note: String = "", completion: (Result<Tree, Error>) -> Void) {
+    func saveTree(treeData: TreeServiceData, forPlanter planter: Planter,withNote note: String?, completion: (Result<Tree, Error>) -> Void) {
         guard let planter = planter as? PlanterDetail else {
             completion(.failure(TreeServiceError.planterError))
             return
