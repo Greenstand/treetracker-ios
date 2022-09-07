@@ -112,7 +112,7 @@ private extension HomeCoordinator {
         return viewcontroller
     }
 
-    func addTreeViewController(planter: Planter, withNote note: String = "") -> UIViewController {
+    func addTreeViewController(planter: Planter) -> UIViewController {
         let viewcontroller = StoryboardScene.AddTree.initialScene.instantiate()
         viewcontroller.viewModel = {
             let viewModel = AddTreeViewModel(

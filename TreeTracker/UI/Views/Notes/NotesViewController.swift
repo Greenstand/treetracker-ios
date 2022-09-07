@@ -33,6 +33,14 @@ class NotesViewController: UIViewController, KeyboardDismissing {
             notesTextField.textColor = UIColor.lightGray
             notesTextField.text = L10n.Notes.placeholder
         }
+        
+        let toolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30))
+                let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dismissMyKeyboard))
+                toolbar.setItems([flexSpace, doneBtn], animated: false)
+                toolbar.sizeToFit()
+                self.notesTextField.inputAccessoryView = toolbar
+
     }
 
     @IBAction func saveNote(_ sender: Any) {
@@ -54,6 +62,9 @@ extension NotesViewController: UITextViewDelegate {
             textView.text = L10n.Notes.placeholder
             textView.textColor = UIColor.lightGray
         }
+    }
+    @objc func dismissMyKeyboard() {
+        view.endEditing(true)
     }
 }
 
