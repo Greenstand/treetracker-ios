@@ -38,6 +38,18 @@
                                                 <rect key="frame" x="-10" y="0.0" width="395" height="491"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHo-r2-917">
+                                                <rect key="frame" x="304" y="348" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="3DP-2s-lwx"/>
+                                                    <constraint firstAttribute="width" constant="80" id="wDE-jG-0qX"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                                <connections>
+                                                    <action selector="addNoteSelected:" destination="QqA-0g-MHc" eventType="touchUpInside" id="rEE-Jq-Wxd"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -53,6 +65,8 @@
                                             <constraint firstItem="Ult-3x-hnO" firstAttribute="centerX" secondItem="3Hj-Fo-eNR" secondAttribute="centerX" id="e9f-Mp-SzI"/>
                                             <constraint firstItem="xSI-zv-QQU" firstAttribute="top" secondItem="6FW-r5-8Jp" secondAttribute="top" id="hHc-pP-XjO"/>
                                             <constraint firstAttribute="bottom" secondItem="xSI-zv-QQU" secondAttribute="bottom" id="lBe-fp-Tk1"/>
+                                            <constraint firstAttribute="trailing" secondItem="PHo-r2-917" secondAttribute="trailing" constant="-10" id="t4J-yi-SZY"/>
+                                            <constraint firstAttribute="bottom" secondItem="PHo-r2-917" secondAttribute="bottom" constant="-10" id="xnv-2G-elt"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="GPS ACCURACY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5D-vA-1iO" customClass="GPSAccuracyLabel" customModule="TreeTracker" customModuleProvider="target">
@@ -128,6 +142,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addNoteButton" destination="PHo-r2-917" id="PPq-wt-9lb"/>
                         <outlet property="choosePhotoButton" destination="kua-rl-Tpa" id="3Nu-pv-mQ3"/>
                         <outlet property="gpsAccuracyLabel" destination="q5D-vA-1iO" id="ibb-DA-7RB"/>
                         <outlet property="previewView" destination="6FW-r5-8Jp" id="cPq-fA-nJ9"/>

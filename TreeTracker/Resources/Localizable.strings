@@ -56,6 +56,10 @@
 "AddTree.PhotoLibraryButton.Title" = "Choose Photo";
 "AddTree.PhotoButton.Title.Retry" = "Retry";
 
+//Notes Screen
+"Notes.Title" = "Notes";
+"Notes.Placeholder" = "Add tree notes here.";
+
 //GPS Accuracy
 "GPSAccuracyLabel.Text.Base" = "GPS Accuracy: ";
 "GPSAccuracyLabel.Text.Good" = "Good";

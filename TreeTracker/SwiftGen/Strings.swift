@@ -114,6 +114,13 @@ internal enum L10n {
     }
   }
 
+  internal enum Notes {
+    /// Add tree notes here.
+    internal static let placeholder = L10n.tr("Localizable", "Notes.Placeholder")
+    /// Notes
+    internal static let title = L10n.tr("Localizable", "Notes.Title")
+  }
+
   internal enum Profile {
     /// My Profile
     internal static let fallbackTitle = L10n.tr("Localizable", "Profile.FallbackTitle")
