@@ -45,7 +45,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>In order to take a selfie you need to grant Tree Tracker accress to your camera.</string>
+	<string>In order to take a selfie for identification purposes you need to grant Tree Tracker accress to your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need to access your location in order to locate trees</string>
 	<key>UIAppFonts</key>
