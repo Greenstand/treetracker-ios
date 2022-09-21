@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ycb-8A-a2p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ycb-8A-a2p">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -103,11 +103,11 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6d-J0-6g3">
-                                        <rect key="frame" x="67" y="435" width="240" height="191"/>
+                                        <rect key="frame" x="67" y="435" width="240" height="131"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsq-RB-vJj" customClass="DestructiveButton" customModule="TreeTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="636" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="576" width="374" height="50"/>
                                         <color key="backgroundColor" name="SecondaryRed"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="JBU-cT-TJI"/>
@@ -119,10 +119,25 @@
                                             <action selector="changeUserButtonPressed" destination="ycb-8A-a2p" eventType="touchUpInside" id="osb-sk-thW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOC-o8-erj" customClass="DestructiveButton" customModule="TreeTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="636" width="374" height="50"/>
+                                        <color key="backgroundColor" name="SecondaryRed"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="wLw-EY-iHB"/>
+                                        </constraints>
+                                        <state key="normal" title="Delete Account">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteAccountButtonPressed" destination="ycb-8A-a2p" eventType="touchUpInside" id="D7l-5q-WVL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="NOC-o8-erj" firstAttribute="leading" secondItem="bUW-da-Vs3" secondAttribute="leading" id="4YC-gb-Unz"/>
                                     <constraint firstItem="hNw-yV-zOv" firstAttribute="leading" secondItem="bUW-da-Vs3" secondAttribute="leading" id="cw9-R2-NGq"/>
                                     <constraint firstItem="Fsq-RB-vJj" firstAttribute="leading" secondItem="bUW-da-Vs3" secondAttribute="leading" id="rBJ-Ge-XU7"/>
+                                    <constraint firstAttribute="trailing" secondItem="NOC-o8-erj" secondAttribute="trailing" id="rfO-eO-ueo"/>
                                     <constraint firstAttribute="trailing" secondItem="hNw-yV-zOv" secondAttribute="trailing" id="tmx-MM-MiW"/>
                                     <constraint firstAttribute="trailing" secondItem="Fsq-RB-vJj" secondAttribute="trailing" id="ube-Sb-FUS"/>
                                 </constraints>
@@ -139,6 +154,7 @@
                     </view>
                     <connections>
                         <outlet property="changeUserButton" destination="Fsq-RB-vJj" id="4r8-QK-0hw"/>
+                        <outlet property="deleteAccountButton" destination="NOC-o8-erj" id="ya3-1a-tk8"/>
                         <outlet property="nameHeaderLabel" destination="PSr-YZ-PUF" id="YJc-Ta-cjU"/>
                         <outlet property="nameLabel" destination="XvD-Hj-ftg" id="OXM-Mz-fNv"/>
                         <outlet property="organizationHeaderLabel" destination="ST1-oI-obR" id="JXj-ga-SRg"/>
