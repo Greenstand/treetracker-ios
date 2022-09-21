@@ -134,6 +134,9 @@ public class TreetrackerSDK: NSObject {
         return UserDefaultsSettingsService(configuration: configuration)
     }
 
+    public var userDeletionService: UserDeletionService {
+        return LocalUserDeletionService(coreDataManager: self.coreDataManager)
+    }
 
     // Initializers
     public init(configuration: Configuration) {

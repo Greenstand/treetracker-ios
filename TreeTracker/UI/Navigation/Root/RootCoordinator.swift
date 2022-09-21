@@ -102,4 +102,10 @@ extension RootCoordinator: HomeCoordinatorDelegate {
         childCoordinators.removeAll()
         showSignIn()
     }
+
+    func homeCoordinatorDidDeleteAccount(_ homeCoordinator: HomeCoordinator) {
+        currentPlanterService.clearCurrentPlanter()
+        childCoordinators.removeAll()
+        showSignIn()
+    }
 }
