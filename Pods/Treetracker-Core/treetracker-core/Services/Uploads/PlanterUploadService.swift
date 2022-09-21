@@ -205,7 +205,7 @@ private extension PlanterDetail {
             email: email,
             latitude: latitude,
             longitude: longitude,
-            deviceIdentifier: "",
+            deviceIdentifier: DeviceInfoProvider().deviceId, //Should really inject this
             recordUUID: recordUUID,
             imageURL: imageURL
         )
