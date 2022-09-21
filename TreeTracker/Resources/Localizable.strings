@@ -69,12 +69,19 @@
 "Profile.HeaderLabel.Username" = "Username";
 "Profile.HeaderLabel.Organization" = "Organization";
 "Profile.ChangeUserButton.Title" = "Change User";
+"Profile.DeleteAccountButton.Title" = "Delete Account";
 
 //Logout Confirmation
 "LogOutConfirmation.Title" = "Change User";
 "LogOutConfirmation.Message" = "Are you sure you want to log out and change user?";
 "LogOutConfirmation.CancelButton.Title" = "Cancel";
 "LogOutConfirmation.LogOutButton.Title" = "Log Out";
+
+//Delete Account Confirmation
+"DeleteAccountConfirmation.Title" = "Delete Account User";
+"DeleteAccountConfirmation.Message" = "Are you sure you want to delete tour account? All your trees on this device will be lost.";
+"DeleteAccountConfirmation.CancelButton.Title" = "No, keep my trees";
+"DeleteAccountConfirmation.DeleteAccount.Title" = "Yes, delete my account";
 
 //Settings Screen
 "Settings.Title" = "Settings";

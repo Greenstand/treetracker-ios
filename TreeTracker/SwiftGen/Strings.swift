@@ -49,6 +49,21 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "App.Title")
   }
 
+  internal enum DeleteAccountConfirmation {
+    /// Are you sure you want to delete tour account? All your trees on this device will be lost.
+    internal static let message = L10n.tr("Localizable", "DeleteAccountConfirmation.Message")
+    /// Delete Account User
+    internal static let title = L10n.tr("Localizable", "DeleteAccountConfirmation.Title")
+    internal enum CancelButton {
+      /// No, keep my trees
+      internal static let title = L10n.tr("Localizable", "DeleteAccountConfirmation.CancelButton.Title")
+    }
+    internal enum DeleteAccount {
+      /// Yes, delete my account
+      internal static let title = L10n.tr("Localizable", "DeleteAccountConfirmation.DeleteAccount.Title")
+    }
+  }
+
   internal enum GPSAccuracyLabel {
     internal enum Text {
       /// Bad
@@ -118,6 +133,10 @@ internal enum L10n {
     internal enum ChangeUserButton {
       /// Change User
       internal static let title = L10n.tr("Localizable", "Profile.ChangeUserButton.Title")
+    }
+    internal enum DeleteAccountButton {
+      /// Delete Account
+      internal static let title = L10n.tr("Localizable", "Profile.DeleteAccountButton.Title")
     }
     internal enum HeaderLabel {
       /// Email Address

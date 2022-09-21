@@ -11,10 +11,12 @@ import Treetracker_Core
 
 protocol ProfileViewModelCoordinatorDelegate: AnyObject {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter)
+    func profileViewModelDidDeleteAccount(_ profileViewModel: ProfileViewModel)
 }
 
 protocol ProfileViewModelViewDelegate: AnyObject {
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails)
+    func profileViewModel(_ profileViewModel: ProfileViewModel, didReceiveError error: Error)
 }
 
 class ProfileViewModel {
@@ -25,15 +27,18 @@ class ProfileViewModel {
     private let planter: Treetracker_Core.Planter
     private let selfieService: Treetracker_Core.SelfieService
     private let uploadManager: Treetracker_Core.UploadManaging
+    private let userDeletionService: Treetracker_Core.UserDeletionService
 
     init(
         planter: Treetracker_Core.Planter,
         selfieService: Treetracker_Core.SelfieService,
-        uploadManager: Treetracker_Core.UploadManaging
+        uploadManager: Treetracker_Core.UploadManaging,
+        userDeletionService: Treetracker_Core.UserDeletionService
     ) {
         self.planter = planter
         self.selfieService = selfieService
         self.uploadManager = uploadManager
+        self.userDeletionService = userDeletionService
     }
 
     var title: String {
@@ -70,6 +75,19 @@ class ProfileViewModel {
             uploadManager.stopUploading()
         }
         coordinatorDelegate?.profileViewModel(self, didLogoutPlanter: planter)
+    }
+
+    func deleteAccount() {
+
+        do {
+            try userDeletionService.deletePlanter(planter: planter)
+            if uploadManager.isUploading {
+                uploadManager.stopUploading()
+            }
+            coordinatorDelegate?.profileViewModelDidDeleteAccount(self)
+        } catch {
+            viewDelegate?.profileViewModel(self, didReceiveError: error)
+        }
     }
 }
 
