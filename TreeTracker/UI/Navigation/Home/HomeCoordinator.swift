@@ -11,6 +11,7 @@ import Treetracker_Core
 
 protocol HomeCoordinatorDelegate: AnyObject {
     func homeCoordinatorDidLogout(_ homeCoordinator: HomeCoordinator)
+    func homeCoordinatorDidDeleteAccount(_ homeCoordinator: HomeCoordinator)
 }
 
 class HomeCoordinator: Coordinator {
@@ -129,7 +130,8 @@ private extension HomeCoordinator {
             let viewModel = ProfileViewModel(
                 planter: planter,
                 selfieService: self.treetrackerSDK.selfieService,
-                uploadManager: self.treetrackerSDK.uploadManager
+                uploadManager: self.treetrackerSDK.uploadManager,
+                userDeletionService: self.treetrackerSDK.userDeletionService
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -140,13 +142,13 @@ private extension HomeCoordinator {
     var confirmLogoutViewController: UIViewController {
 
         let alertController = UIAlertController(
-            title: "Change user",
-            message: "Are you sure you want to logout and change user?",
+            title: L10n.LogOutConfirmation.title,
+            message: L10n.LogOutConfirmation.message,
             preferredStyle: .alert
         )
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+        let cancelAction = UIAlertAction(title: L10n.LogOutConfirmation.CancelButton.title, style: .cancel)
+        let logoutAction = UIAlertAction(title: L10n.LogOutConfirmation.LogOutButton.title, style: .destructive) { _ in
             self.delegate?.homeCoordinatorDidLogout(self)
         }
 
@@ -196,6 +198,10 @@ extension HomeCoordinator: ProfileViewModelCoordinatorDelegate {
    func profileViewModel(_ profileViewModel: ProfileViewModel, didLogoutPlanter planter: Planter) {
         showLogoutConfirmation()
    }
+
+    func profileViewModelDidDeleteAccount(_ profileViewModel: ProfileViewModel) {
+        delegate?.homeCoordinatorDidDeleteAccount(self)
+    }
 }
 
 // MARK: - AddTreeViewModelCoordinatorDelegate
