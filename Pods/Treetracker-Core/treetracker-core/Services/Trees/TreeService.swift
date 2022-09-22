@@ -13,11 +13,18 @@ public struct TreeServiceData {
     let jpegData: Data
     let location: Location
     let uuid: String
+    let notes: String?
 
-    public init(jpegData: Data, location: Location, uuid: String) {
+    public init(
+        jpegData: Data,
+        location: Location,
+        uuid: String,
+        notes: String?
+    ) {
         self.jpegData = jpegData
         self.location = location
         self.uuid = uuid
+        self.notes = notes
     }
 }
 
@@ -29,7 +36,7 @@ public enum TreeServiceError: Swift.Error {
 }
 
 public protocol TreeService {
-    func saveTree(treeData: TreeServiceData, forPlanter: Planter, withNote: String?, completion: (Result<Tree, Error>) -> Void)
+    func saveTree(treeData: TreeServiceData, forPlanter: Planter, completion: (Result<Tree, Error>) -> Void)
 }
 
 class LocalTreeService: TreeService {
@@ -42,7 +49,8 @@ class LocalTreeService: TreeService {
         self.documentManager = documentManager
     }
 
-    func saveTree(treeData: TreeServiceData, forPlanter planter: Planter,withNote note: String?, completion: (Result<Tree, Error>) -> Void) {
+    func saveTree(treeData: TreeServiceData, forPlanter planter: Planter, completion: (Result<Tree, Error>) -> Void) {
+
         guard let planter = planter as? PlanterDetail else {
             completion(.failure(TreeServiceError.planterError))
             return
@@ -63,10 +71,10 @@ class LocalTreeService: TreeService {
         treeCapture.horizontalAccuracy = treeData.location.horizontalAccuracy
         treeCapture.latitude = treeData.location.latitude
         treeCapture.longitude = treeData.location.longitude
-        treeCapture.noteContent = note
         treeCapture.uploaded = false
         treeCapture.localPhotoPath = photoPath
         treeCapture.uuid = treeData.uuid
+        treeCapture.noteContent = treeData.notes
 
         latestPlanterIdentification.addToTrees(treeCapture)
 
