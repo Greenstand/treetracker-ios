@@ -61,6 +61,12 @@ private extension HomeCoordinator {
         )
     }
 
+    func showNotes(note: String?) {
+        configuration.navigationController.pushViewController(
+            notesViewController(note: note),
+            animated: true)
+    }
+
     func showPlanterProfile(planter: Planter) {
         configuration.navigationController.pushViewController(
             profileViewController(planter: planter),
@@ -124,6 +130,15 @@ private extension HomeCoordinator {
         return viewcontroller
     }
 
+    func notesViewController(note: String?) -> UIViewController {
+        let viewController = StoryboardScene.Notes.initialScene.instantiate()
+        viewController.viewModel = {
+            let viewModel = NotesViewModel(note: note)
+            viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
+        return viewController
+    }
     func profileViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Profile.initialScene.instantiate()
         viewController.viewModel = {
@@ -209,5 +224,19 @@ extension HomeCoordinator: AddTreeViewModelCoordinatorDelegate {
 
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree) {
         configuration.navigationController.popViewController(animated: true)
+    }
+
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didHaveSavedNote note: String?) {
+        showNotes(note: note)
+    }
+}
+
+extension HomeCoordinator: NotesViewModelCoordinatorDelegate {
+
+    func notesViewModel(_ notesViewModel: NotesViewModel, didAddNote note: String) {
+        configuration.navigationController.popViewController(animated: true)
+        if let addTreeViewController = configuration.navigationController.topViewController as? AddTreeViewController {
+            addTreeViewController.viewModel?.addNote(note)
+        }
     }
 }

@@ -68,6 +68,9 @@
 		93EC8CAB24BBA9E100946C0C /* AddTreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CAA24BBA9E100946C0C /* AddTreeViewController.swift */; };
 		93EC8CAD24BBA9F600946C0C /* AddTreeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8CAC24BBA9F600946C0C /* AddTreeViewModel.swift */; };
 		93EC8CAF24BBAA0200946C0C /* AddTree.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93EC8CAE24BBAA0200946C0C /* AddTree.storyboard */; };
+		B0AAD80628C235C900640D4A /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAD80328C235C900640D4A /* NotesViewController.swift */; };
+		B0AAD80728C235C900640D4A /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0AAD80428C235C900640D4A /* Notes.storyboard */; };
+		B0AAD80828C235C900640D4A /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAD80528C235C900640D4A /* NotesViewModel.swift */; };
 		F258B5A3260A4E980053DAD7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F258B5A2260A4E980053DAD7 /* Profile.storyboard */; };
 		F258B5A7260A4ED50053DAD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */; };
 		F258B5A9260A4EF20053DAD7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A8260A4EF20053DAD7 /* ProfileViewModel.swift */; };
@@ -161,6 +164,9 @@
 		93EC8CAC24BBA9F600946C0C /* AddTreeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTreeViewModel.swift; sourceTree = "<group>"; };
 		93EC8CAE24BBAA0200946C0C /* AddTree.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTree.storyboard; sourceTree = "<group>"; };
 		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0AAD80328C235C900640D4A /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		B0AAD80428C235C900640D4A /* Notes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
+		B0AAD80528C235C900640D4A /* NotesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
 		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F258B5A2260A4E980053DAD7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -446,6 +452,7 @@
 		93E82F57246C368200006C91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B0AAD80A28C235EE00640D4A /* Notes */,
 				938294AC27F9A77C00888E42 /* Settings */,
 				F258B5A1260A4C730053DAD7 /* Profile Screen */,
 				93E82F58246C36A300006C91 /* Loading */,
@@ -570,6 +577,16 @@
 				B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0AAD80A28C235EE00640D4A /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				B0AAD80328C235C900640D4A /* NotesViewController.swift */,
+				B0AAD80528C235C900640D4A /* NotesViewModel.swift */,
+				B0AAD80428C235C900640D4A /* Notes.storyboard */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 		F258B5A1260A4C730053DAD7 /* Profile Screen */ = {
@@ -702,6 +719,7 @@
 				93989CF7246EA34A00A1B21F /* SignUp.storyboard in Resources */,
 				937D78C425C70E45007A7A37 /* Montserrat-SemiBold.ttf in Resources */,
 				F258B5A3260A4E980053DAD7 /* Profile.storyboard in Resources */,
+				B0AAD80728C235C900640D4A /* Notes.storyboard in Resources */,
 				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
 				93E82F5C246C36BD00006C91 /* Loading.storyboard in Resources */,
 				937D78C225C70E45007A7A37 /* Lato-Regular.ttf in Resources */,
@@ -809,6 +827,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0AAD80828C235C900640D4A /* NotesViewModel.swift in Sources */,
 				9311609126B40E5E007FCA52 /* DestructiveButton.swift in Sources */,
 				93989D06246ED00D00A1B21F /* PrimaryButton.swift in Sources */,
 				93E82F56246C35FF00006C91 /* SignInViewModel.swift in Sources */,
@@ -850,6 +869,7 @@
 				93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
 				938294BA27F9D00800888E42 /* PhotoQuality.swift in Sources */,
+				B0AAD80628C235C900640D4A /* NotesViewController.swift in Sources */,
 				9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */,
 				93EC8C3424AA4AE100946C0C /* HomeCoordinator.swift in Sources */,
 				938294AE27F9A79900888E42 /* SettingsViewModel.swift in Sources */,
@@ -967,7 +987,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = 6QWPM48DDB;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1145,7 +1165,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = 6QWPM48DDB;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1165,7 +1185,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = 6QWPM48DDB;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

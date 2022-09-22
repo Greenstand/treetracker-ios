@@ -10,6 +10,20 @@ import UIKit
 
 class AddTreeViewController: UIViewController, AlertPresenting {
 
+    @IBOutlet weak private var addNoteButton: UIButton! {
+        didSet {
+            addNoteButton.imageView?.contentMode = .scaleAspectFit
+            addNoteButton.backgroundColor = .white
+            addNoteButton.setTitle("", for: .normal)
+            addNoteButton.setImage(Asset.Assets.note.image, for: .normal)
+            addNoteButton.layer.frame.size = Asset.Assets.note.image.size
+            addNoteButton.layer.zPosition = 5
+            addNoteButton.isEnabled = false
+            addNoteButton.isHidden = true
+            addNoteButton.layer.cornerRadius = 10
+        }
+    }
+
     @IBOutlet private var viewfinderGuidenceImageView: UIImageView! {
         didSet {
             viewfinderGuidenceImageView.contentMode = .scaleAspectFit
@@ -86,6 +100,10 @@ class AddTreeViewController: UIViewController, AlertPresenting {
         super.viewDidLoad()
         viewModel?.startMonitoringLocation()
     }
+
+    @IBAction func addNoteSelected(_ sender: Any) {
+        viewModel?.addNoteSelected()
+    }
 }
 
 // MARK: - Button Actions
@@ -128,6 +146,9 @@ extension AddTreeViewController: UIImagePickerControllerDelegate {
         picker.dismiss(animated: true) {
             self.viewModel?.updateTreeImage(treeImage: editedImage ?? originalImage)
         }
+
+        addNoteButton.isHidden = false
+        addNoteButton.isEnabled = true
     }
 }
 

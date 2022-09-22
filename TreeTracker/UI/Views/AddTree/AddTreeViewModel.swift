@@ -11,6 +11,7 @@ import Treetracker_Core
 
 protocol AddTreeViewModelCoordinatorDelegate: AnyObject {
     func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didAddTree tree: Tree)
+    func addTreeViewModel(_ addTreeViewModel: AddTreeViewModel, didHaveSavedNote notes: String?)
 }
 
 protocol AddTreeViewModelViewDelegate: AnyObject {
@@ -31,6 +32,7 @@ class AddTreeViewModel {
     private let settingsService: SettingsService
     private let locationDataCapturer: LocationDataCapturing
     private let planter: Planter
+    private var note: String?
     private let treeUUID: String
 
     init(
@@ -64,21 +66,23 @@ class AddTreeViewModel {
         }
     }
 
-    func saveTree() {
+    func addNote(_ note: String?) {
+        self.note = note
+    }
 
+    func saveTree() {
         guard let treeData = treeData else {
             viewDelegate?.addTreeViewModel(self, didReceiveError: AddTreeViewModel.Error.invalidTreeData)
             return
         }
-
-        treeService.saveTree(treeData: treeData, forPlanter: planter) { (result) in
+        treeService.saveTree(treeData: treeData, forPlanter: planter, completion: { result in
             switch result {
             case .success(let tree):
                 coordinatorDelegate?.addTreeViewModel(self, didAddTree: tree)
             case .failure(let error):
                 viewDelegate?.addTreeViewModel(self, didReceiveError: error)
             }
-        }
+        })
     }
 
     func updateTreeImage(treeImage: UIImage) {
@@ -129,7 +133,8 @@ private extension AddTreeViewModel {
         return TreeServiceData(
             jpegData: imageData,
             location: location,
-            uuid: self.treeUUID
+            uuid: self.treeUUID,
+            notes: self.note
         )
     }
 }
@@ -159,6 +164,14 @@ extension AddTreeViewModel: LocationDataCapturerDelegate {
         }
     }
 }
+
+// MARK: - Navigation
+extension AddTreeViewModel {
+    func addNoteSelected() {
+        coordinatorDelegate?.addTreeViewModel(self, didHaveSavedNote: note)
+    }
+}
+
 // MARK: - Data Structures
 extension AddTreeViewModel {
 

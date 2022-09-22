@@ -13,11 +13,18 @@ public struct TreeServiceData {
     let jpegData: Data
     let location: Location
     let uuid: String
+    let notes: String?
 
-    public init(jpegData: Data, location: Location, uuid: String) {
+    public init(
+        jpegData: Data,
+        location: Location,
+        uuid: String,
+        notes: String?
+    ) {
         self.jpegData = jpegData
         self.location = location
         self.uuid = uuid
+        self.notes = notes
     }
 }
 
@@ -67,6 +74,7 @@ class LocalTreeService: TreeService {
         treeCapture.uploaded = false
         treeCapture.localPhotoPath = photoPath
         treeCapture.uuid = treeData.uuid
+        treeCapture.noteContent = treeData.notes
 
         latestPlanterIdentification.addToTrees(treeCapture)
 
