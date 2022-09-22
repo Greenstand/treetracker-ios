@@ -74,14 +74,14 @@ class AddTreeViewModel {
             viewDelegate?.addTreeViewModel(self, didReceiveError: AddTreeViewModel.Error.invalidTreeData)
             return
         }
-        treeService.saveTree(treeData: treeData, forPlanter: planter, withNote: note) { (result) in
+        treeService.saveTree(treeData: treeData, forPlanter: planter, completion: { result in
             switch result {
             case .success(let tree):
                 coordinatorDelegate?.addTreeViewModel(self, didAddTree: tree)
             case .failure(let error):
                 viewDelegate?.addTreeViewModel(self, didReceiveError: error)
             }
-        }
+        })
     }
     func updateTreeImage(treeImage: UIImage) {
         image = treeImage
@@ -131,7 +131,8 @@ private extension AddTreeViewModel {
         return TreeServiceData(
             jpegData: imageData,
             location: location,
-            uuid: self.treeUUID
+            uuid: self.treeUUID,
+            notes: self.note
         )
     }
 }
