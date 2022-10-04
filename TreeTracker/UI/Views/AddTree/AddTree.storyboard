@@ -24,20 +24,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6FW-r5-8Jp">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="418"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xSI-zv-QQU">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="418"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gardening" translatesAutoresizingMaskIntoConstraints="NO" id="3Hj-Fo-eNR" customClass="AV">
-                                                <rect key="frame" x="103.5" y="152.5" width="167" height="113"/>
-                                                <color key="tintColor" name="PrimaryGreen"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="phoneViewfinder" translatesAutoresizingMaskIntoConstraints="NO" id="Ult-3x-hnO">
-                                                <rect key="frame" x="20" y="20" width="334" height="378"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="focus" translatesAutoresizingMaskIntoConstraints="NO" id="Yxa-Xu-CNe">
-                                                <rect key="frame" x="-10" y="0.0" width="395" height="491"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHo-r2-917">
                                                 <rect key="frame" x="304" y="348" width="80" height="80"/>
                                                 <constraints>
@@ -50,16 +36,33 @@
                                                     <action selector="addNoteSelected:" destination="QqA-0g-MHc" eventType="touchUpInside" id="rEE-Jq-Wxd"/>
                                                 </connections>
                                             </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xSI-zv-QQU">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="418"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gardening" translatesAutoresizingMaskIntoConstraints="NO" id="3Hj-Fo-eNR" customClass="AV">
+                                                <rect key="frame" x="103.5" y="152.5" width="167" height="113"/>
+                                                <color key="tintColor" name="PrimaryGreen"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="phoneViewfinder" translatesAutoresizingMaskIntoConstraints="NO" id="Ult-3x-hnO">
+                                                <rect key="frame" x="20" y="20" width="334" height="378"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="focus" translatesAutoresizingMaskIntoConstraints="NO" id="Yxa-Xu-CNe">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="418"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="Yxa-Xu-CNe" firstAttribute="leading" secondItem="6FW-r5-8Jp" secondAttribute="leading" id="0je-Bl-wGj"/>
                                             <constraint firstItem="3Hj-Fo-eNR" firstAttribute="height" secondItem="Ult-3x-hnO" secondAttribute="height" multiplier="0.3" id="58b-Xl-cH4"/>
                                             <constraint firstItem="3Hj-Fo-eNR" firstAttribute="width" secondItem="Ult-3x-hnO" secondAttribute="width" multiplier="0.5" id="5SR-cu-cWZ"/>
+                                            <constraint firstItem="Yxa-Xu-CNe" firstAttribute="top" secondItem="6FW-r5-8Jp" secondAttribute="top" id="8C5-so-9RI"/>
                                             <constraint firstItem="xSI-zv-QQU" firstAttribute="leading" secondItem="6FW-r5-8Jp" secondAttribute="leading" id="8i3-sf-Ant"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yxa-Xu-CNe" secondAttribute="trailing" id="Csm-Xf-fj8"/>
                                             <constraint firstAttribute="trailing" secondItem="xSI-zv-QQU" secondAttribute="trailing" id="J3W-Oh-GRM"/>
                                             <constraint firstItem="Ult-3x-hnO" firstAttribute="leading" secondItem="6FW-r5-8Jp" secondAttribute="leading" constant="20" id="JS1-GJ-7wE"/>
                                             <constraint firstItem="Ult-3x-hnO" firstAttribute="centerY" secondItem="3Hj-Fo-eNR" secondAttribute="centerY" id="Kde-rr-frt"/>
                                             <constraint firstItem="Ult-3x-hnO" firstAttribute="top" secondItem="6FW-r5-8Jp" secondAttribute="top" constant="20" id="QhR-j3-L9E"/>
+                                            <constraint firstAttribute="bottom" secondItem="Yxa-Xu-CNe" secondAttribute="bottom" id="Whb-YS-jcn"/>
                                             <constraint firstAttribute="bottom" secondItem="Ult-3x-hnO" secondAttribute="bottom" constant="20" id="cpM-0g-c8Q"/>
                                             <constraint firstAttribute="trailing" secondItem="Ult-3x-hnO" secondAttribute="trailing" constant="20" id="d40-Qk-aXm"/>
                                             <constraint firstItem="Ult-3x-hnO" firstAttribute="centerX" secondItem="3Hj-Fo-eNR" secondAttribute="centerX" id="e9f-Mp-SzI"/>
