@@ -91,9 +91,3 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-.DS_Store
-Pods/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks-DebugTest-input-files.xcfilelist
-Pods/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks-DebugTest-output-files.xcfilelist
-Pods/Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debugtest.xcconfig
-Pods/Target Support Files/SwiftGen/SwiftGen.xcconfig
-Pods/Target Support Files/SwiftLint/SwiftLint.xcconfig
