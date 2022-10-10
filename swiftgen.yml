@@ -13,7 +13,7 @@ xcassets:
     - templateName: swift4
       output: Assets.swift
 strings:
-  inputs: ./
+  inputs: TreeTracker/Resources/en.lproj
   outputs:
     templateName: structured-swift4
     output: Strings.swift

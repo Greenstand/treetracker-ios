@@ -1,0 +1,99 @@
+/*
+  Localizable.strings
+  TreeTracker
+
+  Created by Alex Cornforth on 13/05/2020.
+  Copyright © 2020 Greenstand. All rights reserved.
+*/
+
+// General
+"App.Title" = "Greenstand Treetracker";
+
+// Alerts
+"Alert.Title.Error" = "Error";
+"Alert.Button.Ok" = "Ok";
+
+//Sign In Screen
+"SignIn.Title" = "Login";
+"SignIn.TextInput.PhoneNumber.Placeholder" = "Número do Telefone";
+"SignIn.OrLabel.Text" = "ou";
+"SignIn.TextInput.Email.Placeholder" = "E-mail";
+"SignIn.LoginButton.Title" = "Login";
+
+// Sign Up Screen
+"SignUp.Title" = "Cadastrar";
+"SignUp.TextInput.FirstName.Placeholder" = "Primeiro nome";
+"SignUp.TextInput.LastName.Placeholder" = "Último nome";
+"SignUp.TextInput.Organization.Placeholder" = "Organização (opcional)";
+"SignUp.SignUpButton.Title" = "Cadastrar";
+
+// Terms & Conditions Screen
+"Terms.Title" = "Termos e Condições";
+"Terms.AcceptTermsButton.Title" = "Aceitar Termos";
+
+//Selfie Screen
+"Selfie.Title" = "Tirar foto";
+"Selfie.SaveButton.Title" = "Salvar";
+"Selfie.PhotoButton.Title.TakePhoto" = "Tirar foto";
+"Selfie.PhotoButton.Title.Retake" = "Tirar novamente";
+"Selfie.LibraryButton.Title.LibraryPhoto" = "Da galeria";
+
+//Home Screen
+"Home.Title" = "Treetracker";
+"Home.InfoLabel.TreesPlantedLabel.Text" = "Árvoes plantadas";
+"Home.InfoLabel.TreesUploadedLabel.Text" = "Árvores carregadas";
+"Home.LogoutButton.Title" = "Alterar usuário";
+"Home.AddTreeButton.Title" = "ADICIONAR ÁRVORE";
+"Home.UploadTreesButton.Title.Start" = "Iniciar upload";
+"Home.UploadTreesButton.Title.Stop" = "Parar upload";
+"Home.MyTreesButton.Title" = "MINHAS ÁRVORES";
+
+//Add Tree Screen
+"AddTree.Title" = "Adicionar árvore";
+"AddTree.PhotoButton.Title.TakePhoto" = "Torar foto";
+"AddTree.PhotoButton.Title.Retake" = "Tirar novamente";
+"AddTree.SaveButton.Title" = "Salvar";
+"AddTree.PhotoLibraryButton.Title" = "Escolher foto";
+"AddTree.PhotoButton.Title.Retry" = "Tentar novamente";
+
+//Notes Screen
+"Notes.Title" = "Notas";
+"Notes.Placeholder" = "Adicionar observações das árvores aqui.";
+
+//GPS Accuracy
+"GPSAccuracyLabel.Text.Base" = "Precisão do GPS: ";
+"GPSAccuracyLabel.Text.Good" = "Bom";
+"GPSAccuracyLabel.Text.Bad" = "Ruim";
+"GPSAccuracyLabel.Text.Unknown" = "Desconhecido";
+
+//Profile screen
+"Profile.FallbackTitle" = "Meu Perfil";
+"Profile.HeaderLabel.Name" = "Nome";
+"Profile.HeaderLabel.Email" = "Endereço de E-mail";
+"Profile.HeaderLabel.Phone" = "Número de Telefone";
+"Profile.HeaderLabel.Username" = "Nome de usuário";
+"Profile.HeaderLabel.Organization" = "Organização";
+"Profile.ChangeUserButton.Title" = "Mudar usuário";
+"Profile.DeleteAccountButton.Title" = "Deletar conta";
+
+//Logout Confirmation
+"LogOutConfirmation.Title" = "Alterar usuário";
+"LogOutConfirmation.Message" = "Você tem certeza que quer sair e trocar o usuário?";
+"LogOutConfirmation.CancelButton.Title" = "Cancelar";
+"LogOutConfirmation.LogOutButton.Title" = "Sair";
+
+//Delete Account Confirmation
+"DeleteAccountConfirmation.Title" = "Deletar conta do usuário";
+"DeleteAccountConfirmation.Message" = "Você tem certeza que deseja deletar a sua conta? Todas as árvores nesse dispositivo serão perdidas.";
+"DeleteAccountConfirmation.CancelButton.Title" = "Não, mantenha minhas árvores.";
+"DeleteAccountConfirmation.DeleteAccount.Title" = "Sim, delete minha conta.";
+
+//Settings Screen
+"Settings.Title" = "Configurações";
+"Settings.PhotoQuality.Title" = "Qualidade da foto.";
+"Settings.PhotoQuality.Option.Low.Title" = "Baixa";
+"Settings.PhotoQuality.Option.Low.Info" = "Baixa resolução, baixo uso de dados.";
+"Settings.PhotoQuality.Option.Medium.Title" = "Médio";
+"Settings.PhotoQuality.Option.Medium.Info" = "Média resolução, médio uso de dados.";
+"Settings.PhotoQuality.Option.High.Title" = "Alta";
+"Settings.PhotoQuality.Option.High.Info" = "Alta resolução, alto uso de dados.";
