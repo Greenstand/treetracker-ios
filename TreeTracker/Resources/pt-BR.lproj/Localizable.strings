@@ -22,8 +22,8 @@
 
 // Sign Up Screen
 "SignUp.Title" = "Cadastrar";
-"SignUp.TextInput.FirstName.Placeholder" = "Primeiro nome";
-"SignUp.TextInput.LastName.Placeholder" = "Último nome";
+"SignUp.TextInput.FirstName.Placeholder" = "Nome";
+"SignUp.TextInput.LastName.Placeholder" = "Sobrenome";
 "SignUp.TextInput.Organization.Placeholder" = "Organização (opcional)";
 "SignUp.SignUpButton.Title" = "Cadastrar";
 
@@ -40,7 +40,7 @@
 
 //Home Screen
 "Home.Title" = "Treetracker";
-"Home.InfoLabel.TreesPlantedLabel.Text" = "Árvoes plantadas";
+"Home.InfoLabel.TreesPlantedLabel.Text" = "Árvores plantadas";
 "Home.InfoLabel.TreesUploadedLabel.Text" = "Árvores carregadas";
 "Home.LogoutButton.Title" = "Alterar usuário";
 "Home.AddTreeButton.Title" = "ADICIONAR ÁRVORE";
@@ -50,7 +50,7 @@
 
 //Add Tree Screen
 "AddTree.Title" = "Adicionar árvore";
-"AddTree.PhotoButton.Title.TakePhoto" = "Torar foto";
+"AddTree.PhotoButton.Title.TakePhoto" = "Tirar foto";
 "AddTree.PhotoButton.Title.Retake" = "Tirar novamente";
 "AddTree.SaveButton.Title" = "Salvar";
 "AddTree.PhotoLibraryButton.Title" = "Escolher foto";
@@ -73,7 +73,7 @@
 "Profile.HeaderLabel.Phone" = "Número de Telefone";
 "Profile.HeaderLabel.Username" = "Nome de usuário";
 "Profile.HeaderLabel.Organization" = "Organização";
-"Profile.ChangeUserButton.Title" = "Mudar usuário";
+"Profile.ChangeUserButton.Title" = "Trocar de usuário";
 "Profile.DeleteAccountButton.Title" = "Deletar conta";
 
 //Logout Confirmation
