@@ -19,7 +19,7 @@ class AddTreeViewController: UIViewController, AlertPresenting {
             addNoteButton.setTitle("", for: .normal)
             addNoteButton.setImage(Asset.Assets.note.image, for: .normal)
             addNoteButton.layer.frame.size = Asset.Assets.note.image.size
-            addNoteButton.layer.zPosition = 5
+            addNoteButton.layer.zPosition = 6
             addNoteButton.isEnabled = false
             addNoteButton.isHidden = true
             addNoteButton.layer.cornerRadius = 10
@@ -158,6 +158,7 @@ private extension AddTreeViewController {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
+        cameraView.isHidden = true
         present(imagePicker, animated: true)
     }
 #endif
@@ -264,7 +265,7 @@ extension AddTreeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     private func createCameraView() {
         cameraView = UIView(frame: CGRect(x: 0, y: 0,
                             width: previewView.bounds.size.width,
-                            height: previewView.bounds.size.height))
+                            height: previewView.bounds.size.height + 20))
         cameraView.contentMode = .scaleAspectFit
         cameraView.layer.cornerRadius = 30
         cameraView.layer.zPosition = 0
