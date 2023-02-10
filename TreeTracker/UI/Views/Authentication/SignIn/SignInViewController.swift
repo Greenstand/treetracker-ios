@@ -23,6 +23,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             usernameTextField.returnKeyType = .done
             usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
             usernameTextField.validationState = .normal
+            usernameTextField.iconImageView?.image = Asset.Assets.phone.image
         }
     }
     @IBOutlet private var usernameSegmentedControl: UISegmentedControl! {
