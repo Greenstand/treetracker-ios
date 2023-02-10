@@ -122,11 +122,13 @@ extension SignInViewController: SignInViewModelViewDelegate {
 
         switch loginType {
         case .phoneNumber:
+            usernameTextField.text = ""
             usernameTextField.keyboardType = .phonePad
             usernameTextField.textContentType = .telephoneNumber
             usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
             usernameTextField.iconImageView?.image = Asset.Assets.phone.image
         case .email:
+            usernameTextField.text = ""
             usernameTextField.keyboardType = .emailAddress
             usernameTextField.textContentType = .emailAddress
             usernameTextField.placeholder = L10n.SignIn.TextInput.Email.placeholder
