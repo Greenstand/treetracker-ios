@@ -21,6 +21,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             usernameTextField.textContentType = .telephoneNumber
             usernameTextField.keyboardType = .phonePad
             usernameTextField.returnKeyType = .done
+            usernameTextField.autocorrectionType = .no
             usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
             usernameTextField.validationState = .normal
         }
