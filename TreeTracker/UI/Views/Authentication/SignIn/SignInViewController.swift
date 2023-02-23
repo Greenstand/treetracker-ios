@@ -21,6 +21,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             usernameTextField.textContentType = .telephoneNumber
             usernameTextField.keyboardType = .phonePad
             usernameTextField.returnKeyType = .done
+            usernameTextField.autocorrectionType = .no
             usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
             usernameTextField.validationState = .normal
         }
@@ -68,6 +69,9 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
 private extension SignInViewController {
 
     @IBAction func logInButtonPressed() {
+        guard let newText = usernameTextField.text else { return }
+        viewModel?.updateUsername(username: newText)
+        
         viewModel?.login()
     }
 
