@@ -33,7 +33,7 @@ class SettingsViewModel {
             return "app version not found"
         }
         
-        return "v\(versionNumber)(\(buildNumber))"
+        return "v\(versionNumber) (\(buildNumber))"
     }
 
     func loadSettings() {
