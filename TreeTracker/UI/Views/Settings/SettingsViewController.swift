@@ -33,7 +33,15 @@ class SettingsViewController: UIViewController {
             photoQualityInfoLabel.textColor = Asset.Colors.grayMedium.color
         }
     }
-
+    
+    @IBOutlet private var appVersionInfoLabel: UILabel! {
+        didSet {
+            appVersionInfoLabel.text = ""
+            appVersionInfoLabel.font = FontFamily.Lato.regular.font(size: 14.0)
+            appVersionInfoLabel.textColor = Asset.Colors.grayLight.color
+        }
+    }
+    
     var viewModel: SettingsViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -45,6 +53,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         configurePhotoQualitySegmentedControl()
         viewModel?.loadSettings()
+        appVersionInfoLabel.text = viewModel?.appVersion
     }
 }
 

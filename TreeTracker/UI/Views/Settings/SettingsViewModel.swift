@@ -24,6 +24,17 @@ class SettingsViewModel {
     }
 
     let title: String = L10n.Settings.title
+    
+    var appVersion: String {
+        guard
+            let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+            let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        else {
+            return "app version not found"
+        }
+        
+        return "v\(versionNumber)(\(buildNumber))"
+    }
 
     func loadSettings() {
         viewDelegate?.settingViewModel(self, didUpdatePhotoQuality: currentPhotoQuality)
