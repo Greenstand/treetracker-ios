@@ -83,8 +83,8 @@ class ProfileViewModel {
     func deleteAccount() {
 
         do {
-            settingsService.update(value: PhotoQuality.medium.photoSize, forSetting: .treePhotoSize)
             try userDeletionService.deletePlanter(planter: planter)
+            settingsService.update(value: PhotoQuality.medium.photoSize, forSetting: .treePhotoSize)
             if uploadManager.isUploading {
                 uploadManager.stopUploading()
             }
