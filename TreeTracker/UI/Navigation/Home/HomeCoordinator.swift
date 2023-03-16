@@ -146,7 +146,8 @@ private extension HomeCoordinator {
                 planter: planter,
                 selfieService: self.treetrackerSDK.selfieService,
                 uploadManager: self.treetrackerSDK.uploadManager,
-                userDeletionService: self.treetrackerSDK.userDeletionService
+                userDeletionService: self.treetrackerSDK.userDeletionService,
+                settingsService: self.treetrackerSDK.settingsService
             )
             viewModel.coordinatorDelegate = self
             return viewModel

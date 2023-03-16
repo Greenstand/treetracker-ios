@@ -28,17 +28,20 @@ class ProfileViewModel {
     private let selfieService: Treetracker_Core.SelfieService
     private let uploadManager: Treetracker_Core.UploadManaging
     private let userDeletionService: Treetracker_Core.UserDeletionService
+    private let settingsService: Treetracker_Core.SettingsService
 
     init(
         planter: Treetracker_Core.Planter,
         selfieService: Treetracker_Core.SelfieService,
         uploadManager: Treetracker_Core.UploadManaging,
-        userDeletionService: Treetracker_Core.UserDeletionService
+        userDeletionService: Treetracker_Core.UserDeletionService,
+        settingsService: Treetracker_Core.SettingsService
     ) {
         self.planter = planter
         self.selfieService = selfieService
         self.uploadManager = uploadManager
         self.userDeletionService = userDeletionService
+        self.settingsService = settingsService
     }
 
     var title: String {
@@ -81,6 +84,7 @@ class ProfileViewModel {
 
         do {
             try userDeletionService.deletePlanter(planter: planter)
+            settingsService.update(value: PhotoQuality.medium.photoSize, forSetting: .treePhotoSize)
             if uploadManager.isUploading {
                 uploadManager.stopUploading()
             }
