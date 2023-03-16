@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="fXP-cp-z3Z">
-                                <rect key="frame" x="20" y="74" width="374" height="112"/>
+                                <rect key="frame" x="20" y="78" width="374" height="112"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uPl-a1-ic7" userLabel="Photo Quality Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="112"/>
@@ -50,17 +50,25 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APP_VERSION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7S-do-pJh">
+                                <rect key="frame" x="152.5" y="821.5" width="109.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="b7S-do-pJh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="2Fk-dd-D9x"/>
                             <constraint firstItem="fXP-cp-z3Z" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="DiD-iU-mUo"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fXP-cp-z3Z" secondAttribute="bottom" id="H12-mE-Bpp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fXP-cp-z3Z" secondAttribute="trailing" constant="20" id="U3e-MM-Pnq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="b7S-do-pJh" secondAttribute="bottom" constant="20" id="ZKl-Zi-bb2"/>
                             <constraint firstItem="fXP-cp-z3Z" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="yd6-br-PZM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appVersionInfoLabel" destination="b7S-do-pJh" id="Ysb-Op-avT"/>
                         <outlet property="photoQualityInfoLabel" destination="Xbj-Ar-9ob" id="wCs-Nf-Y82"/>
                         <outlet property="photoQualitySegmentedControl" destination="p9G-oM-OwX" id="Ips-yd-iyT"/>
                         <outlet property="photoQualityTitleLabel" destination="ktW-KB-YUR" id="3rS-hJ-Kg5"/>
