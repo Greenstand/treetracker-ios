@@ -19,7 +19,7 @@ The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, w
 
 MIT Licence
 
-Copyright (c) 2019 SwiftGen
+Copyright (c) 2022 SwiftGen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
