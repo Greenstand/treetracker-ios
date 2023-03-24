@@ -24,6 +24,7 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
             usernameTextField.autocorrectionType = .no
             usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
             usernameTextField.validationState = .normal
+            usernameTextField.iconImageView?.image = Asset.Assets.phone.image
         }
     }
     @IBOutlet private var usernameSegmentedControl: UISegmentedControl! {
@@ -78,8 +79,10 @@ private extension SignInViewController {
     @IBAction func usernameSegmentedControlChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
+            viewModel?.temporaryEmail = usernameTextField.text
             viewModel?.updateLoginType(loginType: .phoneNumber)
         case 1:
+            viewModel?.temporaryPhoneNumber = usernameTextField.text
             viewModel?.updateLoginType(loginType: .email)
         default:
             break
@@ -126,17 +129,22 @@ extension SignInViewController: SignInViewModelViewDelegate {
 
         switch loginType {
         case .phoneNumber:
+            usernameTextField.text = signInViewModel.temporaryPhoneNumber
             usernameTextField.keyboardType = .phonePad
             usernameTextField.textContentType = .telephoneNumber
             usernameTextField.placeholder = L10n.SignIn.TextInput.PhoneNumber.placeholder
             usernameTextField.iconImageView?.image = Asset.Assets.phone.image
         case .email:
+            usernameTextField.text = signInViewModel.temporaryEmail
             usernameTextField.keyboardType = .emailAddress
             usernameTextField.textContentType = .emailAddress
             usernameTextField.placeholder = L10n.SignIn.TextInput.Email.placeholder
             usernameTextField.iconImageView?.image = Asset.Assets.mail.image
         }
-
+        
+        guard let text = usernameTextField.text else { return }
+        viewModel?.updateUsername(username: text)
+        
         usernameTextField.refreshKeyboard()
     }
 }
