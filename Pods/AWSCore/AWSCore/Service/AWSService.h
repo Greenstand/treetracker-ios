@@ -111,6 +111,11 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
                       endpoint:(AWSEndpoint *)endpoint
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider;
 
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                      endpoint:(AWSEndpoint *)endpoint
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
+           localTestingEnabled:(BOOL)localTestingEnabled;
+
 - (void)addUserAgentProductToken:(NSString *)productToken;
 
 @end
@@ -123,6 +128,7 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
 @property (nonatomic, readonly) NSString *regionName;
 @property (nonatomic, readonly) AWSServiceType serviceType;
 @property (nonatomic, readonly) NSString *serviceName;
+@property (nonatomic, readonly) NSString *signingName;
 @property (nonatomic, readonly) NSURL *URL;
 @property (nonatomic, readonly) NSString *hostName;
 @property (nonatomic, readonly) BOOL useUnsafeURL;

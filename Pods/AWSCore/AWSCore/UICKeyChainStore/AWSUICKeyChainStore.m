@@ -116,7 +116,7 @@ static NSString *_defaultService;
 
 - (void)commonInit
 {
-    _accessibility = AWSUICKeyChainStoreAccessibilityAfterFirstUnlock;
+    _accessibility = AWSUICKeyChainStoreAccessibilityAfterFirstUnlockThisDeviceOnly;
 }
 
 #pragma mark -
@@ -535,11 +535,7 @@ static NSString *_defaultService;
 #if TARGET_OS_IOS
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunguarded-availability"
-    if (floor(NSFoundationVersionNumber) > floor(1144.17)) { // iOS 9+
-        query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
-    } else if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+
-        query[(__bridge __strong id)kSecUseNoAuthenticationUI] = (__bridge id)kCFBooleanTrue;
-    }
+    query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
 #pragma clang diagnostic pop
 #elif TARGET_OS_WATCH || TARGET_OS_TV
     query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
@@ -935,6 +931,26 @@ static NSString *_defaultService;
     }
     
     return prettified.copy;
+}
+
+#pragma mark -
+
+- (void)migrateToCurrentAccessibility {
+    NSArray *items = [self allItems];
+    for (NSDictionary *item in items) {
+        CFComparisonResult result = CFStringCompare((CFStringRef)item[@"accessibility"],
+                                                    [self accessibilityObject], 0);
+        if (result == kCFCompareEqualTo) {
+            continue;
+        }
+        NSString *key = item[@"key"];
+        NSObject *value = item[@"value"];
+        if ([value isKindOfClass: [NSString class]]) {
+            [self setString: (NSString *)value forKey:key];
+        } else if ([value isKindOfClass: [NSData class]]) {
+            [self setData: (NSData *)value forKey:key];
+        }
+    }
 }
 
 #pragma mark -
