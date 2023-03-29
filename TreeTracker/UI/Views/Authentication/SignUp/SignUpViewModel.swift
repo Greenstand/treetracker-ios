@@ -92,7 +92,7 @@ class SignUpViewModel {
     func startMonitoringLocation() {
         locationProvider.startMonitoringLocation()
     }
-    
+
     func signUp() {
 
         guard let signUpDetails = signUpDetails else {
@@ -196,7 +196,6 @@ extension SignUpViewModel {
         case invalidSignUpData
     }
 }
-
 
 // MARK: - Validation.Result Extension
 private extension Validation.Result {

@@ -96,7 +96,7 @@ private extension ProfileViewController {
 
         let cancelAction = UIAlertAction(title: L10n.DeleteAccountConfirmation.CancelButton.title, style: .cancel)
         let logoutAction = UIAlertAction(title: L10n.DeleteAccountConfirmation.DeleteAccount.title, style: .destructive) { _ in
-            //Delete account
+            // Delete account
             self.viewModel?.deleteAccount()
         }
 
@@ -112,13 +112,13 @@ extension ProfileViewController: ProfileViewModelViewDelegate {
 
     func profileViewModel(_ profileViewModel: ProfileViewModel, didFetchDetails details: ProfileViewModel.ProfileDetails) {
 
-        //Title
+        // Title
         title = viewModel?.title
 
-        //Profile Image
+        // Profile Image
         profileImageView.image = details.image
 
-        //Name
+        // Name
         nameLabel.text = details.name
 
         // Username (Phone/Email)

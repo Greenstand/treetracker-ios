@@ -58,7 +58,6 @@ class ProfileViewModel {
         }
     }
 
-
     func fetchDetails() {
         selfieService.fetchSelfie(forPlanter: planter) { (result) in
             switch result {
