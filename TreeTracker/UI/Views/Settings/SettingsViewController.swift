@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController {
             photoQualityInfoLabel.textColor = Asset.Colors.grayMedium.color
         }
     }
-    
+
     @IBOutlet private var appVersionInfoLabel: UILabel! {
         didSet {
             appVersionInfoLabel.text = ""
@@ -41,7 +41,7 @@ class SettingsViewController: UIViewController {
             appVersionInfoLabel.textColor = Asset.Colors.grayLight.color
         }
     }
-    
+
     var viewModel: SettingsViewModel? {
         didSet {
             viewModel?.viewDelegate = self

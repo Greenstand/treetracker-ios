@@ -70,9 +70,12 @@ class SignInViewController: UIViewController, KeyboardDismissing, AlertPresentin
 private extension SignInViewController {
 
     @IBAction func logInButtonPressed() {
-        guard let newText = usernameTextField.text else { return }
+
+        guard let newText = usernameTextField.text else {
+            return
+        }
+
         viewModel?.updateUsername(username: newText)
-        
         viewModel?.login()
     }
 
@@ -141,10 +144,10 @@ extension SignInViewController: SignInViewModelViewDelegate {
             usernameTextField.placeholder = L10n.SignIn.TextInput.Email.placeholder
             usernameTextField.iconImageView?.image = Asset.Assets.mail.image
         }
-        
+
         guard let text = usernameTextField.text else { return }
         viewModel?.updateUsername(username: text)
-        
+
         usernameTextField.refreshKeyboard()
     }
 }
