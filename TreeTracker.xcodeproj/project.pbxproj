@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
 		8D75250629DB13FA00361CC1 /* MessagingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75250529DB13FA00361CC1 /* MessagingButton.swift */; };
+		8D75251729DB61A000361CC1 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75251629DB61A000361CC1 /* ChatListViewController.swift */; };
+		8D75251929DB61C000361CC1 /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D75251829DB61C000361CC1 /* ChatList.storyboard */; };
+		8D75251B29DB61CB00361CC1 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75251A29DB61CB00361CC1 /* ChatListViewModel.swift */; };
 		9311609126B40E5E007FCA52 /* DestructiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609026B40E5E007FCA52 /* DestructiveButton.swift */; };
 		9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609A26B4108A007FCA52 /* RoundedButton.swift */; };
 		931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */; };
@@ -96,6 +99,9 @@
 
 /* Begin PBXFileReference section */
 		8D75250529DB13FA00361CC1 /* MessagingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingButton.swift; sourceTree = "<group>"; };
+		8D75251629DB61A000361CC1 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		8D75251829DB61C000361CC1 /* ChatList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatList.storyboard; sourceTree = "<group>"; };
+		8D75251A29DB61CB00361CC1 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		9311609026B40E5E007FCA52 /* DestructiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveButton.swift; sourceTree = "<group>"; };
 		9311609A26B4108A007FCA52 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +210,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D75250829DB5BC900361CC1 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				8D75250929DB5BF400361CC1 /* ChatList */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		8D75250929DB5BF400361CC1 /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				8D75251A29DB61CB00361CC1 /* ChatListViewModel.swift */,
+				8D75251629DB61A000361CC1 /* ChatListViewController.swift */,
+				8D75251829DB61C000361CC1 /* ChatList.storyboard */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
 		9311609426B40EE0007FCA52 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +485,7 @@
 				93E82F5F246C3B3200006C91 /* Authentication */,
 				93EC8C3524AA4FD100946C0C /* Home */,
 				93EC8CA924BBA50C00946C0C /* AddTree */,
+				8D75250829DB5BC900361CC1 /* Messaging */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -716,6 +741,7 @@
 				931C37BA249BAD0900EE24DC /* Selfie.storyboard in Resources */,
 				93E82F63246C41B000006C91 /* Localizable.strings in Resources */,
 				93989CFD246EABFA00A1B21F /* Terms.storyboard in Resources */,
+				8D75251929DB61C000361CC1 /* ChatList.storyboard in Resources */,
 				93989D01246EB20D00A1B21F /* Terms.html in Resources */,
 				937D78C325C70E45007A7A37 /* Montserrat-Bold.ttf in Resources */,
 				93E82F52246C35C700006C91 /* SignIn.storyboard in Resources */,
@@ -841,6 +867,7 @@
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
 				93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */,
 				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,
+				8D75251B29DB61CB00361CC1 /* ChatListViewModel.swift in Sources */,
 				938294AB27F8A10400888E42 /* ProfileImageView.swift in Sources */,
 				F258B5A7260A4ED50053DAD7 /* ProfileViewController.swift in Sources */,
 				93E18931245B737D00217F21 /* AppDelegate.swift in Sources */,
@@ -848,6 +875,7 @@
 				93E82F4C246C262900006C91 /* SignInCoordinator.swift in Sources */,
 				93E18966245C95F200217F21 /* StoryboardSegues.swift in Sources */,
 				93989CF9246EA35500A1B21F /* SignUpViewModel.swift in Sources */,
+				8D75251729DB61A000361CC1 /* ChatListViewController.swift in Sources */,
 				93EC8CA824B28B5D00946C0C /* UITextField+Extensions.swift in Sources */,
 				93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */,
 				93E18933245B737D00217F21 /* SceneDelegate.swift in Sources */,

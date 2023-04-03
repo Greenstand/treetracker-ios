@@ -12,6 +12,7 @@ import Treetracker_Core
 protocol HomeViewModelCoordinatorDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectAddTreeForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectUploadListForPlanter planter: Planter)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewChatListForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewProfileForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter)
     func homeViewModelDidSelectSettings(_ homeViewModel: HomeViewModel)
@@ -108,6 +109,10 @@ extension HomeViewModel {
 
     func addTreeSelected() {
         coordinatorDelegate?.homeViewModel(self, didSelectAddTreeForPlanter: planter)
+    }
+
+    func chatListSelected() {
+        coordinatorDelegate?.homeViewModel(self, didSelectViewChatListForPlanter: planter)
     }
 
     func viewProfileSelected() {

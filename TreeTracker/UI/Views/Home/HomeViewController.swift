@@ -201,6 +201,7 @@ private extension HomeViewController {
     }
 
     @IBAction func messagingButtonPressed() {
+        viewModel?.chatListSelected()
     }
 
     @objc func settingsButtonPressed() {

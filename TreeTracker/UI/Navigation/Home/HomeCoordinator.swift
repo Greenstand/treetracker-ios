@@ -61,6 +61,13 @@ private extension HomeCoordinator {
         )
     }
 
+    func showChatList(planter: Planter) {
+        configuration.navigationController.pushViewController(
+            chatListViewController(planter: planter),
+            animated: true
+        )
+    }
+
     func showNotes(note: String?) {
         configuration.navigationController.pushViewController(
             notesViewController(note: note),
@@ -123,6 +130,18 @@ private extension HomeCoordinator {
                 settingsService: self.treetrackerSDK.settingsService,
                 locationDataCapturer: self.treetrackerSDK.locationDataCapturer,
                 planter: planter
+            )
+            viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
+        return viewcontroller
+    }
+
+    func chatListViewController(planter: Planter) -> UIViewController {
+        let viewcontroller = StoryboardScene.ChatList.initialScene.instantiate()
+        viewcontroller.viewModel = {
+            let viewModel = ChatListViewModel(
+            planter: planter
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -195,6 +214,10 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
         showUploadList(planter: planter)
     }
 
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewChatListForPlanter planter: Planter) {
+        showChatList(planter: planter)
+    }
+
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewProfileForPlanter planter: Planter) {
         showPlanterProfile(planter: planter)
     }
@@ -232,6 +255,7 @@ extension HomeCoordinator: AddTreeViewModelCoordinatorDelegate {
     }
 }
 
+// MARK: - NotesViewModelCoordinatorDelegate
 extension HomeCoordinator: NotesViewModelCoordinatorDelegate {
 
     func notesViewModel(_ notesViewModel: NotesViewModel, didAddNote note: String) {
@@ -240,4 +264,9 @@ extension HomeCoordinator: NotesViewModelCoordinatorDelegate {
             addTreeViewController.viewModel?.addNote(note)
         }
     }
+}
+
+// MARK: - ChatListViewModelCoordinatorDelegate
+extension HomeCoordinator: ChatListViewModelCoordinatorDelegate {
+
 }
