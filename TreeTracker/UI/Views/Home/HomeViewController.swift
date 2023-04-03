@@ -117,9 +117,9 @@ class HomeViewController: UIViewController, AlertPresenting {
         }
     }
     @IBOutlet private var addTreeButton: AddTreeButton!
-    
+
     @IBOutlet private var messagingButton: MessagingButton!
-    
+
     @IBOutlet private var messagingAlert: UIImageView! {
         didSet {
             messagingAlert.image = Asset.Assets.add.image
@@ -129,7 +129,7 @@ class HomeViewController: UIViewController, AlertPresenting {
             messagingAlert.layer.masksToBounds = true
         }
     }
-    
+
     var viewModel: HomeViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -199,7 +199,7 @@ private extension HomeViewController {
     @IBAction func logoutButtonPressed() {
         viewModel?.logoutPlanter()
     }
-    
+
     @IBAction func messagingButtonPressed() {
     }
 
