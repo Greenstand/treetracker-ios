@@ -95,6 +95,10 @@ internal enum L10n {
       /// Change User
       internal static let title = L10n.tr("Localizable", "Home.LogoutButton.Title", fallback: "Change User")
     }
+    internal enum MessagingButton {
+      /// MESSAGES
+      internal static let title = L10n.tr("Localizable", "Home.MessagingButton.Title", fallback: "MESSAGES")
+    }
     internal enum MyTreesButton {
       /// MY TREES
       internal static let title = L10n.tr("Localizable", "Home.MyTreesButton.Title", fallback: "MY TREES")

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4B-25-WOc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4B-25-WOc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="N4B-25-WOc" customClass="HomeViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hfq-bh-jS1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m42-LK-6b5">
-                                <rect key="frame" x="20" y="20" width="374" height="461.5"/>
+                                <rect key="frame" x="20" y="20" width="374" height="571.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RNm-Ry-Tr2">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
@@ -153,7 +153,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zXG-hz-i9A">
-                                        <rect key="frame" x="0.0" y="261.5" width="374" height="200"/>
+                                        <rect key="frame" x="0.0" y="261.5" width="374" height="310"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QqC-aQ-0Lz" customClass="UploadsButton" customModule="TreeTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
@@ -166,8 +166,19 @@
                                                     <action selector="uploadTreesButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="t4r-2C-rS2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhj-rd-bdN" customClass="AddTreeButton" customModule="TreeTracker" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRl-le-sdl" userLabel="Messaging Button" customClass="MessagingButton" customModule="TreeTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="110" width="374" height="90"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="sCU-Xk-ufL"/>
+                                                </constraints>
+                                                <state key="normal" title="MESSAGING"/>
+                                                <connections>
+                                                    <action selector="messagingButtonPressed" destination="N4B-25-WOc" eventType="touchUpInside" id="PVh-mR-Ztf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhj-rd-bdN" customClass="AddTreeButton" customModule="TreeTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="220" width="374" height="90"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="zJG-qE-EKX"/>
@@ -203,6 +214,13 @@
                                     <constraint firstItem="SQa-Oy-BZK" firstAttribute="top" secondItem="H4G-QY-aoV" secondAttribute="top" constant="5" id="eJD-Ur-gzK"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TOO-0K-KT6" userLabel="Messaging Alert">
+                                <rect key="frame" x="359" y="396.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SH3-NO-c1a" userLabel="height = 30"/>
+                                    <constraint firstAttribute="width" constant="30" id="o9E-co-Z8H" userLabel="width = 30"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5eT-24-qVC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -211,6 +229,8 @@
                             <constraint firstItem="QqC-aQ-0Lz" firstAttribute="top" secondItem="H4G-QY-aoV" secondAttribute="top" constant="-5" id="7HL-SW-Qhn"/>
                             <constraint firstItem="m42-LK-6b5" firstAttribute="top" secondItem="5eT-24-qVC" secondAttribute="top" constant="20" id="IbW-PJ-gLR"/>
                             <constraint firstItem="5eT-24-qVC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="m42-LK-6b5" secondAttribute="bottom" constant="20" id="OSM-lY-Hvh"/>
+                            <constraint firstItem="TOO-0K-KT6" firstAttribute="top" secondItem="SRl-le-sdl" secondAttribute="top" constant="5" id="Ya1-Qs-lJz"/>
+                            <constraint firstItem="TOO-0K-KT6" firstAttribute="trailing" secondItem="SRl-le-sdl" secondAttribute="trailing" constant="-5" id="jne-fS-ZKe"/>
                             <constraint firstItem="H4G-QY-aoV" firstAttribute="trailing" secondItem="QqC-aQ-0Lz" secondAttribute="trailing" constant="-5" id="mmo-Za-a8M"/>
                             <constraint firstItem="m42-LK-6b5" firstAttribute="leading" secondItem="5eT-24-qVC" secondAttribute="leading" constant="20" id="yZF-oT-uri"/>
                         </constraints>
@@ -219,6 +239,8 @@
                     <connections>
                         <outlet property="addTreeButton" destination="Fhj-rd-bdN" id="2rZ-zP-GWY"/>
                         <outlet property="logoutButton" destination="dtG-Qr-Hel" id="4M2-CC-Y94"/>
+                        <outlet property="messagingAlert" destination="TOO-0K-KT6" id="szS-T1-dGk"/>
+                        <outlet property="messagingButton" destination="SRl-le-sdl" id="c0x-Xx-pRy"/>
                         <outlet property="nameButton" destination="TxM-GO-ysI" id="hq9-Ra-6tA"/>
                         <outlet property="profileImageView" destination="BLJ-l5-Lzr" id="TmI-Fk-cjv"/>
                         <outlet property="separatorView" destination="3jI-3g-uV1" id="jJb-cI-P0L"/>
