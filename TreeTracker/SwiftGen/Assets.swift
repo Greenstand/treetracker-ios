@@ -31,6 +31,7 @@ internal enum Asset {
     internal static let padlock = ImageAsset(name: "Padlock")
     internal static let add = ImageAsset(name: "add")
     internal static let arrow = ImageAsset(name: "arrow")
+    internal static let bell = ImageAsset(name: "bell")
     internal static let logout = ImageAsset(name: "logout")
     internal static let mail = ImageAsset(name: "mail")
     internal static let note = ImageAsset(name: "note")

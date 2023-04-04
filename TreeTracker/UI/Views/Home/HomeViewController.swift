@@ -122,7 +122,7 @@ class HomeViewController: UIViewController, AlertPresenting {
 
     @IBOutlet private var messagingAlert: UIImageView! {
         didSet {
-            messagingAlert.image = Asset.Assets.add.image
+            messagingAlert.image = Asset.Assets.bell.image.withRenderingMode(.alwaysTemplate)
             messagingAlert.tintColor = .white
             messagingAlert.backgroundColor = Asset.Colors.secondaryRed.color
             messagingAlert.layer.cornerRadius = 10

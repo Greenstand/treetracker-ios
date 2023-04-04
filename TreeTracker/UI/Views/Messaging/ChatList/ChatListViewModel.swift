@@ -39,5 +39,5 @@ extension ChatListViewModel {
     func messagesSelectet() {
         coordinatorDelegate?.chatListViewModel(self, didSelectMessagesForPlanter: planter)
     }
-    
+
 }

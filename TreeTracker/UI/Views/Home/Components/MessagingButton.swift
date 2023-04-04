@@ -42,7 +42,7 @@ private extension MessagingButton {
     var messageIconTextAttachment: NSTextAttachment {
         let textAttachment = NSTextAttachment()
         textAttachment.image = Asset.Assets.mail.image
-        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -20.0), size: CGSize(width: 50.0, height: 50.0))
+        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -15.0), size: CGSize(width: 50.0, height: 40.0))
         return textAttachment
     }
 

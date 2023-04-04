@@ -20,13 +20,14 @@ class ChatListTableViewCell: UITableViewCell {
 
     @IBOutlet private var chatTitle: UILabel! {
         didSet {
-            chatTitle.font = FontFamily.Montserrat.semiBold.font(size: 20)
+            chatTitle.font = FontFamily.Montserrat.semiBold.font(size: 19)
+            chatTitle.textColor = Asset.Colors.grayDark.color
         }
     }
 
     @IBOutlet private var chatAlert: UIImageView! {
         didSet {
-            chatAlert.image = Asset.Assets.add.image
+            chatAlert.image = Asset.Assets.bell.image.withRenderingMode(.alwaysTemplate)
             chatAlert.tintColor = .white
             chatAlert.backgroundColor = Asset.Colors.secondaryRed.color
             chatAlert.layer.cornerRadius = 10

@@ -43,12 +43,13 @@ extension ChatListViewController: UITableViewDataSource {
 
         // TODO: setup
         cell?.setupCell()
+        cell?.selectionStyle = .none
 
         return cell ?? UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        140
+        130
     }
 
 }
