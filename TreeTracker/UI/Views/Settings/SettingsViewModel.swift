@@ -24,7 +24,7 @@ class SettingsViewModel {
     }
 
     let title: String = L10n.Settings.title
-    
+
     var appVersion: String {
         guard
             let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
@@ -32,7 +32,7 @@ class SettingsViewModel {
         else {
             return "app version not found"
         }
-        
+
         return "v\(versionNumber) (\(buildNumber))"
     }
 

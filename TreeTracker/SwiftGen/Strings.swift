@@ -112,6 +112,14 @@ internal enum L10n {
       }
     }
   }
+  internal enum Keyboard {
+    internal enum Toolbar {
+      internal enum DoneButton {
+        /// Done
+        internal static let title = L10n.tr("Localizable", "Keyboard.Toolbar.DoneButton.Title", fallback: "Done")
+      }
+    }
+  }
   internal enum LogOutConfirmation {
     /// Are you sure you want to log out and change user?
     internal static let message = L10n.tr("Localizable", "LogOutConfirmation.Message", fallback: "Are you sure you want to log out and change user?")

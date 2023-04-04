@@ -13,6 +13,9 @@
 "Alert.Title.Error" = "Error";
 "Alert.Button.Ok" = "Ok";
 
+// Keyboard
+"Keyboard.Toolbar.DoneButton.Title" = "Done";
+
 //Sign In Screen
 "SignIn.Title" = "Sign In";
 "SignIn.TextInput.PhoneNumber.Placeholder" = "Phone Number";

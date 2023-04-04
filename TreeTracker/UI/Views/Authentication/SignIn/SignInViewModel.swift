@@ -41,7 +41,7 @@ class SignInViewModel {
     }
 
     let title: String = L10n.SignIn.title
-    
+
     var temporaryEmail: String?
     var temporaryPhoneNumber: String?
 
