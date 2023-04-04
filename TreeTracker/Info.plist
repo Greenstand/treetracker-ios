@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>rootURL</key>
+	<string>https://$(ROOT_URL)</string>
 	<key>TreePhotoCompressionHigh</key>
 	<string>$(TREE_PHOTO_COMPRESSION_HIGH)</string>
 	<key>TreePhotoCompressionMedium</key>

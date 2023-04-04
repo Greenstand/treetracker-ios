@@ -99,6 +99,11 @@ enum Configuration {
             }
         }
     }
+
+    static var rootURL: URL {
+        let value: String = try! Configuration.value(for: .rootURL)
+        return URL(string: value)!
+    }
     // swiftlint:enable force_try
 }
 
@@ -122,6 +127,8 @@ private extension Configuration {
         case treePhotoCompressionLow = "TreePhotoCompressionLow"
         case treePhotoCompressionMedium = "TreePhotoCompressionMedium"
         case treePhotoCompressionHigh = "TreePhotoCompressionHigh"
+
+        case rootURL = "rootURL"
     }
 
     enum Environment: String {

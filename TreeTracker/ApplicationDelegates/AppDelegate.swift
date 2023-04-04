@@ -29,13 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Missing Terms")
         }
 
+        guard let rootURL = Bundle.main.url(forResource: "Terms", withExtension: "html") else {
+            fatalError("Missing Terms")
+        }
+
         let configuration: TreetrackerSDK.Configuration = .init(
             awsConfiguration: awsConfig,
             terms: termsURL,
             defaultTreeImageQuality: .init(
                 size: Configuration.DefaultTreePhotoImageQuality.defaultPhotoImageQuality.photoSize,
                 compression: Configuration.DefaultTreePhotoImageQuality.defaultPhotoImageQuality.compression
-            )
+            ),
+            rootURL: Configuration.rootURL
         )
 
         return TreetrackerSDK(
