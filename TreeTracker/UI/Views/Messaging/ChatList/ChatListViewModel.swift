@@ -10,7 +10,7 @@ import Foundation
 import Treetracker_Core
 
 protocol ChatListViewModelCoordinatorDelegate: AnyObject {
-
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectMessagesForPlanter planter: Planter)
 }
 
 protocol ChatListViewModelViewDelegate: AnyObject {
@@ -31,4 +31,13 @@ class ChatListViewModel {
     var title: String {
         return planter.firstName ?? ""
     }
+}
+
+// MARK: - Navigation
+extension ChatListViewModel {
+
+    func messagesSelectet() {
+        coordinatorDelegate?.chatListViewModel(self, didSelectMessagesForPlanter: planter)
+    }
+    
 }

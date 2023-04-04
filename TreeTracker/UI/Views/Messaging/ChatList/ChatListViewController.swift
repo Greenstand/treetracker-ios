@@ -41,6 +41,7 @@ extension ChatListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as? ChatListTableViewCell
 
+        // TODO: setup
         cell?.setupCell()
 
         return cell ?? UITableViewCell()
@@ -56,7 +57,10 @@ extension ChatListViewController: UITableViewDataSource {
 extension ChatListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+
+        // TODO: work on type of message
+        viewModel?.messagesSelectet()
+
     }
 
 }

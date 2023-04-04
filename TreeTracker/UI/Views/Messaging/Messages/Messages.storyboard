@@ -36,15 +36,26 @@
                                     <constraint firstAttribute="height" constant="70" id="SsX-rT-sRB"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XdE-Cs-r0b">
+                                <rect key="frame" x="0.0" y="59" width="393" height="689"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XdE-Cs-r0b" secondAttribute="trailing" id="JGj-5c-8Bn"/>
+                            <constraint firstItem="XdE-Cs-r0b" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MkO-ku-Du2"/>
+                            <constraint firstItem="9SL-RZ-NlR" firstAttribute="top" secondItem="XdE-Cs-r0b" secondAttribute="bottom" id="NwK-j8-g8Q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9SL-RZ-NlR" secondAttribute="bottom" id="War-dE-M3m"/>
                             <constraint firstItem="9SL-RZ-NlR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="do4-Dp-zfI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9SL-RZ-NlR" secondAttribute="trailing" id="oB1-uN-81p"/>
+                            <constraint firstItem="XdE-Cs-r0b" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="q9A-Xv-X4G"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messagesTableView" destination="XdE-Cs-r0b" id="Oa1-vv-H2e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import Treetracker_Core
 
 class MessagesViewController: UIViewController {
+
+    @IBOutlet private var messagesTableView: UITableView! {
+        didSet {
+            messagesTableView.dataSource = self
+            messagesTableView.delegate = self
+            messagesTableView.register(MessagesTableViewCell.nib(), forCellReuseIdentifier: MessagesTableViewCell.identifier)
+        }
+    }
 
     var viewModel: MessagesViewModel? {
         didSet {
@@ -18,10 +27,42 @@ class MessagesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.fetchMessages()
     }
+}
+
+// MARK: - UITableViewDataSource
+extension MessagesViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.getNumberOfRowsInSection() ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MessagesTableViewCell.identifier, for: indexPath) as? MessagesTableViewCell
+
+        let message = viewModel?.getMessageForRowAt(indexPath: indexPath)
+        cell?.setupCell(message: message)
+
+        return cell ?? UITableViewCell()
+    }
+
+}
+
+// MARK: - UITableViewDelegate
+extension MessagesViewController: UITableViewDelegate {
+
 }
 
 // MARK: - MessagesViewModelViewDelegate
 extension MessagesViewController: MessagesViewModelViewDelegate {
+
+    func messagesViewModel(_ messagesViewModel: MessagesViewModel, didFetchMessages messages: [Message]) {
+        messagesTableView.reloadData()
+    }
+
+    func messagesViewModel(_ messagesViewModel: MessagesViewModel, didReceiveError error: Error) {
+        // do something
+    }
 
 }
