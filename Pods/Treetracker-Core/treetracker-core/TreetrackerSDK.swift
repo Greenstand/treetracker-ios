@@ -19,6 +19,12 @@ public class TreetrackerSDK: NSObject {
         )
     }()
 
+    private lazy var apiService: APIServiceProtocol = {
+        return APIService(
+            rootURL: self.configuration.rootURL
+        )
+    }()
+
     private var imageUploadService: ImageUploadService {
         return AWSS3ImageUploadService(s3Client: self.awsService)
     }
@@ -138,6 +144,10 @@ public class TreetrackerSDK: NSObject {
         return LocalUserDeletionService(coreDataManager: self.coreDataManager)
     }
 
+    public var messagingService: MessagingService {
+        return RemoteMessagesService(apiService: self.apiService)
+    }
+
     // Initializers
     public init(configuration: Configuration) {
         self.configuration = configuration
@@ -183,15 +193,18 @@ public extension TreetrackerSDK {
         let awsConfiguration: AWSConfiguration
         let terms: URL
         let defaultTreeImageQuality: DefaultTreeImageQuality
+        let rootURL: URL
 
         public init(
             awsConfiguration: AWSConfiguration,
             terms: URL,
-            defaultTreeImageQuality: DefaultTreeImageQuality
+            defaultTreeImageQuality: DefaultTreeImageQuality,
+            rootURL: URL
         ) {
             self.awsConfiguration = awsConfiguration
             self.terms = terms
             self.defaultTreeImageQuality = defaultTreeImageQuality
+            self.rootURL = rootURL
         }
     }
 }
