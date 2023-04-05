@@ -21,6 +21,7 @@ class MessagesViewModel {
     private let planter: Planter
     private let messagingService: MessagingService
 
+    // TODO: Ask what's preferable, private, set, or public?
     private var messages: [Message] = []
 
     init(planter: Planter, messagingService: MessagingService) {
@@ -48,6 +49,17 @@ class MessagesViewModel {
                 self.viewDelegate?.messagesViewModel(self, didReceiveError: error)
             }
         }
+
+    }
+
+    func sendMessage(text: String) {
+//        let newMessage = Message(...)
+
+        // TODO: Cache new message. - Needs a variable to know if it was uploaded or not?
+
+//        messages.append(newMessage)
+
+        // TODO: Try to upload message
 
     }
 }
