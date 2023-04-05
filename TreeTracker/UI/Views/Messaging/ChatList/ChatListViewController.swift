@@ -27,7 +27,6 @@ class ChatListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
     }
 }
 
@@ -35,17 +34,30 @@ class ChatListViewController: UIViewController {
 extension ChatListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel?.numberOfRowsInSection ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as? ChatListTableViewCell
 
-        // TODO: setup
-        cell?.setupCell()
-        cell?.selectionStyle = .none
+        let chatType = viewModel?.cellForRowAt(indexPath: indexPath)
 
-        return cell ?? UITableViewCell()
+        switch chatType {
+        case .chat:
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as? ChatListTableViewCell
+            cell?.setupCell()
+            return cell ?? UITableViewCell()
+
+        case .quiz:
+
+            // TODO: Create a new cell of type Quiz
+            let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as? ChatListTableViewCell
+            cell?.setupCell()
+            return cell ?? UITableViewCell()
+
+        default:
+            return UITableViewCell()
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -58,10 +70,7 @@ extension ChatListViewController: UITableViewDataSource {
 extension ChatListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        // TODO: work on type of message
-        viewModel?.messagesSelectet()
-
+        viewModel?.messagesSelected(indexPath: indexPath)
     }
 
 }

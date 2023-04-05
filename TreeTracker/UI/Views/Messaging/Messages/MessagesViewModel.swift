@@ -21,20 +21,23 @@ class MessagesViewModel {
     private let planter: Planter
     private let messagingService: MessagingService
 
-    // TODO: Ask what's preferable, private, set, or public?
-    private var messages: [Message] = []
+    private(set) var messages: [Message] = []
 
     init(planter: Planter, messagingService: MessagingService) {
         self.planter = planter
         self.messagingService = messagingService
     }
 
-    func getNumberOfRowsInSection() -> Int {
+    var numberOfRowsInSection: Int {
         messages.count
     }
 
     func getMessageForRowAt(indexPath: IndexPath) -> Message {
         messages[indexPath.row]
+    }
+
+    func getPlanterName() -> String {
+        planter.firstName ?? ""
     }
 
     func fetchMessages() {
@@ -53,13 +56,12 @@ class MessagesViewModel {
     }
 
     func sendMessage(text: String) {
-//        let newMessage = Message(...)
+        let newMessage = messages[3]
+        messages.append(newMessage)
+//        let newMessage = Message
 
-        // TODO: Cache new message. - Needs a variable to know if it was uploaded or not?
+        // TODO: Cache new message. Send new message. - Needs a variable to know if it was uploaded or not?
 
 //        messages.append(newMessage)
-
-        // TODO: Try to upload message
-
     }
 }

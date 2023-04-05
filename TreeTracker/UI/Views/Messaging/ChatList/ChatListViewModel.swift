@@ -22,7 +22,10 @@ class ChatListViewModel {
     weak var coordinatorDelegate: ChatListViewModelCoordinatorDelegate?
     weak var viewDelegate: ChatListViewModelViewDelegate?
 
-    var planter: Planter
+    private var planter: Planter
+
+    // TODO: Change to a message model that has messageType
+    private var chatType: [ChatType] = [.chat, .chat, .quiz]
 
     init(planter: Planter) {
         self.planter = planter
@@ -31,13 +34,26 @@ class ChatListViewModel {
     var title: String {
         return planter.firstName ?? ""
     }
+
+    var numberOfRowsInSection: Int {
+        chatType.count
+    }
+
+    func cellForRowAt(indexPath: IndexPath) -> ChatType {
+        chatType[indexPath.row]
+    }
 }
 
 // MARK: - Navigation
 extension ChatListViewModel {
 
-    func messagesSelectet() {
+    func messagesSelected(indexPath: IndexPath) {
         coordinatorDelegate?.chatListViewModel(self, didSelectMessagesForPlanter: planter)
     }
 
+}
+
+enum ChatType {
+    case chat
+    case quiz
 }

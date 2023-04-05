@@ -15,7 +15,7 @@ class MessagesViewController: UIViewController {
         didSet {
             messagesTableView.separatorStyle = .none
             messagesTableView.dataSource = self
-            messagesTableView.register(MessagesTableViewCell.nib(), forCellReuseIdentifier: MessagesTableViewCell.identifier)
+            messagesTableView.register(MessageTableViewCell.nib(), forCellReuseIdentifier: MessageTableViewCell.identifier)
         }
     }
 
@@ -27,10 +27,6 @@ class MessagesViewController: UIViewController {
             inputTextView.layer.borderColor = Asset.Colors.secondaryGreen.color.cgColor
             inputTextView.font = FontFamily.Lato.regular.font(size: 16)
             inputTextView.textColor = Asset.Colors.grayDark.color
-            inputTextView.textAlignment = .left
-            inputTextView.dataDetectorTypes = .all
-            inputTextView.layer.shadowOpacity = 0.5
-            inputTextView.isEditable = true
             inputTextView.delegate = self
 
             // TODO: Let it grow as the text grows
@@ -42,7 +38,6 @@ class MessagesViewController: UIViewController {
     @IBOutlet private var sendMessageButton: UIButton! {
         didSet {
             // TODO: Change the button icon
-            
             sendMessageButton.titleLabel?.font = FontFamily.Lato.regular.font(size: 30)
             sendMessageButton.backgroundColor = Asset.Colors.secondaryOrangeDark.color
         }
@@ -68,10 +63,20 @@ private extension MessagesViewController {
 
     @IBAction func sendMessageButtonPressed() {
 
-        guard let messageText = inputTextView.text else { return }
+        guard
+            let messageText = inputTextView.text,
+            !messageText.isEmpty
+        else { return }
 
         print(messageText)
         viewModel?.sendMessage(text: messageText)
+        let row = viewModel?.numberOfRowsInSection ?? 0
+
+        messagesTableView.beginUpdates()
+        messagesTableView.insertRows(at: [IndexPath(row: row - 1, section: 0)], with: .fade)
+        messagesTableView.endUpdates()
+        messagesTableView.scrollToRow(at: IndexPath(row: row - 1, section: 0), at: .top, animated: true)
+        inputTextView.text = ""
 
     }
 
@@ -81,14 +86,15 @@ private extension MessagesViewController {
 extension MessagesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.getNumberOfRowsInSection() ?? 0
+        return viewModel?.numberOfRowsInSection ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MessagesTableViewCell.identifier, for: indexPath) as? MessagesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.identifier, for: indexPath) as? MessageTableViewCell
 
         let message = viewModel?.getMessageForRowAt(indexPath: indexPath)
-        cell?.setupCell(message: message)
+        let planterName = viewModel?.getPlanterName() ?? ""
+        cell?.setupCell(message: message, planterName: planterName)
         cell?.selectionStyle = .none
 
         return cell ?? UITableViewCell()
@@ -108,6 +114,7 @@ extension MessagesViewController: UITableViewDataSource {
 extension MessagesViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
+        // TODO: Let it grow as the text grows
 //        let size = textView.sizeThatFits(CGSize(width: textView.bounds.width, height: .infinity))
 //        textView.heightAnchor.constraint(equalToConstant: size.height).isActive = true
     }

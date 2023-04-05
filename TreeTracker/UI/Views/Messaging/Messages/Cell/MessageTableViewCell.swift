@@ -1,5 +1,5 @@
 //
-//  MessagesTableViewCell.swift
+//  MessageTableViewCell.swift
 //  TreeTracker
 //
 //  Created by Frédéric Helfer on 04/04/23.
@@ -9,13 +9,12 @@
 import UIKit
 import Treetracker_Core
 
-class MessagesTableViewCell: UITableViewCell {
+class MessageTableViewCell: UITableViewCell {
 
     @IBOutlet private var messageBackgroundView: UIView! {
         didSet {
             messageBackgroundView.layer.cornerRadius = 16
             messageBackgroundView.clipsToBounds = true
-            messageBackgroundView.backgroundColor = .systemBlue
         }
     }
 
@@ -30,7 +29,7 @@ class MessagesTableViewCell: UITableViewCell {
     var trailingConstraint: NSLayoutConstraint!
     var leadingConstraint: NSLayoutConstraint!
 
-    static let identifier: String = "MessagesTableViewCell"
+    static let identifier: String = "MessageTableViewCell"
     static func nib() -> UINib {
         UINib(nibName: identifier, bundle: nil)
     }
@@ -45,16 +44,15 @@ class MessagesTableViewCell: UITableViewCell {
 }
 
 // MARK: - Public func
-extension MessagesTableViewCell {
+extension MessageTableViewCell {
 
-    func setupCell(message: Message?) {
+    func setupCell(message: Message?, planterName: String) {
         trailingConstraint = messageBackgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         leadingConstraint = messageBackgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
 
         messageLabel.text = message?.body
 
-        // TODO: if messsage.from == planter.name?
-        if message?.from == "admin" {
+        if message?.from != planterName {
 
             messageBackgroundView.backgroundColor = .systemGreen
             leadingConstraint.isActive = true
