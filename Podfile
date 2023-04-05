@@ -13,5 +13,8 @@ target 'TreeTracker' do
   use_frameworks!
   pod 'SwiftLint'
   pod 'SwiftGen', '~> 6.0'
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseCrashlytics'
   pod 'Treetracker-Core', :git => 'https://github.com/Greenstand/treetracker-ios-core.git', :tag => 'v0.1.0'
 end

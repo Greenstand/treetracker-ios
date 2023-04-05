@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>422699885542-1hnl5kjr6o2u323lanoahfjt7t23g78b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.422699885542-1hnl5kjr6o2u323lanoahfjt7t23g78b</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>422699885542-pfodsarvr7gifkverfg33n4icu2vqidl.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBsLGcRp3ibBjctvcHBgWA_52Y0Y8iVWy4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>422699885542</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.greenstand.treetracker</string>
+	<key>PROJECT_ID</key>
+	<string>tree-tracker-a7a13</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tree-tracker-a7a13.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:422699885542:ios:39a044266b5450a7a0ec27</string>
+	<key>DATABASE_URL</key>
+	<string>https://tree-tracker-a7a13.firebaseio.com</string>
+</dict>
+</plist>
