@@ -742,7 +742,7 @@ PODS:
   - PromisesSwift (2.2.0):
     - PromisesObjC (= 2.2.0)
   - SwiftGen (6.6.2)
-  - SwiftLint (0.50.3)
+  - SwiftLint (0.51.0)
   - Treetracker-Core (0.1.0):
     - AWSS3 (= 2.30.4)
 
@@ -819,7 +819,7 @@ SPEC CHECKSUMS:
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   PromisesSwift: cf9eb58666a43bbe007302226e510b16c1e10959
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
-  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+  SwiftLint: 1b7561918a19e23bfed960e40759086e70f4dba5
   Treetracker-Core: fc1d762512dcd11fb4fe27b7088697491f0b9608
 
 PODFILE CHECKSUM: c1559db2fda8522e7cfa5984aa0f4090072c0d8e
