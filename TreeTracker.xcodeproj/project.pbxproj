@@ -37,6 +37,7 @@
 		93989D06246ED00D00A1B21F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D05246ED00D00A1B21F /* PrimaryButton.swift */; };
 		93989D08246ED51C00A1B21F /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93989D07246ED51C00A1B21F /* SignInTextField.swift */; };
 		939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939CA84E246C0A1000B1C184 /* Colors.xcassets */; };
+		93A0DB0229DC6DA800772D38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93A0DB0129DC6DA800772D38 /* GoogleService-Info.plist */; };
 		93C579A824A33DE7009C0E46 /* AlertPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C579A724A33DE7009C0E46 /* AlertPresenting.swift */; };
 		93D3FE2E25C0CC4100EB3B3C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3FE2D25C0CC4100EB3B3C /* Configuration.swift */; };
 		93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D7295724C49CA700271256 /* GPSAccuracyLabel.swift */; };
@@ -123,6 +124,7 @@
 		93989D05246ED00D00A1B21F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		93989D07246ED51C00A1B21F /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
 		939CA84E246C0A1000B1C184 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		93A0DB0129DC6DA800772D38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93C579A724A33DE7009C0E46 /* AlertPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenting.swift; sourceTree = "<group>"; };
 		93D3FE1725C0C83000EB3B3C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		93D3FE1825C0C84700EB3B3C /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				93E18962245C95C400217F21 /* SwiftGen */,
 				93E1896C245DEE4000217F21 /* UI */,
 				93E1893E245B738100217F21 /* Info.plist */,
+				93A0DB0129DC6DA800772D38 /* GoogleService-Info.plist */,
 			);
 			path = TreeTracker;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				93E18960245B78FF00217F21 /* SwiftLint */,
 				93E18961245C938000217F21 /* SwiftGen */,
 				12B06DAACD21487CCF4195BD /* [CP] Embed Pods Frameworks */,
+				93A0DB0329DD6D5400772D38 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -718,6 +722,7 @@
 				93E82F52246C35C700006C91 /* SignIn.storyboard in Resources */,
 				93989CF7246EA34A00A1B21F /* SignUp.storyboard in Resources */,
 				937D78C425C70E45007A7A37 /* Montserrat-SemiBold.ttf in Resources */,
+				93A0DB0229DC6DA800772D38 /* GoogleService-Info.plist in Resources */,
 				F258B5A3260A4E980053DAD7 /* Profile.storyboard in Resources */,
 				B0AAD80728C235C900640D4A /* Notes.storyboard in Resources */,
 				939CA84F246C0A1000B1C184 /* Colors.xcassets in Resources */,
@@ -761,6 +766,27 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TreeTracker/Pods-TreeTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		93A0DB0329DD6D5400772D38 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\n",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		93E18960245B78FF00217F21 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -990,6 +1016,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1168,6 +1195,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

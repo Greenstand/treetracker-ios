@@ -8,6 +8,7 @@
 
 import UIKit
 import Treetracker_Core
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -50,6 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        // Register Firebase
+        FirebaseApp.configure()
+
+        // Set up treetracker core sdk
         self.treetrackerSDK.application(application, didFinishLaunchingWithOptions: launchOptions)
 
         // For iOS13+ we setup the root coordinator in the scene delegate
