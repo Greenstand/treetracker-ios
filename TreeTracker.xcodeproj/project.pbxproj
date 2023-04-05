@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
 		9311609126B40E5E007FCA52 /* DestructiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609026B40E5E007FCA52 /* DestructiveButton.swift */; };
 		9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609A26B4108A007FCA52 /* RoundedButton.swift */; };
 		931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */; };
@@ -75,6 +74,7 @@
 		F258B5A3260A4E980053DAD7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F258B5A2260A4E980053DAD7 /* Profile.storyboard */; };
 		F258B5A7260A4ED50053DAD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */; };
 		F258B5A9260A4EF20053DAD7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258B5A8260A4EF20053DAD7 /* ProfileViewModel.swift */; };
+		FD5FE713775D087919689F5B /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229566C2A487A3F9C7D82AD8 /* Pods_TreeTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +95,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		229566C2A487A3F9C7D82AD8 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9311609026B40E5E007FCA52 /* DestructiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveButton.swift; sourceTree = "<group>"; };
 		9311609A26B4108A007FCA52 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewModel.swift; sourceTree = "<group>"; };
@@ -165,16 +166,15 @@
 		93EC8CAA24BBA9E100946C0C /* AddTreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTreeViewController.swift; sourceTree = "<group>"; };
 		93EC8CAC24BBA9F600946C0C /* AddTreeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTreeViewModel.swift; sourceTree = "<group>"; };
 		93EC8CAE24BBAA0200946C0C /* AddTree.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTree.storyboard; sourceTree = "<group>"; };
-		B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AAD80328C235C900640D4A /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		B0AAD80428C235C900640D4A /* Notes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
 		B0AAD80528C235C900640D4A /* NotesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
-		CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		CDBF7CCE3D6579760EB38DD4 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
+		D154B02FDF88BCA4949C2627 /* Pods-TreeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.debug.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		D363BB8C350289B5BC507422 /* Pods-TreeTracker.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.test.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.test.xcconfig"; sourceTree = "<group>"; };
 		F258B5A2260A4E980053DAD7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F258B5A6260A4ED50053DAD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F258B5A8260A4EF20053DAD7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.test.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.test.xcconfig"; sourceTree = "<group>"; };
-		FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreeTracker.release.xcconfig"; path = "Target Support Files/Pods-TreeTracker/Pods-TreeTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93989D03246EBE3700A1B21F /* WebKit.framework in Frameworks */,
-				59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */,
+				FD5FE713775D087919689F5B /* Pods_TreeTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,9 +566,9 @@
 		9C75872AC24B8E14A3BB24DE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */,
-				FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */,
-				F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */,
+				D154B02FDF88BCA4949C2627 /* Pods-TreeTracker.debug.xcconfig */,
+				D363BB8C350289B5BC507422 /* Pods-TreeTracker.test.xcconfig */,
+				CDBF7CCE3D6579760EB38DD4 /* Pods-TreeTracker.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -577,7 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				93989D02246EBE3700A1B21F /* WebKit.framework */,
-				B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */,
+				229566C2A487A3F9C7D82AD8 /* Pods_TreeTracker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -609,14 +609,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93E18957245B738100217F21 /* Build configuration list for PBXNativeTarget "TreeTracker" */;
 			buildPhases = (
-				F17E60DC4AF8E559B9BF14B0 /* [CP] Check Pods Manifest.lock */,
+				B14DFBCA071A4FAA162C7D9D /* [CP] Check Pods Manifest.lock */,
 				93E18929245B737D00217F21 /* Sources */,
 				93E1892A245B737D00217F21 /* Frameworks */,
 				93E1892B245B737D00217F21 /* Resources */,
 				93E18960245B78FF00217F21 /* SwiftLint */,
 				93E18961245C938000217F21 /* SwiftGen */,
-				12B06DAACD21487CCF4195BD /* [CP] Embed Pods Frameworks */,
 				93A0DB0329DD6D5400772D38 /* Crashlytics */,
+				3FD3D74FFD4DBA6FBE8C3710 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -750,7 +750,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12B06DAACD21487CCF4195BD /* [CP] Embed Pods Frameworks */ = {
+		3FD3D74FFD4DBA6FBE8C3710 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -826,7 +826,7 @@
 			shellPath = /bin/sh;
 			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen \n";
 		};
-		F17E60DC4AF8E559B9BF14B0 /* [CP] Check Pods Manifest.lock */ = {
+		B14DFBCA071A4FAA162C7D9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1010,13 +1010,13 @@
 		};
 		9390BE8625C58D95000B29AB /* Test */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7AAC198A8E2C914DA2C22D5 /* Pods-TreeTracker.test.xcconfig */;
+			baseConfigurationReference = D363BB8C350289B5BC507422 /* Pods-TreeTracker.test.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1189,13 +1189,13 @@
 		};
 		93E18958245B738100217F21 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB481A8042776E3A220E8523 /* Pods-TreeTracker.debug.xcconfig */;
+			baseConfigurationReference = D154B02FDF88BCA4949C2627 /* Pods-TreeTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TreeTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1210,7 +1210,7 @@
 		};
 		93E18959245B738100217F21 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB8084C8EADF0A68233FBFA5 /* Pods-TreeTracker.release.xcconfig */;
+			baseConfigurationReference = CDBF7CCE3D6579760EB38DD4 /* Pods-TreeTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
