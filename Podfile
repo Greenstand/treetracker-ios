@@ -16,5 +16,5 @@ target 'TreeTracker' do
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
   pod 'FirebaseCrashlytics'
-  pod 'Treetracker-Core', :git => 'https://github.com/Greenstand/treetracker-ios-core.git', :tag => 'v0.1.0'
+  pod 'Treetracker-Core', :git => 'https://github.com/Greenstand/treetracker-ios-core.git', :tag => 'v0.1.1'
 end
