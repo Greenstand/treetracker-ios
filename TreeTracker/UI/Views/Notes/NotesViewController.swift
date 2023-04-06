@@ -64,7 +64,7 @@ private extension NotesViewController {
         let doneButton: UIBarButtonItem = UIBarButtonItem(
             title: L10n.Keyboard.Toolbar.DoneButton.title,
             style: .done,
-            target: view,
+            target: self,
             action: #selector(dismissKeyboard)
         )
 
