@@ -15,6 +15,7 @@ class ChatListViewController: UIViewController {
             chatListTableView.delegate = self
             chatListTableView.dataSource = self
             chatListTableView.register(ChatListTableViewCell.nib(), forCellReuseIdentifier: ChatListTableViewCell.identifier)
+            chatListTableView.backgroundColor = Asset.Colors.backgroundGreen.color
         }
     }
 
@@ -27,6 +28,7 @@ class ChatListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Asset.Colors.backgroundGreen.color
     }
 }
 

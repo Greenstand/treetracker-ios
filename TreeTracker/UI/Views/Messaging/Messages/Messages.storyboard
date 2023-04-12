@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="753" width="393" height="65"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-Wu-UEw" userLabel="Input Text View">
-                                        <rect key="frame" x="20" y="15" width="304" height="35"/>
+                                        <rect key="frame" x="20" y="15" width="306" height="35"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="eOl-FG-LCj"/>
@@ -36,22 +36,21 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNe-HL-ePJ">
-                                        <rect key="frame" x="339" y="15.666666666666629" width="34" height="34"/>
+                                        <rect key="frame" x="341" y="15.666666666666629" width="34" height="34"/>
                                         <color key="backgroundColor" name="PrimaryGreen"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="2nU-ep-iHV"/>
                                             <constraint firstAttribute="width" constant="34" id="var-zl-gNI"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
                                         <connections>
                                             <action selector="sendMessageButtonPressed" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dac-bT-kB5"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="sNe-HL-ePJ" secondAttribute="trailing" constant="20" id="G06-mI-vk3"/>
+                                    <constraint firstAttribute="trailing" secondItem="sNe-HL-ePJ" secondAttribute="trailing" constant="18" id="G06-mI-vk3"/>
                                     <constraint firstAttribute="bottom" secondItem="HpR-Wu-UEw" secondAttribute="bottom" constant="15" id="GXt-oS-SNS"/>
                                     <constraint firstItem="HpR-Wu-UEw" firstAttribute="centerY" secondItem="fFl-af-x60" secondAttribute="centerY" id="b3O-dS-qMr"/>
                                     <constraint firstItem="HpR-Wu-UEw" firstAttribute="leading" secondItem="fFl-af-x60" secondAttribute="leading" constant="20" id="sM4-lX-zeg"/>

@@ -23,13 +23,12 @@ class MessagesViewController: UIViewController {
         didSet {
             inputTextView.layer.masksToBounds = true
             inputTextView.layer.cornerRadius = 10
-            inputTextView.layer.borderWidth = 2
-            inputTextView.layer.borderColor = Asset.Colors.secondaryGreen.color.cgColor
+            inputTextView.layer.borderWidth = 1
+            inputTextView.layer.borderColor = Asset.Colors.primaryGreen.color.cgColor
             inputTextView.font = FontFamily.Lato.regular.font(size: 16)
             inputTextView.textColor = Asset.Colors.grayDark.color
             inputTextView.delegate = self
 
-            // TODO: Let it grow as the text grows
             inputTextView.isScrollEnabled = false
             inputTextView.sizeToFit()
         }
@@ -38,8 +37,12 @@ class MessagesViewController: UIViewController {
     @IBOutlet private var sendMessageButton: UIButton! {
         didSet {
             // TODO: Change the button icon
-            sendMessageButton.titleLabel?.font = FontFamily.Lato.regular.font(size: 30)
-            sendMessageButton.backgroundColor = Asset.Colors.secondaryOrangeDark.color
+            sendMessageButton.titleLabel?.font = FontFamily.Montserrat.bold.font(size: 30)
+            sendMessageButton.backgroundColor = Asset.Colors.primaryGreen.color
+            sendMessageButton.setTitle(">", for: .normal)
+            sendMessageButton.tintColor = Asset.Colors.grayDark.color
+            sendMessageButton.layer.cornerRadius = 15
+            sendMessageButton.clipsToBounds = true
         }
     }
 
@@ -51,8 +54,7 @@ class MessagesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: change color
-        view.backgroundColor = .systemGray
+        view.backgroundColor = Asset.Colors.backgroundGreen.color
         viewModel?.fetchMessages()
     }
 
