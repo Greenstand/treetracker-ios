@@ -39,7 +39,7 @@ class RemoteMessagesService: MessagingService {
         apiService.performAPIRequest(request: request) { result in
             switch result {
             case .success(let response):
-                completion(.success([]))
+                completion(.success(response.messages))
             case .failure(let error):
                 completion(.failure(error))
             }

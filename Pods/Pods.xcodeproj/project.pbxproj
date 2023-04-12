@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = SwiftGen;
+			productName = SwiftGen;
 		};
 		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = SwiftLint;
+			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -450,7 +452,7 @@
 		3CFF0C31A442523CBCD66F79190F1089 /* AWSS3TransferUtilityTasks+Completion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AWSS3TransferUtilityTasks+Completion.h"; path = "AWSS3/AWSS3TransferUtilityTasks+Completion.h"; sourceTree = "<group>"; };
 		3D45E1C8F2137B15526E63623FFD8EA4 /* AWSURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSURLSessionManager.h; path = AWSCore/Networking/AWSURLSessionManager.h; sourceTree = "<group>"; };
 		3D981B73ADA16BBC9A46A6767DC0851E /* AWSDDFileLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSDDFileLogger.h; path = AWSCore/Logging/AWSDDFileLogger.h; sourceTree = "<group>"; };
-		3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods-TreeTracker */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TreeTracker"; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDF8AA04EAA0D07A0BD231672E0A382 /* AWSFMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSFMDatabaseQueue.h; path = AWSCore/FMDB/AWSFMDatabaseQueue.h; sourceTree = "<group>"; };
 		3FC7A0D530C64669EBDF0A664763FAE6 /* DocumentManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocumentManager.swift; path = "treetracker-core/Persistence/DocumentManager.swift"; sourceTree = "<group>"; };
 		400E0AC34FD8E7E6FB34BB7D86B5EF92 /* NSDictionary+AWSMTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+AWSMTLManipulationAdditions.h"; path = "AWSCore/Mantle/NSDictionary+AWSMTLManipulationAdditions.h"; sourceTree = "<group>"; };
@@ -508,7 +510,7 @@
 		6A6E313271D6E36774FAA5C08C5141A6 /* AWSSTSResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSTSResources.m; path = AWSCore/STS/AWSSTSResources.m; sourceTree = "<group>"; };
 		6B41747FF8626643787C75708674B896 /* AWSDDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSDDDispatchQueueLogFormatter.h; path = AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		6D48FC807F3BBBAD3BF7B4DEC63F4B6D /* AWSSynchronizedMutableDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSynchronizedMutableDictionary.h; path = AWSCore/Utility/AWSSynchronizedMutableDictionary.h; sourceTree = "<group>"; };
-		6D641DB45ABC186458E6E5BF98F06C9A /* Keys.podspec.json */ = {isa = PBXFileReference; includeInIndex = 1; path = Keys.podspec.json; sourceTree = "<group>"; };
+		6D641DB45ABC186458E6E5BF98F06C9A /* Keys.podspec.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = Keys.podspec.json; sourceTree = "<group>"; };
 		6E0F248E802C23394E04EFC4E7C00053 /* Name.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Name.swift; path = "treetracker-core/Models/Name.swift"; sourceTree = "<group>"; };
 		6F7577FFBCB939FE2D5C5A5021FCB5E5 /* AWSDDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDAbstractDatabaseLogger.m; path = AWSCore/Logging/AWSDDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		6FD41980EA9F4EAB9FAB2987965CD35E /* TreeService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TreeService.swift; path = "treetracker-core/Services/Trees/TreeService.swift"; sourceTree = "<group>"; };
@@ -568,7 +570,7 @@
 		9B1BF9100FF50DFFC0146A0C09A444CF /* DeviceRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceRequest.swift; path = "treetracker-core/Models/Uploads/DeviceRequest.swift"; sourceTree = "<group>"; };
 		9C1DF35C9059EEA6D0D05B02335118E2 /* Treetracker-Core.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Treetracker-Core.modulemap"; sourceTree = "<group>"; };
 		9D2EBC270A8FA019805C99FAD0FC3594 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = "treetracker-core/Utilities/Validation.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DF4250505EF8B52192E01727998A403 /* MessagingService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessagingService.swift; path = "treetracker-core/Services/Messaging/MessagingService.swift"; sourceTree = "<group>"; };
 		9E270FF621554B4CE51AD30DE9DC2CDD /* AWSMantle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMantle.h; path = AWSCore/Mantle/AWSMantle.h; sourceTree = "<group>"; };
 		9E3CF5ED4F52E734A269A51409C3FABF /* AWSS3TransferUtilityBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSS3TransferUtilityBlocks.h; path = AWSS3/AWSS3TransferUtilityBlocks.h; sourceTree = "<group>"; };
@@ -671,7 +673,7 @@
 		EDF1A8F0B267E2A16A9862DCF086BB85 /* AWSExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSExecutor.m; path = AWSCore/Bolts/AWSExecutor.m; sourceTree = "<group>"; };
 		EEFFCDFA806C42E558654FBFA17A1DC2 /* AWSCore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AWSCore-Info.plist"; sourceTree = "<group>"; };
 		F147F3E7F275839089FC4A0687202676 /* PlanterCheckIn.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlanterCheckIn.swift; path = "treetracker-core/Models/PlanterCheckIn.swift"; sourceTree = "<group>"; };
-		F25BA3604CCE18E39A7DFB34D89FC09E /* configuration.json */ = {isa = PBXFileReference; includeInIndex = 1; name = configuration.json; path = Resources/configuration.json; sourceTree = "<group>"; };
+		F25BA3604CCE18E39A7DFB34D89FC09E /* configuration.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = configuration.json; path = Resources/configuration.json; sourceTree = "<group>"; };
 		F2C7B722CB5604E2A751A9615E28BED7 /* UploadOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UploadOperation.swift; path = "treetracker-core/Services/Uploads/Operations/UploadOperation.swift"; sourceTree = "<group>"; };
 		F2D9741E45856EADF2E180EE6092D998 /* AWSDDOSLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSDDOSLogger.h; path = AWSCore/Logging/AWSDDOSLogger.h; sourceTree = "<group>"; };
 		F4DEE6159E0E1C3369A3D77B6F03C58B /* AWSNetworkingHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSNetworkingHelpers.m; path = AWSCore/Networking/AWSNetworkingHelpers.m; sourceTree = "<group>"; };
@@ -848,7 +850,6 @@
 				EC628A3E8FEB0643A50A49AEF1A229C1 /* Resources */,
 				EF0F6448B67679F127E188EEEA590690 /* Support Files */,
 			);
-			name = "Treetracker-Core";
 			path = "Treetracker-Core";
 			sourceTree = "<group>";
 		};
@@ -877,7 +878,6 @@
 			children = (
 				36B3538F25B32ACE0C93AD21EF3BB4AA /* Support Files */,
 			);
-			name = SwiftGen;
 			path = SwiftGen;
 			sourceTree = "<group>";
 		};
@@ -1043,7 +1043,6 @@
 				5ED786DBEF10928EE3084BA2CDAAFC7D /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.m */,
 				9ECD00B298A7F4A07268FE15441BBD74 /* Support Files */,
 			);
-			name = AWSCore;
 			path = AWSCore;
 			sourceTree = "<group>";
 		};
@@ -1122,7 +1121,6 @@
 			children = (
 				3B63E3066C54276D645B4AB1BD868075 /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -1207,7 +1205,6 @@
 				D41805850A515A747BAA92DC73DA4B04 /* AWSS3TransferUtilityTasks+Completion.m */,
 				DE763F1F47FBC31E49A8845DED4AE5F0 /* Support Files */,
 			);
-			name = AWSS3;
 			path = AWSS3;
 			sourceTree = "<group>";
 		};
@@ -1242,7 +1239,7 @@
 				1D216CE4A8B6F50D603960D17EE072C6 /* AWSS3 */,
 				B62CED338872EF536910A466267352B5 /* Keys-framework */,
 				D4B5FC1A8F44103C20C834E5CAAEC363 /* Keys-library */,
-				3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods-TreeTracker */,
+				3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods_TreeTracker.framework */,
 				FA1B808C28E2E9C119B72AFFD9DCFA44 /* Treetracker-Core */,
 			);
 			name = Products;
@@ -1465,7 +1462,7 @@
 			);
 			name = "Pods-TreeTracker";
 			productName = Pods_TreeTracker;
-			productReference = 3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods-TreeTracker */;
+			productReference = 3DDD7715AEA41E29C7C9220ADA6619B3 /* Pods_TreeTracker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		9B172FACE90046AA5E100E650B6109DD /* AWSCore */ = {
@@ -2844,6 +2841,7 @@
 			children = (
 				EB4DC4113863484B09F5907597358CA3 /* TreeTracker.xcdatamodel */,
 			);
+			currentVersion = EB4DC4113863484B09F5907597358CA3 /* TreeTracker.xcdatamodel */;
 			name = TreeTracker.xcdatamodeld;
 			path = Resources/TreeTracker.xcdatamodeld;
 			sourceTree = "<group>";
