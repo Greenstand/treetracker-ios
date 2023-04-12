@@ -214,23 +214,38 @@
                                     <constraint firstItem="SQa-Oy-BZK" firstAttribute="top" secondItem="H4G-QY-aoV" secondAttribute="top" constant="5" id="eJD-Ur-gzK"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TOO-0K-KT6" userLabel="Messaging Alert">
-                                <rect key="frame" x="359" y="396.5" width="30" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VC0-wN-N3j">
+                                <rect key="frame" x="372" y="383.5" width="30" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAW-Qh-QYC">
+                                        <rect key="frame" x="5" y="5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="QNX-QY-DVJ"/>
+                                            <constraint firstAttribute="height" constant="20" id="cgz-5I-ffv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="SH3-NO-c1a" userLabel="height = 30"/>
-                                    <constraint firstAttribute="width" constant="30" id="o9E-co-Z8H" userLabel="width = 30"/>
+                                    <constraint firstItem="LAW-Qh-QYC" firstAttribute="top" secondItem="VC0-wN-N3j" secondAttribute="top" constant="5" id="ZCc-W0-Cxk"/>
+                                    <constraint firstAttribute="bottom" secondItem="LAW-Qh-QYC" secondAttribute="bottom" constant="5" id="agD-Sv-cwb"/>
+                                    <constraint firstItem="LAW-Qh-QYC" firstAttribute="leading" secondItem="VC0-wN-N3j" secondAttribute="leading" constant="5" id="m29-ff-xvk"/>
+                                    <constraint firstAttribute="trailing" secondItem="LAW-Qh-QYC" secondAttribute="trailing" constant="5" id="uT0-lO-Iri"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5eT-24-qVC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5eT-24-qVC" firstAttribute="trailing" secondItem="m42-LK-6b5" secondAttribute="trailing" constant="20" id="5E4-3i-i6L"/>
                             <constraint firstItem="QqC-aQ-0Lz" firstAttribute="top" secondItem="H4G-QY-aoV" secondAttribute="top" constant="-5" id="7HL-SW-Qhn"/>
+                            <constraint firstItem="VC0-wN-N3j" firstAttribute="top" secondItem="SRl-le-sdl" secondAttribute="top" constant="-8" id="FgN-d5-zjk"/>
                             <constraint firstItem="m42-LK-6b5" firstAttribute="top" secondItem="5eT-24-qVC" secondAttribute="top" constant="20" id="IbW-PJ-gLR"/>
                             <constraint firstItem="5eT-24-qVC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="m42-LK-6b5" secondAttribute="bottom" constant="20" id="OSM-lY-Hvh"/>
-                            <constraint firstItem="TOO-0K-KT6" firstAttribute="top" secondItem="SRl-le-sdl" secondAttribute="top" constant="5" id="Ya1-Qs-lJz"/>
-                            <constraint firstItem="TOO-0K-KT6" firstAttribute="trailing" secondItem="SRl-le-sdl" secondAttribute="trailing" constant="-5" id="jne-fS-ZKe"/>
+                            <constraint firstItem="VC0-wN-N3j" firstAttribute="trailing" secondItem="SRl-le-sdl" secondAttribute="trailing" constant="8" id="RiO-sr-JQB"/>
                             <constraint firstItem="H4G-QY-aoV" firstAttribute="trailing" secondItem="QqC-aQ-0Lz" secondAttribute="trailing" constant="-5" id="mmo-Za-a8M"/>
                             <constraint firstItem="m42-LK-6b5" firstAttribute="leading" secondItem="5eT-24-qVC" secondAttribute="leading" constant="20" id="yZF-oT-uri"/>
                         </constraints>
@@ -239,7 +254,8 @@
                     <connections>
                         <outlet property="addTreeButton" destination="Fhj-rd-bdN" id="2rZ-zP-GWY"/>
                         <outlet property="logoutButton" destination="dtG-Qr-Hel" id="4M2-CC-Y94"/>
-                        <outlet property="messagingAlert" destination="TOO-0K-KT6" id="szS-T1-dGk"/>
+                        <outlet property="messageAlertCountLabel" destination="LAW-Qh-QYC" id="6Dt-A2-agt"/>
+                        <outlet property="messageAlertCountView" destination="VC0-wN-N3j" id="NVv-X2-lWO"/>
                         <outlet property="messagingButton" destination="SRl-le-sdl" id="c0x-Xx-pRy"/>
                         <outlet property="nameButton" destination="TxM-GO-ysI" id="hq9-Ra-6tA"/>
                         <outlet property="profileImageView" destination="BLJ-l5-Lzr" id="TmI-Fk-cjv"/>

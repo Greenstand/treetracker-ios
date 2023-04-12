@@ -25,14 +25,26 @@ class ChatListTableViewCell: UITableViewCell {
         }
     }
 
-    @IBOutlet private var chatAlert: UIImageView! {
+    @IBOutlet private var chatAlertCountView: UIView! {
         didSet {
-            chatAlert.image = Asset.Assets.bell.image.withRenderingMode(.alwaysTemplate)
-            chatAlert.tintColor = .white
-            chatAlert.backgroundColor = Asset.Colors.secondaryRed.color
-            chatAlert.layer.cornerRadius = 10
-            chatAlert.layer.masksToBounds = true
+            chatAlertCountView.backgroundColor = Asset.Colors.secondaryRed.color
+            chatAlertCountView.layer.cornerRadius = 15
+            chatAlertCountView.isHidden = true
         }
+    }
+
+    @IBOutlet private var chatAlertCountLabel: UILabel! {
+        didSet {
+            chatAlertCountLabel.textColor = .white
+            chatAlertCountLabel.font = FontFamily.Montserrat.semiBold.font(size: 20.0)
+            chatAlertCountLabel.textAlignment = .center
+            chatAlertCountLabel.isHidden = true
+        }
+    }
+
+    override func prepareForReuse() {
+        chatAlertCountView.isHidden = true
+        chatAlertCountLabel.isHidden = true
     }
 
     static let identifier = "ChatListTableViewCell"
@@ -48,5 +60,9 @@ extension ChatListTableViewCell {
     func setupCell() {
         chatImage.image = Asset.Assets.trees.image
         chatTitle.text = "Admin"
+
+        chatAlertCountView.isHidden = false
+        chatAlertCountLabel.isHidden = false
+        chatAlertCountLabel.text = "7"
     }
 }

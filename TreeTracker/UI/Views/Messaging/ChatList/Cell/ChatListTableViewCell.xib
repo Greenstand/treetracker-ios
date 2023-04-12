@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,31 +31,52 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B0b-HE-Jv7">
-                        <rect key="frame" x="275" y="15" width="30" height="30"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-GP-ebT">
+                        <rect key="frame" x="277" y="16" width="30" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TrO-CH-3ll">
+                                <rect key="frame" x="5" y="5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Jki-wK-qZc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="Rxm-i7-spM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="OSh-6O-TgT"/>
-                            <constraint firstAttribute="width" constant="30" id="gkf-Gu-ZcL"/>
+                            <constraint firstItem="TrO-CH-3ll" firstAttribute="top" secondItem="ecs-GP-ebT" secondAttribute="top" constant="5" id="6SV-gJ-IJD"/>
+                            <constraint firstItem="TrO-CH-3ll" firstAttribute="leading" secondItem="ecs-GP-ebT" secondAttribute="leading" constant="5" id="DXo-oc-pu8"/>
+                            <constraint firstAttribute="trailing" secondItem="TrO-CH-3ll" secondAttribute="trailing" constant="5" id="HpV-9Z-3bY"/>
+                            <constraint firstAttribute="bottom" secondItem="TrO-CH-3ll" secondAttribute="bottom" constant="5" id="vbQ-pw-cgw"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="pJJ-TQ-trK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="8JO-bV-Cab"/>
                     <constraint firstItem="aNm-U8-pHW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8c4-0P-xIA"/>
-                    <constraint firstItem="B0b-HE-Jv7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="EFv-eb-rt0"/>
                     <constraint firstAttribute="trailing" secondItem="aNm-U8-pHW" secondAttribute="trailing" constant="20" id="Ize-Ap-Wo4"/>
                     <constraint firstItem="aNm-U8-pHW" firstAttribute="leading" secondItem="pJJ-TQ-trK" secondAttribute="trailing" constant="16" id="XyW-PQ-sDZ"/>
                     <constraint firstItem="pJJ-TQ-trK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e9y-JN-XF6"/>
-                    <constraint firstAttribute="trailing" secondItem="B0b-HE-Jv7" secondAttribute="trailing" constant="15" id="nQQ-MH-ALP"/>
+                    <constraint firstItem="ecs-GP-ebT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="egw-sk-ztF"/>
+                    <constraint firstAttribute="trailing" secondItem="ecs-GP-ebT" secondAttribute="trailing" constant="13" id="olR-da-RQW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="chatAlert" destination="B0b-HE-Jv7" id="Tl7-4W-ri2"/>
+                <outlet property="chatAlertCountLabel" destination="TrO-CH-3ll" id="1lt-JI-Ba9"/>
+                <outlet property="chatAlertCountView" destination="ecs-GP-ebT" id="yWR-o0-Rhf"/>
                 <outlet property="chatImage" destination="pJJ-TQ-trK" id="gpq-pw-yux"/>
                 <outlet property="chatTitle" destination="aNm-U8-pHW" id="WSg-9I-dop"/>
             </connections>
             <point key="canvasLocation" x="175.57251908396947" y="64.788732394366207"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

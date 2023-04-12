@@ -120,13 +120,19 @@ class HomeViewController: UIViewController, AlertPresenting {
 
     @IBOutlet private var messagingButton: MessagingButton!
 
-    @IBOutlet private var messagingAlert: UIImageView! {
+    @IBOutlet private var messageAlertCountView: UIView! {
         didSet {
-            messagingAlert.image = Asset.Assets.bell.image.withRenderingMode(.alwaysTemplate)
-            messagingAlert.tintColor = .white
-            messagingAlert.backgroundColor = Asset.Colors.secondaryRed.color
-            messagingAlert.layer.cornerRadius = 10
-            messagingAlert.layer.masksToBounds = true
+            messageAlertCountView.backgroundColor = Asset.Colors.secondaryRed.color
+            messageAlertCountView.layer.cornerRadius = 15
+        }
+    }
+
+    @IBOutlet private var messageAlertCountLabel: UILabel! {
+        didSet {
+            messageAlertCountLabel.textColor = .white
+            messageAlertCountLabel.font = FontFamily.Montserrat.semiBold.font(size: 20.0)
+            messageAlertCountLabel.textAlignment = .center
+            messageAlertCountLabel.text = "7"
         }
     }
 
