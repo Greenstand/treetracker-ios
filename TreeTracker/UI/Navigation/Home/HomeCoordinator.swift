@@ -148,7 +148,8 @@ private extension HomeCoordinator {
         let viewcontroller = StoryboardScene.ChatList.initialScene.instantiate()
         viewcontroller.viewModel = {
             let viewModel = ChatListViewModel(
-            planter: planter
+            planter: planter,
+            selfieService: self.treetrackerSDK.selfieService
             )
             viewModel.coordinatorDelegate = self
             return viewModel

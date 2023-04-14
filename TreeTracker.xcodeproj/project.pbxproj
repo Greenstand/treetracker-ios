@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		59BEAE0465C5A575ABE7FA13 /* Pods_TreeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AD2E94D3E7D6987A59BB0 /* Pods_TreeTracker.framework */; };
 		8D75250629DB13FA00361CC1 /* MessagingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75250529DB13FA00361CC1 /* MessagingButton.swift */; };
 		8D75251729DB61A000361CC1 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75251629DB61A000361CC1 /* ChatListViewController.swift */; };
 		8D75251929DB61C000361CC1 /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D75251829DB61C000361CC1 /* ChatList.storyboard */; };
