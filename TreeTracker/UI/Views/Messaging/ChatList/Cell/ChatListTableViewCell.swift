@@ -58,6 +58,7 @@ class ChatListTableViewCell: UITableViewCell {
 extension ChatListTableViewCell {
 
     func setupCell() {
+        contentView.backgroundColor = Asset.Colors.backgroundGreen.color.withAlphaComponent(0.25)
         chatImage.image = Asset.Assets.trees.image
         chatTitle.text = "Admin"
 

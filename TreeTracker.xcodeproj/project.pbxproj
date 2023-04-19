@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D036C6F29F022120079F4B1 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D036C6E29F022120079F4B1 /* UITableView+Extensions.swift */; };
 		8D75250629DB13FA00361CC1 /* MessagingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75250529DB13FA00361CC1 /* MessagingButton.swift */; };
 		8D75251729DB61A000361CC1 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75251629DB61A000361CC1 /* ChatListViewController.swift */; };
 		8D75251929DB61C000361CC1 /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D75251829DB61C000361CC1 /* ChatList.storyboard */; };
@@ -107,6 +108,7 @@
 
 /* Begin PBXFileReference section */
 		229566C2A487A3F9C7D82AD8 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D036C6E29F022120079F4B1 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		8D75250529DB13FA00361CC1 /* MessagingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingButton.swift; sourceTree = "<group>"; };
 		8D75251629DB61A000361CC1 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		8D75251829DB61C000361CC1 /* ChatList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatList.storyboard; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */,
+				8D036C6E29F022120079F4B1 /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				93EC8CAD24BBA9F600946C0C /* AddTreeViewModel.swift in Sources */,
 				938294B027F9A7A500888E42 /* SettingsViewController.swift in Sources */,
 				93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */,
+				8D036C6F29F022120079F4B1 /* UITableView+Extensions.swift in Sources */,
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
 				93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */,
 				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,

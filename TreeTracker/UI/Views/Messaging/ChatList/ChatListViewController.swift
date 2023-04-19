@@ -15,7 +15,7 @@ class ChatListViewController: UIViewController {
             chatListTableView.delegate = self
             chatListTableView.dataSource = self
             chatListTableView.register(ChatListTableViewCell.nib(), forCellReuseIdentifier: ChatListTableViewCell.identifier)
-            chatListTableView.backgroundColor = Asset.Colors.backgroundGreen.color
+            chatListTableView.addTopBounceAreaView(color: Asset.Colors.backgroundGreen.color)
         }
     }
 
