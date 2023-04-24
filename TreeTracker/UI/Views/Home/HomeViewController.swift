@@ -124,6 +124,7 @@ class HomeViewController: UIViewController, AlertPresenting {
         didSet {
             messageAlertCountView.backgroundColor = Asset.Colors.secondaryRed.color
             messageAlertCountView.layer.cornerRadius = 15
+            messageAlertCountView.isHidden = true
         }
     }
 
@@ -132,7 +133,7 @@ class HomeViewController: UIViewController, AlertPresenting {
             messageAlertCountLabel.textColor = .white
             messageAlertCountLabel.font = FontFamily.Montserrat.semiBold.font(size: 20.0)
             messageAlertCountLabel.textAlignment = .center
-            messageAlertCountLabel.text = "7"
+            messageAlertCountLabel.isHidden = true
         }
     }
 
@@ -152,6 +153,7 @@ class HomeViewController: UIViewController, AlertPresenting {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.fetchProfileData()
+        viewModel?.fetchMessages()
     }
 
     override func viewDidLayoutSubviews() {
@@ -233,6 +235,17 @@ extension HomeViewController: HomeViewModelViewDelegate {
     func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile profile: HomeViewModel.ProfileData) {
         profileImageView.image = profile.image
         configureNameButton(name: profile.name)
+    }
+
+    func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateUnreadMessagesCount unreadMessages: String) {
+        if unreadMessages != "0" {
+            messageAlertCountLabel.text = unreadMessages
+            messageAlertCountLabel.isHidden = false
+            messageAlertCountView.isHidden = false
+        } else {
+            messageAlertCountLabel.isHidden = true
+            messageAlertCountView.isHidden = true
+        }
     }
 
     func homeViewModelDidStartUploadingTrees(_ homeViewModel: HomeViewModel) {

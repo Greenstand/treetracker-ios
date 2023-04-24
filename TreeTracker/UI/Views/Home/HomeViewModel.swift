@@ -22,6 +22,7 @@ protocol HomeViewModelViewDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didReceiveError error: Error)
     func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateTreeCount data: HomeViewModel.TreeCountData)
     func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile profile: HomeViewModel.ProfileData)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateUnreadMessagesCount unreadMessages: String)
     func homeViewModelDidStartUploadingTrees(_ homeViewModel: HomeViewModel)
     func homeViewModelDidStopUploadingTrees(_ homeViewModel: HomeViewModel)
 }
@@ -34,14 +35,16 @@ class HomeViewModel {
     private let treeMonitoringService: TreeMonitoringService
     private let selfieService: SelfieService
     private let uploadManager: UploadManaging
+    private let messagingService: MessagingService
     private let planter: Planter
 
-    init(planter: Planter, treeMonitoringService: TreeMonitoringService, selfieService: SelfieService, uploadManager: UploadManaging) {
+    init(planter: Planter, treeMonitoringService: TreeMonitoringService, selfieService: SelfieService, uploadManager: UploadManaging, messagingService: MessagingService) {
 
         self.planter = planter
         self.treeMonitoringService = treeMonitoringService
         self.uploadManager = uploadManager
         self.selfieService = selfieService
+        self.messagingService = messagingService
 
         self.treeMonitoringService.delegate = self
         self.uploadManager.delegate = self
@@ -49,6 +52,12 @@ class HomeViewModel {
 
     var title: String {
         return L10n.Home.title
+    }
+
+    var unreadMessagesCount: Int? {
+        didSet {
+            viewDelegate?.homeViewModel(self, didUpdateUnreadMessagesCount: String(unreadMessagesCount ?? 0))
+        }
     }
 }
 
@@ -98,6 +107,20 @@ extension HomeViewModel {
             uploadManager.startUploading(currentPlanter: self.planter)
         }
     }
+}
+
+// MARK: - Messaging
+extension HomeViewModel {
+
+    func fetchMessages() {
+        unreadMessagesCount = messagingService.getUnreadMessagesCount()
+
+        messagingService.getMessages(planter: planter) { [weak self] _ in
+            // nothing
+            self?.unreadMessagesCount = self?.messagingService.getUnreadMessagesCount()
+        }
+    }
+
 }
 
 // MARK: - Navigation
