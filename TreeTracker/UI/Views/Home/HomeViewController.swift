@@ -237,9 +237,9 @@ extension HomeViewController: HomeViewModelViewDelegate {
         configureNameButton(name: profile.name)
     }
 
-    func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateUnreadMessagesCount unreadMessages: String) {
-        if unreadMessages != "0" {
-            messageAlertCountLabel.text = unreadMessages
+    func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateUnreadMessagesCount unreadMessages: Int) {
+        if unreadMessages != 0 {
+            messageAlertCountLabel.text = String(unreadMessages)
             messageAlertCountLabel.isHidden = false
             messageAlertCountView.isHidden = false
         } else {

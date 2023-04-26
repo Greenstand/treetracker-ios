@@ -22,7 +22,7 @@ protocol HomeViewModelViewDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didReceiveError error: Error)
     func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateTreeCount data: HomeViewModel.TreeCountData)
     func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile profile: HomeViewModel.ProfileData)
-    func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateUnreadMessagesCount unreadMessages: String)
+    func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateUnreadMessagesCount unreadMessages: Int)
     func homeViewModelDidStartUploadingTrees(_ homeViewModel: HomeViewModel)
     func homeViewModelDidStopUploadingTrees(_ homeViewModel: HomeViewModel)
 }
@@ -56,7 +56,7 @@ class HomeViewModel {
 
     var unreadMessagesCount: Int? {
         didSet {
-            viewDelegate?.homeViewModel(self, didUpdateUnreadMessagesCount: String(unreadMessagesCount ?? 0))
+            viewDelegate?.homeViewModel(self, didUpdateUnreadMessagesCount: unreadMessagesCount ?? 0)
         }
     }
 }
@@ -113,11 +113,11 @@ extension HomeViewModel {
 extension HomeViewModel {
 
     func fetchMessages() {
-        unreadMessagesCount = messagingService.getUnreadMessagesCount()
+        unreadMessagesCount = messagingService.getUnreadMessagesCount(planter: planter)
 
         messagingService.getMessages(planter: planter) { [weak self] _ in
-            // nothing
-            self?.unreadMessagesCount = self?.messagingService.getUnreadMessagesCount()
+            guard let self else { return }
+            unreadMessagesCount = messagingService.getUnreadMessagesCount(planter: planter)
         }
     }
 
