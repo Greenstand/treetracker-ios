@@ -57,13 +57,21 @@ class ChatListTableViewCell: UITableViewCell {
 // MARK: - Public Actions
 extension ChatListTableViewCell {
 
-    func setupCell() {
+    func setupCell(data: ChatListViewModel.Chat) {
         contentView.backgroundColor = Asset.Colors.backgroundGreen.color.withAlphaComponent(0.25)
         chatImage.image = Asset.Assets.trees.image
-        chatTitle.text = "Admin"
+        chatImage.image = data.image
+        chatTitle.text = data.title
+        
+        if data.unreadCount == 0 {
+            chatAlertCountView.isHidden = true
+            chatAlertCountLabel.isHidden = true
+            chatAlertCountLabel.text = nil
+        } else {
+            chatAlertCountView.isHidden = false
+            chatAlertCountLabel.isHidden = false
+            chatAlertCountLabel.text = String(data.unreadCount)
+        }
 
-        chatAlertCountView.isHidden = false
-        chatAlertCountLabel.isHidden = false
-        chatAlertCountLabel.text = "7"
     }
 }

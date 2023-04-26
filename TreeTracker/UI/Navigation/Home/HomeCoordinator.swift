@@ -150,7 +150,8 @@ private extension HomeCoordinator {
         viewcontroller.viewModel = {
             let viewModel = ChatListViewModel(
             planter: planter,
-            selfieService: self.treetrackerSDK.selfieService
+            selfieService: self.treetrackerSDK.selfieService,
+            messagingService: self.treetrackerSDK.messagingService
             )
             viewModel.coordinatorDelegate = self
             return viewModel

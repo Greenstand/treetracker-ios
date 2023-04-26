@@ -43,6 +43,7 @@ class ChatListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.fetchProfileImage()
+        viewModel?.fetchMessages()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -65,26 +66,10 @@ extension ChatListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let chatType = viewModel?.cellForRowAt(indexPath: indexPath)
-
-        switch chatType {
-        case .chat:
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as? ChatListTableViewCell
-            cell?.setupCell()
-            return cell ?? UITableViewCell()
-
-        case .quiz:
-
-            // TODO: Create a new cell of type Quiz
-            let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as? ChatListTableViewCell
-            cell?.setupCell()
-            return cell ?? UITableViewCell()
-
-        default:
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as? ChatListTableViewCell
+        let chat = viewModel?.cellForRowAt(indexPath: indexPath)
+        cell?.setupCell(data: chat!) // remove force unwrap
+        return cell ?? UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -107,6 +92,10 @@ extension ChatListViewController: ChatListViewModelViewDelegate {
 
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didFetchProfile image: UIImage) {
         planterImage.image = image
+    }
+
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateChats messages: [ChatListViewModel.Chat]) {
+        chatListTableView.reloadData()
     }
 
 }
