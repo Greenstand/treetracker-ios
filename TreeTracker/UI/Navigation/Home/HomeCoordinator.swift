@@ -68,9 +68,9 @@ private extension HomeCoordinator {
         )
     }
 
-    func showMessages(planter: Planter) {
+    func showMessages(planter: Planter, chat: ChatListViewModel.Chat) {
         configuration.navigationController.pushViewController(
-            messagesViewController(planter: planter),
+            messagesViewController(planter: planter, chat: chat),
             animated: true
         )
     }
@@ -159,12 +159,13 @@ private extension HomeCoordinator {
         return viewcontroller
     }
 
-    func messagesViewController(planter: Planter) -> UIViewController {
+    func messagesViewController(planter: Planter, chat: ChatListViewModel.Chat) -> UIViewController {
         let viewcontroller = StoryboardScene.Messages.initialScene.instantiate()
         viewcontroller.viewModel = {
             let viewModel = MessagesViewModel(
             planter: planter,
-            messagingService: treetrackerSDK.messagingService
+            messagingService: treetrackerSDK.messagingService,
+            chat: chat
             )
             return viewModel
         }()
@@ -291,8 +292,8 @@ extension HomeCoordinator: NotesViewModelCoordinatorDelegate {
 // MARK: - ChatListViewModelCoordinatorDelegate
 extension HomeCoordinator: ChatListViewModelCoordinatorDelegate {
 
-    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectMessagesForPlanter planter: Planter) {
-        showMessages(planter: planter)
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectChat chat: ChatListViewModel.Chat, forPlanter planter: Planter) {
+        showMessages(planter: planter, chat: chat)
     }
 
 }

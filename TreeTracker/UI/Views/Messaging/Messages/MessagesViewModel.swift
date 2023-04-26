@@ -20,44 +20,50 @@ class MessagesViewModel {
 
     private let planter: Planter
     private let messagingService: MessagingService
+    private var chat: ChatListViewModel.Chat
 
     private(set) var messages: [Message] = []
 
-    init(planter: Planter, messagingService: MessagingService) {
+    init(planter: Planter, messagingService: MessagingService, chat: ChatListViewModel.Chat) {
         self.planter = planter
         self.messagingService = messagingService
+        self.chat = chat
+    }
+    
+    var title: String {
+        return chat.title
     }
 
     var numberOfRowsInSection: Int {
-        messages.count
+        chat.messages.count
     }
 
-    func getMessageForRowAt(indexPath: IndexPath) -> Message {
-        messages[indexPath.row]
+    func getMessageForRowAt(indexPath: IndexPath) -> ChatListViewModel.MessageDetail {
+        chat.messages[indexPath.row]
     }
 
     func getPlanterName() -> String {
-        planter.firstName ?? ""
+        chat.title
     }
 
-    func fetchMessages() {
-
-        messagingService.getMessages(planter: planter) { result in
-
-            switch result {
-            case .success(let messages):
-                self.messages = messages
-                self.viewDelegate?.messagesViewModel(self, didFetchMessages: messages)
-            case .failure(let error):
-                self.viewDelegate?.messagesViewModel(self, didReceiveError: error)
-            }
-        }
-
-    }
+//    func fetchMessages() {
+//
+//        messagingService.getMessages(planter: planter) { result in
+//
+//            switch result {
+//            case .success(let messages):
+//                self.messages = messages
+//                self.viewDelegate?.messagesViewModel(self, didFetchMessages: messages)
+//            case .failure(let error):
+//                self.viewDelegate?.messagesViewModel(self, didReceiveError: error)
+//            }
+//        }
+//
+//    }
 
     func sendMessage(text: String) {
-        let newMessage = messages[3]
-        messages.append(newMessage)
+        let newMessage = chat.messages[3]
+        chat.messages.append(newMessage)
 //        let newMessage = Message
 
         // TODO: Cache new message. Send new message. - Needs a variable to know if it was uploaded or not?

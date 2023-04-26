@@ -82,7 +82,7 @@ extension ChatListViewController: UITableViewDataSource {
 extension ChatListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.messagesSelected(indexPath: indexPath)
+        viewModel?.chatSelected(indexPath: indexPath)
     }
 
 }

@@ -46,25 +46,25 @@ class MessageTableViewCell: UITableViewCell {
 // MARK: - Public func
 extension MessageTableViewCell {
 
-    func setupCell(message: Message?, planterName: String) {
+    func setupCell(message: ChatListViewModel.MessageDetail) {
         trailingConstraint = messageBackgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         leadingConstraint = messageBackgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
 
-//        messageLabel.text = message?.body
-//
-//        if message?.from != planterName {
-//
-//            messageBackgroundView.backgroundColor = .systemGreen
-//            leadingConstraint.isActive = true
-//            messageLabel.textAlignment = .left
-//
-//        } else {
-//
-//            messageBackgroundView.backgroundColor = .systemBlue
-//            trailingConstraint.isActive = true
-//            messageLabel.textAlignment = .right
-//
-//        }
+        messageLabel.text = message.body
+
+        if message.isFromAdmin {
+
+            messageBackgroundView.backgroundColor = .systemGreen
+            leadingConstraint.isActive = true
+            messageLabel.textAlignment = .left
+
+        } else {
+
+            messageBackgroundView.backgroundColor = .systemBlue
+            trailingConstraint.isActive = true
+            messageLabel.textAlignment = .right
+
+        }
 
     }
 

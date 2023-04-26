@@ -49,13 +49,13 @@ class MessagesViewController: UIViewController {
     var viewModel: MessagesViewModel? {
         didSet {
             viewModel?.viewDelegate = self
+            title = viewModel?.title
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Asset.Colors.backgroundGreen.color
-        viewModel?.fetchMessages()
     }
 
 }
@@ -95,8 +95,7 @@ extension MessagesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.identifier, for: indexPath) as? MessageTableViewCell
 
         let message = viewModel?.getMessageForRowAt(indexPath: indexPath)
-        let planterName = viewModel?.getPlanterName() ?? ""
-        cell?.setupCell(message: message, planterName: planterName)
+        cell?.setupCell(message: message!) // remove force unwrap?
         cell?.selectionStyle = .none
 
         return cell ?? UITableViewCell()
@@ -115,10 +114,22 @@ extension MessagesViewController: UITableViewDataSource {
 // MARK: - UITextViewDelegate
 extension MessagesViewController: UITextViewDelegate {
 
+
+    // change textview heigh
     func textViewDidChange(_ textView: UITextView) {
-        // TODO: Let it grow as the text grows
-//        let size = textView.sizeThatFits(CGSize(width: textView.bounds.width, height: .infinity))
-//        textView.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        let maxNumberOfLines = 5 // maximum number of lines
+        let maxHeight = textView.font!.lineHeight * CGFloat(maxNumberOfLines) // maximum height based on number of lines
+        print("maxHeight: \(maxHeight)")
+        let contentHeight = textView.sizeThatFits(CGSize(width: textView.frame.width, height: CGFloat.greatestFiniteMagnitude)).height // current content height
+        print("contentHeight: \(contentHeight)")
+
+        if contentHeight > maxHeight {
+            textView.isScrollEnabled = true // enable scrolling if content height exceeds maximum height
+            textView.frame.size.height = maxHeight // set textView height to maximum height
+        } else {
+            textView.isScrollEnabled = false // disable scrolling if content height is within maximum height
+            textView.frame.size.height = contentHeight // set textView height to current content height
+        }
     }
 }
 
