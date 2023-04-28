@@ -16,6 +16,7 @@ class MessagesViewController: UIViewController {
             messagesTableView.separatorStyle = .none
             messagesTableView.dataSource = self
             messagesTableView.register(MessageTableViewCell.nib(), forCellReuseIdentifier: MessageTableViewCell.identifier)
+            messagesTableView.addTopBounceAreaView(color: Asset.Colors.backgroundGreen.color)
         }
     }
 
@@ -28,9 +29,10 @@ class MessagesViewController: UIViewController {
             inputTextView.font = FontFamily.Lato.regular.font(size: 16)
             inputTextView.textColor = Asset.Colors.grayDark.color
             inputTextView.delegate = self
-
             inputTextView.isScrollEnabled = false
-            inputTextView.sizeToFit()
+
+            inputTextView.textColor = Asset.Colors.grayLight.color
+            inputTextView.text = L10n.Messages.InputTextView.placeHolder
         }
     }
 
@@ -79,7 +81,6 @@ private extension MessagesViewController {
         messagesTableView.endUpdates()
         messagesTableView.scrollToRow(at: IndexPath(row: row - 1, section: 0), at: .top, animated: true)
         inputTextView.text = ""
-
     }
 
 }
@@ -114,21 +115,35 @@ extension MessagesViewController: UITableViewDataSource {
 // MARK: - UITextViewDelegate
 extension MessagesViewController: UITextViewDelegate {
 
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        // placeholder
+        if textView.textColor == Asset.Colors.grayLight.color {
+            textView.text = nil
+            textView.textColor = Asset.Colors.grayDark.color
+        }
+    }
 
-    // change textview heigh
+    func textViewDidEndEditing(_ textView: UITextView) {
+        // placeholder
+        if textView.text.isEmpty {
+            textView.text = L10n.Messages.InputTextView.placeHolder
+            textView.textColor = Asset.Colors.grayLight.color
+        }
+    }
+
     func textViewDidChange(_ textView: UITextView) {
-        let maxNumberOfLines = 5 // maximum number of lines
-        let maxHeight = textView.font!.lineHeight * CGFloat(maxNumberOfLines) // maximum height based on number of lines
-        print("maxHeight: \(maxHeight)")
-        let contentHeight = textView.sizeThatFits(CGSize(width: textView.frame.width, height: CGFloat.greatestFiniteMagnitude)).height // current content height
-        print("contentHeight: \(contentHeight)")
+        // autoresizing
+        let size = CGSize(width: textView.frame.size.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
 
-        if contentHeight > maxHeight {
-            textView.isScrollEnabled = true // enable scrolling if content height exceeds maximum height
-            textView.frame.size.height = maxHeight // set textView height to maximum height
-        } else {
-            textView.isScrollEnabled = false // disable scrolling if content height is within maximum height
-            textView.frame.size.height = contentHeight // set textView height to current content height
+        guard textView.contentSize.height < 120.0 else { textView.isScrollEnabled = true; return }
+
+        textView.isScrollEnabled = false
+
+        textView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
         }
     }
 }

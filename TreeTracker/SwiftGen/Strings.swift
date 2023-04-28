@@ -134,6 +134,12 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "LogOutConfirmation.LogOutButton.Title", fallback: "Log Out")
     }
   }
+  internal enum Messages {
+    internal enum InputTextView {
+      /// Click to write a message
+      internal static let placeHolder = L10n.tr("Localizable", "Messages.InputTextView.PlaceHolder", fallback: "Click to write a message")
+    }
+  }
   internal enum Notes {
     /// Add tree notes here.
     internal static let placeholder = L10n.tr("Localizable", "Notes.Placeholder", fallback: "Add tree notes here.")

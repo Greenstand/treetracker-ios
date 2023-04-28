@@ -100,3 +100,7 @@
 "Settings.PhotoQuality.Option.Medium.Info" = "Medium resolution, medium data usage.";
 "Settings.PhotoQuality.Option.High.Title" = "High";
 "Settings.PhotoQuality.Option.High.Info" = "High resolution, high data usage.";
+
+//Messages Screen
+"Messages.InputTextView.PlaceHolder" = "Click to write a message";
+
