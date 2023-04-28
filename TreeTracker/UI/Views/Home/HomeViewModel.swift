@@ -54,9 +54,9 @@ class HomeViewModel {
         return L10n.Home.title
     }
 
-    var unreadMessagesCount: Int? {
+    var unreadMessagesCount: Int = 0 {
         didSet {
-            viewDelegate?.homeViewModel(self, didUpdateUnreadMessagesCount: unreadMessagesCount ?? 0)
+            viewDelegate?.homeViewModel(self, didUpdateUnreadMessagesCount: unreadMessagesCount)
         }
     }
 }
@@ -112,12 +112,10 @@ extension HomeViewModel {
 // MARK: - Messaging
 extension HomeViewModel {
 
-    func fetchMessages() {
-        unreadMessagesCount = messagingService.getUnreadMessagesCount(planter: planter)
-
-        messagingService.getMessages(planter: planter) { [weak self] _ in
+    func fetchUnreadMessagesCount() {
+        messagingService.getUnreadMessagesCount(for: planter) { [weak self] count in
             guard let self else { return }
-            unreadMessagesCount = messagingService.getUnreadMessagesCount(planter: planter)
+            unreadMessagesCount = count
         }
     }
 
