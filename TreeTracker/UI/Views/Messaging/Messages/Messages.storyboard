@@ -64,14 +64,15 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fFl-af-x60" secondAttribute="trailing" id="EPU-Z8-aXg"/>
                             <constraint firstItem="XdE-Cs-r0b" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Erh-41-0Tx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="fFl-af-x60" secondAttribute="bottom" id="S33-J4-7tS"/>
                             <constraint firstItem="XdE-Cs-r0b" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="aib-7r-Gpb"/>
                             <constraint firstItem="XdE-Cs-r0b" firstAttribute="bottom" secondItem="fFl-af-x60" secondAttribute="top" id="dtA-x7-1xB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="fFl-af-x60" secondAttribute="bottom" id="ifv-Ts-PPF"/>
                             <constraint firstItem="XdE-Cs-r0b" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kvY-ko-e6H"/>
                             <constraint firstItem="fFl-af-x60" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yJ9-zE-dnT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomContraint" destination="ifv-Ts-PPF" id="asW-3h-PME"/>
                         <outlet property="inputTextView" destination="HpR-Wu-UEw" id="S26-pw-hEz"/>
                         <outlet property="messagesTableView" destination="XdE-Cs-r0b" id="Oa1-vv-H2e"/>
                         <outlet property="sendMessageButton" destination="sNe-HL-ePJ" id="gUp-0c-tXY"/>

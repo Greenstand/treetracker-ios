@@ -9,7 +9,7 @@
 import UIKit
 import Treetracker_Core
 
-class MessagesViewController: UIViewController {
+class MessagesViewController: UIViewController, KeyboardDismissing {
 
     @IBOutlet private var messagesTableView: UITableView! {
         didSet {
@@ -48,6 +48,8 @@ class MessagesViewController: UIViewController {
         }
     }
 
+    @IBOutlet private var bottomContraint: NSLayoutConstraint!
+
     var viewModel: MessagesViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -58,6 +60,8 @@ class MessagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Asset.Colors.backgroundGreen.color
+        addEndEditingBackgroundTapGesture()
+        addKeyboardObservers()
     }
 
 }
@@ -69,10 +73,10 @@ private extension MessagesViewController {
 
         guard
             let messageText = inputTextView.text,
-            !messageText.isEmpty
+            !messageText.isEmpty,
+            inputTextView.textColor != Asset.Colors.grayLight.color
         else { return }
 
-        print(messageText)
         viewModel?.sendMessage(text: messageText)
         let row = viewModel?.numberOfRowsInSection ?? 0
 
@@ -80,7 +84,9 @@ private extension MessagesViewController {
         messagesTableView.insertRows(at: [IndexPath(row: row - 1, section: 0)], with: .fade)
         messagesTableView.endUpdates()
         messagesTableView.scrollToRow(at: IndexPath(row: row - 1, section: 0), at: .top, animated: true)
+
         inputTextView.text = ""
+        textViewDidChange(inputTextView)
     }
 
 }
@@ -145,6 +151,34 @@ extension MessagesViewController: UITextViewDelegate {
                 constraint.constant = estimatedSize.height
             }
         }
+    }
+}
+
+// MARK: - KeyboardObserving
+extension MessagesViewController: KeyboardObserving {
+
+    func keyboardWillShow(notification: Notification) {
+        let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
+        guard let keyboardSize = (keyboardFrame as? NSValue)?.cgRectValue else {
+            return
+        }
+
+        let bottomSafeAreaHeight = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
+
+        UIView.animate(withDuration: 0.30) {
+            self.bottomContraint.constant = keyboardSize.height - bottomSafeAreaHeight
+            self.view.layoutIfNeeded()
+        }
+
+        let row = viewModel?.numberOfRowsInSection ?? 0
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            self.messagesTableView.scrollToRow(at: IndexPath(row: row - 1, section: 0), at: .bottom, animated: true)
+        }
+    }
+
+    func keyboardWillHide(notification: Notification) {
+        bottomContraint.constant = 0
     }
 }
 
