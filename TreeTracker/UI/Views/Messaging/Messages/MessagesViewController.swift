@@ -59,9 +59,16 @@ class MessagesViewController: UIViewController, KeyboardDismissing {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Asset.Colors.backgroundGreen.color
         addEndEditingBackgroundTapGesture()
         addKeyboardObservers()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = Asset.Colors.backgroundGreen.color
+        navigationController?.navigationBar.setupNavigationAppearance(
+            backgroundColor: Asset.Colors.backgroundGreen.color
+        )
     }
 
 }

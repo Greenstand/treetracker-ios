@@ -36,18 +36,15 @@ class ChatListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Asset.Colors.backgroundGreen.color
         setupNavBarImage()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        view.backgroundColor = Asset.Colors.backgroundGreen.color
+        navigationController?.navigationBar.setupNavigationAppearance(backgroundColor: Asset.Colors.backgroundGreen.color)
         viewModel?.fetchProfileImage()
         viewModel?.fetchMessages()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         showImage(true)
     }
 
@@ -104,18 +101,14 @@ extension ChatListViewController: ChatListViewModelViewDelegate {
 extension ChatListViewController {
 
     private func setupNavBarImage() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         navigationBar.addSubview(planterImage)
 
         NSLayoutConstraint.activate([
-
             planterImage.rightAnchor.constraint(equalTo: navigationBar.rightAnchor, constant: -Const.ImageRightMargin),
             planterImage.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -Const.ImageBottomMarginForLargeState),
             planterImage.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
             planterImage.widthAnchor.constraint(equalTo: planterImage.heightAnchor)
-
         ])
     }
 
@@ -149,7 +142,7 @@ extension ChatListViewController {
     }
 
     private func showImage(_ show: Bool) {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.3) {
             self.planterImage.alpha = show ? 1.0 : 0.0
         }
     }

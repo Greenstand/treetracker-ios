@@ -152,6 +152,7 @@ class HomeViewController: UIViewController, AlertPresenting {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.setupNavigationAppearance()
         viewModel?.fetchProfileData()
         viewModel?.fetchUnreadMessagesCount()
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D036C6F29F022120079F4B1 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D036C6E29F022120079F4B1 /* UITableView+Extensions.swift */; };
+		8D3AF01F2A01346D00976763 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3AF01E2A01346D00976763 /* UINavigationBar+Extensions.swift */; };
 		8D75250629DB13FA00361CC1 /* MessagingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75250529DB13FA00361CC1 /* MessagingButton.swift */; };
 		8D75251729DB61A000361CC1 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75251629DB61A000361CC1 /* ChatListViewController.swift */; };
 		8D75251929DB61C000361CC1 /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D75251829DB61C000361CC1 /* ChatList.storyboard */; };
@@ -109,6 +110,7 @@
 /* Begin PBXFileReference section */
 		229566C2A487A3F9C7D82AD8 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D036C6E29F022120079F4B1 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		8D3AF01E2A01346D00976763 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
 		8D75250529DB13FA00361CC1 /* MessagingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingButton.swift; sourceTree = "<group>"; };
 		8D75251629DB61A000361CC1 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		8D75251829DB61C000361CC1 /* ChatList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatList.storyboard; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 			children = (
 				93EC8CA724B28B5D00946C0C /* UITextField+Extensions.swift */,
 				8D036C6E29F022120079F4B1 /* UITableView+Extensions.swift */,
+				8D3AF01E2A01346D00976763 /* UINavigationBar+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
 				938294BA27F9D00800888E42 /* PhotoQuality.swift in Sources */,
 				B0AAD80628C235C900640D4A /* NotesViewController.swift in Sources */,
+				8D3AF01F2A01346D00976763 /* UINavigationBar+Extensions.swift in Sources */,
 				9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */,
 				93EC8C3424AA4AE100946C0C /* HomeCoordinator.swift in Sources */,
 				938294AE27F9A79900888E42 /* SettingsViewModel.swift in Sources */,
