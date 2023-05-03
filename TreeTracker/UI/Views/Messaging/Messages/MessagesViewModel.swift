@@ -29,7 +29,7 @@ class MessagesViewModel {
         self.messagingService = messagingService
         self.chat = chat
     }
-    
+
     var title: String {
         return chat.title
     }
@@ -38,28 +38,13 @@ class MessagesViewModel {
         chat.messages.count
     }
 
-    func getMessageForRowAt(indexPath: IndexPath) -> ChatListViewModel.MessageDetail {
+    func getMessageForRowAt(indexPath: IndexPath) -> MessageEntity {
         chat.messages[indexPath.row]
     }
 
     func getPlanterName() -> String {
         chat.title
     }
-
-//    func fetchMessages() {
-//
-//        messagingService.getMessages(planter: planter) { result in
-//
-//            switch result {
-//            case .success(let messages):
-//                self.messages = messages
-//                self.viewDelegate?.messagesViewModel(self, didFetchMessages: messages)
-//            case .failure(let error):
-//                self.viewDelegate?.messagesViewModel(self, didReceiveError: error)
-//            }
-//        }
-//
-//    }
 
     func sendMessage(text: String) {
         let newMessage = chat.messages[3]

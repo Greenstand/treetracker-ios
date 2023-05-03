@@ -16,7 +16,7 @@ protocol ChatListViewModelCoordinatorDelegate: AnyObject {
 
 protocol ChatListViewModelViewDelegate: AnyObject {
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didFetchProfile image: UIImage)
-    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateChats chats: [ChatListViewModel.Chat])
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateChatList chatList: [ChatListViewModel.Chat])
 }
 
 class ChatListViewModel {
@@ -38,19 +38,20 @@ class ChatListViewModel {
         return planter.firstName ?? ""
     }
 
+    private var chatList: [Chat] = [] {
+        didSet {
+            viewDelegate?.chatListViewModel(self, didUpdateChatList: chatList)
+        }
+    }
+
     var numberOfRowsInSection: Int {
-        chats.count
+        chatList.count
     }
 
     func cellForRowAt(indexPath: IndexPath) -> ChatListViewModel.Chat {
-        chats[indexPath.row]
+        chatList[indexPath.row]
     }
 
-    private var chats: [Chat] = [] {
-        didSet {
-            viewDelegate?.chatListViewModel(self, didUpdateChats: chats)
-        }
-    }
 }
 
 // MARK: = Messaging
@@ -63,27 +64,16 @@ extension ChatListViewModel {
         for message in allMessages {
             let messageType = messageType(type: message.type)
 
-            let messageDetail = MessageDetail(
-                messageId: message.messageId ?? "",
-                from: message.from ?? "",
-                to: message.to ?? "",
-                body: message.body,
-                composedAt: message.composedAt ?? "",
-                videoLink: message.videoLink,
-                unread: message.unread
-            )
-
             switch messageType {
             case .message:
-
                 if let index = chatList.firstIndex(where: { $0.type == .message }) {
-                    chatList[index].messages.append(messageDetail)
+                    chatList[index].messages.append(message)
 
                 } else {
                     let newChat = Chat(
                         title: message.subject ?? "Admin",
                         type: messageType,
-                        messages: [messageDetail]
+                        messages: [message]
                     )
                     chatList.insert(newChat, at: 0)
                 }
@@ -92,28 +82,20 @@ extension ChatListViewModel {
                 let newChat = Chat(
                     title: message.subject ?? "Announce!",
                     type: messageType,
-                    messages: [messageDetail]
+                    messages: [message]
                 )
                 chatList.append(newChat)
             }
         }
 
-        self.chats = chatList
+        self.chatList = chatList
     }
 
     func updateUnreadMessagesCount(indexPath: IndexPath) {
-        var messagesId: [String] = []
+        let messagesToUpdate = chatList[indexPath.row].messages
 
-        var updatedMessages = chats[indexPath.row].messages.map { messageDetail -> MessageDetail in
-            messagesId.append(messageDetail.messageId)
-            var message = messageDetail
-            message.unread = false
-            return message
-        }
-
-        self.chats[indexPath.row].messages = updatedMessages
-
-        messagingService.updateUnreadMessages(planter: planter, messageId: messagesId)
+        let updatedMessages = messagingService.updateUnreadMessages(messages: messagesToUpdate)
+        self.chatList[indexPath.row].messages = updatedMessages
     }
 
 }
@@ -143,7 +125,7 @@ extension ChatListViewModel {
 
     func chatSelected(indexPath: IndexPath) {
         updateUnreadMessagesCount(indexPath: indexPath)
-        let selectedChat = chats[indexPath.row]
+        let selectedChat = chatList[indexPath.row]
         coordinatorDelegate?.chatListViewModel(self, didSelectChat: selectedChat, forPlanter: planter)
     }
 
@@ -155,7 +137,7 @@ extension ChatListViewModel {
     struct Chat {
         let title: String
         let type: MessageType
-        var messages: [MessageDetail]
+        var messages: [MessageEntity]
 
         var image: UIImage {
             switch type {
@@ -172,22 +154,6 @@ extension ChatListViewModel {
 
         var unreadCount: Int {
             messages.reduce(0) { $0 + ($1.unread ? 1 : 0) }
-        }
-    }
-
-    struct MessageDetail {
-        let messageId: String
-        let from: String
-        let to: String
-        let body: String?
-        let composedAt: String
-        let videoLink: String?
-//        let survey: SurveyResponse?
-//        let surveyResponse: [String]?
-
-        var unread: Bool
-        var isFromAdmin: Bool {
-            from == "admin"
         }
     }
 

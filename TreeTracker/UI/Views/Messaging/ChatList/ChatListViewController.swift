@@ -91,7 +91,7 @@ extension ChatListViewController: ChatListViewModelViewDelegate {
         planterImage.image = image
     }
 
-    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateChats messages: [ChatListViewModel.Chat]) {
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateChatList chatList: [ChatListViewModel.Chat]) {
         chatListTableView.reloadData()
     }
 
