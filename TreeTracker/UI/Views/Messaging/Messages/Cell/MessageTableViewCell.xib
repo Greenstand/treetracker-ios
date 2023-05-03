@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nM0-G3-IQY">
-                        <rect key="frame" x="194.66666666666666" y="4" width="105.33333333333334" height="41"/>
+                        <rect key="frame" x="194.66666666666666" y="3" width="105.33333333333334" height="43"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MESSAGE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ke-F5-2WO">
-                                <rect key="frame" x="14" y="6" width="77.333333333333329" height="29"/>
+                                <rect key="frame" x="14" y="8" width="77.333333333333329" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,18 +30,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
-                            <constraint firstItem="2ke-F5-2WO" firstAttribute="top" secondItem="nM0-G3-IQY" secondAttribute="top" constant="6" id="BFO-r5-fTR"/>
+                            <constraint firstItem="2ke-F5-2WO" firstAttribute="top" secondItem="nM0-G3-IQY" secondAttribute="top" constant="8" id="BFO-r5-fTR"/>
                             <constraint firstItem="2ke-F5-2WO" firstAttribute="leading" secondItem="nM0-G3-IQY" secondAttribute="leading" constant="14" id="qwn-Af-Lit"/>
                             <constraint firstAttribute="trailing" secondItem="2ke-F5-2WO" secondAttribute="trailing" constant="14" id="u9K-N4-7mH"/>
-                            <constraint firstAttribute="bottom" secondItem="2ke-F5-2WO" secondAttribute="bottom" constant="6" id="zV0-fZ-rfV"/>
+                            <constraint firstAttribute="bottom" secondItem="2ke-F5-2WO" secondAttribute="bottom" constant="8" id="zV0-fZ-rfV"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="nM0-G3-IQY" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="Pwi-X5-liB"/>
-                    <constraint firstItem="nM0-G3-IQY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="fEd-Dw-FCm"/>
+                    <constraint firstItem="nM0-G3-IQY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="fEd-Dw-FCm"/>
                     <constraint firstAttribute="trailing" secondItem="nM0-G3-IQY" secondAttribute="trailing" constant="20" placeholder="YES" id="hAc-SU-Qi4"/>
-                    <constraint firstAttribute="bottom" secondItem="nM0-G3-IQY" secondAttribute="bottom" constant="4" id="nVy-5s-eCo"/>
+                    <constraint firstAttribute="bottom" secondItem="nM0-G3-IQY" secondAttribute="bottom" constant="3" id="nVy-5s-eCo"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

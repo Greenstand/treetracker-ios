@@ -23,6 +23,7 @@ class MessageTableViewCell: UITableViewCell {
             messageLabel.font = FontFamily.Lato.regular.font(size: 16)
             messageLabel.numberOfLines = 0
             messageLabel.textColor = UIColor.white
+            messageLabel.textAlignment = .left
         }
     }
 
@@ -53,19 +54,12 @@ extension MessageTableViewCell {
         messageLabel.text = message.body
 
         if message.from == "admin" {
-
             messageBackgroundView.backgroundColor = .systemGreen
             leadingConstraint.isActive = true
-            messageLabel.textAlignment = .left
-
         } else {
-
             messageBackgroundView.backgroundColor = .systemBlue
             trailingConstraint.isActive = true
-            messageLabel.textAlignment = .right
-
         }
-
     }
 
 }
