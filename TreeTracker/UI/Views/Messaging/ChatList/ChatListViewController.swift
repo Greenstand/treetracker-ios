@@ -36,6 +36,8 @@ class ChatListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.fetchProfileImage()
+        viewModel?.fetchMessages()
         setupNavBarImage()
     }
 
@@ -43,8 +45,6 @@ class ChatListViewController: UIViewController {
         super.viewWillAppear(animated)
         view.backgroundColor = Asset.Colors.backgroundGreen.color
         navigationController?.navigationBar.setupNavigationAppearance(backgroundColor: Asset.Colors.backgroundGreen.color)
-        viewModel?.fetchProfileImage()
-        viewModel?.fetchMessages()
         showImage(true)
     }
 

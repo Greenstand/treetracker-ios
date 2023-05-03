@@ -57,15 +57,14 @@ class ChatListViewModel {
 extension ChatListViewModel {
 
     func fetchMessages() {
-
-        var chats: [Chat] = []
+        var chatList: [Chat] = []
         let allMessages = messagingService.getSavedMessages(planter: planter)
 
         for message in allMessages {
-
             let messageType = messageType(type: message.type)
 
-            var messageDetail = MessageDetail(
+            let messageDetail = MessageDetail(
+                messageId: message.messageId ?? "",
                 from: message.from ?? "",
                 to: message.to ?? "",
                 body: message.body,
@@ -75,38 +74,48 @@ extension ChatListViewModel {
             )
 
             switch messageType {
-
             case .message:
 
-                // check if already exists a message chat
-                if let index = chats.firstIndex(where: { $0.type == .message }) {
-
-                    chats[index].messages.append(messageDetail)
+                if let index = chatList.firstIndex(where: { $0.type == .message }) {
+                    chatList[index].messages.append(messageDetail)
 
                 } else {
-
                     let newChat = Chat(
                         title: message.subject ?? "Admin",
                         type: messageType,
                         messages: [messageDetail]
                     )
-                    chats.insert(newChat, at: 0)
+                    chatList.insert(newChat, at: 0)
                 }
 
-            case .announce, .survey:
-
+            case .announce, .survey, .surveyResponse:
                 let newChat = Chat(
                     title: message.subject ?? "Announce!",
                     type: messageType,
                     messages: [messageDetail]
                 )
-                chats.append(newChat)
-
+                chatList.append(newChat)
             }
         }
 
-        self.chats = chats
+        self.chats = chatList
     }
+
+    func updateUnreadMessagesCount(indexPath: IndexPath) {
+        var messagesId: [String] = []
+
+        var updatedMessages = chats[indexPath.row].messages.map { messageDetail -> MessageDetail in
+            messagesId.append(messageDetail.messageId)
+            var message = messageDetail
+            message.unread = false
+            return message
+        }
+
+        self.chats[indexPath.row].messages = updatedMessages
+
+        messagingService.updateUnreadMessages(planter: planter, messageId: messagesId)
+    }
+
 }
 
 // MARK: - Profile
@@ -133,9 +142,8 @@ extension ChatListViewModel {
 extension ChatListViewModel {
 
     func chatSelected(indexPath: IndexPath) {
-        
+        updateUnreadMessagesCount(indexPath: indexPath)
         let selectedChat = chats[indexPath.row]
-        
         coordinatorDelegate?.chatListViewModel(self, didSelectChat: selectedChat, forPlanter: planter)
     }
 
@@ -157,6 +165,8 @@ extension ChatListViewModel {
                 return Asset.Assets.gardening.image
             case .survey:
                 return Asset.Assets.logo.image
+            case .surveyResponse:
+                return Asset.Assets.people.image
             }
         }
 
@@ -166,6 +176,7 @@ extension ChatListViewModel {
     }
 
     struct MessageDetail {
+        let messageId: String
         let from: String
         let to: String
         let body: String?
@@ -174,7 +185,7 @@ extension ChatListViewModel {
 //        let survey: SurveyResponse?
 //        let surveyResponse: [String]?
 
-        let unread: Bool
+        var unread: Bool
         var isFromAdmin: Bool {
             from == "admin"
         }
@@ -184,7 +195,7 @@ extension ChatListViewModel {
         case message
         case announce
         case survey
-//        case survey_response
+        case surveyResponse
     }
 
     func messageType(type: String?) -> MessageType {
@@ -192,6 +203,7 @@ extension ChatListViewModel {
         case "message": return .message
         case "announce": return .announce
         case "survey": return .survey
+        case "survey_response": return .surveyResponse
         default: return .message
         }
     }
