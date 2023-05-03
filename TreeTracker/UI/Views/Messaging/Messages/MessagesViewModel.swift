@@ -22,8 +22,6 @@ class MessagesViewModel {
     private let messagingService: MessagingService
     private var chat: ChatListViewModel.Chat
 
-    private(set) var messages: [Message] = []
-
     init(planter: Planter, messagingService: MessagingService, chat: ChatListViewModel.Chat) {
         self.planter = planter
         self.messagingService = messagingService
@@ -47,12 +45,13 @@ class MessagesViewModel {
     }
 
     func sendMessage(text: String) {
-        let newMessage = chat.messages[3]
-        chat.messages.append(newMessage)
-//        let newMessage = Message
+        let trimmedText = text.trimmingCharacters(in: .whitespaces)
 
-        // TODO: Cache new message. Send new message. - Needs a variable to know if it was uploaded or not?
-
-//        messages.append(newMessage)
+        do {
+            let newMessage = try messagingService.createMessage(planter: planter, text: trimmedText)
+            chat.messages.append(newMessage)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
