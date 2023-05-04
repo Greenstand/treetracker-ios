@@ -109,7 +109,8 @@ extension MessagesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.identifier, for: indexPath) as? MessageTableViewCell
 
         let message = viewModel?.getMessageForRowAt(indexPath: indexPath)
-        cell?.setupCell(message: message!) // remove force unwrap?
+        let planterIdentifier = viewModel?.getPlanterIdentifier()
+        cell?.setupCell(planterId: planterIdentifier!, message: message!) // remove force unwrap?
         cell?.selectionStyle = .none
 
         return cell ?? UITableViewCell()

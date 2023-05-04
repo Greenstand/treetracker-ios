@@ -40,8 +40,8 @@ class MessagesViewModel {
         chat.messages[indexPath.row]
     }
 
-    func getPlanterName() -> String {
-        chat.title
+    func getPlanterIdentifier() -> String? {
+        planter.identifier
     }
 
     func sendMessage(text: String) {

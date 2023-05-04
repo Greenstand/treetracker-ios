@@ -47,13 +47,13 @@ class MessageTableViewCell: UITableViewCell {
 // MARK: - Public func
 extension MessageTableViewCell {
 
-    func setupCell(message: MessageEntity) {
+    func setupCell(planterId: String, message: MessageEntity) {
         trailingConstraint = messageBackgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         leadingConstraint = messageBackgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
 
         messageLabel.text = message.body
 
-        if message.from == "admin" {
+        if message.to == planterId {
             messageBackgroundView.backgroundColor = .systemGreen
             leadingConstraint.isActive = true
         } else {
