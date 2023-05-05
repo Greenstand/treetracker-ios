@@ -22,7 +22,7 @@ class MessageTableViewCell: UITableViewCell {
         didSet {
             messageLabel.font = FontFamily.Lato.regular.font(size: 16)
             messageLabel.numberOfLines = 0
-            messageLabel.textColor = UIColor.white
+            messageLabel.textColor = Asset.Colors.grayDark.color
             messageLabel.textAlignment = .left
         }
     }
@@ -54,10 +54,10 @@ extension MessageTableViewCell {
         messageLabel.text = message.body
 
         if message.to == planterId {
-            messageBackgroundView.backgroundColor = .systemGreen
+            messageBackgroundView.backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.18)
             leadingConstraint.isActive = true
         } else {
-            messageBackgroundView.backgroundColor = .systemBlue
+            messageBackgroundView.backgroundColor = Asset.Colors.primaryGreen.color.withAlphaComponent(0.3)
             trailingConstraint.isActive = true
         }
     }
