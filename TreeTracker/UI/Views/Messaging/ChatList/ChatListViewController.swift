@@ -142,8 +142,8 @@ extension ChatListViewController {
     }
 
     private func showImage(_ show: Bool) {
-        UIView.animate(withDuration: 0.3) {
-            self.planterImage.alpha = show ? 1.0 : 0.0
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.planterImage.alpha = show ? 1.0 : 0.0
         }
     }
 

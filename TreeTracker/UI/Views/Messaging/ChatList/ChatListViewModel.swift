@@ -105,7 +105,8 @@ extension ChatListViewModel {
 
     func fetchProfileImage() {
 
-        selfieService.fetchSelfie(forPlanter: planter) { (result) in
+        selfieService.fetchSelfie(forPlanter: planter) { [weak self] (result) in
+            guard let self else { return }
             switch result {
             case .success(let data):
                 guard let image = UIImage(data: data) else {
