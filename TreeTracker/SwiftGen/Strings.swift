@@ -135,6 +135,8 @@ internal enum L10n {
     }
   }
   internal enum Messages {
+    /// Admin
+    internal static let title = L10n.tr("Localizable", "Messages.Title", fallback: "Admin")
     internal enum InputTextView {
       /// Click to write a message
       internal static let placeHolder = L10n.tr("Localizable", "Messages.InputTextView.PlaceHolder", fallback: "Click to write a message")

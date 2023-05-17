@@ -61,6 +61,7 @@ class MessagesViewController: UIViewController, KeyboardDismissing {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
         addKeyboardObservers()
+        viewModel?.getMessages()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -102,5 +102,6 @@
 "Settings.PhotoQuality.Option.High.Info" = "High resolution, high data usage.";
 
 //Messages Screen
+"Messages.Title" = "Admin";
 "Messages.InputTextView.PlaceHolder" = "Click to write a message";
 

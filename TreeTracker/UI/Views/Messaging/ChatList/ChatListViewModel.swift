@@ -11,7 +11,7 @@ import Treetracker_Core
 import UIKit
 
 protocol ChatListViewModelCoordinatorDelegate: AnyObject {
-    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectChat chat: ChatListViewModel.Chat, forPlanter planter: Planter)
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectMessages planter: Planter)
 }
 
 protocol ChatListViewModelViewDelegate: AnyObject {
@@ -125,9 +125,15 @@ extension ChatListViewModel {
 extension ChatListViewModel {
 
     func chatSelected(indexPath: IndexPath) {
-        updateUnreadMessagesCount(indexPath: indexPath)
         let selectedChat = chatList[indexPath.row]
-        coordinatorDelegate?.chatListViewModel(self, didSelectChat: selectedChat, forPlanter: planter)
+        updateUnreadMessagesCount(indexPath: indexPath)
+
+        switch selectedChat.type {
+        case .message:
+            coordinatorDelegate?.chatListViewModel(self, didSelectMessages: planter)
+        case .announce, .survey, .surveyResponse:
+            break
+        }
     }
 
 }

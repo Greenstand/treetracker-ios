@@ -20,24 +20,24 @@ class MessagesViewModel {
 
     private let planter: Planter
     private let messagingService: MessagingService
-    private var chat: ChatListViewModel.Chat
 
-    init(planter: Planter, messagingService: MessagingService, chat: ChatListViewModel.Chat) {
+    init(planter: Planter, messagingService: MessagingService) {
         self.planter = planter
         self.messagingService = messagingService
-        self.chat = chat
     }
+    
+    private var messages: [MessageEntity] = []
 
     var title: String {
-        return chat.title
+        L10n.Messages.title
     }
 
     var numberOfRowsInSection: Int {
-        chat.messages.count
+        messages.count
     }
 
     func getMessageForRowAt(indexPath: IndexPath) -> MessageEntity {
-        chat.messages[indexPath.row]
+        messages[indexPath.row]
     }
 
     func getPlanterIdentifier() -> String? {
@@ -49,9 +49,13 @@ class MessagesViewModel {
 
         do {
             let newMessage = try messagingService.createMessage(planter: planter, text: trimmedText)
-            chat.messages.append(newMessage)
+            messages.append(newMessage)
         } catch {
             print(error.localizedDescription)
         }
+    }
+
+    func getMessages() {
+        messages = messagingService.getMessagesToPresent(planter: planter)
     }
 }
