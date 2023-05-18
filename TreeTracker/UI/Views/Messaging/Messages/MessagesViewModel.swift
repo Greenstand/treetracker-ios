@@ -10,8 +10,7 @@ import Foundation
 import Treetracker_Core
 
 protocol MessagesViewModelViewDelegate: AnyObject {
-    func messagesViewModel(_ messagesViewModel: MessagesViewModel, didFetchMessages messages: [Message])
-    func messagesViewModel(_ messagesViewModel: MessagesViewModel, didReceiveError error: Error)
+    func messagesViewModel(didFetchMessages messages: [MessageEntity], newMessages: [MessageEntity])
 }
 
 class MessagesViewModel {
@@ -25,12 +24,14 @@ class MessagesViewModel {
         self.planter = planter
         self.messagingService = messagingService
     }
-    
+
     private var messages: [MessageEntity] = []
 
     var title: String {
         L10n.Messages.title
     }
+
+    private var isLoading = false
 
     var numberOfRowsInSection: Int {
         messages.count
@@ -55,7 +56,16 @@ class MessagesViewModel {
         }
     }
 
-    func getMessages() {
-        messages = messagingService.getMessagesToPresent(planter: planter)
+    func loadMoreMessages() {
+        guard !isLoading else { return }
+
+        isLoading = true
+
+        let offset = messages.count
+        let savedMessages = messagingService.getMessagesToPresent(planter: planter, offset: offset)
+        messages.insert(contentsOf: savedMessages, at: 0)
+
+        viewDelegate?.messagesViewModel(didFetchMessages: messages, newMessages: savedMessages)
+        isLoading = false
     }
 }

@@ -22,6 +22,7 @@ class ChatListTableViewCell: UITableViewCell {
         didSet {
             chatTitle.font = FontFamily.Montserrat.semiBold.font(size: 19)
             chatTitle.textColor = Asset.Colors.grayDark.color
+            chatTitle.numberOfLines = 0
         }
     }
 
