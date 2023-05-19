@@ -9,7 +9,7 @@
 import UIKit
 import Treetracker_Core
 
-class MessagesViewController: UIViewController, KeyboardDismissing {
+class MessagesViewController: UIViewController {
 
     @IBOutlet private var messagesTableView: UITableView! {
         didSet {
@@ -61,7 +61,7 @@ class MessagesViewController: UIViewController, KeyboardDismissing {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        addEndEditingBackgroundTapGesture()
+        hideKeyboardWhenTappedAround()
         addKeyboardObservers()
         viewModel?.loadMoreMessages()
     }
@@ -215,6 +215,26 @@ extension MessagesViewController: KeyboardObserving {
     func keyboardWillHide(notification: Notification) {
         bottomContraint.constant = 0
     }
+}
+
+// MARK: - KeyboardDismissing
+extension MessagesViewController: UIGestureRecognizerDelegate {
+
+    private func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.delegate = self
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return !(touch.view is UIButton)
+    }
+
 }
 
 // MARK: - MessagesViewModelViewDelegate
