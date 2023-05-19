@@ -200,20 +200,22 @@ extension MessagesViewController: KeyboardObserving {
 
         let bottomSafeAreaHeight = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
 
-        UIView.animate(withDuration: 0.30) {
-            self.bottomContraint.constant = keyboardSize.height - bottomSafeAreaHeight
-            self.view.layoutIfNeeded()
-        }
-
-        let row = viewModel?.numberOfRowsInSection ?? 0
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-            self.messagesTableView.scrollToRow(at: IndexPath(row: row - 1, section: 0), at: .bottom, animated: true)
-        }
+        self.bottomContraint.constant = keyboardSize.height - bottomSafeAreaHeight
+        self.messagesTableView.contentOffset.y += keyboardSize.height - bottomSafeAreaHeight
+        self.view.layoutIfNeeded()
     }
 
     func keyboardWillHide(notification: Notification) {
-        bottomContraint.constant = 0
+        let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
+        guard let keyboardSize = (keyboardFrame as? NSValue)?.cgRectValue else {
+            return
+        }
+
+        let bottomSafeAreaHeight = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
+
+        self.bottomContraint.constant = 0
+        self.messagesTableView.contentOffset.y -= keyboardSize.height - bottomSafeAreaHeight
+        self.view.layoutIfNeeded()
     }
 }
 
