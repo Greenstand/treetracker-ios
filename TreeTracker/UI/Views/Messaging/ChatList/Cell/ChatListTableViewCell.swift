@@ -13,7 +13,7 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet private var chatImage: UIImageView! {
         didSet {
             chatImage.contentMode = .scaleAspectFill
-            chatImage.layer.cornerRadius = 20
+            chatImage.layer.cornerRadius = 13
             chatImage.backgroundColor = Asset.Colors.secondaryGreen.color
         }
     }
@@ -29,7 +29,7 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet private var chatAlertCountView: UIView! {
         didSet {
             chatAlertCountView.backgroundColor = Asset.Colors.secondaryRed.color
-            chatAlertCountView.layer.cornerRadius = 15
+            chatAlertCountView.layer.cornerRadius = 13
             chatAlertCountView.isHidden = true
         }
     }
@@ -37,7 +37,7 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet private var chatAlertCountLabel: UILabel! {
         didSet {
             chatAlertCountLabel.textColor = .white
-            chatAlertCountLabel.font = FontFamily.Montserrat.semiBold.font(size: 20.0)
+            chatAlertCountLabel.font = FontFamily.Montserrat.semiBold.font(size: 18.0)
             chatAlertCountLabel.textAlignment = .center
             chatAlertCountLabel.isHidden = true
         }

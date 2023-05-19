@@ -71,14 +71,14 @@ extension ChatListViewController: UITableViewDataSource {
         return cell ?? UITableViewCell()
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        130
-    }
-
 }
 
 // MARK: - UITableViewDelegate
 extension ChatListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        110
+    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel?.chatSelected(indexPath: indexPath)
