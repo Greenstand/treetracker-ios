@@ -15,7 +15,6 @@ class ChatListViewController: UIViewController {
             chatListTableView.delegate = self
             chatListTableView.dataSource = self
             chatListTableView.register(ChatListTableViewCell.nib(), forCellReuseIdentifier: ChatListTableViewCell.identifier)
-            chatListTableView.addTopBounceAreaView(color: Asset.Colors.backgroundGreen.color)
         }
     }
 
@@ -44,7 +43,10 @@ class ChatListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.backgroundColor = Asset.Colors.backgroundGreen.color
-        navigationController?.navigationBar.setupNavigationAppearance(backgroundColor: Asset.Colors.backgroundGreen.color)
+        navigationController?.navigationBar.setupNavigationAppearance(
+            prefersLargeTitles: true,
+            backgroundColor: Asset.Colors.backgroundGreen.color
+        )
         showImage(true)
     }
 

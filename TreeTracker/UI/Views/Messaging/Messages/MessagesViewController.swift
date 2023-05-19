@@ -17,7 +17,6 @@ class MessagesViewController: UIViewController, KeyboardDismissing {
             messagesTableView.dataSource = self
             messagesTableView.delegate = self
             messagesTableView.register(MessageTableViewCell.nib(), forCellReuseIdentifier: MessageTableViewCell.identifier)
-            messagesTableView.addTopBounceAreaView(color: Asset.Colors.backgroundGreen.color)
         }
     }
 
@@ -51,7 +50,6 @@ class MessagesViewController: UIViewController, KeyboardDismissing {
 
     @IBOutlet private var bottomContraint: NSLayoutConstraint!
     private var lastContentOffsetY: CGFloat = 0
-    private var cachedHeights = [IndexPath: CGFloat]()
 
     var viewModel: MessagesViewModel? {
         didSet {
@@ -60,6 +58,7 @@ class MessagesViewController: UIViewController, KeyboardDismissing {
         }
     }
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addEndEditingBackgroundTapGesture()
@@ -73,14 +72,11 @@ class MessagesViewController: UIViewController, KeyboardDismissing {
         navigationController?.navigationBar.setupNavigationAppearance(
             backgroundColor: Asset.Colors.backgroundGreen.color
         )
-
         scrollToBottom()
     }
 
     private func scrollToBottom() {
-        guard let row = viewModel?.numberOfRowsInSection else {
-            return
-        }
+        guard let row = viewModel?.numberOfRowsInSection else { return }
         let bottomIndexPath = IndexPath(row: row - 1, section: 0)
         messagesTableView.scrollToRow(at: bottomIndexPath, at: .bottom, animated: false)
     }
@@ -134,41 +130,27 @@ extension MessagesViewController: UITableViewDataSource {
         return cell
     }
 
+}
+
+// MARK: - UITableViewDelegate
+extension MessagesViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 
 }
 
-// MARK: - UITableViewDelegate
-extension MessagesViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cachedHeights[indexPath] = cell.frame.size.height
-    }
-
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cachedHeights.removeValue(forKey: indexPath)
-    }
-
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        var height = tableView.estimatedRowHeight
-        if let cachedHeight = cachedHeights[indexPath] {
-            height = cachedHeight
-        }
-        return height
-    }
-
-}
-
 // MARK: - UIScrollViewDelegate
 extension MessagesViewController: UIScrollViewDelegate {
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if lastContentOffsetY > scrollView.contentOffset.y && scrollView.contentOffset.y < 100 {
             viewModel?.loadMoreMessages()
         }
         lastContentOffsetY = scrollView.contentOffset.y
     }
+
 }
 
 // MARK: - UITextViewDelegate
