@@ -50,6 +50,7 @@ class MessagesViewController: UIViewController {
 
     @IBOutlet private var bottomContraint: NSLayoutConstraint!
     private var lastContentOffsetY: CGFloat = 0
+    private var heightCache: [IndexPath: CGFloat] = [:]
 
     var viewModel: MessagesViewModel? {
         didSet {
@@ -135,8 +136,12 @@ extension MessagesViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MessagesViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        heightCache[indexPath] = cell.bounds.size.height
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return heightCache[indexPath] ?? UITableView.automaticDimension
     }
 
 }
