@@ -101,6 +101,9 @@
 "Settings.PhotoQuality.Option.High.Title" = "High";
 "Settings.PhotoQuality.Option.High.Info" = "High resolution, high data usage.";
 
+//ChatList Screen
+"ChatList.NoMessagesLabel.Text" = "No messages, Yet.";
+
 //Messages Screen
 "Messages.Title" = "Admin";
 "Messages.InputTextView.PlaceHolder" = "Click to write a message";

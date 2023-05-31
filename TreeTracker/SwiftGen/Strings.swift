@@ -48,6 +48,12 @@ internal enum L10n {
     ///   Copyright © 2020 Greenstand. All rights reserved.
     internal static let title = L10n.tr("Localizable", "App.Title", fallback: "Greenstand Treetracker")
   }
+  internal enum ChatList {
+    internal enum NoMessagesLabel {
+      /// No messages, Yet.
+      internal static let text = L10n.tr("Localizable", "ChatList.NoMessagesLabel.Text", fallback: "No messages, Yet.")
+    }
+  }
   internal enum DeleteAccountConfirmation {
     /// Are you sure you want to delete tour account? All your trees on this device will be lost.
     internal static let message = L10n.tr("Localizable", "DeleteAccountConfirmation.Message", fallback: "Are you sure you want to delete tour account? All your trees on this device will be lost.")

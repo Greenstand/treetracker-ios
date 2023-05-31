@@ -18,6 +18,28 @@ class ChatListViewController: UIViewController {
         }
     }
 
+    @IBOutlet private var noMessagesView: UIView! {
+        didSet {
+            noMessagesView.isHidden = true
+        }
+    }
+
+    @IBOutlet weak var noMessagesImageView: UIImageView! {
+        didSet {
+            noMessagesImageView.image = Asset.Assets.mail.image
+            noMessagesImageView.tintColor = Asset.Colors.primaryGreen.color
+        }
+    }
+
+    @IBOutlet private var noMessagesLabel: UILabel! {
+        didSet {
+            noMessagesLabel.font = FontFamily.Montserrat.semiBold.font(size: 20)
+            noMessagesLabel.numberOfLines = 0
+            noMessagesLabel.textColor = Asset.Colors.grayDark.color
+            noMessagesLabel.text = L10n.ChatList.NoMessagesLabel.text
+        }
+    }
+
     private var planterImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -94,7 +116,12 @@ extension ChatListViewController: ChatListViewModelViewDelegate {
     }
 
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateChatList chatList: [ChatListViewModel.Chat]) {
-        chatListTableView.reloadData()
+        if chatList.isEmpty {
+            noMessagesView.isHidden = false
+        } else {
+            noMessagesView.isHidden = true
+            chatListTableView.reloadData()
+        }
     }
 
 }
