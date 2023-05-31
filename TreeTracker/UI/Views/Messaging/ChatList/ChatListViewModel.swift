@@ -12,6 +12,7 @@ import UIKit
 
 protocol ChatListViewModelCoordinatorDelegate: AnyObject {
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectMessages planter: Planter)
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectAnnounce chat: ChatListViewModel.Chat)
 }
 
 protocol ChatListViewModelViewDelegate: AnyObject {
@@ -131,7 +132,9 @@ extension ChatListViewModel {
         switch selectedChat.type {
         case .message:
             coordinatorDelegate?.chatListViewModel(self, didSelectMessages: planter)
-        case .announce, .survey, .surveyResponse:
+        case .announce:
+            coordinatorDelegate?.chatListViewModel(self, didSelectAnnounce: selectedChat)
+        case .survey, .surveyResponse:
             break
         }
     }

@@ -40,6 +40,10 @@ internal enum L10n {
       internal static let error = L10n.tr("Localizable", "Alert.Title.Error", fallback: "Error")
     }
   }
+  internal enum Announce {
+    /// Announce
+    internal static let title = L10n.tr("Localizable", "Announce.Title", fallback: "Announce")
+  }
   internal enum App {
     /// Localizable.strings
     ///   TreeTracker

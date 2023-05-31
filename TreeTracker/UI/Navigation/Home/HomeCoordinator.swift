@@ -75,6 +75,13 @@ private extension HomeCoordinator {
         )
     }
 
+    func showAnnounce(chat: ChatListViewModel.Chat) {
+        configuration.navigationController.pushViewController(
+            announceViewController(chat: chat),
+            animated: true
+        )
+    }
+
     func showNotes(note: String?) {
         configuration.navigationController.pushViewController(
             notesViewController(note: note),
@@ -169,6 +176,17 @@ private extension HomeCoordinator {
             return viewModel
         }()
         return viewcontroller
+    }
+    
+    func announceViewController(chat: ChatListViewModel.Chat) -> UIViewController {
+        let viewController = StoryboardScene.Announce.initialScene.instantiate()
+        viewController.viewModel = {
+            let viewModel = AnnounceViewModel(
+                chat: chat
+            )
+            return viewModel
+        }()
+        return viewController
     }
 
     func notesViewController(note: String?) -> UIViewController {
@@ -293,6 +311,10 @@ extension HomeCoordinator: ChatListViewModelCoordinatorDelegate {
 
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectMessages planter: Planter) {
         showMessages(planter: planter)
+    }
+
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectAnnounce chat: ChatListViewModel.Chat) {
+        showAnnounce(chat: chat)
     }
 
 }

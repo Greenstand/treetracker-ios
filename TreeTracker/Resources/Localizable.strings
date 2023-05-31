@@ -108,3 +108,5 @@
 "Messages.Title" = "Admin";
 "Messages.InputTextView.PlaceHolder" = "Click to write a message";
 
+//Announce Screen
+"Announce.Title" = "Announce";

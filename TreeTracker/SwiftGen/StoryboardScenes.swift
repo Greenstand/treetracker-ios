@@ -18,6 +18,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<TreeTracker.AddTreeViewController>(storyboard: AddTree.self)
   }
+  internal enum Announce: StoryboardType {
+    internal static let storyboardName = "Announce"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.AnnounceViewController>(storyboard: Announce.self)
+  }
   internal enum ChatList: StoryboardType {
     internal static let storyboardName = "ChatList"
 
