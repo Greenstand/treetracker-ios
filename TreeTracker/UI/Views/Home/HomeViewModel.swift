@@ -113,10 +113,11 @@ extension HomeViewModel {
 extension HomeViewModel {
 
     func fetchUnreadMessagesCount() {
-        messagingService.getUnreadMessagesCount(for: planter) { [weak self] count in
-            guard let self else { return }
-            unreadMessagesCount = count
-        }
+        messagingService.syncMessages(for: planter)
+//        messagingService.getUnreadMessagesCount(for: planter) { [weak self] count in
+//            guard let self else { return }
+//            unreadMessagesCount = count
+//        }
     }
 
 }
