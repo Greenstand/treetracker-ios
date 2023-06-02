@@ -110,3 +110,8 @@
 
 //Announce Screen
 "Announce.Title" = "Announce";
+
+//Survey Screen
+"Survey.Title" = "Survey";
+"Survey.ActionButton.Title.Next" = "Next";
+"Survey.ActionButton.Title.Finish" = "Finish";

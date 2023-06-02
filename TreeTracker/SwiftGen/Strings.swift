@@ -276,6 +276,18 @@ internal enum L10n {
       }
     }
   }
+  internal enum Survey {
+    /// Survey
+    internal static let title = L10n.tr("Localizable", "Survey.Title", fallback: "Survey")
+    internal enum ActionButton {
+      internal enum Title {
+        /// Finish
+        internal static let finish = L10n.tr("Localizable", "Survey.ActionButton.Title.Finish", fallback: "Finish")
+        /// Next
+        internal static let next = L10n.tr("Localizable", "Survey.ActionButton.Title.Next", fallback: "Next")
+      }
+    }
+  }
   internal enum Terms {
     /// Terms & Conditions
     internal static let title = L10n.tr("Localizable", "Terms.Title", fallback: "Terms & Conditions")

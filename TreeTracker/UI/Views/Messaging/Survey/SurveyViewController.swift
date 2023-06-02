@@ -29,11 +29,9 @@ class SurveyViewController: UIViewController {
         }
     }
 
-    @IBOutlet private var actionButton: UIButton! {
+    @IBOutlet private var actionButton: ActionButton! {
         didSet {
-            actionButton.backgroundColor = Asset.Colors.primaryGreen.color
-            actionButton.layer.cornerRadius = 15
-            actionButton.tintColor = Asset.Colors.grayDark.color
+            actionButton.isEnabled = false
         }
     }
 
@@ -70,7 +68,7 @@ extension SurveyViewController: UITableViewDelegate {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        90
+        80
     }
 }
 

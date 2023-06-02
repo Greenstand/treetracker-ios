@@ -13,7 +13,7 @@ class SurveyTableViewCell: UITableViewCell {
     @IBOutlet private var buttonView: UIView! {
         didSet {
             buttonView.backgroundColor = Asset.Colors.backgroundGreen.color
-            buttonView.layer.cornerRadius = 15
+            buttonView.layer.cornerRadius = 5.0
             buttonView.clipsToBounds = true
         }
     }
