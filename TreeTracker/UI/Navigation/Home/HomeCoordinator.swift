@@ -82,6 +82,13 @@ private extension HomeCoordinator {
         )
     }
 
+    func showSurvey(chat: ChatListViewModel.Chat) {
+        configuration.navigationController.pushViewController(
+            surveyViewController(chat: chat),
+            animated: true
+        )
+    }
+
     func showNotes(note: String?) {
         configuration.navigationController.pushViewController(
             notesViewController(note: note),
@@ -177,11 +184,22 @@ private extension HomeCoordinator {
         }()
         return viewcontroller
     }
-    
+
     func announceViewController(chat: ChatListViewModel.Chat) -> UIViewController {
         let viewController = StoryboardScene.Announce.initialScene.instantiate()
         viewController.viewModel = {
             let viewModel = AnnounceViewModel(
+                chat: chat
+            )
+            return viewModel
+        }()
+        return viewController
+    }
+
+    func surveyViewController(chat: ChatListViewModel.Chat) -> UIViewController {
+        let viewController = StoryboardScene.Survey.initialScene.instantiate()
+        viewController.viewModel = {
+            let viewModel = SurveyViewModel(
                 chat: chat
             )
             return viewModel
@@ -315,6 +333,10 @@ extension HomeCoordinator: ChatListViewModelCoordinatorDelegate {
 
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectAnnounce chat: ChatListViewModel.Chat) {
         showAnnounce(chat: chat)
+    }
+
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectSurvey chat: ChatListViewModel.Chat) {
+        showSurvey(chat: chat)
     }
 
 }

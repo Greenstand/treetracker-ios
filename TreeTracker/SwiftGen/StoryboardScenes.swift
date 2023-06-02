@@ -78,6 +78,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<TreeTracker.SignUpViewController>(storyboard: SignUp.self)
   }
+  internal enum Survey: StoryboardType {
+    internal static let storyboardName = "Survey"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.SurveyViewController>(storyboard: Survey.self)
+  }
   internal enum Terms: StoryboardType {
     internal static let storyboardName = "Terms"
 
