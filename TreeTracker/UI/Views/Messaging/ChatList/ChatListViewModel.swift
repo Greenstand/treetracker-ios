@@ -159,7 +159,7 @@ extension ChatListViewModel {
                         choices: question.choices ?? [])
                 }),
                 surveyResponse: message.surveyResponse ?? [],
-                showQuestionNum: 0,
+                showQuestionNum: -1,
                 response: message.survey?.response ?? false
             )
 

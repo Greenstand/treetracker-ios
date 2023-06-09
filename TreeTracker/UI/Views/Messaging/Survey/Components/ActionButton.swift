@@ -31,6 +31,12 @@ class ActionButton: UIButton {
         }
     }
 
+    override var isHighlighted: Bool {
+        didSet {
+            updateState()
+        }
+    }
+
     var buttonStyle: ButtonStyle = .next {
         didSet {
             updateButtonStyle()
@@ -50,13 +56,24 @@ private extension ActionButton {
     }
 
     func updateState() {
-        if isEnabled {
-            backgroundColor = Asset.Colors.primaryGreen.color
-            tintColor = .white
-        } else {
+        if !isEnabled {
             backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.2)
             tintColor = Asset.Colors.grayLight.color
+        } else if isHighlighted {
+            backgroundColor = Asset.Colors.secondaryGreen.color
+            tintColor = .white
+        } else {
+            backgroundColor = Asset.Colors.primaryGreen.color
+            tintColor = .white
         }
+    }
+
+    @objc private func handleTouchDown() {
+        updateState()
+    }
+
+    @objc private func handleTouchUp() {
+        updateState()
     }
 
     func updateButtonStyle() {
@@ -73,16 +90,12 @@ private extension ActionButton {
     func nextQuestionAttributedTitle(withAtributes attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
         attributedString.append(NSAttributedString(string: L10n.Survey.ActionButton.Title.next, attributes: attributes))
-//        attributedString.append(NSAttributedString(attachment: iconTextAttachment))
-//        attributedString.append(NSAttributedString(string: "  "))
         return attributedString
     }
 
     func finishSurveyAttributedTitle(withAtributes attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
         attributedString.append(NSAttributedString(string: L10n.Survey.ActionButton.Title.finish, attributes: attributes))
-//        attributedString.append(NSAttributedString(attachment: iconTextAttachment))
-//        attributedString.append(NSAttributedString(string: "  "))
         return attributedString
     }
 
@@ -99,11 +112,4 @@ private extension ActionButton {
             .foregroundColor: Asset.Colors.grayLight.color.withAlphaComponent(0.5)
         ]
     }
-
-//    var iconTextAttachment: NSTextAttachment {
-//        let textAttachment = NSTextAttachment()
-//        textAttachment.image = Asset.Assets.upload.image
-//        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -20.0), size: CGSize(width: 50.0, height: 50))
-//        return textAttachment
-//    }
 }

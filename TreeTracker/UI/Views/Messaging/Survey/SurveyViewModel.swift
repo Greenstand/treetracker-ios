@@ -26,17 +26,24 @@ class SurveyViewModel {
     private let planter: Planter
     private var survey: SurveyViewModel.Survey
     private let messagingService: MessagingService
-    let questionNumber: Int
 
     init(planter: Planter, survey: SurveyViewModel.Survey, messagingService: MessagingService) {
         self.planter = planter
         self.survey = survey
         self.messagingService = messagingService
+        updateQuestion()
+    }
+
+    var questionNumber: Int = 0
+
+    private func updateQuestion() {
+        survey.showQuestionNum += 1
         self.questionNumber = survey.showQuestionNum
     }
 
     var title: String {
-        return "Survey \(questionNumber + 1)/\(survey.questions.count)"
+        let title = survey.response ? L10n.Survey.Title.response : L10n.Survey.Title.question
+        return "\(title) \(questionNumber + 1)/\(survey.questions.count)"
     }
 
     var numberOfRowsInSection: Int {
@@ -78,12 +85,13 @@ class SurveyViewModel {
 extension SurveyViewModel {
 
     func actionButtonPressed() {
-        survey.showQuestionNum = questionNumber + 1
-
-        if survey.questions.indices.contains(survey.showQuestionNum) {
+        if survey.questions.indices.contains(survey.showQuestionNum + 1) {
             coordinatorDelegate?.surveyViewModel(self, showNextQuestion: survey, planter: planter)
         } else {
-            messagingService.createSurveyResponse(planter: planter, surveyId: survey.surveyId, surveyResponse: survey.surveyResponse)
+
+            if survey.response == false {
+                messagingService.createSurveyResponse(planter: planter, surveyId: survey.surveyId, surveyResponse: survey.surveyResponse)
+            }
             coordinatorDelegate?.surveyViewModel(self, didFinishSurvey: survey)
         }
     }

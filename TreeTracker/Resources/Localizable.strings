@@ -112,6 +112,7 @@
 "Announce.Title" = "Announce";
 
 //Survey Screen
-"Survey.Title" = "Survey";
+"Survey.Title.Question" = "Question";
+"Survey.Title.Response" = "Response";
 "Survey.ActionButton.Title.Next" = "Next";
 "Survey.ActionButton.Title.Finish" = "Finish";

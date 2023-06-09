@@ -14,6 +14,7 @@ class AnnounceViewController: UIViewController {
         didSet {
             titleLabel.font = FontFamily.Montserrat.bold.font(size: 28)
             titleLabel.numberOfLines = 0
+            titleLabel.textAlignment = .center
             titleLabel.textColor = Asset.Colors.grayDark.color
         }
     }

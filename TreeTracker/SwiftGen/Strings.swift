@@ -277,8 +277,6 @@ internal enum L10n {
     }
   }
   internal enum Survey {
-    /// Survey
-    internal static let title = L10n.tr("Localizable", "Survey.Title", fallback: "Survey")
     internal enum ActionButton {
       internal enum Title {
         /// Finish
@@ -286,6 +284,12 @@ internal enum L10n {
         /// Next
         internal static let next = L10n.tr("Localizable", "Survey.ActionButton.Title.Next", fallback: "Next")
       }
+    }
+    internal enum Title {
+      /// Question
+      internal static let question = L10n.tr("Localizable", "Survey.Title.Question", fallback: "Question")
+      /// Response
+      internal static let response = L10n.tr("Localizable", "Survey.Title.Response", fallback: "Response")
     }
   }
   internal enum Terms {
