@@ -16,7 +16,6 @@ class SurveyViewController: UIViewController {
             questionLabel.textColor = Asset.Colors.grayDark.color
             questionLabel.numberOfLines = 0
             questionLabel.textAlignment = .center
-            questionLabel.text = "Do you want more questions?" // remove
         }
     }
 
@@ -38,12 +37,14 @@ class SurveyViewController: UIViewController {
     var viewModel: SurveyViewModel? {
         didSet {
             viewModel?.viewDelegate = self
+            title = viewModel?.title
         }
     }
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.updateView()
     }
 
 }
@@ -52,12 +53,14 @@ class SurveyViewController: UIViewController {
 extension SurveyViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        return viewModel?.numberOfRowsInSection ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SurveyTableViewCell.identifier, for: indexPath) as? SurveyTableViewCell
-        cell?.setupCell()
+        let choice = viewModel?.getChoiceForRowAt(indexPath: indexPath)
+        cell?.setupCell(choice: choice)
+        cell?.selectionStyle = .none
         return cell ?? UITableViewCell()
     }
 
@@ -66,13 +69,31 @@ extension SurveyViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension SurveyViewController: UITableViewDelegate {
 
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.didSelectRowAt(indexPath: indexPath)
+    }
+
 }
 
 // MARK: - SurveyViewModelViewDelegate
 extension SurveyViewController: SurveyViewModelViewDelegate {
+
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, updateViewWith survey: SurveyViewModel.Survey) {
+        questionLabel.text = survey.questions[survey.showQuestionNum].prompt
+
+        if survey.showQuestionNum == survey.questions.count - 1 {
+            actionButton.buttonStyle = .finish
+        }
+        
+        if survey.surveyResponse.indices.contains(survey.showQuestionNum) {
+            actionButton.isEnabled = true
+        }
+
+        tableView.reloadData()
+    }
 
 }

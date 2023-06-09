@@ -35,8 +35,14 @@ class SurveyTableViewCell: UITableViewCell {
 // MARK: - Public Action
 extension SurveyTableViewCell {
 
-    func setupCell() {
-        buttonTitle.text = "Choise A"
+    func setupCell(choice: SurveyViewModel.Choice?) {
+        buttonTitle.text = choice?.text
+
+        if let choice, choice.isSelected {
+            buttonView.backgroundColor = Asset.Colors.primaryGreen.color
+        } else {
+            buttonView.backgroundColor = Asset.Colors.backgroundGreen.color
+        }
     }
 
 }
