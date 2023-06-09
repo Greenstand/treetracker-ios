@@ -13,7 +13,7 @@ import UIKit
 protocol ChatListViewModelCoordinatorDelegate: AnyObject {
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectMessages planter: Planter)
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectAnnounce chat: ChatListViewModel.Chat)
-    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectSurvey survey: SurveyViewModel.Survey)
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectSurvey survey: SurveyViewModel.Survey, planter: Planter)
 }
 
 protocol ChatListViewModelViewDelegate: AnyObject {
@@ -80,9 +80,17 @@ extension ChatListViewModel {
                     chatList.insert(newChat, at: 0)
                 }
 
-            case .announce, .survey, .surveyResponse:
+            case .announce:
                 let newChat = Chat(
                     title: message.subject ?? "Announce!",
+                    type: messageType,
+                    messages: [message]
+                )
+                chatList.append(newChat)
+
+            case .survey, .surveyResponse:
+                let newChat = Chat(
+                    title: message.subject ?? "Survey!",
                     type: messageType,
                     messages: [message]
                 )
@@ -155,7 +163,7 @@ extension ChatListViewModel {
                 response: message.survey?.response ?? false
             )
 
-            coordinatorDelegate?.chatListViewModel(self, didSelectSurvey: survey)
+            coordinatorDelegate?.chatListViewModel(self, didSelectSurvey: survey, planter: planter)
         }
     }
 

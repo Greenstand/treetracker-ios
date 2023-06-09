@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Treetracker_Core
 
 protocol SurveyViewModelCoordinatorDelegate: AnyObject {
-
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter)
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, didFinishSurvey survey: SurveyViewModel.Survey)
 }
 
 protocol SurveyViewModelViewDelegate: AnyObject {
@@ -21,11 +23,15 @@ class SurveyViewModel {
     weak var coordinatorDelegate: SurveyViewModelCoordinatorDelegate?
     weak var viewDelegate: SurveyViewModelViewDelegate?
 
+    private let planter: Planter
     private var survey: SurveyViewModel.Survey
+    private let messagingService: MessagingService
     let questionNumber: Int
 
-    init(survey: SurveyViewModel.Survey) {
+    init(planter: Planter, survey: SurveyViewModel.Survey, messagingService: MessagingService) {
+        self.planter = planter
         self.survey = survey
+        self.messagingService = messagingService
         self.questionNumber = survey.showQuestionNum
     }
 
@@ -64,6 +70,22 @@ class SurveyViewModel {
 
     func updateView() {
         viewDelegate?.surveyViewModel(self, updateViewWith: survey)
+    }
+
+}
+
+// MARK: - Navigation
+extension SurveyViewModel {
+
+    func actionButtonPressed() {
+        survey.showQuestionNum = questionNumber + 1
+
+        if survey.questions.indices.contains(survey.showQuestionNum) {
+            coordinatorDelegate?.surveyViewModel(self, showNextQuestion: survey, planter: planter)
+        } else {
+            messagingService.createSurveyResponse(planter: planter, surveyId: survey.surveyId, surveyResponse: survey.surveyResponse)
+            coordinatorDelegate?.surveyViewModel(self, didFinishSurvey: survey)
+        }
     }
 
 }

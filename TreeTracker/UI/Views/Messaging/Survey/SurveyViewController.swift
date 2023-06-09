@@ -46,6 +46,14 @@ class SurveyViewController: UIViewController {
         super.viewDidLoad()
         viewModel?.updateView()
     }
+}
+
+// MARK: - Button Action
+private extension SurveyViewController {
+
+    @IBAction func nextButtonPressed() {
+        viewModel?.actionButtonPressed()
+    }
 
 }
 
@@ -88,7 +96,7 @@ extension SurveyViewController: SurveyViewModelViewDelegate {
         if survey.showQuestionNum == survey.questions.count - 1 {
             actionButton.buttonStyle = .finish
         }
-        
+
         if survey.surveyResponse.indices.contains(survey.showQuestionNum) {
             actionButton.isEnabled = true
         }

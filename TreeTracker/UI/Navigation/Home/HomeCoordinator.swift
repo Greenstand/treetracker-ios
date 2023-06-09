@@ -82,9 +82,9 @@ private extension HomeCoordinator {
         )
     }
 
-    func showSurvey(survey: SurveyViewModel.Survey) {
+    func showSurvey(planter: Planter, survey: SurveyViewModel.Survey) {
         configuration.navigationController.pushViewController(
-            surveyViewController(survey: survey),
+            surveyViewController(planter: planter, survey: survey),
             animated: true
         )
     }
@@ -196,12 +196,15 @@ private extension HomeCoordinator {
         return viewController
     }
 
-    func surveyViewController(survey: SurveyViewModel.Survey) -> UIViewController {
+    func surveyViewController(planter: Planter, survey: SurveyViewModel.Survey) -> UIViewController {
         let viewController = StoryboardScene.Survey.initialScene.instantiate()
         viewController.viewModel = {
             let viewModel = SurveyViewModel(
-                survey: survey
+                planter: planter,
+                survey: survey,
+                messagingService: self.treetrackerSDK.messagingService
             )
+            viewModel.coordinatorDelegate = self
             return viewModel
         }()
         return viewController
@@ -336,8 +339,21 @@ extension HomeCoordinator: ChatListViewModelCoordinatorDelegate {
         showAnnounce(chat: chat)
     }
 
-    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectSurvey survey: SurveyViewModel.Survey) {
-        showSurvey(survey: survey)
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectSurvey survey: SurveyViewModel.Survey, planter: Planter) {
+        showSurvey(planter: planter, survey: survey)
     }
 
+}
+
+// MARK: - SurveyViewModelCoordinatorDelegate
+extension HomeCoordinator: SurveyViewModelCoordinatorDelegate {
+
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter) {
+        showSurvey(planter: planter, survey: survey)
+    }
+
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, didFinishSurvey survey: SurveyViewModel.Survey) {
+        let chatListViewController = configuration.navigationController.viewControllers[1]
+        configuration.navigationController.popToViewController(chatListViewController, animated: true)
+    }
 }

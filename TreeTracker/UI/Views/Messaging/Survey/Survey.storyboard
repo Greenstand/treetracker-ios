@@ -30,6 +30,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="NEXT"/>
+                                <connections>
+                                    <action selector="nextButtonPressed" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cs0-HK-dwJ"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vjy-i4-zIP">
                                 <rect key="frame" x="0.0" y="145" width="393" height="583"/>
@@ -52,7 +55,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="actionButton" destination="Rud-87-i7v" id="pXN-0L-7Bd"/>
+                        <outlet property="actionButton" destination="Rud-87-i7v" id="UUC-Ro-kTZ"/>
                         <outlet property="questionLabel" destination="CWD-Wf-Uuh" id="tJ7-GW-X6e"/>
                         <outlet property="tableView" destination="vjy-i4-zIP" id="Som-9C-5BA"/>
                     </connections>
