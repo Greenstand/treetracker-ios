@@ -19,6 +19,12 @@ class MessagingButton: UIButton {
         super.init(coder: coder)
         commonInit()
     }
+
+    override var isHighlighted: Bool {
+        didSet {
+            updateState()
+        }
+    }
 }
 
 private extension MessagingButton {
@@ -29,6 +35,14 @@ private extension MessagingButton {
         layer.cornerRadius = 5.0
         layer.masksToBounds = true
         setAttributedTitle(attributedTitle, for: .normal)
+    }
+
+    func updateState() {
+        if isHighlighted {
+            backgroundColor = Asset.Colors.secondaryGreen.color
+        } else {
+            backgroundColor = Asset.Colors.primaryGreen.color
+        }
     }
 
     var attributedTitle: NSAttributedString {
