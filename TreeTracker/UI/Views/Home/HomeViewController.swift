@@ -147,6 +147,7 @@ class HomeViewController: UIViewController, AlertPresenting {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSettingsButton()
+        configureNotificationCenter()
         viewModel?.startMonitoringTrees()
     }
 
@@ -154,6 +155,7 @@ class HomeViewController: UIViewController, AlertPresenting {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.setupNavigationAppearance()
         viewModel?.fetchProfileData()
+        viewModel?.syncMessages()
         viewModel?.fetchUnreadMessagesCount()
     }
 
@@ -187,6 +189,19 @@ private extension HomeViewController {
             target: self,
             action: #selector(settingsButtonPressed)
         )]
+    }
+
+    func configureNotificationCenter() {
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(fetchUnreadMessagesCount),
+            name: NSNotification.Name("didFinishFetchingMessages"),
+            object: nil
+        )
+    }
+
+    @objc
+    func fetchUnreadMessagesCount() {
+        viewModel?.fetchUnreadMessagesCount()
     }
 }
 

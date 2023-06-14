@@ -354,7 +354,10 @@ extension HomeCoordinator: SurveyViewModelCoordinatorDelegate {
     }
 
     func surveyViewModel(_ surveyViewModel: SurveyViewModel, didFinishSurvey survey: SurveyViewModel.Survey) {
-        let chatListViewController = configuration.navigationController.viewControllers[1]
-        configuration.navigationController.popToViewController(chatListViewController, animated: true)
+        if let chatListViewController = configuration.navigationController.viewControllers.first(where: { $0 is ChatListViewController }) as? ChatListViewController {
+            configuration.navigationController.popToViewController(chatListViewController, animated: true)
+        } else {
+            configuration.navigationController.popToRootViewController(animated: true)
+        }
     }
 }
