@@ -80,17 +80,9 @@ extension ChatListViewModel {
                     chatList.insert(newChat, at: 0)
                 }
 
-            case .announce:
+            default:
                 let newChat = Chat(
-                    title: message.subject ?? "Announce!",
-                    type: messageType,
-                    messages: [message]
-                )
-                chatList.append(newChat)
-
-            case .survey, .surveyResponse:
-                let newChat = Chat(
-                    title: message.subject ?? "Survey!",
+                    title: message.subject ?? "",
                     type: messageType,
                     messages: [message]
                 )
@@ -159,7 +151,6 @@ extension ChatListViewModel {
                         choices: question.choices ?? [])
                 }),
                 surveyResponse: message.surveyResponse ?? [],
-                showQuestionNum: -1,
                 response: message.survey?.response ?? false
             )
 

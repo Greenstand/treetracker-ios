@@ -82,9 +82,9 @@ private extension HomeCoordinator {
         )
     }
 
-    func showSurvey(planter: Planter, survey: SurveyViewModel.Survey) {
+    func showSurvey(planter: Planter, survey: SurveyViewModel.Survey, index: Int = 0) {
         configuration.navigationController.pushViewController(
-            surveyViewController(planter: planter, survey: survey),
+            surveyViewController(planter: planter, survey: survey, index: index),
             animated: true
         )
     }
@@ -196,13 +196,14 @@ private extension HomeCoordinator {
         return viewController
     }
 
-    func surveyViewController(planter: Planter, survey: SurveyViewModel.Survey) -> UIViewController {
+    func surveyViewController(planter: Planter, survey: SurveyViewModel.Survey, index: Int) -> UIViewController {
         let viewController = StoryboardScene.Survey.initialScene.instantiate()
         viewController.viewModel = {
             let viewModel = SurveyViewModel(
                 planter: planter,
                 survey: survey,
-                messagingService: self.treetrackerSDK.messagingService
+                messagingService: self.treetrackerSDK.messagingService,
+                index: index
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -348,8 +349,8 @@ extension HomeCoordinator: ChatListViewModelCoordinatorDelegate {
 // MARK: - SurveyViewModelCoordinatorDelegate
 extension HomeCoordinator: SurveyViewModelCoordinatorDelegate {
 
-    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter) {
-        showSurvey(planter: planter, survey: survey)
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter, index: Int) {
+        showSurvey(planter: planter, survey: survey, index: index)
     }
 
     func surveyViewModel(_ surveyViewModel: SurveyViewModel, didFinishSurvey survey: SurveyViewModel.Survey) {

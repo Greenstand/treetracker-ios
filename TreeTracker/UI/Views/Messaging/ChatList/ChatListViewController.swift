@@ -58,7 +58,6 @@ class ChatListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.fetchProfileImage()
-        viewModel?.fetchMessages()
         setupNavBarImage()
     }
 
@@ -70,6 +69,7 @@ class ChatListViewController: UIViewController {
             backgroundColor: Asset.Colors.backgroundGreen.color
         )
         showImage(true)
+        viewModel?.fetchMessages()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -88,8 +88,10 @@ extension ChatListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as? ChatListTableViewCell
-        let chat = viewModel?.cellForRowAt(indexPath: indexPath)
-        cell?.setupCell(data: chat!) // remove force unwrap
+        if let chat = viewModel?.cellForRowAt(indexPath: indexPath) {
+            cell?.setupCell(data: chat)
+        }
+        cell?.selectionStyle = .none
         return cell ?? UITableViewCell()
     }
 

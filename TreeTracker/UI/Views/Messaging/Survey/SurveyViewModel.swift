@@ -10,7 +10,7 @@ import Foundation
 import Treetracker_Core
 
 protocol SurveyViewModelCoordinatorDelegate: AnyObject {
-    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter)
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter, index: Int)
     func surveyViewModel(_ surveyViewModel: SurveyViewModel, didFinishSurvey survey: SurveyViewModel.Survey)
 }
 
@@ -27,34 +27,29 @@ class SurveyViewModel {
     private var survey: SurveyViewModel.Survey
     private let messagingService: MessagingService
 
-    init(planter: Planter, survey: SurveyViewModel.Survey, messagingService: MessagingService) {
+    init(planter: Planter, survey: SurveyViewModel.Survey, messagingService: MessagingService, index: Int) {
         self.planter = planter
         self.survey = survey
         self.messagingService = messagingService
-        updateQuestion()
+        self.index = index
     }
 
-    var questionNumber: Int = 0
-
-    private func updateQuestion() {
-        survey.showQuestionNum += 1
-        self.questionNumber = survey.showQuestionNum
-    }
+    var index: Int
 
     var title: String {
         let title = survey.response ? L10n.Survey.Title.response : L10n.Survey.Title.question
-        return "\(title) \(questionNumber + 1)/\(survey.questions.count)"
+        return "\(title) \(index + 1)/\(survey.questions.count)"
     }
 
     var numberOfRowsInSection: Int {
-        return survey.questions[questionNumber].choices.count
+        return survey.questions[index].choices.count
     }
 
     func getChoiceForRowAt(indexPath: IndexPath) -> Choice {
-        let choiceText = survey.questions[questionNumber].choices[indexPath.row]
+        let choiceText = survey.questions[index].choices[indexPath.row]
 
-        if survey.surveyResponse.indices.contains(questionNumber) {
-            if survey.surveyResponse[questionNumber] == choiceText {
+        if survey.surveyResponse.indices.contains(index) {
+            if survey.surveyResponse[index] == choiceText {
                 return Choice(text: choiceText, isSelected: true)
             }
         }
@@ -65,9 +60,9 @@ class SurveyViewModel {
     func didSelectRowAt(indexPath: IndexPath) {
         guard survey.response == false else { return }
 
-        let selectedChoice = survey.questions[questionNumber].choices[indexPath.row]
-        if survey.surveyResponse.indices.contains(questionNumber) {
-            survey.surveyResponse[questionNumber] = selectedChoice
+        let selectedChoice = survey.questions[index].choices[indexPath.row]
+        if survey.surveyResponse.indices.contains(index) {
+            survey.surveyResponse[index] = selectedChoice
         } else {
             survey.surveyResponse.append(selectedChoice)
         }
@@ -85,8 +80,8 @@ class SurveyViewModel {
 extension SurveyViewModel {
 
     func actionButtonPressed() {
-        if survey.questions.indices.contains(survey.showQuestionNum + 1) {
-            coordinatorDelegate?.surveyViewModel(self, showNextQuestion: survey, planter: planter)
+        if index < survey.questions.count - 1 {
+            coordinatorDelegate?.surveyViewModel(self, showNextQuestion: survey, planter: planter, index: index + 1)
         } else {
 
             if survey.response == false {
@@ -106,7 +101,6 @@ extension SurveyViewModel {
         let title: String
         let questions: [Question]
         var surveyResponse: [String]
-        var showQuestionNum: Int
         var response: Bool
     }
 

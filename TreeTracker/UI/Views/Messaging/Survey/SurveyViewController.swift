@@ -91,13 +91,13 @@ extension SurveyViewController: UITableViewDelegate {
 extension SurveyViewController: SurveyViewModelViewDelegate {
 
     func surveyViewModel(_ surveyViewModel: SurveyViewModel, updateViewWith survey: SurveyViewModel.Survey) {
-        questionLabel.text = survey.questions[survey.showQuestionNum].prompt
+        questionLabel.text = survey.questions[surveyViewModel.index].prompt
 
-        if survey.showQuestionNum == survey.questions.count - 1 {
+        if surveyViewModel.index == survey.questions.count - 1 {
             actionButton.buttonStyle = .finish
         }
 
-        if survey.surveyResponse.indices.contains(survey.showQuestionNum) {
+        if survey.surveyResponse.indices.contains(surveyViewModel.index) {
             actionButton.isEnabled = true
         }
 

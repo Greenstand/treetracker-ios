@@ -63,7 +63,7 @@ extension ChatListTableViewCell {
         chatImage.image = Asset.Assets.trees.image
         chatImage.image = data.image
         chatTitle.text = data.title
-        
+
         if data.unreadCount == 0 {
             chatAlertCountView.isHidden = true
             chatAlertCountLabel.isHidden = true
