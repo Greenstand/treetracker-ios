@@ -61,7 +61,7 @@ extension ChatListViewModel {
 
     func fetchMessages() {
         var chatList: [Chat] = []
-        let allMessages = messagingService.getSavedMessages(planter: planter)
+        let allMessages = messagingService.getChatListMessages(planter: planter)
 
         for message in allMessages {
             let messageType = messageType(type: message.type)
@@ -95,9 +95,7 @@ extension ChatListViewModel {
 
     func updateUnreadMessagesCount(indexPath: IndexPath) {
         let messagesToUpdate = chatList[indexPath.row].messages
-
-        let updatedMessages = messagingService.updateUnreadMessages(messages: messagesToUpdate)
-        self.chatList[indexPath.row].messages = updatedMessages
+        messagingService.updateUnreadMessages(messages: messagesToUpdate)
     }
 
 }
