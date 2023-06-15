@@ -17,7 +17,6 @@ protocol ChatListViewModelCoordinatorDelegate: AnyObject {
 }
 
 protocol ChatListViewModelViewDelegate: AnyObject {
-    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didFetchProfile image: UIImage)
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateChatList chatList: [ChatListViewModel.Chat])
 }
 
@@ -96,27 +95,6 @@ extension ChatListViewModel {
     func updateUnreadMessagesCount(indexPath: IndexPath) {
         let messagesToUpdate = chatList[indexPath.row].messages
         messagingService.updateUnreadMessages(messages: messagesToUpdate)
-    }
-
-}
-
-// MARK: - Profile
-extension ChatListViewModel {
-
-    func fetchProfileImage() {
-
-        selfieService.fetchSelfie(forPlanter: planter) { [weak self] (result) in
-            guard let self else { return }
-            switch result {
-            case .success(let data):
-                guard let image = UIImage(data: data) else {
-                    fallthrough
-                }
-                viewDelegate?.chatListViewModel(self, didFetchProfile: image)
-            case .failure:
-                viewDelegate?.chatListViewModel(self, didFetchProfile: Asset.Assets.profile.image)
-            }
-        }
     }
 
 }
