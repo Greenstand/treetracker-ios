@@ -41,13 +41,6 @@ class AnnounceViewController: UIViewController {
         viewModel?.updateView()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.setupNavigationAppearance(
-            prefersLargeTitles: true,
-            backgroundColor: Asset.Colors.backgroundGreen.color
-        )
-    }
 }
 
 // MARK: - AnnounceViewModelViewDelegate

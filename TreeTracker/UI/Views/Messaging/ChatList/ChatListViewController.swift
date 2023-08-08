@@ -49,11 +49,6 @@ class ChatListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = Asset.Colors.backgroundGreen.color
-        navigationController?.navigationBar.setupNavigationAppearance(
-            prefersLargeTitles: true,
-            backgroundColor: Asset.Colors.backgroundGreen.color
-        )
         viewModel?.fetchMessages()
     }
 

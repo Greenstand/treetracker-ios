@@ -69,10 +69,6 @@ class MessagesViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = Asset.Colors.backgroundGreen.color
-        navigationController?.navigationBar.setupNavigationAppearance(
-            backgroundColor: Asset.Colors.backgroundGreen.color
-        )
         scrollToBottom()
     }
 
