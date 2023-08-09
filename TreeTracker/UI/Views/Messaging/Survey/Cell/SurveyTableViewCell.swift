@@ -12,7 +12,7 @@ class SurveyTableViewCell: UITableViewCell {
 
     @IBOutlet private var buttonView: UIView! {
         didSet {
-            buttonView.backgroundColor = Asset.Colors.backgroundGreen.color
+            buttonView.backgroundColor = Asset.Colors.primaryGreen.color
             buttonView.layer.cornerRadius = 5.0
             buttonView.clipsToBounds = true
         }
@@ -39,9 +39,9 @@ extension SurveyTableViewCell {
         buttonTitle.text = choice?.text
 
         if let choice, choice.isSelected {
-            buttonView.backgroundColor = Asset.Colors.primaryGreen.color
+            buttonView.backgroundColor = Asset.Colors.secondaryGreen.color
         } else {
-            buttonView.backgroundColor = Asset.Colors.backgroundGreen.color
+            buttonView.backgroundColor = Asset.Colors.primaryGreen.color
         }
     }
 

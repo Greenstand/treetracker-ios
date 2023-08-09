@@ -59,7 +59,7 @@ class ChatListTableViewCell: UITableViewCell {
 extension ChatListTableViewCell {
 
     func setupCell(data: ChatListViewModel.Chat) {
-        contentView.backgroundColor = Asset.Colors.backgroundGreen.color.withAlphaComponent(0.25)
+        contentView.backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.2)
         chatImage.image = Asset.Assets.trees.image
         chatImage.image = data.image
         chatTitle.text = data.title
