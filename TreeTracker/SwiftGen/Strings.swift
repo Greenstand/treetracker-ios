@@ -41,8 +41,8 @@ internal enum L10n {
     }
   }
   internal enum Announce {
-    /// Announce
-    internal static let title = L10n.tr("Localizable", "Announce.Title", fallback: "Announce")
+    /// Announcement
+    internal static let title = L10n.tr("Localizable", "Announce.Title", fallback: "Announcement")
   }
   internal enum App {
     /// Localizable.strings
@@ -54,8 +54,8 @@ internal enum L10n {
   }
   internal enum ChatList {
     internal enum NoMessagesLabel {
-      /// No messages, Yet.
-      internal static let text = L10n.tr("Localizable", "ChatList.NoMessagesLabel.Text", fallback: "No messages, Yet.")
+      /// No messages
+      internal static let text = L10n.tr("Localizable", "ChatList.NoMessagesLabel.Text", fallback: "No messages")
     }
   }
   internal enum DeleteAccountConfirmation {
