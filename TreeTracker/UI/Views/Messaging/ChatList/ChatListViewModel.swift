@@ -111,7 +111,7 @@ extension ChatListViewModel {
             coordinatorDelegate?.chatListViewModel(self, didSelectMessages: planter)
         case .announce:
             coordinatorDelegate?.chatListViewModel(self, didSelectAnnounce: selectedChat)
-        case .survey, .surveyResponse:
+        case .survey, .survey_response:
 
             guard let message = selectedChat.messages.first,
                   let questions = message.survey?.questions?.array as? [SurveyQuestion] else {
@@ -141,7 +141,7 @@ extension ChatListViewModel {
 
     struct Chat {
         let title: String
-        let type: MessageType
+        let type: Message.MessageType
         var messages: [MessageEntity]
 
         var image: UIImage {
@@ -152,7 +152,7 @@ extension ChatListViewModel {
                 return Asset.Assets.gardening.image
             case .survey:
                 return Asset.Assets.logo.image
-            case .surveyResponse:
+            case .survey_response:
                 return Asset.Assets.people.image
             }
         }
@@ -162,19 +162,12 @@ extension ChatListViewModel {
         }
     }
 
-    enum MessageType: String, Decodable {
-        case message
-        case announce
-        case survey
-        case surveyResponse
-    }
-
-    func messageType(type: String?) -> MessageType {
+    func messageType(type: String?) -> Message.MessageType {
         switch type {
         case "message": return .message
         case "announce": return .announce
         case "survey": return .survey
-        case "survey_response": return .surveyResponse
+        case "survey_response": return .survey_response
         default: return .message
         }
     }
