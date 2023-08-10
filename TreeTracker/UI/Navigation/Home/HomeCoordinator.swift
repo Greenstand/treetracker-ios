@@ -144,8 +144,8 @@ private extension HomeCoordinator {
     }
 
     func addTreeViewController(planter: Planter) -> UIViewController {
-        let viewcontroller = StoryboardScene.AddTree.initialScene.instantiate()
-        viewcontroller.viewModel = {
+        let viewController = StoryboardScene.AddTree.initialScene.instantiate()
+        viewController.viewModel = {
             let viewModel = AddTreeViewModel(
                 locationProvider: self.treetrackerSDK.locationService,
                 treeService: self.treetrackerSDK.treeService,
@@ -156,33 +156,33 @@ private extension HomeCoordinator {
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
-        return viewcontroller
+        return viewController
     }
 
     func chatListViewController(planter: Planter) -> UIViewController {
-        let viewcontroller = StoryboardScene.ChatList.initialScene.instantiate()
-        viewcontroller.viewModel = {
+        let viewController = StoryboardScene.ChatList.initialScene.instantiate()
+        viewController.viewModel = {
             let viewModel = ChatListViewModel(
-            planter: planter,
-            selfieService: self.treetrackerSDK.selfieService,
-            messagingService: self.treetrackerSDK.messagingService
+                planter: planter,
+                selfieService: self.treetrackerSDK.selfieService,
+                messagingService: self.treetrackerSDK.messagingService
             )
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
-        return viewcontroller
+        return viewController
     }
 
     func messagesViewController(planter: Planter) -> UIViewController {
-        let viewcontroller = StoryboardScene.Messages.initialScene.instantiate()
-        viewcontroller.viewModel = {
+        let viewController = StoryboardScene.Messages.initialScene.instantiate()
+        viewController.viewModel = {
             let viewModel = MessagesViewModel(
-            planter: planter,
-            messagingService: treetrackerSDK.messagingService
+                planter: planter,
+                messagingService: treetrackerSDK.messagingService
             )
             return viewModel
         }()
-        return viewcontroller
+        return viewController
     }
 
     func announceViewController(chat: ChatListViewModel.Chat) -> UIViewController {
