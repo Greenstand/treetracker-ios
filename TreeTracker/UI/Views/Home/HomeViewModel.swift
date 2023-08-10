@@ -117,7 +117,16 @@ extension HomeViewModel {
     }
 
     func syncMessages() {
-        messagingService.syncMessages(for: planter)
+        messagingService.syncMessages(for: planter) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.fetchUnreadMessagesCount()
+
+            case .failure(let error):
+                // do something
+                print(error)
+            }
+        }
     }
 
 }
