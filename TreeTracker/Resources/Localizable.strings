@@ -103,6 +103,8 @@
 
 //ChatList Screen
 "ChatList.NoMessagesLabel.Text" = "No messages";
+"ChatList.MessageChatCell.FallbackTitle" = "Admin";
+"ChatList.DefaultCell.FallbackTitle" = "";
 
 //Messages Screen
 "Messages.Title" = "Admin";

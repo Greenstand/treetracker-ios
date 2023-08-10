@@ -53,6 +53,14 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "App.Title", fallback: "Greenstand Treetracker")
   }
   internal enum ChatList {
+    internal enum DefaultCell {
+      /// 
+      internal static let fallbackTitle = L10n.tr("Localizable", "ChatList.DefaultCell.FallbackTitle", fallback: "")
+    }
+    internal enum MessageChatCell {
+      /// Admin
+      internal static let fallbackTitle = L10n.tr("Localizable", "ChatList.MessageChatCell.FallbackTitle", fallback: "Admin")
+    }
     internal enum NoMessagesLabel {
       /// No messages
       internal static let text = L10n.tr("Localizable", "ChatList.NoMessagesLabel.Text", fallback: "No messages")

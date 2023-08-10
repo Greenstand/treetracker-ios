@@ -72,7 +72,7 @@ extension ChatListViewModel {
 
                 } else {
                     let newChat = Chat(
-                        title: message.subject ?? "Admin",
+                        title: message.subject ?? L10n.ChatList.MessageChatCell.fallbackTitle,
                         type: messageType,
                         messages: [message]
                     )
@@ -81,7 +81,7 @@ extension ChatListViewModel {
 
             default:
                 let newChat = Chat(
-                    title: message.subject ?? "",
+                    title: message.subject ?? L10n.ChatList.DefaultCell.fallbackTitle,
                     type: messageType,
                     messages: [message]
                 )
