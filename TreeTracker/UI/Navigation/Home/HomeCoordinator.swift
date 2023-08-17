@@ -82,9 +82,9 @@ private extension HomeCoordinator {
         )
     }
 
-    func showSurvey(planter: Planter, survey: SurveyViewModel.Survey, index: Int = 0) {
+    func showSurvey(planter: Planter, survey: SurveyViewModel.Survey, questionIndex: Int = 0) {
         configuration.navigationController.pushViewController(
-            surveyViewController(planter: planter, survey: survey, index: index),
+            surveyViewController(planter: planter, survey: survey, questionIndex: questionIndex),
             animated: true
         )
     }
@@ -196,14 +196,14 @@ private extension HomeCoordinator {
         return viewController
     }
 
-    func surveyViewController(planter: Planter, survey: SurveyViewModel.Survey, index: Int) -> UIViewController {
+    func surveyViewController(planter: Planter, survey: SurveyViewModel.Survey, questionIndex: Int) -> UIViewController {
         let viewController = StoryboardScene.Survey.initialScene.instantiate()
         viewController.viewModel = {
             let viewModel = SurveyViewModel(
                 planter: planter,
                 survey: survey,
                 messagingService: self.treetrackerSDK.messagingService,
-                index: index
+                questionIndex: questionIndex
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -349,8 +349,8 @@ extension HomeCoordinator: ChatListViewModelCoordinatorDelegate {
 // MARK: - SurveyViewModelCoordinatorDelegate
 extension HomeCoordinator: SurveyViewModelCoordinatorDelegate {
 
-    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter, index: Int) {
-        showSurvey(planter: planter, survey: survey, index: index)
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter, questionIndex: Int) {
+        showSurvey(planter: planter, survey: survey, questionIndex: questionIndex)
     }
 
     func surveyViewModel(_ surveyViewModel: SurveyViewModel, didFinishSurvey survey: SurveyViewModel.Survey) {
