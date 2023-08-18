@@ -57,6 +57,16 @@ internal enum L10n {
       /// 
       internal static let fallbackTitle = L10n.tr("Localizable", "ChatList.DefaultCell.FallbackTitle", fallback: "")
     }
+    internal enum LastSyncLabel {
+      internal enum WithDate {
+        /// Last sync time:
+        internal static let text = L10n.tr("Localizable", "ChatList.LastSyncLabel.WithDate.Text", fallback: "Last sync time:")
+      }
+      internal enum WithouDate {
+        /// Please, tap the button above to sync messages.
+        internal static let text = L10n.tr("Localizable", "ChatList.LastSyncLabel.WithouDate.Text", fallback: "Please, tap the button above to sync messages.")
+      }
+    }
     internal enum MessageChatCell {
       /// Admin
       internal static let fallbackTitle = L10n.tr("Localizable", "ChatList.MessageChatCell.FallbackTitle", fallback: "Admin")
@@ -64,6 +74,16 @@ internal enum L10n {
     internal enum NoMessagesLabel {
       /// No messages
       internal static let text = L10n.tr("Localizable", "ChatList.NoMessagesLabel.Text", fallback: "No messages")
+    }
+    internal enum SyncMessages {
+      internal enum Loading {
+        /// Loading...
+        internal static let title = L10n.tr("Localizable", "ChatList.SyncMessages.loading.Title", fallback: "Loading...")
+      }
+      internal enum Normal {
+        /// Sync Messages
+        internal static let title = L10n.tr("Localizable", "ChatList.SyncMessages.normal.Title", fallback: "Sync Messages")
+      }
     }
   }
   internal enum DeleteAccountConfirmation {

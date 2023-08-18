@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22152" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22127"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aOp-Rr-UMb">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaF-bF-5Cf">
@@ -46,25 +46,51 @@
                                     <constraint firstItem="qiL-vk-rp5" firstAttribute="centerX" secondItem="DaF-bF-5Cf" secondAttribute="centerX" id="xnx-Ss-Bme"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRg-1e-K2e" customClass="SyncMessagesButton" customModule="TreeTracker" customModuleProvider="target">
+                                <rect key="frame" x="20" y="687" width="353" height="90"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Bqc-dg-3No"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="SYNC_MESSAGES"/>
+                                <connections>
+                                    <action selector="syncMessagesButtonPressed" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pxM-XM-XnJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST_SYNC_LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjz-8R-cyf">
+                                <rect key="frame" x="20" y="797" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="aOp-Rr-UMb" secondAttribute="bottom" id="5FW-WE-nTV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Yjz-8R-cyf" secondAttribute="trailing" constant="20" id="1Cy-uH-riL"/>
+                            <constraint firstItem="LRg-1e-K2e" firstAttribute="top" secondItem="aOp-Rr-UMb" secondAttribute="bottom" constant="20" id="5FW-WE-nTV"/>
                             <constraint firstItem="DaF-bF-5Cf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FIF-RN-ZLA"/>
+                            <constraint firstItem="LRg-1e-K2e" firstAttribute="bottom" secondItem="Yjz-8R-cyf" secondAttribute="top" constant="-20" id="G8I-lx-vx3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aOp-Rr-UMb" secondAttribute="trailing" id="H37-Rs-qij"/>
+                            <constraint firstItem="Yjz-8R-cyf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Mhm-1Y-JMH"/>
                             <constraint firstItem="aOp-Rr-UMb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="NeB-wD-N8h"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Yjz-8R-cyf" secondAttribute="bottom" id="Og7-rg-Tvc"/>
                             <constraint firstItem="DaF-bF-5Cf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TCT-wJ-Vpf"/>
                             <constraint firstItem="aOp-Rr-UMb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="fUt-b5-f0V"/>
                             <constraint firstAttribute="bottom" secondItem="DaF-bF-5Cf" secondAttribute="bottom" id="fWr-ez-oeg"/>
+                            <constraint firstItem="LRg-1e-K2e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="jc4-oA-zlS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DaF-bF-5Cf" secondAttribute="trailing" id="jxL-2v-nbl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LRg-1e-K2e" secondAttribute="trailing" constant="20" id="oiY-gQ-Kij"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chatListTableView" destination="aOp-Rr-UMb" id="4iO-xn-0sz"/>
+                        <outlet property="lastSyncLabel" destination="Yjz-8R-cyf" id="nNZ-Jm-2vB"/>
                         <outlet property="noMessagesImageView" destination="qiL-vk-rp5" id="Wvd-ih-jdG"/>
                         <outlet property="noMessagesLabel" destination="USj-0f-P2H" id="cbc-UK-2JA"/>
                         <outlet property="noMessagesView" destination="DaF-bF-5Cf" id="SxZ-bV-ALq"/>
+                        <outlet property="syncMessagesButton" destination="LRg-1e-K2e" id="qZE-NX-vQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

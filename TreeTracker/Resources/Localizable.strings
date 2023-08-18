@@ -102,6 +102,10 @@
 "Settings.PhotoQuality.Option.High.Info" = "High resolution, high data usage.";
 
 //ChatList Screen
+"ChatList.SyncMessages.normal.Title" = "Sync Messages";
+"ChatList.SyncMessages.loading.Title" = "Loading...";
+"ChatList.LastSyncLabel.WithouDate.Text" = "Please, tap the button above to sync messages.";
+"ChatList.LastSyncLabel.WithDate.Text" = "Last sync time:";
 "ChatList.NoMessagesLabel.Text" = "No messages";
 "ChatList.MessageChatCell.FallbackTitle" = "Admin";
 "ChatList.DefaultCell.FallbackTitle" = "";

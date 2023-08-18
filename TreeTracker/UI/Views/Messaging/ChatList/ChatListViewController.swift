@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatListViewController: UIViewController {
+class ChatListViewController: UIViewController, AlertPresenting {
 
     @IBOutlet private var chatListTableView: UITableView! {
         didSet {
@@ -40,6 +40,17 @@ class ChatListViewController: UIViewController {
         }
     }
 
+    @IBOutlet private var syncMessagesButton: SyncMessagesButton!
+
+    @IBOutlet private var lastSyncLabel: UILabel! {
+        didSet {
+            lastSyncLabel.text = L10n.ChatList.LastSyncLabel.WithouDate.text
+            lastSyncLabel.font = FontFamily.Lato.regular.font(size: 14.0)
+            lastSyncLabel.textColor = Asset.Colors.grayLight.color
+            lastSyncLabel.numberOfLines = 0
+        }
+    }
+
     var viewModel: ChatListViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -50,6 +61,16 @@ class ChatListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.fetchMessages()
+        viewModel?.getLastSyncTime()
+    }
+
+}
+
+// MARK: - Button Action
+private extension ChatListViewController {
+
+    @IBAction func syncMessagesButtonPressed() {
+        viewModel?.syncMessages()
     }
 
 }
@@ -95,6 +116,22 @@ extension ChatListViewController: ChatListViewModelViewDelegate {
             noMessagesView.isHidden = true
             chatListTableView.reloadData()
         }
+    }
+
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateLastSyncTime lastSyncTime: String) {
+        lastSyncLabel.text = lastSyncTime
+    }
+
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, showErrorAlert error: Error) {
+        present(alert: Alert.error(error))
+    }
+
+    func chatListViewModelDidStartSyncingMessages(_ chatListViewModel: ChatListViewModel) {
+        syncMessagesButton.isLoading = true
+    }
+
+    func chatListViewModelDidStopSyncingMessages(_ chatListViewModel: ChatListViewModel) {
+        syncMessagesButton.isLoading = false
     }
 
 }

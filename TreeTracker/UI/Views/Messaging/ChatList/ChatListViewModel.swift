@@ -18,6 +18,10 @@ protocol ChatListViewModelCoordinatorDelegate: AnyObject {
 
 protocol ChatListViewModelViewDelegate: AnyObject {
     func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateChatList chatList: [ChatListViewModel.Chat])
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didUpdateLastSyncTime lastSyncTime: String)
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, showErrorAlert error: Error)
+    func chatListViewModelDidStartSyncingMessages(_ chatListViewModel: ChatListViewModel)
+    func chatListViewModelDidStopSyncingMessages(_ chatListViewModel: ChatListViewModel)
 }
 
 class ChatListViewModel {
@@ -51,6 +55,40 @@ class ChatListViewModel {
 
     func cellForRowAt(indexPath: IndexPath) -> ChatListViewModel.Chat {
         chatList[indexPath.row]
+    }
+
+    func getLastSyncTime() {
+        guard let date = messagingService.getLastSyncTime() else {
+            return
+        }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        let dateString = dateFormatter.string(from: date)
+
+        let lastSyncLabelText = L10n.ChatList.LastSyncLabel.WithDate.text + "  " + dateString
+
+        viewDelegate?.chatListViewModel(self, didUpdateLastSyncTime: lastSyncLabelText)
+    }
+
+    func syncMessages() {
+        viewDelegate?.chatListViewModelDidStartSyncingMessages(self)
+
+        messagingService.syncMessages(for: planter) { [weak self] result in
+            guard let self else { return }
+
+            switch result {
+            case .success():
+                self.fetchMessages()
+                self.getLastSyncTime()
+                self.viewDelegate?.chatListViewModelDidStopSyncingMessages(self)
+
+            case .failure(let error):
+                self.viewDelegate?.chatListViewModelDidStopSyncingMessages(self)
+                self.viewDelegate?.chatListViewModel(self, showErrorAlert: error)
+            }
+        }
     }
 
 }

@@ -153,7 +153,6 @@ class HomeViewController: UIViewController, AlertPresenting {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.fetchProfileData()
-        viewModel?.syncMessages()
         viewModel?.fetchUnreadMessagesCount()
     }
 
