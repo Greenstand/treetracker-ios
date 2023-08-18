@@ -41,12 +41,12 @@ class SurveyViewModel {
         return "\(title) \(questionIndex + 1)/\(survey.questions.count)"
     }
 
-    var numberOfRowsInSection: Int {
+    var numberOfChoices: Int {
         return survey.questions[questionIndex].choices.count
     }
 
-    func getChoiceForRowAt(indexPath: IndexPath) -> Choice {
-        let choiceText = survey.questions[questionIndex].choices[indexPath.row]
+    func choice(atIndex index: Int) -> Choice {
+        let choiceText = survey.questions[questionIndex].choices[index]
 
         if survey.surveyResponse.indices.contains(questionIndex) {
             if survey.surveyResponse[questionIndex] == choiceText {
@@ -57,10 +57,10 @@ class SurveyViewModel {
         return Choice(text: choiceText, isSelected: false)
     }
 
-    func didSelectRowAt(indexPath: IndexPath) {
+    func selectChoice(atIndex index: Int) {
         guard survey.response == false else { return }
 
-        let selectedChoice = survey.questions[questionIndex].choices[indexPath.row]
+        let selectedChoice = survey.questions[questionIndex].choices[index]
         if survey.surveyResponse.indices.contains(questionIndex) {
             survey.surveyResponse[questionIndex] = selectedChoice
         } else {

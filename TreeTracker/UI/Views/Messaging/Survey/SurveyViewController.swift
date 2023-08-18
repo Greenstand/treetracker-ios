@@ -61,12 +61,12 @@ private extension SurveyViewController {
 extension SurveyViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.numberOfRowsInSection ?? 0
+        return viewModel?.numberOfChoices ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SurveyTableViewCell.identifier, for: indexPath) as? SurveyTableViewCell
-        let choice = viewModel?.getChoiceForRowAt(indexPath: indexPath)
+        let choice = viewModel?.choice(atIndex: indexPath.row)
         cell?.setupCell(choice: choice)
         cell?.selectionStyle = .none
         return cell ?? UITableViewCell()
@@ -82,7 +82,7 @@ extension SurveyViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.didSelectRowAt(indexPath: indexPath)
+        viewModel?.selectChoice(atIndex: indexPath.row)
     }
 
 }
