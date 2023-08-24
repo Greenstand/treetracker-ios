@@ -18,6 +18,16 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<TreeTracker.AddTreeViewController>(storyboard: AddTree.self)
   }
+  internal enum Announce: StoryboardType {
+    internal static let storyboardName = "Announce"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.AnnounceViewController>(storyboard: Announce.self)
+  }
+  internal enum ChatList: StoryboardType {
+    internal static let storyboardName = "ChatList"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.ChatListViewController>(storyboard: ChatList.self)
+  }
   internal enum Home: StoryboardType {
     internal static let storyboardName = "Home"
 
@@ -32,6 +42,11 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Loading"
 
     internal static let initialScene = InitialSceneType<TreeTracker.LoadingViewController>(storyboard: Loading.self)
+  }
+  internal enum Messages: StoryboardType {
+    internal static let storyboardName = "Messages"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.MessagesViewController>(storyboard: Messages.self)
   }
   internal enum Notes: StoryboardType {
     internal static let storyboardName = "Notes"
@@ -62,6 +77,11 @@ internal enum StoryboardScene {
     internal static let storyboardName = "SignUp"
 
     internal static let initialScene = InitialSceneType<TreeTracker.SignUpViewController>(storyboard: SignUp.self)
+  }
+  internal enum Survey: StoryboardType {
+    internal static let storyboardName = "Survey"
+
+    internal static let initialScene = InitialSceneType<TreeTracker.SurveyViewController>(storyboard: Survey.self)
   }
   internal enum Terms: StoryboardType {
     internal static let storyboardName = "Terms"

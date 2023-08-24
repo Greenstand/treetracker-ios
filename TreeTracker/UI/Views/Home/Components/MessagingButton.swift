@@ -1,14 +1,14 @@
 //
-//  AddTreeButton.swift
+//  MessagingButton.swift
 //  TreeTracker
 //
-//  Created by Alex Cornforth on 30/06/2020.
-//  Copyright © 2020 Greenstand. All rights reserved.
+//  Created by Frédéric Helfer on 03/04/23.
+//  Copyright © 2023 Greenstand. All rights reserved.
 //
 
 import UIKit
 
-class AddTreeButton: UIButton {
+class MessagingButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,8 +27,7 @@ class AddTreeButton: UIButton {
     }
 }
 
-// MARK: - Private
-private extension AddTreeButton {
+private extension MessagingButton {
 
     func commonInit() {
         backgroundColor = Asset.Colors.primaryGreen.color
@@ -48,26 +47,27 @@ private extension AddTreeButton {
 
     var attributedTitle: NSAttributedString {
         let attributedString = NSMutableAttributedString()
-        attributedString.append(NSAttributedString(attachment: treeIconTextAttachment))
+        attributedString.append(NSAttributedString(attachment: messageIconTextAttachment))
         attributedString.append(NSAttributedString(string: "   "))
-        attributedString.append(NSAttributedString(attachment: plusIconTextAttachment))
+        attributedString.append(NSAttributedString(string: title, attributes: textAttributes))
         return attributedString
     }
 
-    var title: String {
-        return L10n.Home.AddTreeButton.title
+    var messageIconTextAttachment: NSTextAttachment {
+        let textAttachment = NSTextAttachment()
+        textAttachment.image = Asset.Assets.mail.image
+        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -15.0), size: CGSize(width: 50.0, height: 40.0))
+        return textAttachment
     }
 
-    var plusIconTextAttachment: NSTextAttachment {
-        let textAttachment = NSTextAttachment()
-        textAttachment.image = Asset.Assets.add.image
-        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -20.0), size: CGSize(width: 40.0, height: 40.0))
-        return textAttachment
+    var title: String {
+        return L10n.Home.MessagingButton.title
     }
-    var treeIconTextAttachment: NSTextAttachment {
-        let textAttachment = NSTextAttachment()
-        textAttachment.image = Asset.Assets.seed.image
-        textAttachment.bounds = CGRect(origin: CGPoint(x: 0.0, y: -30.0), size: CGSize(width: 60.0, height: 60.0))
-        return textAttachment
+
+    var textAttributes: [NSAttributedString.Key: Any] {
+        return [
+            .font: FontFamily.Montserrat.semiBold.font(size: 20.0)
+        ]
     }
+
 }

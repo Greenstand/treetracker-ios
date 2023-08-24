@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Messages View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="MessagesViewController" customModule="TreeTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XdE-Cs-r0b">
+                                <rect key="frame" x="0.0" y="59" width="393" height="694"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFl-af-x60">
+                                <rect key="frame" x="0.0" y="753" width="393" height="65"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-Wu-UEw" userLabel="Input Text View">
+                                        <rect key="frame" x="20" y="15" width="306" height="35"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="eOl-FG-LCj"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNe-HL-ePJ">
+                                        <rect key="frame" x="341" y="15.666666666666629" width="34" height="34"/>
+                                        <color key="backgroundColor" name="PrimaryGreen"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="2nU-ep-iHV"/>
+                                            <constraint firstAttribute="width" constant="34" id="var-zl-gNI"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
+                                        <connections>
+                                            <action selector="sendMessageButtonPressed" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dac-bT-kB5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sNe-HL-ePJ" secondAttribute="trailing" constant="18" id="G06-mI-vk3"/>
+                                    <constraint firstAttribute="bottom" secondItem="HpR-Wu-UEw" secondAttribute="bottom" constant="15" id="GXt-oS-SNS"/>
+                                    <constraint firstItem="HpR-Wu-UEw" firstAttribute="centerY" secondItem="fFl-af-x60" secondAttribute="centerY" id="b3O-dS-qMr"/>
+                                    <constraint firstItem="HpR-Wu-UEw" firstAttribute="leading" secondItem="fFl-af-x60" secondAttribute="leading" constant="20" id="sM4-lX-zeg"/>
+                                    <constraint firstItem="sNe-HL-ePJ" firstAttribute="centerY" secondItem="fFl-af-x60" secondAttribute="centerY" id="sg9-Fe-JdH"/>
+                                    <constraint firstItem="HpR-Wu-UEw" firstAttribute="trailing" secondItem="sNe-HL-ePJ" secondAttribute="leading" constant="-15" id="xUI-yF-5K5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fFl-af-x60" secondAttribute="trailing" id="EPU-Z8-aXg"/>
+                            <constraint firstItem="XdE-Cs-r0b" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Erh-41-0Tx"/>
+                            <constraint firstItem="XdE-Cs-r0b" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="aib-7r-Gpb"/>
+                            <constraint firstItem="XdE-Cs-r0b" firstAttribute="bottom" secondItem="fFl-af-x60" secondAttribute="top" id="dtA-x7-1xB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="fFl-af-x60" secondAttribute="bottom" id="ifv-Ts-PPF"/>
+                            <constraint firstItem="XdE-Cs-r0b" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kvY-ko-e6H"/>
+                            <constraint firstItem="fFl-af-x60" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yJ9-zE-dnT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomContraint" destination="ifv-Ts-PPF" id="asW-3h-PME"/>
+                        <outlet property="inputTextView" destination="HpR-Wu-UEw" id="S26-pw-hEz"/>
+                        <outlet property="messagesTableView" destination="XdE-Cs-r0b" id="Oa1-vv-H2e"/>
+                        <outlet property="sendMessageButton" destination="sNe-HL-ePJ" id="gUp-0c-tXY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="PrimaryGreen">
+            <color red="0.52549019607843139" green="0.76078431372549016" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

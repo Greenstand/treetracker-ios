@@ -118,6 +118,25 @@ class HomeViewController: UIViewController, AlertPresenting {
     }
     @IBOutlet private var addTreeButton: AddTreeButton!
 
+    @IBOutlet private var messagingButton: MessagingButton!
+
+    @IBOutlet private var messageAlertCountView: UIView! {
+        didSet {
+            messageAlertCountView.backgroundColor = Asset.Colors.secondaryRed.color
+            messageAlertCountView.layer.cornerRadius = 15
+            messageAlertCountView.isHidden = true
+        }
+    }
+
+    @IBOutlet private var messageAlertCountLabel: UILabel! {
+        didSet {
+            messageAlertCountLabel.textColor = .white
+            messageAlertCountLabel.font = FontFamily.Montserrat.semiBold.font(size: 20.0)
+            messageAlertCountLabel.textAlignment = .center
+            messageAlertCountLabel.isHidden = true
+        }
+    }
+
     var viewModel: HomeViewModel? {
         didSet {
             viewModel?.viewDelegate = self
@@ -134,6 +153,7 @@ class HomeViewController: UIViewController, AlertPresenting {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.fetchProfileData()
+        viewModel?.fetchUnreadMessagesCount()
     }
 
     override func viewDidLayoutSubviews() {
@@ -188,6 +208,10 @@ private extension HomeViewController {
         viewModel?.logoutPlanter()
     }
 
+    @IBAction func messagingButtonPressed() {
+        viewModel?.chatListSelected()
+    }
+
     @objc func settingsButtonPressed() {
         viewModel?.settingsSelected()
     }
@@ -211,6 +235,17 @@ extension HomeViewController: HomeViewModelViewDelegate {
     func homeViewModel(_ homeViewModel: HomeViewModel, didFetchProfile profile: HomeViewModel.ProfileData) {
         profileImageView.image = profile.image
         configureNameButton(name: profile.name)
+    }
+
+    func homeViewModel(_ homeViewModel: HomeViewModel, didUpdateUnreadMessagesCount unreadMessages: Int) {
+        if unreadMessages != 0 {
+            messageAlertCountLabel.text = String(unreadMessages)
+            messageAlertCountLabel.isHidden = false
+            messageAlertCountView.isHidden = false
+        } else {
+            messageAlertCountLabel.isHidden = true
+            messageAlertCountView.isHidden = true
+        }
     }
 
     func homeViewModelDidStartUploadingTrees(_ homeViewModel: HomeViewModel) {

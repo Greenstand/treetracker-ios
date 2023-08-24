@@ -61,6 +61,34 @@ private extension HomeCoordinator {
         )
     }
 
+    func showChatList(planter: Planter) {
+        configuration.navigationController.pushViewController(
+            chatListViewController(planter: planter),
+            animated: true
+        )
+    }
+
+    func showMessages(planter: Planter) {
+        configuration.navigationController.pushViewController(
+            messagesViewController(planter: planter),
+            animated: true
+        )
+    }
+
+    func showAnnounce(chat: ChatListViewModel.Chat) {
+        configuration.navigationController.pushViewController(
+            announceViewController(chat: chat),
+            animated: true
+        )
+    }
+
+    func showSurvey(planter: Planter, survey: SurveyViewModel.Survey, questionIndex: Int = 0) {
+        configuration.navigationController.pushViewController(
+            surveyViewController(planter: planter, survey: survey, questionIndex: questionIndex),
+            animated: true
+        )
+    }
+
     func showNotes(note: String?) {
         configuration.navigationController.pushViewController(
             notesViewController(note: note),
@@ -99,7 +127,8 @@ private extension HomeCoordinator {
                 planter: planter,
                 treeMonitoringService: self.treetrackerSDK.treeMonitoringService,
                 selfieService: self.treetrackerSDK.selfieService,
-                uploadManager: self.treetrackerSDK.uploadManager
+                uploadManager: self.treetrackerSDK.uploadManager,
+                messagingService: self.treetrackerSDK.messagingService
             )
             viewModel.coordinatorDelegate = self
             return viewModel
@@ -115,8 +144,8 @@ private extension HomeCoordinator {
     }
 
     func addTreeViewController(planter: Planter) -> UIViewController {
-        let viewcontroller = StoryboardScene.AddTree.initialScene.instantiate()
-        viewcontroller.viewModel = {
+        let viewController = StoryboardScene.AddTree.initialScene.instantiate()
+        viewController.viewModel = {
             let viewModel = AddTreeViewModel(
                 locationProvider: self.treetrackerSDK.locationService,
                 treeService: self.treetrackerSDK.treeService,
@@ -127,7 +156,59 @@ private extension HomeCoordinator {
             viewModel.coordinatorDelegate = self
             return viewModel
         }()
-        return viewcontroller
+        return viewController
+    }
+
+    func chatListViewController(planter: Planter) -> UIViewController {
+        let viewController = StoryboardScene.ChatList.initialScene.instantiate()
+        viewController.viewModel = {
+            let viewModel = ChatListViewModel(
+                planter: planter,
+                selfieService: self.treetrackerSDK.selfieService,
+                messagingService: self.treetrackerSDK.messagingService
+            )
+            viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
+        return viewController
+    }
+
+    func messagesViewController(planter: Planter) -> UIViewController {
+        let viewController = StoryboardScene.Messages.initialScene.instantiate()
+        viewController.viewModel = {
+            let viewModel = MessagesViewModel(
+                planter: planter,
+                messagingService: treetrackerSDK.messagingService
+            )
+            return viewModel
+        }()
+        return viewController
+    }
+
+    func announceViewController(chat: ChatListViewModel.Chat) -> UIViewController {
+        let viewController = StoryboardScene.Announce.initialScene.instantiate()
+        viewController.viewModel = {
+            let viewModel = AnnounceViewModel(
+                chat: chat
+            )
+            return viewModel
+        }()
+        return viewController
+    }
+
+    func surveyViewController(planter: Planter, survey: SurveyViewModel.Survey, questionIndex: Int) -> UIViewController {
+        let viewController = StoryboardScene.Survey.initialScene.instantiate()
+        viewController.viewModel = {
+            let viewModel = SurveyViewModel(
+                planter: planter,
+                survey: survey,
+                messagingService: self.treetrackerSDK.messagingService,
+                questionIndex: questionIndex
+            )
+            viewModel.coordinatorDelegate = self
+            return viewModel
+        }()
+        return viewController
     }
 
     func notesViewController(note: String?) -> UIViewController {
@@ -139,6 +220,7 @@ private extension HomeCoordinator {
         }()
         return viewController
     }
+
     func profileViewController(planter: Planter) -> UIViewController {
         let viewController = StoryboardScene.Profile.initialScene.instantiate()
         viewController.viewModel = {
@@ -195,6 +277,10 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
         showUploadList(planter: planter)
     }
 
+    func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewChatListForPlanter planter: Planter) {
+        showChatList(planter: planter)
+    }
+
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewProfileForPlanter planter: Planter) {
         showPlanterProfile(planter: planter)
     }
@@ -232,12 +318,46 @@ extension HomeCoordinator: AddTreeViewModelCoordinatorDelegate {
     }
 }
 
+// MARK: - NotesViewModelCoordinatorDelegate
 extension HomeCoordinator: NotesViewModelCoordinatorDelegate {
 
     func notesViewModel(_ notesViewModel: NotesViewModel, didAddNote note: String) {
         configuration.navigationController.popViewController(animated: true)
         if let addTreeViewController = configuration.navigationController.topViewController as? AddTreeViewController {
             addTreeViewController.viewModel?.addNote(note)
+        }
+    }
+}
+
+// MARK: - ChatListViewModelCoordinatorDelegate
+extension HomeCoordinator: ChatListViewModelCoordinatorDelegate {
+
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectMessages planter: Planter) {
+        showMessages(planter: planter)
+    }
+
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectAnnounce chat: ChatListViewModel.Chat) {
+        showAnnounce(chat: chat)
+    }
+
+    func chatListViewModel(_ chatListViewModel: ChatListViewModel, didSelectSurvey survey: SurveyViewModel.Survey, planter: Planter) {
+        showSurvey(planter: planter, survey: survey)
+    }
+
+}
+
+// MARK: - SurveyViewModelCoordinatorDelegate
+extension HomeCoordinator: SurveyViewModelCoordinatorDelegate {
+
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, showNextQuestion survey: SurveyViewModel.Survey, planter: Planter, questionIndex: Int) {
+        showSurvey(planter: planter, survey: survey, questionIndex: questionIndex)
+    }
+
+    func surveyViewModel(_ surveyViewModel: SurveyViewModel, didFinishSurvey survey: SurveyViewModel.Survey) {
+        if let chatListViewController = configuration.navigationController.viewControllers.first(where: { $0 is ChatListViewController }) as? ChatListViewController {
+            configuration.navigationController.popToViewController(chatListViewController, animated: true)
+        } else {
+            configuration.navigationController.popToRootViewController(animated: true)
         }
     }
 }

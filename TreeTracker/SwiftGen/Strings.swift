@@ -40,6 +40,10 @@ internal enum L10n {
       internal static let error = L10n.tr("Localizable", "Alert.Title.Error", fallback: "Error")
     }
   }
+  internal enum Announce {
+    /// Announcement
+    internal static let title = L10n.tr("Localizable", "Announce.Title", fallback: "Announcement")
+  }
   internal enum App {
     /// Localizable.strings
     ///   TreeTracker
@@ -47,6 +51,40 @@ internal enum L10n {
     ///   Created by Alex Cornforth on 13/05/2020.
     ///   Copyright © 2020 Greenstand. All rights reserved.
     internal static let title = L10n.tr("Localizable", "App.Title", fallback: "Greenstand Treetracker")
+  }
+  internal enum ChatList {
+    internal enum DefaultCell {
+      /// 
+      internal static let fallbackTitle = L10n.tr("Localizable", "ChatList.DefaultCell.FallbackTitle", fallback: "")
+    }
+    internal enum LastSyncLabel {
+      internal enum WithDate {
+        /// Last sync time:
+        internal static let text = L10n.tr("Localizable", "ChatList.LastSyncLabel.WithDate.Text", fallback: "Last sync time:")
+      }
+      internal enum WithouDate {
+        /// Please, tap the button above to sync messages.
+        internal static let text = L10n.tr("Localizable", "ChatList.LastSyncLabel.WithouDate.Text", fallback: "Please, tap the button above to sync messages.")
+      }
+    }
+    internal enum MessageChatCell {
+      /// Admin
+      internal static let fallbackTitle = L10n.tr("Localizable", "ChatList.MessageChatCell.FallbackTitle", fallback: "Admin")
+    }
+    internal enum NoMessagesLabel {
+      /// No messages
+      internal static let text = L10n.tr("Localizable", "ChatList.NoMessagesLabel.Text", fallback: "No messages")
+    }
+    internal enum SyncMessages {
+      internal enum Loading {
+        /// Loading...
+        internal static let title = L10n.tr("Localizable", "ChatList.SyncMessages.loading.Title", fallback: "Loading...")
+      }
+      internal enum Normal {
+        /// Sync Messages
+        internal static let title = L10n.tr("Localizable", "ChatList.SyncMessages.normal.Title", fallback: "Sync Messages")
+      }
+    }
   }
   internal enum DeleteAccountConfirmation {
     /// Are you sure you want to delete tour account? All your trees on this device will be lost.
@@ -95,6 +133,10 @@ internal enum L10n {
       /// Change User
       internal static let title = L10n.tr("Localizable", "Home.LogoutButton.Title", fallback: "Change User")
     }
+    internal enum MessagingButton {
+      /// MESSAGES
+      internal static let title = L10n.tr("Localizable", "Home.MessagingButton.Title", fallback: "MESSAGES")
+    }
     internal enum MyTreesButton {
       /// MY TREES
       internal static let title = L10n.tr("Localizable", "Home.MyTreesButton.Title", fallback: "MY TREES")
@@ -128,6 +170,14 @@ internal enum L10n {
     internal enum LogOutButton {
       /// Log Out
       internal static let title = L10n.tr("Localizable", "LogOutConfirmation.LogOutButton.Title", fallback: "Log Out")
+    }
+  }
+  internal enum Messages {
+    /// Admin
+    internal static let title = L10n.tr("Localizable", "Messages.Title", fallback: "Admin")
+    internal enum InputTextView {
+      /// Click to write a message
+      internal static let placeHolder = L10n.tr("Localizable", "Messages.InputTextView.PlaceHolder", fallback: "Click to write a message")
     }
   }
   internal enum Notes {
@@ -252,6 +302,22 @@ internal enum L10n {
         /// Organization (optional)
         internal static let placeholder = L10n.tr("Localizable", "SignUp.TextInput.Organization.Placeholder", fallback: "Organization (optional)")
       }
+    }
+  }
+  internal enum Survey {
+    internal enum ActionButton {
+      internal enum Title {
+        /// Finish
+        internal static let finish = L10n.tr("Localizable", "Survey.ActionButton.Title.Finish", fallback: "Finish")
+        /// Next
+        internal static let next = L10n.tr("Localizable", "Survey.ActionButton.Title.Next", fallback: "Next")
+      }
+    }
+    internal enum Title {
+      /// Question
+      internal static let question = L10n.tr("Localizable", "Survey.Title.Question", fallback: "Question")
+      /// Response
+      internal static let response = L10n.tr("Localizable", "Survey.Title.Response", fallback: "Response")
     }
   }
   internal enum Terms {

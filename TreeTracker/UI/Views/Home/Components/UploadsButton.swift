@@ -37,6 +37,12 @@ class UploadsButton: UIButton {
         }
     }
 
+    override var isHighlighted: Bool {
+        didSet {
+            updateState()
+        }
+    }
+
     var uploadState: UploadState = .start {
         didSet {
             updateUploadState()
@@ -60,12 +66,15 @@ private extension UploadsButton {
     }
 
     func updateState() {
-        if isEnabled {
-            backgroundColor = Asset.Colors.secondaryOrangeLight.color
-            tintColor = .white
-        } else {
+        if !isEnabled {
             backgroundColor = Asset.Colors.grayLight.color.withAlphaComponent(0.2)
             tintColor = Asset.Colors.grayLight.color
+        } else if isHighlighted {
+            backgroundColor = Asset.Colors.secondaryOrangeDark.color
+            tintColor = .white
+        } else {
+            backgroundColor = Asset.Colors.secondaryOrangeLight.color
+            tintColor = .white
         }
     }
 
