@@ -49,7 +49,7 @@ class LocalSignUpService: SignUpService {
 
         switch signUpDetails.username {
         case .email(let email):
-            planterDetail.email = email
+            planterDetail.email = email.lowercased()
         case .phoneNumber(let phoneNumber):
             planterDetail.phoneNumber = phoneNumber
         }

@@ -1,5 +1,12 @@
 import Foundation
 
-enum Endpoint: String {
-    case messages = "messaging/message"
+enum Endpoint {
+    case messages
+
+    var rawValue: String {
+        switch self {
+        case .messages:
+            return "messaging/message"
+        }
+    }
 }
