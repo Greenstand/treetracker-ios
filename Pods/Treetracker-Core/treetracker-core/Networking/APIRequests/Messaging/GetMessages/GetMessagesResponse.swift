@@ -9,4 +9,13 @@ import Foundation
 
 struct GetMessagesResponse: Decodable {
     let messages: [Message]
+    let links: Link
+}
+
+// MARK: - Nested Types
+extension GetMessagesResponse {
+    struct Link: Decodable {
+        let next: String?
+        let prev: String?
+    }
 }
