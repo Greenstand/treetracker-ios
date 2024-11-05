@@ -16,8 +16,7 @@ public struct Message: Decodable {
     let subject: String?
     let body: String?
     let type: MessageType
-    let composedAt: String
-    let videoLink: String?
+    let composedAt: Date
     let survey: SurveyResponse?
     let surveyResponse: [String]?
 
@@ -30,7 +29,6 @@ public struct Message: Decodable {
         case body
         case type
         case composedAt = "composed_at"
-        case videoLink = "video_link"
         case survey
         case surveyResponse = "survey_response"
     }
@@ -47,12 +45,12 @@ public extension Message {
     }
 
     struct SurveyResponse: Decodable {
-        let surveyResponseId: String
+        let surveyId: String
         let title: String
         let questions: [QuestionResponse]
 
         private enum CodingKeys: String, CodingKey {
-            case surveyResponseId = "id"
+            case surveyId = "id"
             case title
             case questions
         }
