@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		372773AC2A8E6CD40079EF35 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 372773AE2A8E6CD40079EF35 /* Localizable.strings */; };
+		6CD355472CDCE52300E39572 /* HelpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD355462CDCE52300E39572 /* HelpScreenViewController.swift */; };
+		6CD355492CDCE53400E39572 /* HelpScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD355482CDCE53400E39572 /* HelpScreenViewModel.swift */; };
 		9311609126B40E5E007FCA52 /* DestructiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609026B40E5E007FCA52 /* DestructiveButton.swift */; };
 		9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311609A26B4108A007FCA52 /* RoundedButton.swift */; };
 		931C37B8249BACFA00EE24DC /* SelfieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */; };
@@ -98,6 +100,8 @@
 		229566C2A487A3F9C7D82AD8 /* Pods_TreeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		372773AD2A8E6CD40079EF35 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		372773AF2A8E6CD70079EF35 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6CD355462CDCE52300E39572 /* HelpScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpScreenViewController.swift; sourceTree = "<group>"; };
+		6CD355482CDCE53400E39572 /* HelpScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpScreenViewModel.swift; sourceTree = "<group>"; };
 		9311609026B40E5E007FCA52 /* DestructiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveButton.swift; sourceTree = "<group>"; };
 		9311609A26B4108A007FCA52 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		931C37B7249BACFA00EE24DC /* SelfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewModel.swift; sourceTree = "<group>"; };
@@ -205,6 +209,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6CD355452CDCE4F100E39572 /* HelpScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6CD355462CDCE52300E39572 /* HelpScreenViewController.swift */,
+				6CD355482CDCE53400E39572 /* HelpScreenViewModel.swift */,
+			);
+			path = HelpScreen;
+			sourceTree = "<group>";
+		};
 		9311609426B40EE0007FCA52 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,13 +469,14 @@
 		93E82F57246C368200006C91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B0AAD80A28C235EE00640D4A /* Notes */,
-				938294AC27F9A77C00888E42 /* Settings */,
-				F258B5A1260A4C730053DAD7 /* Profile Screen */,
-				93E82F58246C36A300006C91 /* Loading */,
-				93E82F5F246C3B3200006C91 /* Authentication */,
-				93EC8C3524AA4FD100946C0C /* Home */,
 				93EC8CA924BBA50C00946C0C /* AddTree */,
+				93E82F5F246C3B3200006C91 /* Authentication */,
+				6CD355452CDCE4F100E39572 /* HelpScreen */,
+				93EC8C3524AA4FD100946C0C /* Home */,
+				93E82F58246C36A300006C91 /* Loading */,
+				B0AAD80A28C235EE00640D4A /* Notes */,
+				F258B5A1260A4C730053DAD7 /* Profile Screen */,
+				938294AC27F9A77C00888E42 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -866,6 +880,7 @@
 				938294B027F9A7A500888E42 /* SettingsViewController.swift in Sources */,
 				93EC8C4A24AB7EA100946C0C /* UploadsButton.swift in Sources */,
 				93E1896F245DEE7700217F21 /* RootCoordinator.swift in Sources */,
+				6CD355492CDCE53400E39572 /* HelpScreenViewModel.swift in Sources */,
 				93D7295824C49CA700271256 /* GPSAccuracyLabel.swift in Sources */,
 				93EC8C3924AA52DF00946C0C /* HomeViewController.swift in Sources */,
 				938294AB27F8A10400888E42 /* ProfileImageView.swift in Sources */,
@@ -898,6 +913,7 @@
 				93EC8CAB24BBA9E100946C0C /* AddTreeViewController.swift in Sources */,
 				93EC8C4624AB7A6900946C0C /* AddTreeButton.swift in Sources */,
 				93E82F5A246C36B500006C91 /* LoadingViewController.swift in Sources */,
+				6CD355472CDCE52300E39572 /* HelpScreenViewController.swift in Sources */,
 				938294BA27F9D00800888E42 /* PhotoQuality.swift in Sources */,
 				B0AAD80628C235C900640D4A /* NotesViewController.swift in Sources */,
 				9311609B26B4108A007FCA52 /* RoundedButton.swift in Sources */,
