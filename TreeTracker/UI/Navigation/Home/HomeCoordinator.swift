@@ -87,6 +87,14 @@ private extension HomeCoordinator {
             animated: true
         )
     }
+
+	func showHelpScreen() {
+		let viewController = HelpScreenViewController()
+		configuration.navigationController.pushViewController(
+			viewController,
+			animated: true
+		)
+	}
 }
 
 // MARK: - View Controllers
@@ -206,6 +214,10 @@ extension HomeCoordinator: HomeViewModelCoordinatorDelegate {
     func homeViewModelDidSelectSettings(_ homeViewModel: HomeViewModel) {
         showSettings()
     }
+
+	func homeViewModelDidSelectHelp() {
+		showHelpScreen()
+	}
 }
 
 // MARK: - ProfileViewModelCoordinatorDelegate
