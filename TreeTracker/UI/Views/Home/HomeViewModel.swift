@@ -15,6 +15,7 @@ protocol HomeViewModelCoordinatorDelegate: AnyObject {
     func homeViewModel(_ homeViewModel: HomeViewModel, didSelectViewProfileForPlanter planter: Planter)
     func homeViewModel(_ homeViewModel: HomeViewModel, didLogoutPlanter planter: Planter)
     func homeViewModelDidSelectSettings(_ homeViewModel: HomeViewModel)
+	func homeViewModelDidSelectHelp()
 }
 
 protocol HomeViewModelViewDelegate: AnyObject {
@@ -125,6 +126,10 @@ extension HomeViewModel {
     func settingsSelected() {
         coordinatorDelegate?.homeViewModelDidSelectSettings(self)
     }
+	
+	func helpScreenSelected() {
+		coordinatorDelegate?.homeViewModelDidSelectHelp()
+	}
 }
 
 // MARK: - TreeServiceDelegate

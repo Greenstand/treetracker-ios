@@ -191,6 +191,10 @@ private extension HomeViewController {
     @objc func settingsButtonPressed() {
         viewModel?.settingsSelected()
     }
+	
+	@objc func helpButtonPressed() {
+		viewModel?.helpScreenSelected()
+	}
 }
 
 // MARK: - HomeViewModelViewDelegate
