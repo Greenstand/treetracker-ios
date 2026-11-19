@@ -71,6 +71,10 @@ public class TreetrackerSDK: NSObject {
         return CoreDataManager()
     }()
 
+    private lazy var messagingCoreDataManager: CoreDataManaging = {
+        return MessagingCoreDataManager()
+    }()
+
     private var documentManager: DocumentManaging {
         return DocumentManager()
     }

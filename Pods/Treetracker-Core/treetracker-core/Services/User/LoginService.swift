@@ -33,7 +33,10 @@ class LocalLoginService: LoginService {
 
         let managedObjectContext = coreDataManager.viewContext
         let fetchRequest: NSFetchRequest<PlanterDetail> = PlanterDetail.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "identifier == %@", username.value)
+        // String comparisons are, by default, case and diacritic sensitive.
+        // [cd] within square braces specify case and diacritic insensitivity respectively.
+        // This allows to compare against username values in different cases and diacritics
+        fetchRequest.predicate = NSPredicate(format: "identifier =[cd] %@", username.value)
 
         do {
             let planters = try managedObjectContext.fetch(fetchRequest)
